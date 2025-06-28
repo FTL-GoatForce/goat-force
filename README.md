@@ -2,9 +2,9 @@
 
 SITE Course Year: **20__**
 
-Cohort: **Add Company Sponsor Name**
+Cohort: **Salesforce**
 
-Team Member Names:**Insert Team Member Names**
+Team Member Names:**Oliver Majano**, **Dariel Gutierrez**, **Costas Papanicolaou**
 
 Mentors Names: **Insert Professional Mentor Names**
 
