@@ -1,5 +1,8 @@
 # Capstone Project Planning
 
+**Team Name**: GoatForce
+**Pod Members**: Oliver Majano, Dariel Gutierrez, Costas Papanicolaou
+
 ## Step 1: Themes
 - Information/Computing
 - Productivity/Professional Services
