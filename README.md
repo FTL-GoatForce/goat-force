@@ -1,10 +1,10 @@
 # SITE Capstone Project
 
-SITE Course Year: **20__**
+SITE Course Year: **2025**
 
 Cohort: **Salesforce**
 
-Team Member Names:**Oliver Majano**, **Dariel Gutierrez**, **Costas Papanicolaou**
+Team Member Names: **Oliver Majano**, **Dariel Gutierrez**, **Costas Papanicolaou**
 
 Mentors Names: **Insert Professional Mentor Names**
 
