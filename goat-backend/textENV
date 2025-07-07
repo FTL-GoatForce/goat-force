@@ -1,4 +1,4 @@
 # Make your own .env & add the following with your own values
 
-PORT =
+PORT = # of port
 DATABASE_URL="postgresql://name:password@localhost:port/GoatDB?schema=public"
