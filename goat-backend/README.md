@@ -2,6 +2,7 @@
 
 Steps
 
-- Enter .env and add the database URL according to prisma DOCS
-- npm i
+- Create a .env file and fill using textENV
+- cd goat-backend
+- npm install
 - npm start
