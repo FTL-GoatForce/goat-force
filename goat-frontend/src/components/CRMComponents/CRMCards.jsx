@@ -12,77 +12,93 @@ const CRMCard = () => {
       }}
     >
       {/* Total Pipeline card START */}
-      <Paper
+      <Box
         sx={{
           padding: "24px",
           display: "flex",
           width: 250,
           flexDirection: "column",
           alignItems: "flex-start",
+          borderRadius: "5px",
+          border: "1px solid",
+          borderColor: "divider",
+          backgroundColor: "background.paper"
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Total Pipeline
         </Typography>
-        <Typography variant="h5">$455K</Typography>
-      </Paper>
+        <Typography variant="h5" color="text.primary" fontWeight={"bold"}>$455K</Typography>
+      </Box>
       {/* Total Pipeline card END */}
 
       {/* Open Deals card START */}
-      <Paper
+      <Box
         sx={{
           padding: "24px",
           display: "flex",
+          width: 250,
           flexDirection: "column",
           alignItems: "flex-start",
-          width: 250,
+          borderRadius: "5px",
+          border: "1px solid",
+          borderColor: "divider",
+          backgroundColor: "background.paper"
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Deals At Risk
         </Typography>
-        <Typography variant="h5" sx={{ color: "error.main" }}>
+        <Typography variant="h5" fontWeight="bold" sx={{ color: "error.main" }}>
           2 Deals
         </Typography>
-      </Paper>
+      </Box>
       {/* Open Deals card END */}
 
       {/* Close Rate card START */}
-      <Paper
+      <Box
         sx={{
           padding: "24px",
           display: "flex",
+          width: 250,
           flexDirection: "column",
           alignItems: "flex-start",
-          width: 250,
+          borderRadius: "5px",
+          border: "1px solid",
+          borderColor: "divider",
+          backgroundColor: "background.paper"
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Close Rate
         </Typography>
-        <Typography variant="h5" sx={{ color: "success.main" }}>
+        <Typography variant="h5" fontWeight="bold"sx={{ color: "success.main" }}>
           73%
         </Typography>
-      </Paper>
+      </Box>
       {/* Close Rate card END */}
 
       {/* Growth card START */}
-      <Paper
+      <Box
         sx={{
           padding: "24px",
           display: "flex",
+          width: 250,
           flexDirection: "column",
           alignItems: "flex-start",
-          width: 250,
+          borderRadius: "5px",
+          border: "1px solid",
+          borderColor: "divider",
+          backgroundColor: "background.paper"
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Growth
         </Typography>
-        <Typography variant="h5" sx={{ color: "primary.main" }}>
+        <Typography variant="h5" fontWeight={"bold"} sx={{ color: "primary.main" }}>
           +15%
         </Typography>
-      </Paper>
+      </Box>
       {/* Growth card END */}
     </Box>
   );

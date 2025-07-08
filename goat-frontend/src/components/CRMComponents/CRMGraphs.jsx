@@ -45,7 +45,10 @@ function CRMGraphs() {
               >
                 Accumulated Earnings
               </Typography>
-              <Typography variant="h4" sx={{ color: "text.primary", marginTop: 2, fontWeight: "bold"}}>
+              <Typography
+                variant="h4"
+                sx={{ color: "text.primary", marginTop: 2, fontWeight: "bold" }}
+              >
                 $125,000
               </Typography>
             </Box>
@@ -68,7 +71,6 @@ function CRMGraphs() {
               height={300}
               hideLegend={true}
             />
-
           </Box>
         </Box>
 
@@ -110,7 +112,7 @@ function CRMGraphs() {
               <LineChart
                 xAxis={[
                   {
-                    data: ["January", "Feburary", "March", "April", 5, 6],
+                    data: ["January", "Feburary", "March", "April", "", 6],
                     scaleType: "point",
                   },
                 ]}
