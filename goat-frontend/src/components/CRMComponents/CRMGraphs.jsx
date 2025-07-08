@@ -112,7 +112,7 @@ function CRMGraphs() {
               <LineChart
                 xAxis={[
                   {
-                    data: ["January", "Feburary", "March", "April", "", 6],
+                    data: ["January", "Feburary", "March", "April", 5, 6],
                     scaleType: "point",
                   },
                 ]}
