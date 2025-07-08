@@ -1,13 +1,13 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
 import { motion, AnimatePresence, easeInOut } from "motion/react";
 
+
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
 import CRMCards from "../CRMComponents/CRMCards";
 import CRMData from "../CRMComponents/CRMData";
 import CRMGraphs from "../CRMComponents/CRMGraphs";
-
 import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import { useState } from "react";
