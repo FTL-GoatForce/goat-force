@@ -6,7 +6,16 @@ const CRMData = () => {
   return (
     <>
       {/* Container for all data START */}
-      <Paper sx={{ padding: "24px" }}>
+      <Box
+        sx={{
+          padding: "24px",
+          backgroundColor: "background.paper",
+          border: "1px solid",
+          borderColor: "divider",
+          boxShadow: 5,
+          borderRadius: 2,
+        }}
+      >
         {/* Box holding search field and filter buttons */}
         <Box
           sx={{
@@ -140,9 +149,15 @@ const CRMData = () => {
               borderColor: "divider",
             }}
           >
-            <Typography variant="body1">{row.deal}</Typography>
-            <Typography variant="body1">{row.company}</Typography>
-            <Typography variant="body1">{row.stage}</Typography>
+            <Typography variant="body1" color="text.primary">
+              {row.deal}
+            </Typography>
+            <Typography variant="body1" color="text.primary">
+              {row.company}
+            </Typography>
+            <Typography variant="body1" color="text.primary">
+              {row.stage}
+            </Typography>
             <Typography
               variant="body1"
               sx={{
@@ -173,7 +188,9 @@ const CRMData = () => {
                 justifyContent: "space-between",
               }}
             >
-              <Typography variant="body1">{row.activity}</Typography>
+              <Typography variant="body1" color="text.primary">
+                {row.activity}
+              </Typography>
 
               <Button
                 variant="contained"
@@ -187,7 +204,7 @@ const CRMData = () => {
           </Box>
           //   ROW Holding specific deal details end
         ))}
-      </Paper>
+      </Box>
       {/* Container for all data END */}
     </>
   );
