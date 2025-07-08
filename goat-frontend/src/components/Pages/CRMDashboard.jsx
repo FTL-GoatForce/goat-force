@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Button, duration } from "@mui/material";
+import { Box, Typography, Paper, Button } from "@mui/material";
 import { motion, AnimatePresence, easeInOut } from "motion/react";
 
 import React from "react";
