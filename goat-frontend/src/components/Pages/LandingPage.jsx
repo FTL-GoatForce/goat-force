@@ -152,7 +152,7 @@ const LandingPage = () => {
         }
       }
 
-      const baseParticleCount = 8000;
+      const baseParticleCount = 10000;
       const targetParticleCount = Math.floor(
         baseParticleCount *
           Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
@@ -236,6 +236,8 @@ const LandingPage = () => {
         flexDirection: "column",
         color: "white",
         alignItems: "center",
+        scrollbarWidth: "none",
+        overflowY: "hidden",
       }}
     >
       {/* Start of NavBar */}
@@ -275,8 +277,8 @@ const LandingPage = () => {
       {/* Start of Hero Section */}
       <Box
         sx={{
-          mt: 20,
-          width: "30%",
+          mt: 15,
+          width: "35%",
           position: "absolute",
           zIndex: 5,
           alignSelf: "center",
@@ -315,18 +317,22 @@ const LandingPage = () => {
         </Typography>
         <Typography>
           Get instant, AI-powered insights into every B2B sales opportunity with
-          GoatForce. Find exactly what you need, when you need it, to close more
-          deals and crush your quotas.
+          GoatForce.
+        </Typography>
+        <Typography>
+          {" "}
+          Find exactly what you need, when you need it, to close more deals and
+          crush your quotas.
         </Typography>
         <Box sx={{ mt: 2 }}>
           <Button
-            sx={{ m: 3 }}
+            sx={{ m: 3, color: "white" }}
             variant="contained"
             onClick={() => navigate("/dashboard")}
           >
             Try It now
           </Button>
-          <Button sx={{ m: 3 }} variant="contained">
+          <Button sx={{ m: 3, color: "white" }} variant="contained">
             See a Demo
           </Button>
         </Box>
@@ -334,7 +340,13 @@ const LandingPage = () => {
       {/* END OF HERO SECTION */}
 
       {/* Goat Force Particle effect */}
-      <Box sx={{ position: "absolute", height: "calc(100vh - 200px)" }}>
+      <Box
+        sx={{
+          position: "absolute",
+          height: "calc(100vh - 200px)",
+          overflowY: "hidden",
+        }}
+      >
         <canvas
           ref={canvasRef}
           aria-label="particle effect"
@@ -343,7 +355,7 @@ const LandingPage = () => {
             height: "100%",
             display: "block",
             touchAction: "none",
-            marginTop: 200,
+            marginTop: 300,
           }}
         />
       </Box>
