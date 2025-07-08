@@ -1,15 +1,16 @@
 import { Box, Typography, Paper } from "@mui/material";
 import { Box, Button } from "@mui/material";
+
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
 import CRMCards from "../CRMComponents/CRMCards";
 import CRMData from "../CRMComponents/CRMData";
 import CRMGraphs from "../CRMComponents/CRMGraphs";
-
 import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import { useState } from "react";
+
 const Dashboard = () => {
   const [chatOpen, setChatOpen] = useState(false);
   return (
