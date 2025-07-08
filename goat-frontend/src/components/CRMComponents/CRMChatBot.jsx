@@ -7,7 +7,7 @@ const CRMChatBot = () => {
       sx={{
         bottom: 60,
         right: 0,
-        position: "absolute",
+        position: "fixed",
         height: "800px",
         width: "400px",
         bgcolor: "white",
