@@ -3,7 +3,19 @@ import React from "react";
 
 const CRMChatBot = () => {
   return (
-    <Box sx={{ position: "absolute", height: "800px", widows: "300px" }}></Box>
+    <Box
+      sx={{
+        bottom: 60,
+        right: 0,
+        position: "absolute",
+        height: "800px",
+        width: "400px",
+        bgcolor: "white",
+      }}
+    >
+      {" "}
+      <h1>HELLLOO</h1>
+    </Box>
   );
 };
 
