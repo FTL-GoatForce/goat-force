@@ -1,6 +1,6 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Oliver Majano, Dariel Gutierrez, Costas Papanicolaou**
 
 ## Problem Statement
 
