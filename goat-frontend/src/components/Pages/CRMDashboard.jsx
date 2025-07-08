@@ -1,9 +1,12 @@
-import { Box } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
+
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
 import CRMCards from "../CRMComponents/CRMCards";
 import CRMData from "../CRMComponents/CRMData";
+import CRMGraphs from "../CRMComponents/CRMGraphs";
+
 const Dashboard = () => {
   return (
     <>
@@ -27,7 +30,7 @@ const Dashboard = () => {
           }}
         >
           <Header />
-          {/* Container for cards and data to apply common padding and max-width */}
+          {/* Container for cards and data and graphs to apply common padding and max-width */}
           <Box
             sx={{
               width: "100%",
@@ -37,6 +40,7 @@ const Dashboard = () => {
               marginTop: "32px", // Spacing from the CRMHeader
             }}
           >
+            <CRMGraphs /> {/* The graphs component */}
             <CRMCards /> {/* The cards component */}
             <CRMData /> {/* The data table component */}
           </Box>

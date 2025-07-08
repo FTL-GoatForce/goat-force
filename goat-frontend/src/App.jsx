@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import LandingPage from "./components/Pages/LandingPage";
-import CRMDashboard from "./components/pages/CRMDashboard";
+import CRMDashboard from "./components/Pages/CRMDashboard";
 import CreateDeal from "./components/Pages/CreateDeal";
 import DealDetails from "./components/Pages/DealDetails";
 
