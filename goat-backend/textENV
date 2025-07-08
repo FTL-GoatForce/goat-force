@@ -2,3 +2,4 @@
 
 PORT = # of port
 DATABASE_URL="postgresql://name:password@localhost:port/GoatDB?schema=public"
+GOOGLE_API_KEY="" # in terminal run export GOOGLE_API_KEY=""
