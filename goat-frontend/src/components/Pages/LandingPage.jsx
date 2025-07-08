@@ -281,6 +281,7 @@ const LandingPage = () => {
           zIndex: 5,
           alignSelf: "center",
           textAlign: "center",
+
           // bgcolor: "background.default",
         }}
       >
@@ -342,7 +343,7 @@ const LandingPage = () => {
             height: "100%",
             display: "block",
             touchAction: "none",
-            marginTop: 140,
+            marginTop: 200,
           }}
         />
       </Box>
