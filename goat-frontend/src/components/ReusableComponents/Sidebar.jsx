@@ -62,14 +62,6 @@ const SideBar = () => {
             justifyContent: open ? "space-between" : "center",
           }}
         >
-          {open && (
-            <Typography
-              variant="h6"
-              sx={{ color: "white", textAlign: "center", pt: 0.6 }}
-            >
-              CRM Copilot {/* TODO: update logo */}
-            </Typography>
-          )}
           <IconButton
             sx={{
               borderRadius: "8px",
