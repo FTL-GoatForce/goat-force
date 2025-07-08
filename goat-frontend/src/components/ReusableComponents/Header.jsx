@@ -22,7 +22,8 @@ const Header = () => {
         >
           <Typography
             variant="h5"
-            sx={{ textAlign: "center", ml: 3, color: "white" }}
+            sx={{ color: "text.primary", fontWeight: "bold", ml: 2 }}
+            component="div"
           >
             Goatforce
           </Typography>
