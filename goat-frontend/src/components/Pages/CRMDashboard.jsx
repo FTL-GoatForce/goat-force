@@ -1,5 +1,5 @@
 import { Box, Typography, Paper } from "@mui/material";
-
+import { Box, Button } from "@mui/material";
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
@@ -7,7 +7,11 @@ import CRMCards from "../CRMComponents/CRMCards";
 import CRMData from "../CRMComponents/CRMData";
 import CRMGraphs from "../CRMComponents/CRMGraphs";
 
+import AssistantIcon from "@mui/icons-material/Assistant";
+import CRMChatBot from "../CRMComponents/CRMChatBot";
+import { useState } from "react";
 const Dashboard = () => {
+  const [chatOpen, setChatOpen] = useState(false);
   return (
     <>
       {/* BOX that holds all components */}
@@ -45,6 +49,21 @@ const Dashboard = () => {
             <CRMData /> {/* The data table component */}
           </Box>
         </Box>
+        {chatOpen && <CRMChatBot />}
+        <Button
+          variant="outlined"
+          sx={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            color: "secondary.main",
+          }}
+          color="secondary.main"
+          startIcon={<AssistantIcon color="secondary.main" />}
+          onClick={() => setChatOpen((prev) => !prev)}
+        >
+          Ask the Goat
+        </Button>
       </Box>
     </>
   );
