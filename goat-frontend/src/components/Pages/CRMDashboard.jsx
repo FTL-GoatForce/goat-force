@@ -26,7 +26,7 @@ const Dashboard = () => {
             overflowX: "hidden", // Prevent horizontal scroll from inner elements
           }}
         >
-          <Header /> {/* The header component */}
+          <Header />
           {/* Container for cards and data to apply common padding and max-width */}
           <Box
             sx={{

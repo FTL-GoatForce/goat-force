@@ -9,7 +9,7 @@ const Header = () => {
       <Box
         sx={{
           borderBottom: "1px solid #3a3a3a",
-          width: "100vw",
+          width: "100%",
           height: 65,
         }}
       >

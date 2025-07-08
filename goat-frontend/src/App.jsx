@@ -112,7 +112,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<LandingPage />} />            later we will be defaulting to a landing page*/}
+            <Route path="/home" element={<LandingPage />} />
             <Route path="/" element={<CRMDashboard />} />
             <Route path="/create" element={<CreateDeal />} />
             <Route path="/details" element={<DealDetails />} />
