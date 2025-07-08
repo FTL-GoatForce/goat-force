@@ -5,7 +5,6 @@ const CRMChatBot = ({ handleExit }) => {
   return (
     <Box
       sx={{
-        transition: "width 0.3s ease",
         backgroundColor: "white",
         boxShadow: 5,
         borderRadius: 2,
@@ -15,6 +14,7 @@ const CRMChatBot = ({ handleExit }) => {
         right: 0,
         position: "fixed",
         height: "90vh",
+        width: "300px",
       }}
     >
       <Button
