@@ -1,4 +1,6 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
+import { motion, AnimatePresence, easeInOut } from "motion/react";
+
 
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
@@ -11,6 +13,9 @@ import CRMChatBot from "../CRMComponents/CRMChatBot";
 import { useState } from "react";
 
 const Dashboard = () => {
+  function handleExit() {
+    setChatOpen((prev) => !prev);
+  }
   const [chatOpen, setChatOpen] = useState(false);
   return (
     <>
@@ -49,21 +54,35 @@ const Dashboard = () => {
             <CRMData /> {/* The data table component */}
           </Box>
         </Box>
-        {chatOpen && <CRMChatBot />}
+        {/* Chat Bot Section */}
+        <AnimatePresence initial={false}>
+          {chatOpen ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <CRMChatBot handleExit={handleExit} />
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
         <Button
-          variant="outlined"
+          variant="contained"
           sx={{
             position: "fixed",
             bottom: "20px",
             right: "20px",
-            color: "secondary.main",
+            color: "white",
+            visibility: chatOpen ? "hidden" : "inline",
           }}
-          color="secondary.main"
+          color="secondary"
           startIcon={<AssistantIcon color="secondary.main" />}
-          onClick={() => setChatOpen((prev) => !prev)}
+          onClick={handleExit}
         >
           Ask the Goat
         </Button>
+        {/* END Of ChatBot Section */}
       </Box>
     </>
   );

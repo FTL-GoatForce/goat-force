@@ -1,20 +1,30 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import React from "react";
 
-const CRMChatBot = () => {
+const CRMChatBot = ({ handleExit }) => {
   return (
     <Box
       sx={{
-        bottom: 60,
+        backgroundColor: "white",
+        boxShadow: 5,
+        borderRadius: 2,
+        border: "1px solid",
+        borderColor: "divider",
+        bottom: 0,
         right: 0,
         position: "fixed",
-        height: "800px",
-        width: "400px",
-        bgcolor: "white",
+        height: "90vh",
+        width: "300px",
       }}
     >
-      {" "}
-      <h1>HELLLOO</h1>
+      <Button
+        variant="contained"
+        onClick={handleExit}
+        sx={{ position: "absolute", right: 0, m: 2 }}
+        color="secondary"
+      >
+        Exit
+      </Button>
     </Box>
   );
 };

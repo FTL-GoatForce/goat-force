@@ -17,6 +17,7 @@
     "@mui/x-charts": "^8.7.0",
     "@mui/x-date-pickers": "^8.7.0",
     "dayjs": "^1.11.13",
+    "motion": "^12.23.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"
