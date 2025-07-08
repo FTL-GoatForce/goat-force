@@ -1,5 +1,6 @@
 import { Box, Typography, Paper, Button, duration } from "@mui/material";
 import { motion, AnimatePresence, easeInOut } from "motion/react";
+
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
@@ -10,6 +11,7 @@ import CRMGraphs from "../CRMComponents/CRMGraphs";
 import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import { useState } from "react";
+
 const Dashboard = () => {
   function handleExit() {
     setChatOpen((prev) => !prev);
