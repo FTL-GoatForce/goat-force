@@ -11,12 +11,151 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 // DEAL SCHEMA
-model Deal{
+model Deals{
   id Int @id @default(autoincrement())
-  name String
-
+  deal_name String
+  company_name String
+  stage String
+  status String
+  deal_amount Float
+  expected_close_date DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  participants Participants[]
+  risks Risks[]
+  activities_metrics ActivityMetrics[]
+  ai_recommendations AiRecommendation[]
+  follow_ups FollowUp[]
+  tags Tags[]
+  conversation_history ConversationHistory[]
+  deal_insights DealInsights[]
 }
 
-// CONTACT SCHEMA
+model Participants{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  prospect_name String
+  email String
+  slack_id String
+  role String
+  sentiment String
+  communication_score Float
+  deal Deals @relation(fields: [deal_id], references: [id])
+  personality Personality[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Risks{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  deal_risk_score Float
+  churn_risk_score Float
+  timeline_risk_score Float
+  budget_risk_score Float
+  risk_explanation RiskExplanation[]
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model ActivityMetrics{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  message_count Int
+  prospect_response_time Float
+  engagement_trend String
+  last_communication_source String
+  last_communication_summary String
+  timeline Timeline[]
+  created_at DateTime @default(now())
+  deal Deals @relation(fields: [deal_id], references: [id])
+  updated_at DateTime @updatedAt
+}
+
+model AiRecommendation{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  next_steps String[]
+  escalation_triggers String
+  deal_acceleration_tactics String
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model FollowUp{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  communication_type String
+  contact_address String
+  subject String?
+  body String?
+  message_id String?
+  scheduled_at DateTime?
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Tags{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  tag String[]
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model ConversationHistory{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  slack Json
+  email Json
+  deal_summary String
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model DealInsights{
+  id Int @id @default(autoincrement())
+  deal_id Int
+  kpi_insights Json
+  deal Deals @relation(fields: [deal_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model RiskExplanation{
+  id Int @id @default(autoincrement())
+  risk_id Int
+  budget_risk_explanation String
+  timeline_risk_explanation String
+  churn_risk_explanation String
+  deal_risk_summary String
+  risk Risks @relation(fields: [risk_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Personality{
+  id Int @id @default(autoincrement())
+  participant_id Int
+  personality_traits Json
+  participant Participants @relation(fields: [participant_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Timeline{
+  id Int @id @default(autoincrement())
+  activity_metrics_id Int
+  event_date DateTime
+  event_type String
+  event_details Json
+  activity_metrics ActivityMetrics @relation(fields: [activity_metrics_id], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
