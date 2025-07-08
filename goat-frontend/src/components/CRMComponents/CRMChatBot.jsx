@@ -15,7 +15,6 @@ const CRMChatBot = ({ handleExit }) => {
         right: 0,
         position: "fixed",
         height: "90vh",
-        width: "400px",
       }}
     >
       <Button
