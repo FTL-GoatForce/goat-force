@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import { ExitToApp } from "@mui/icons-material";
 import React from "react";
 
 const CRMChatBot = ({ handleExit }) => {
@@ -22,6 +23,7 @@ const CRMChatBot = ({ handleExit }) => {
         onClick={handleExit}
         sx={{ position: "absolute", right: 0, m: 2 }}
         color="secondary"
+        endIcon={<ExitToApp />}
       >
         Exit
       </Button>
