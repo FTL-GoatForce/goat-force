@@ -51,7 +51,7 @@ def get_analysis_slack_prompt(channel_id: str) -> str:
         - `any follow-up request made` (true/false)
 
         Output the results as a clean JSON array of messages. Do **not** do any further analysis or interpretation.
-"""
+    """
 
 def get_structured_slack_prompt(response: object) -> str:
     return f"""
@@ -133,13 +133,13 @@ def get_structured_slack_prompt(response: object) -> str:
             If any field is missing or unclear, leave it blank or null — do not make things up.
             
     """
-
-async def main():
+# This the main function that we will use to run the slack mcp server.
+async def slack_mcp_server(slack_channel_id: str):
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
-            prompt = get_analysis_slack_prompt("D094KB9QUNP")
-            # Send a message to the Slack channel
+            prompt = get_analysis_slack_prompt(slack_channel_id)
+
             try:
                 response = await client.aio.models.generate_content(
                     model="gemini-2.0-flash",
@@ -226,4 +226,4 @@ async def main():
 
                 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(slack_mcp_server("D094KB9QUNP"))
