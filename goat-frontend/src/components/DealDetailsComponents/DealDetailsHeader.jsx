@@ -21,7 +21,7 @@ function DealDetailsHeader() {
             variant="text"
             startIcon={<ArrowBack />}
             sx={{ color: "text.secondary" }}
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/dashboard")}
           >
             Back to Deals
           </Button>

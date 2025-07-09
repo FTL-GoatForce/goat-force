@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import LandingPage from "./components/Pages/LandingPage";
-import CRMDashboard from "./components/pages/CRMDashboard";
+import CRMDashboard from "./components/Pages/CRMDashboard";
 import CreateDeal from "./components/Pages/CreateDeal";
 import DealDetails from "./components/Pages/DealDetails";
 
@@ -112,8 +112,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<LandingPage />} />            later we will be defaulting to a landing page*/}
-            <Route path="/" element={<CRMDashboard />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/dashboard" element={<CRMDashboard />} />
             <Route path="/create" element={<CreateDeal />} />
             <Route path="/details" element={<DealDetails />} />
           </Routes>

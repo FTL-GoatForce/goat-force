@@ -18,7 +18,7 @@ import {
   Divider,
 } from "@mui/material";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 const SideBar = () => {
@@ -27,7 +27,11 @@ const SideBar = () => {
 
   // use state hooks, click will set active item to the clicked item
   const [activeItem, setActiveItem] = useState("Overview");
-  const [open, setOpen] = useState(true); // open state for drawer
+  const [open, setOpen] = useState(() => {
+    //  using localstorage to hold the state of if the sidebar is open
+    const localState = localStorage.getItem("sidebarOpen");
+    return localState ? JSON.parse(localState) : false;
+  }); // open state for drawer
 
   // toggleDrawerOpen function to toggle the open state of the drawer
   const toggleDrawerOpen = () => {
@@ -37,6 +41,9 @@ const SideBar = () => {
       setOpen(false);
     }
   };
+  useEffect(() => {
+    localStorage.setItem("sidebarOpen", JSON.stringify(open));
+  }, [open]);
 
   return (
     <>
@@ -62,14 +69,6 @@ const SideBar = () => {
             justifyContent: open ? "space-between" : "center",
           }}
         >
-          {open && (
-            <Typography
-              variant="h6"
-              sx={{ color: "white", textAlign: "center", pt: 0.6 }}
-            >
-              CRM Copilot {/* TODO: update logo */}
-            </Typography>
-          )}
           <IconButton
             sx={{
               borderRadius: "8px",

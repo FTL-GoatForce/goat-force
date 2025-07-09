@@ -1,10 +1,21 @@
-import { Box } from "@mui/material";
+import { Box, Typography, Paper, Button } from "@mui/material";
+import { motion, AnimatePresence, easeInOut } from "motion/react";
+
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
 import CRMCards from "../CRMComponents/CRMCards";
 import CRMData from "../CRMComponents/CRMData";
+import CRMGraphs from "../CRMComponents/CRMGraphs";
+import AssistantIcon from "@mui/icons-material/Assistant";
+import CRMChatBot from "../CRMComponents/CRMChatBot";
+import { useState } from "react";
+
 const Dashboard = () => {
+  function handleExit() {
+    setChatOpen((prev) => !prev);
+  }
+  const [chatOpen, setChatOpen] = useState(false);
   return (
     <>
       {/* BOX that holds all components */}
@@ -26,8 +37,8 @@ const Dashboard = () => {
             overflowX: "hidden", // Prevent horizontal scroll from inner elements
           }}
         >
-          <Header /> {/* The header component */}
-          {/* Container for cards and data to apply common padding and max-width */}
+          <Header />
+          {/* Container for cards and data and graphs to apply common padding and max-width */}
           <Box
             sx={{
               width: "100%",
@@ -37,10 +48,40 @@ const Dashboard = () => {
               marginTop: "32px", // Spacing from the CRMHeader
             }}
           >
+            <CRMGraphs /> {/* The graphs component */}
             <CRMCards /> {/* The cards component */}
             <CRMData /> {/* The data table component */}
           </Box>
         </Box>
+        {/* Chat Bot Section */}
+        <AnimatePresence initial={false}>
+          {chatOpen ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              <CRMChatBot handleExit={handleExit} />
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+        <Button
+          variant="contained"
+          sx={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            color: "white",
+            visibility: chatOpen ? "hidden" : "inline",
+          }}
+          color="secondary"
+          startIcon={<AssistantIcon color="secondary.main" />}
+          onClick={handleExit}
+        >
+          Ask the Goat
+        </Button>
+        {/* END Of ChatBot Section */}
       </Box>
     </>
   );

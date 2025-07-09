@@ -8,8 +8,7 @@ const Header = () => {
       {/* Header START */}
       <Box
         sx={{
-          borderBottom: "1px solid #3a3a3a",
-          width: "100vw",
+          width: "100%",
           height: 65,
         }}
       >
@@ -21,8 +20,10 @@ const Header = () => {
           }}
         >
           <Typography
+            className="hover-underline-animation"
             variant="h5"
-            sx={{ textAlign: "center", ml: 3, color: "white" }}
+            sx={{ color: "text.primary", fontWeight: "bold", ml: 2 }}
+            component="div"
           >
             Goatforce
           </Typography>
