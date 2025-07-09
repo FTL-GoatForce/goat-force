@@ -8,7 +8,6 @@ const Header = () => {
       {/* Header START */}
       <Box
         sx={{
-          borderBottom: "1px solid #3a3a3a",
           width: "100%",
           height: 65,
         }}
@@ -21,6 +20,7 @@ const Header = () => {
           }}
         >
           <Typography
+            className="hover-underline-animation"
             variant="h5"
             sx={{ color: "text.primary", fontWeight: "bold", ml: 2 }}
             component="div"

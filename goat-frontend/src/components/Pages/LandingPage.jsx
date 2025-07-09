@@ -241,12 +241,10 @@ const LandingPage = () => {
       }}
     >
       {/* Start of NavBar */}
-      <AppBar
-        position="static"
-        sx={{ bgcolor: "black", backdropFilter: "blur(5px)" }}
-      >
-        <Toolbar>
+      <AppBar position="static">
+        <Toolbar sx={{ bgcolor: "black", backdropFilter: "blur(10px)" }}>
           <Typography
+            className="hover-underline-animation"
             variant="h5"
             sx={{ color: "text.primary", fontWeight: "bold" }}
             component="div"
