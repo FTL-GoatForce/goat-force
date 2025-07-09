@@ -32,7 +32,7 @@ function CRMGraphs() {
           {/* Container for content */}
           <Box display="flex" flexDirection="row" height="100%">
             {/* Card Header */}
-            <Box>
+            <Box ml={1}>
               <Typography
                 variant="h6"
                 sx={{ fontSize: 18, color: "text.primary", fontWeight: "bold" }}
@@ -47,30 +47,37 @@ function CRMGraphs() {
               </Typography>
               <Typography
                 variant="h4"
-                sx={{ color: "text.primary", marginTop: 2, fontWeight: "bold" }}
+                sx={{ color: "success.main", marginTop: 2, fontWeight: "bold" }}
               >
                 $125,000
               </Typography>
             </Box>
             {/* Pie Chart */}
-            <PieChart
-              series={[
-                {
-                  data: [
-                    { id: 0, value: 10, label: "Product A" },
-                    { id: 1, value: 15, label: "Product B" },
-                    { id: 2, value: 40, label: "Product C" },
-                  ],
-                  innerRadius: 45,
-                  outerRadius: 85,
-                  paddingAngle: 3,
-                  cornerRadius: 8,
-                },
-              ]}
-              width={300}
-              height={300}
-              hideLegend={true}
-            />
+            <Box flex={1} display="flex" justifyContent="center">
+              <PieChart
+                colors={["#f87171", "#576CFF", "#06b6d4"]} // Use palette
+                series={[
+                  {
+                    // TODO: Will dynamically generate pie chart data from our database
+                    // data: salesData.map((item, index) => ({ id: index, value: item.value, label: item.label })),
+                    data: [
+                      { id: 0, value: 100000, label: "Apple" },
+                      { id: 1, value: 15000, label: "Nike" },
+                      { id: 2, value: 20000, label: "Fedex" },
+                    ],
+                    innerRadius: 50,
+                    outerRadius: 110,
+                    paddingAngle: 3,
+                    cornerRadius: 8,
+                    arcLabel: (item) => `$${(item.value / 1000).toFixed(0)}k`, // Format as money
+                    
+                  },
+                ]}
+                width={300}
+                height={300}
+                
+              />
+            </Box>
           </Box>
         </Box>
 
@@ -88,22 +95,37 @@ function CRMGraphs() {
         >
           <Box display="flex" flexDirection="column" height="100%">
             {/* Chart Header */}
-            <Box mb={1}>
+            <Box
+              display={"flex"}
+              flexDirection={"row"}
+              justifyContent={"space-between"}
+            >
+              <Box mb={1} display={"flex"} flexDirection="column">
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: 18,
+                    color: "text.primary",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Sales Trend
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: "text.secondary", fontSize: "12px" }}
+                >
+                  Monthly Performance
+                </Typography>
+              </Box>
+              {/* Monthly % (sales curr month / prev month * 100) */}
               <Typography
-                variant="h6"
-                sx={{
-                  fontSize: 18,
-                  color: "text.primary",
-                  fontWeight: "bold",
-                }}
+                fontSize={17}
+                fontWeight={"bold"}
+                color="success.main"
               >
-                Sales Trend
-              </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ color: "text.secondary", fontSize: "12px" }}
-              >
-                Monthly Performance
+                {" "}
+                +15%{" "}
               </Typography>
             </Box>
 
@@ -112,13 +134,25 @@ function CRMGraphs() {
               <LineChart
                 xAxis={[
                   {
-                    data: ["January", "Feburary", "March", "April", "", 6],
+                    data: [
+                      "January",
+                      "Feburary",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                    ],
                     scaleType: "point",
                   },
                 ]}
                 series={[
                   {
-                    data: [2, 5.5, 2, 8.5, 1.5, 5],
+                    data: [
+                      100000, 170000, 150000, 130000, 170000, 150000, 220000,
+                      250000,
+                    ],
                     area: true,
                     backgroundColor: "#text.primary",
                   },
