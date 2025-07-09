@@ -8,7 +8,8 @@ import MissingInformationCard from "../DealDetailsComponents/MissingInformationC
 import RecentActivity from "../DealDetailsComponents/RecentActivity";
 import ContactPersonality from "../DealDetailsComponents/ContactPersonality";
 
-function DealDetails() {
+// TODO: pass in deals.deal_name, deals.id prop fetched from the database
+function DealDetails( {deal_name, deal_id} ) {
   return (
     <>
       {/* page-container */}
@@ -50,6 +51,7 @@ function DealDetails() {
               }}
             >
               {/* Left-side component cards */}
+              {/* TODO: DEAL SCHEMA: deals.id, deals.stage, deals.expected_close_date, deals.company_name, primarycontact through PARTICIPANTS object */}
               <DealSummary
                 value="$125,000"
                 stage="Negotiation"
