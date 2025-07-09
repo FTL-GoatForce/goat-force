@@ -1,7 +1,6 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
 import { motion, AnimatePresence, easeInOut } from "motion/react";
 
-
 import React from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
@@ -61,7 +60,7 @@ const Dashboard = () => {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.35 }}
             >
               <CRMChatBot handleExit={handleExit} />
             </motion.div>
