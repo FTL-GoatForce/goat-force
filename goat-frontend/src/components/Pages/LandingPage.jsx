@@ -329,10 +329,15 @@ const LandingPage = () => {
             sx={{ m: 3, color: "white" }}
             variant="contained"
             onClick={() => navigate("/dashboard")}
+            size="medium"
           >
             Try It now
           </Button>
-          <Button sx={{ m: 3, color: "white" }} variant="contained">
+          <Button
+            sx={{ m: 3, color: "white" }}
+            variant="outlined"
+            size="medium"
+          >
             See a Demo
           </Button>
         </Box>
