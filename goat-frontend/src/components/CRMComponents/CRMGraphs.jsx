@@ -70,12 +70,10 @@ function CRMGraphs() {
                     paddingAngle: 3,
                     cornerRadius: 8,
                     arcLabel: (item) => `$${(item.value / 1000).toFixed(0)}k`, // Format as money
-                    
                   },
                 ]}
                 width={300}
                 height={300}
-                
               />
             </Box>
           </Box>
@@ -136,7 +134,7 @@ function CRMGraphs() {
                   {
                     data: [
                       "January",
-                      "Feburary",
+                      "February",
                       "March",
                       "April",
                       "May",
@@ -147,6 +145,11 @@ function CRMGraphs() {
                     scaleType: "point",
                   },
                 ]}
+                yAxis={[
+                  {
+                    valueFormatter: (value) => `$${value / 1000}k`,
+                  },
+                ]}
                 series={[
                   {
                     data: [
@@ -154,7 +157,8 @@ function CRMGraphs() {
                       250000,
                     ],
                     area: true,
-                    backgroundColor: "#text.primary",
+                    color: "#08A4C3",
+                    showMark: false,
                   },
                 ]}
                 width={500}
