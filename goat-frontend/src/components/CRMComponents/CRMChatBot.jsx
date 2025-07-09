@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { ExitToApp } from "@mui/icons-material";
 import React from "react";
 
@@ -16,17 +16,41 @@ const CRMChatBot = ({ handleExit }) => {
         position: "fixed",
         height: "90vh",
         width: "300px",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <Button
-        variant="contained"
-        onClick={handleExit}
-        sx={{ position: "absolute", right: 0, m: 2 }}
-        color="secondary"
-        endIcon={<ExitToApp />}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          textAlign: "center",
+
+          borderBottom: 1,
+          borderColor: "#b8b8b8",
+          height: "58px",
+        }}
       >
-        Exit
-      </Button>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "secondary.main",
+            m: 2,
+          }}
+        >
+          Goat Force
+        </Typography>
+
+        <Button
+          variant="contained"
+          onClick={handleExit}
+          sx={{ position: "absolute", right: 0, m: 1 }}
+          color="secondary"
+          endIcon={<ExitToApp />}
+        >
+          Exit
+        </Button>
+      </Box>
     </Box>
   );
 };
