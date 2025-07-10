@@ -6,29 +6,20 @@ from google.genai import types
 from typing import List, Literal, Optional
 from datetime import datetime
 import json
+from .slack_server_params import get_slack_server_params
 
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-model = "gemini-2.5-flash"
+API_KEY = os.getenv("GOOGLE_API_KEY")
 
+client = genai.Client(api_key=API_KEY)
 
-server_params = StdioServerParameters(
-    command="npx",
-    args=[
-        "-y",
-        "slack-mcp-server@latest",
-        "--transport",
-        "stdio"
-    ],
-    env={
-        
-    }
-)
+server_params = get_slack_server_params()
+print(server_params)
 
 def get_analysis_slack_prompt(channel_id: str) -> str:
     return f"""
     You are a helpful slack assistant whos job is to retieve information from the users slack conversation.
 
-    Step 1: Read the last 50 messages from the slack channel that belongs to the id: {channel_id}
+    Step 1: Read the last 10 messages from the slack channel that belongs to the id: {channel_id}
     Step 2. Return the messages in timestamp order.
 
 
@@ -108,6 +99,7 @@ def get_structured_slack_prompt(response: object) -> str:
                 }}
             ],
             "messages": [
+                //In accending order of timestamp, so most recent message is last
                 {{
                 "from": "string",
                 "text": "string",
@@ -134,21 +126,21 @@ def get_structured_slack_prompt(response: object) -> str:
             
     """
 # This the main function that we will use to run the slack mcp server.
-async def slack_mcp_server(slack_channel_id: str):
+async def slack_mcp_server(channel_id: str):
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
-            prompt = get_analysis_slack_prompt(slack_channel_id)
-
             try:
+                prompt = get_analysis_slack_prompt(channel_id)
                 response = await client.aio.models.generate_content(
                     model="gemini-2.0-flash",
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         temperature=0,
-                        tools=[session]
+                        tools=[session],
                     ),
                 )
+        
                 response_text = response.text
             except Exception as e:
                 print(f"Error: {e}")
@@ -221,9 +213,7 @@ async def slack_mcp_server(slack_channel_id: str):
                     }
                 ),
             )
-            with open("structured_response.json", "w") as f:
+            print(structured_response.text)
+            os.makedirs("transcripts/slack", exist_ok=True)
+            with open(f"transcripts/slack/{channel_id}_structured_response.json", "w") as f:
                 json.dump(structured_response.parsed, f, indent=2, default=str)
-
-                
-if __name__ == "__main__":
-    asyncio.run(slack_mcp_server("D094KB9QUNP"))
