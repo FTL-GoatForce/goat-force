@@ -47,6 +47,7 @@ function RecentActivity({deal_id}) {
     // TODO:  when backend ready fetch data from Timeline Model: (event_date, event_type, event_details)
     // we are fetching data from the specific DEALID (passed in from dashboard) + sorts it once fetched by date
     // const recentActivities = await prisma.timeline.findMany({ where: { dealId: dealId }, orderBy: { event_date: "desc" } }); 
+    // API endpoint should exist so use axios to fetch json data
     // setActivities(recentActivities);
 
     // For now, we will use mock data
