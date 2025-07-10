@@ -161,9 +161,12 @@ const CRMData = () => {
             <Typography
               variant="body1"
               sx={{
-                color: row.value.includes("$120,000")
+                // if value is greater than 100k, color is green, if from 50k to 100k, color is yellow, else color is red
+                color: parseInt(row.value.replace(/[$,]/g, "")) > 100000
                   ? "success.main"
-                  : "text.primary",
+                  : parseInt(row.value.replace(/[$,]/g, "")) >= 50000
+                  ? "warning.main"
+                  : "error.main",
               }}
             >
               {row.value}

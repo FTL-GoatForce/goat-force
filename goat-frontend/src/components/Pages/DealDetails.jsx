@@ -74,8 +74,8 @@ function DealDetails( {deal_name, deal_id} ) {
                 gap: 3,
               }}
             >
-              {/* INPUT COMPONENTS HERE */}
               <RecentActivity />
+              {/* TODO: pass in */}
               <ContactPersonality
                 communicationStyle={"Direct & Analytical"}
                 responseTime={"Within 2-4 hours"}
