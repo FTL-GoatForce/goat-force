@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import { Box } from "@mui/material";
 import DealSummary from "../DealDetailsComponents/DealSummary";
@@ -9,7 +9,19 @@ import RecentActivity from "../DealDetailsComponents/RecentActivity";
 import ContactPersonality from "../DealDetailsComponents/ContactPersonality";
 
 // TODO: pass in deals.deal_name, deals.id prop fetched from the database
-function DealDetails( {deal_name, deal_id} ) {
+// will not be fetched here, but in the parent component
+function DealDetails( {deal_name, deal_id, company_name, deal_stage, deal_status, deal_amount, expected_close_date} ) {
+  const [personalityData, setPersonalityData] = useState([]); 
+
+  useEffect(() => {
+    // const fetchPersonalityData = async () => {
+    // const response = await axios.get('/deals/{deal_id}/personality');
+    // set personalityData(response.data);
+
+  
+
+  }, [deal_id]) // re-render when deal_id changes
+  
   return (
     <>
       {/* page-container */}
@@ -17,10 +29,10 @@ function DealDetails( {deal_name, deal_id} ) {
         className="deal-details-page"
         sx={{
           minHeight: "100vh",
-          display: "flex", // Arrange children (SideBar and main content) in a row
+          display: "flex", 
           flexDirection: "row",
           backgroundColor: "background.default",
-          width: "100%", // Ensure it takes full width
+          width: "100%", 
         }}
       >
         <SideBar /> {/* The sidebar component */}
@@ -51,7 +63,7 @@ function DealDetails( {deal_name, deal_id} ) {
               }}
             >
               {/* Left-side component cards */}
-              {/* TODO: DEAL SCHEMA: deals.id, deals.stage, deals.expected_close_date, deals.company_name, primarycontact through PARTICIPANTS object */}
+              {/* TODO: pass in from function parameters (parent will fetch) */}
               <DealSummary
                 value="$125,000"
                 stage="Negotiation"
@@ -75,7 +87,7 @@ function DealDetails( {deal_name, deal_id} ) {
               }}
             >
               <RecentActivity />
-              {/* TODO: pass in */}
+              {/* TODO: pass in data from personalityData useState */}
               <ContactPersonality
                 communicationStyle={"Direct & Analytical"}
                 responseTime={"Within 2-4 hours"}
