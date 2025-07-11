@@ -58,7 +58,6 @@ Sales reps today juggle multiple deals across email, Slack, and CRM tools like S
 2. Deal Detail View
 3. Deal Timeline Modal
 4. Chat Interface
-5. Settings
 
 > **Wireframes:**  
 - **Home Page** <img width="1728" height="954" alt="home_page" src="https://github.com/user-attachments/assets/1b5a0092-fd9c-4cdc-b96d-9e8d3e31bf95" />
