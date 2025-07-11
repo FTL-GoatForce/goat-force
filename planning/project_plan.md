@@ -61,48 +61,192 @@ Sales reps today juggle multiple deals across email, Slack, and CRM tools like S
 5. Settings
 
 > **Wireframes:**  
-- **Home Page** `home_page.png`
-- **Create Deal** `create_deal.png`  
-- **View Deal** `view_deal.png`  
-
-(Add wireframe screenshots to the repo under `/planning/wireframes`)
+- **Home Page** <img width="1728" height="954" alt="home_page" src="https://github.com/user-attachments/assets/1b5a0092-fd9c-4cdc-b96d-9e8d3e31bf95" />
+- **Create Deal** <img width="1728" height="957" alt="create_deal" src="https://github.com/user-attachments/assets/73f419b1-0930-4a70-986d-cd9856506efa" /> 
+- **View Deal** <img width="1728" height="958" alt="view_deal" src="https://github.com/user-attachments/assets/a890c86a-07b0-42ea-82de-e500ff20ba73" />  
 
 ---
 
-## Data Model
+Below is a breakdown of all the primary models in GoatForce. This structure supports deal tracking, risk analysis, communication insights, and AI-powered recommendations.
 
-### Deal
-| Column Name       | Type       | Description                          |
-|------------------|------------|--------------------------------------|
-| id               | Int        | Primary key                          |
-| deal_name        | String     | Name of the deal                     |
-| company_name     | String     | Name of the prospect's company       |
-| rep_id           | Int        | FK to sales rep                      |
-| amount           | Float      | Deal value in USD                    |
-| expected_close   | DateTime   | Expected close date                  |
-| stage            | String     | Current CRM stage                    |
-| risk_score       | Float      | AI-evaluated deal risk (0–100)       |
+### Deals
+| Field                  | Type      | Description                                      |
+|------------------------|-----------|--------------------------------------------------|
+| id                     | Int       | Unique deal identifier (PK)                      |
+| deal_name              | String    | Name/title of the deal                           |
+| company_name           | String    | Name of the prospect's company                   |
+| stage                  | String    | Sales stage (e.g., Discovery, Negotiation)       |
+| status                 | String    | Status of the deal (e.g., Active, Closed)        |
+| deal_amount            | Float     | Value of the deal                                |
+| expected_close_date    | DateTime  | Forecasted close date                            |
+| created_at             | DateTime  | Deal creation timestamp                          |
+| updated_at             | DateTime  | Deal last updated                                |
 
-### Message
-| Column Name | Type     | Description                  |
-|-------------|----------|------------------------------|
-| id          | Int      | Primary key                  |
-| deal_id     | Int      | FK to Deal                   |
-| channel     | String   | Email or Slack               |
-| sender      | String   | Rep or Prospect              |
-| timestamp   | DateTime | Time message was sent        |
-| content     | Text     | Body of the message          |
+Relations:
+- `Participants[]` – Buyer-side participants
+- `Risks[]` – Risk scores + explanations
+- `ActivityMetrics[]` – Message engagement metrics
+- `AiRecommendation[]` – AI-suggested actions
+- `FollowUp[]` – Follow-up comms
+- `Tags[]` – Custom tagging
+- `ConversationHistory[]` – Slack & email records
+- `DealInsights[]` – KPI summaries
 
-### Insight
-| Column Name     | Type     | Description                      |
-|----------------|----------|----------------------------------|
-| id             | Int      | Primary key                      |
-| deal_id        | Int      | FK to Deal                       |
-| sentiment      | String   | Positive, Neutral, or Negative   |
-| intent         | String   | Inquire, Stall, Escalate, etc.   |
-| tone           | String   | Casual, Formal, etc.             |
-| objections     | Text     | Detected objections              |
-| personality    | Text     | Buyer personality traits         |
+---
+
+### Participants
+| Field                | Type     | Description                          |
+|----------------------|----------|--------------------------------------|
+| id                   | Int      | Unique ID (PK)                       |
+| deal_id              | Int      | FK to Deal                           |
+| prospect_name        | String   | Name of the person on buyer's side   |
+| email                | String   | Email address                        |
+| slack_id             | String   | Slack identifier                     |
+| role                 | String   | Role at the company                  |
+| sentiment            | String   | Current sentiment (e.g., Positive)   |
+| communication_score  | Float    | AI-evaluated score of communication  |
+| created_at           | DateTime | Timestamp of creation                |
+| updated_at           | DateTime | Last update timestamp                |
+
+Relations:
+- `Personality[]` – AI-evaluated personality traits
+
+---
+
+### Risks
+| Field               | Type     | Description                         |
+|---------------------|----------|-------------------------------------|
+| id                  | Int      | Unique ID (PK)                      |
+| deal_id             | Int      | FK to Deal                          |
+| deal_risk_score     | Float    | Overall deal risk                   |
+| churn_risk_score    | Float    | Risk of customer walking away       |
+| timeline_risk_score | Float    | Risk based on timing delays         |
+| budget_risk_score   | Float    | Risk related to budget discussions  |
+| created_at          | DateTime | Created timestamp                   |
+| updated_at          | DateTime | Last updated timestamp              |
+
+Relations:
+- `RiskExplanation[]` – Detailed breakdown of risk components
+
+---
+
+### ActivityMetrics
+| Field                        | Type     | Description                              |
+|------------------------------|----------|------------------------------------------|
+| id                           | Int      | Unique ID (PK)                           |
+| deal_id                      | Int      | FK to Deal                               |
+| message_count                | Int      | Total number of exchanged messages       |
+| prospect_response_time       | Float    | Avg. time for prospect to respond        |
+| engagement_trend            | String   | Trend summary (e.g., Increasing)         |
+| last_communication_source   | String   | Slack or Email                           |
+| last_communication_summary  | String   | TL;DR of the last message                |
+| created_at                  | DateTime | Timestamp of creation                    |
+| updated_at                  | DateTime | Last update timestamp                    |
+
+Relations:
+- `Timeline[]` – Event log for communication history
+
+---
+
+### AiRecommendation
+| Field                    | Type       | Description                          |
+|--------------------------|------------|--------------------------------------|
+| id                       | Int        | Unique ID (PK)                       |
+| deal_id                  | Int        | FK to Deal                           |
+| next_steps               | String[]   | AI-suggested next actions            |
+| escalation_triggers      | String     | Phrases/flags indicating risk        |
+| deal_acceleration_tactics| String     | AI-suggested ways to close faster    |
+| created_at               | DateTime   | Creation time                        |
+| updated_at               | DateTime   | Last modified time                   |
+
+---
+
+### FollowUp
+| Field              | Type     | Description                         |
+|--------------------|----------|-------------------------------------|
+| id                 | Int      | Unique ID (PK)                      |
+| deal_id            | Int      | FK to Deal                          |
+| communication_type | String   | Email, Call, etc.                   |
+| contact_address    | String   | Email or phone                      |
+| subject            | String?  | Optional subject                    |
+| body               | String?  | Optional message body               |
+| message_id         | String?  | Associated external message ID      |
+| scheduled_at       | DateTime?| Scheduled time of follow-up        |
+| created_at         | DateTime | Created timestamp                   |
+| updated_at         | DateTime | Last modified                       |
+
+---
+
+### Tags
+| Field       | Type     | Description               |
+|-------------|----------|---------------------------|
+| id          | Int      | Unique ID (PK)            |
+| deal_id     | Int      | FK to Deal                |
+| tag         | String[] | Array of string tags      |
+| created_at  | DateTime | Created timestamp         |
+| updated_at  | DateTime | Last modified             |
+
+---
+
+### ConversationHistory
+| Field         | Type     | Description                         |
+|---------------|----------|-------------------------------------|
+| id            | Int      | Unique ID (PK)                      |
+| deal_id       | Int      | FK to Deal                          |
+| slack         | Json     | Full Slack message thread           |
+| email         | Json     | Full email thread                   |
+| deal_summary  | String   | Summarized context                  |
+| created_at    | DateTime | Created timestamp                   |
+| updated_at    | DateTime | Last updated timestamp              |
+
+---
+
+### DealInsights
+| Field         | Type   | Description                 |
+|---------------|--------|-----------------------------|
+| id            | Int    | Unique ID (PK)              |
+| deal_id       | Int    | FK to Deal                  |
+| kpi_insights  | Json   | Key performance indicators  |
+| created_at    | DateTime | Timestamp of creation     |
+| updated_at    | DateTime | Timestamp of update       |
+
+---
+
+### RiskExplanation
+| Field                      | Type     | Description                               |
+|----------------------------|----------|-------------------------------------------|
+| id                         | Int      | Unique ID (PK)                            |
+| risk_id                    | Int      | FK to Risks                               |
+| budget_risk_explanation    | String   | Why the budget score is low/high          |
+| timeline_risk_explanation  | String   | Timeline risk context                     |
+| churn_risk_explanation     | String   | Churn risk context                        |
+| deal_risk_summary          | String   | Overall risk explanation                  |
+| created_at                 | DateTime | Created timestamp                         |
+| updated_at                 | DateTime | Last updated                              |
+
+---
+
+### Personality
+| Field              | Type     | Description                              |
+|--------------------|----------|------------------------------------------|
+| id                 | Int      | Unique ID (PK)                           |
+| participant_id     | Int      | FK to Participant                        |
+| personality_traits | Json     | Personality insights via AI              |
+| created_at         | DateTime | Created timestamp                        |
+| updated_at         | DateTime | Last modified timestamp                  |
+
+---
+
+### Timeline
+| Field               | Type     | Description                          |
+|---------------------|----------|--------------------------------------|
+| id                  | Int      | Unique ID (PK)                       |
+| activity_metrics_id | Int      | FK to ActivityMetrics                |
+| event_date          | DateTime | Date of activity                     |
+| event_type          | String   | Type (message, call, etc.)           |
+| event_details       | Json     | Detailed log of event                |
+| created_at          | DateTime | Timestamp of creation                |
+| updated_at          | DateTime | Timestamp of update                  |
 
 ---
 
