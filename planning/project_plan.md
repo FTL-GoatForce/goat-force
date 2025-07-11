@@ -61,9 +61,9 @@ Sales reps today juggle multiple deals across email, Slack, and CRM tools like S
 5. Settings
 
 > **Wireframes:**  
-- `home_dashboard.png`  
-- `deal_detail_view.png`  
-- `chat_interface.png`  
+- **Home Page** `home_page.png`
+- **Create Deal** `create_deal.png`  
+- **View Deal** `view_deal.png`  
 
 (Add wireframe screenshots to the repo under `/planning/wireframes`)
 
