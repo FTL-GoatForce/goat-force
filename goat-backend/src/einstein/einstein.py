@@ -72,7 +72,7 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
 
   "ACTIVITY_ANALYSIS": {{
     "message_count": [integer],
-    "rep_response_time_sec": [number],
+    "prospect_response_time_sec": [number],
     "engagement_trend": "[improving | declining | stable]",
     "last_touch_channel": "[slack | email | call | meeting]",
     "last_touch_summary": "[string]"
@@ -88,8 +88,7 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
 
   "AI_GENERATED_FOLLOW_UP": {{
     "Email_Draft": "[string]",
-    "Slack_Message": "[string]", 
-    "Internal_Note": "[string]"
+    "Slack_Message": "[string]"
   }},
 
   "PARTICIPANTS": [

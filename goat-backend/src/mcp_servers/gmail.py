@@ -143,7 +143,7 @@ async def gmail_mcp_server(email: str):
             try:
                 prompt = get_gmail_prompt(email)
                 response = await client.aio.models.generate_content(
-                    model="gemini-2.0-flash",
+                    model="gemini-2.5-flash",
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         temperature=0,
@@ -155,7 +155,7 @@ async def gmail_mcp_server(email: str):
 
             structured_prompt = get_structured_gmail_prompt(response.text)
             structured_response = await client.aio.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 contents=structured_prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",

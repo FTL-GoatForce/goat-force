@@ -137,7 +137,7 @@ async def slack_mcp_server(channel_id: str):
             try:
                 prompt = get_analysis_slack_prompt(channel_id)
                 response = await client.aio.models.generate_content(
-                    model="gemini-2.0-flash",
+                    model="gemini-2.5-flash",
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         temperature=0,
@@ -151,7 +151,7 @@ async def slack_mcp_server(channel_id: str):
 
             structured_prompt = get_structured_slack_prompt(response_text)
             structured_response = await client.aio.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 contents=structured_prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
