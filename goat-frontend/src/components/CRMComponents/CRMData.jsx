@@ -1,6 +1,7 @@
 import React from "react";
 import { Paper, Box, TextField, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import EditDeal from "../Pages/EditDeal"; // Importing the EditDeal modal component
 const CRMData = () => {
   const navigate = useNavigate();
   return (
@@ -66,7 +67,7 @@ const CRMData = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
+            gridTemplateColumns: "2fr 1.5fr 1fr 1fr 0.8fr 1.2fr 1.5fr",
             gap: "16px", // Converted from gap-4
             paddingY: "12px", // Converted from py-3
             borderBottom: "1px solid",
@@ -90,6 +91,9 @@ const CRMData = () => {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Last Activity
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Actions
           </Typography>
         </Box>
         {/* Table Headers END */}
@@ -142,7 +146,7 @@ const CRMData = () => {
             key={index}
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(6, 1fr)",
+              gridTemplateColumns: "2fr 1.5fr 1fr 1fr 0.8fr 1.2fr 1.5fr",
               gap: "16px", // Converted from gap-4
               paddingY: "12px", // Converted from py-3
               borderBottom: "1px solid",
@@ -161,9 +165,12 @@ const CRMData = () => {
             <Typography
               variant="body1"
               sx={{
-                color: row.value.includes("$120,000")
+                // if value is greater than 100k, color is green, if from 50k to 100k, color is yellow, else color is red
+                color: parseInt(row.value.replace(/[$,]/g, "")) > 100000
                   ? "success.main"
-                  : "text.primary",
+                  : parseInt(row.value.replace(/[$,]/g, "")) >= 50000
+                  ? "warning.main"
+                  : "error.main",
               }}
             >
               {row.value}
@@ -181,17 +188,10 @@ const CRMData = () => {
             >
               {row.risk}
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <Typography variant="body1" color="text.primary">
-                {row.activity}
-              </Typography>
-
+            <Typography variant="body1" color="text.primary">
+              {row.activity}
+            </Typography>
+            <Box sx={{ display: "flex", gap: 1 }}>
               <Button
                 variant="contained"
                 color="primary"
@@ -200,6 +200,8 @@ const CRMData = () => {
               >
                 View
               </Button>
+              {/* TODO: pass in deal_id once data setup*/}
+              <EditDeal/>
             </Box>
           </Box>
           //   ROW Holding specific deal details end
