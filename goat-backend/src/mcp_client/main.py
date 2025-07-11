@@ -10,6 +10,7 @@ import sys
 import subprocess
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from personality.personality import get_personality_analysis
 
 
 def clear_cache():
@@ -70,10 +71,12 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     print(f"Time taken for MCP servers: {end_time - start_time} seconds")
     
     if slack_success and gmail_success:
+        print("Running personality analysis...")
+        await get_personality_analysis()
+
         print("Running Einstein analysis...")
         run_einstein_request(deal_id)
         end_time = time.time()
         print(f"Total time taken: {end_time - start_time} seconds")
     else:
         print("One or more MCP servers failed, skipping Einstein analysis")
-
