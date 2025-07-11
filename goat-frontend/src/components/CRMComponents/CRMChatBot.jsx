@@ -11,6 +11,7 @@ import {
   InputAdornment,
   Tooltip,
   Chip,
+  CircularProgress,
 } from "@mui/material";
 import {
   AutoAwesome,
@@ -29,6 +30,7 @@ import CRMAiEntry from "./CRMAiEntry";
 const CRMChatBot = ({ handleExit }) => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [chat, setChat] = useState(() => {
     const localState = localStorage.getItem("chatHistory");
     return localState ? JSON.parse(localState) : [];
@@ -196,6 +198,7 @@ const CRMChatBot = ({ handleExit }) => {
           }}
         >
           {/* Looping through chats Start*/}
+          {loading && <CircularProgress />}
           {chat.map((current) => {
             console.log(current.sender);
             if (current.sender == "User") {
