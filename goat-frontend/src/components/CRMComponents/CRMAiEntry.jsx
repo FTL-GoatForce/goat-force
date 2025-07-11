@@ -13,46 +13,32 @@ import {
   Chip,
 } from "@mui/material";
 import { alpha } from "@mui/material";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { AutoAwesome, Close, Send, Psychology } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
 import logo from "../../assets/sfgoat.webp";
-import PersonIcon from "@mui/icons-material/Person";
 
-const CRMChatbotTextEntry = ({ sender, context }) => {
+const CRMAiEntry = ({ sender, context }) => {
   return (
+    // Ai / Rightside Text
     <ListItem
       sx={{
         display: "flex",
         backgroundColor: "rgba(55, 70, 104, 0.5)",
         borderRadius: 5,
+        ml: 1,
         width: "fit-content",
         maxWidth: "80%",
         border: (theme) =>
           `1px solid ${alpha(theme.palette.primary.light, 0.2)}`,
         borderRadius: 2,
-        alignSelf: "flex-end",
         mt: 1,
         mb: 1,
-        mr: 1,
       }}
     >
-      <Avatar
-        sx={{
-          mb: 0,
-          bgcolor: "secondary.main",
-          width: 28,
-          height: 28,
-          mr: 1,
-        }}
-      >
-        <PersonIcon />
-      </Avatar>
-      <Typography sx={{ color: "text.primary", fontSize: "0.9rem" }}>
+      <Avatar sx={{ mb: 0, height: 28, width: 28, mr: 1 }} src={logo} />
+      <Typography sx={{ color: "text.primary", fontSize: ".9rem" }}>
         {context}
       </Typography>
     </ListItem>
   );
 };
 
-export default CRMChatbotTextEntry;
+export default CRMAiEntry;

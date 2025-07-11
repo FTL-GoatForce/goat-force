@@ -10,20 +10,30 @@ import {
   TextField,
   InputAdornment,
   Tooltip,
+  Chip,
 } from "@mui/material";
+import {
+  AutoAwesome,
+  Close,
+  Send,
+  Psychology,
+  Fingerprint,
+} from "@mui/icons-material";
+import { alpha } from "@mui/material";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { AutoAwesome, Close, Send } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/sfgoat.webp";
 import CRMChatbotTextEntry from "./CRMChatbotTextEntry";
-import PersonIcon from "@mui/icons-material/Person";
+import CRMAiEntry from "./CRMAiEntry";
 
 const CRMChatBot = ({ handleExit }) => {
   const [prompt, setPrompt] = useState("");
+  const [error, setError] = useState(true);
   const [chat, setChat] = useState(() => {
     const localState = localStorage.getItem("chatHistory");
     return localState ? JSON.parse(localState) : [];
   });
+
   function handleSubmit(event) {
     const chatObj = { context: prompt, sender: "User" };
     setChat((prev) => [...prev, chatObj]);
@@ -34,6 +44,7 @@ const CRMChatBot = ({ handleExit }) => {
     localStorage.removeItem("chatHistory");
     setChat([]);
   }
+
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(chat));
   }, [chat]);
@@ -60,31 +71,60 @@ const CRMChatBot = ({ handleExit }) => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          textAlign: "center",
-          bgcolor: "background.paper",
-          m: 0,
-          borderRadius: 2,
-          borderColor: "#b8b8b8",
+          alignItems: "center",
+          bgcolor: (theme) => alpha(theme.palette.background.paper, 0.5),
+          borderBottom: "1px solid",
+          borderColor: "divider",
+          borderRadius: "8px 8px 0 0",
           height: "60px",
+          px: 2,
+          position: "relative",
         }}
       >
-        <Typography
-          variant="h5"
-          sx={{
-            color: "text.primary",
-            m: 1.7,
-            fontWeight: "bold",
-          }}
+        <Box
+          sx={{ display: "flex", alignItems: "center", gap: 1, flexGrow: 1 }}
         >
-          GoatChat
-        </Typography>
-        <Avatar src={logo} sx={{ mt: 1 }} />
+          <Avatar
+            sx={{
+              background: (theme) =>
+                `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+              width: 32,
+              height: 32,
+            }}
+            src={logo}
+          ></Avatar>
+          <Box>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "text.primary",
+                fontWeight: "bold",
+                fontSize: "1.1rem",
+              }}
+            >
+              GoatForce AI
+            </Typography>
+            <Chip
+              label="Online"
+              size="small"
+              sx={{
+                backgroundColor: (theme) =>
+                  alpha(theme.palette.success.main, 0.2),
+                color: "success.main",
+                border: (theme) =>
+                  `1px solid ${alpha(theme.palette.success.main, 0.3)}`,
+                height: 16,
+                fontSize: "0.65rem",
+              }}
+            />
+          </Box>
+        </Box>
 
         <Tooltip title="New Chat">
           <IconButton
             variant="contained"
             onClick={handleNewChat}
-            sx={{ position: "absolute", ml: 38, mt: 1 }}
+            sx={{ position: "absolute", ml: 36, mt: 0 }}
             size="small"
           >
             <ModeEditIcon />
@@ -106,136 +146,130 @@ const CRMChatBot = ({ handleExit }) => {
 
       {/* Start of Chat main content */}
       <Box>
-        {/* <CRMChatbotTextEntry /> */}
-        {/* Main thought process --- useState array holding messages, every submit will make an api call and grab a direct result --> will add this to the messages array
-            Bypass backend by using an MCP Server giving chatbot smart insights 
-            Loop through chat array of objects holding a prompt and  */}
-
+        {/* WELCOME MESSAGE */}
+        {chat.length === 0 && (
+          <Box
+            sx={{
+              display: "flex",
+              height: "250px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              sx={{
+                justifyContent: "center",
+                display: "flex",
+                flexDirection: "column",
+                textAlign: "center",
+                m: 2,
+                border: (theme) =>
+                  `3px solid ${alpha(theme.palette.primary.light, 0.2)}`,
+                // background: (theme) =>
+                //   `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                backgroundColor: (theme) =>
+                  alpha(theme.palette.primary.main, 0.1),
+                borderRadius: 2,
+              }}
+            >
+              <Typography
+                sx={{ fontSize: "1.2rem", m: 2 }}
+                variant="h2"
+                color="white"
+              >
+                I'm your GoatForce AI assistant. Ask me anything about your CRM
+                data, deals, or pipeline insights
+                <br />
+                <Fingerprint sx={{ ml: 1 }} color="white" />
+              </Typography>
+            </Box>
+          </Box>
+        )}
+        {/* END OF WELCOME MESSAGE */}
         <List
           sx={{
-            mb: 2,
             overflowY: "auto",
+            scrollbarGutter: "auto",
             display: "flex",
             flexDirection: "column",
             height: "700px",
           }}
         >
-          {/* WELCOME MESSAGE */}
-          <ListItem
-            justify-content="flex-reverse"
-            sx={{
-              display: "flex",
-              flexDirection: "row-reverse",
-              backgroundColor: "rgba(55, 70, 104, 0.5)",
-              borderRadius: 5,
-              m: 2,
-              width: "fit-content",
-            }}
-          >
-            <Avatar sx={{ mb: 0 }} src={logo} />
-            <Typography sx={{ ml: 1, color: "white" }}>
-              Hi, I am AgentGoat! Ask me anything about your data!
-            </Typography>
-          </ListItem>
-
           {/* Looping through chats Start*/}
           {chat.map((current) => {
-            if (current.sender === "User")
+            console.log(current.sender);
+            if (current.sender == "User") {
               return (
-                <ListItem
-                  sx={{
-                    display: "flex",
-                    backgroundColor: "rgba(55, 70, 104, 0.5)",
-                    borderRadius: 5,
-                    m: 2,
-                    width: "fit-content",
-                  }}
-                >
-                  <Avatar sx={{ mb: 0, bgcolor: "white" }}>
-                    <PersonIcon color="#FFFFFF" />
-                  </Avatar>
-                  {/* <ListItemText
-                  sx={{ ml: 1 }}
-                  slotProps={{
-                    secondary: {
-                      fontSize: 15,
-                      color: "primary",
-                    },
-                 
-                  }}
-                  primary={current.sender}
-                  secondary={current.context}
-                /> */}
-                  <Typography sx={{ ml: 1, color: "white" }}>
-                    {current.context}
-                  </Typography>
-                </ListItem>
+                <CRMChatbotTextEntry
+                  sender={current.sender}
+                  context={current.context}
+                />
               );
-            else {
+            } else {
               return (
-                <ListItem
-                  sx={{
-                    display: "flex",
-                    backgroundColor: "rgba(55, 70, 104, 0.5)",
-                    borderRadius: 5,
-                    m: 2,
-                    width: "fit-content",
-                  }}
-                >
-                  <Avatar sx={{ mb: 0 }} src={logo} />
-                  <Typography sx={{ ml: 1, color: "white" }}>
-                    {current.context}
-                  </Typography>
-                </ListItem>
+                <CRMAiEntry sender={current.sender} context={current.context} />
               );
             }
           })}
-          {/* Looping through chats END */}
         </List>
+        {/* Looping through chats END */}
 
         {/* TEXTField & SUBMIT Chat Container START */}
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            position: "absolute",
-            bottom: 0,
-            marginLeft: 0,
-            width: 378,
+        <Box
+          sx={{
+            m: 2.5,
           }}
         >
-          <Box sx={{ bgcolor: "background.paper" }}>
-            <TextField
-              fullWidth
-              placeholder="Ask GoatChat"
-              value={prompt}
-              color="secondary"
-              onChange={(e) => setPrompt(e.target.value)}
-              sx={{ borderRadius: 0, mb: 0.5, color: "secondary.main" }}
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AutoAwesome />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-            />
-          </Box>
-          <Button
-            sx={{ borderRadius: 0, pb: 1 }}
-            type="submit"
-            variant="contained"
-            endIcon={<Send />}
-            color="secondary"
-            fullWidth
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              position: "absolute",
+              bottom: 10,
+              marginLeft: 0,
+              width: 340,
+            }}
           >
-            Send
-          </Button>
-        </form>
+            <Box sx={{ bgcolor: "background.paper" }}>
+              <TextField
+                fullWidth
+                placeholder="Ask GoatChat"
+                value={prompt}
+                color="secondary"
+                onChange={(e) => {
+                  setPrompt(e.target.value);
+                  if (e.target.value == "") {
+                    setError(true);
+                  } else {
+                    setError(false);
+                  }
+                }}
+                sx={{ borderRadius: 0, mb: 0.5, color: "secondary.main" }}
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <AutoAwesome />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+            </Box>
+            <Button
+              sx={{ borderRadius: 0, pb: 1 }}
+              type="submit"
+              variant="contained"
+              endIcon={<Send />}
+              color="secondary"
+              fullWidth
+              disabled={error}
+            >
+              Send
+            </Button>
+          </form>
+        </Box>
         {/* TEXTField & SUBMIT Chat Container END */}
       </Box>
-      {/* End of Chat main content */}
     </Box>
   );
 };
