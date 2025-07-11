@@ -22,7 +22,6 @@ const CRMAiEntry = ({ sender, context }) => {
       sx={{
         display: "flex",
         backgroundColor: "rgba(55, 70, 104, 0.5)",
-        borderRadius: 5,
         ml: 1,
         width: "fit-content",
         maxWidth: "80%",

@@ -25,7 +25,6 @@ const CRMChatbotTextEntry = ({ sender, context }) => {
       sx={{
         display: "flex",
         backgroundColor: "rgba(55, 70, 104, 0.5)",
-        borderRadius: 5,
         width: "fit-content",
         maxWidth: "80%",
         border: (theme) =>
