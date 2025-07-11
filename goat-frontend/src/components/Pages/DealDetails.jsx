@@ -17,6 +17,7 @@ function DealDetails( {deal_name, deal_id, company_name, deal_stage, deal_status
     // const fetchPersonalityData = async () => {
     // const response = await axios.get('/deals/{deal_id}/personality');
     // set personalityData(response.data);
+
   
 
   }, [deal_id]) // re-render when deal_id changes
