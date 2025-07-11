@@ -6,14 +6,18 @@ from google.genai import types
 from typing import List, Literal, Optional
 from datetime import datetime
 import json
-from .slack_server_params import get_slack_server_params
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from slack_server_params import get_slack_server_params
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
 client = genai.Client(api_key=API_KEY)
 
 server_params = get_slack_server_params()
-print(server_params)
+
 
 def get_analysis_slack_prompt(channel_id: str) -> str:
     return f"""
@@ -213,7 +217,19 @@ async def slack_mcp_server(channel_id: str):
                     }
                 ),
             )
-            print(structured_response.text)
             os.makedirs("transcripts/slack", exist_ok=True)
             with open(f"transcripts/slack/{channel_id}_structured_response.json", "w") as f:
                 json.dump(structured_response.parsed, f, indent=2, default=str)
+
+            with open(f"transcripts/logs/slack_logs/slack_mcp_server.log", "a") as f:
+                f.write(f"Channel ID: {channel_id}\n")
+                f.write(f"Structured Response: {structured_response.text}\n")
+                f.write(f"--------------------------------\n")
+
+if __name__ == "__main__":
+    import sys
+    # Get channel_id from command line argument, or use default
+    channel_id = sys.argv[1] if len(sys.argv) > 1 else "D094KB9QUNP"
+    print(f"Running Slack MCP Server for channel: {channel_id}")
+    asyncio.run(slack_mcp_server(channel_id))
+    

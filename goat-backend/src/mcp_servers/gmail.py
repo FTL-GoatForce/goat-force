@@ -6,6 +6,8 @@ from mcp.client.stdio import stdio_client
 from google import genai
 from google.genai import types
 import json
+from dotenv import load_dotenv
+load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY")) 
 
@@ -19,7 +21,7 @@ server_params = StdioServerParameters(
 def get_gmail_prompt(email: str) -> str:
     return f"""
         You are retrieving sales-related email threads for structured analysis.
-
+    
         Steps:
         1. Access the Gmail account
         2. Retrieve ALL emails between me and {email}
@@ -27,7 +29,7 @@ def get_gmail_prompt(email: str) -> str:
             - All emails
             - All replies and responses
             - The entire email chain from start to finish
-        4. For each email, extract and output:
+        4. For each email, MAKE SURE TO EXTRACT AND OUTPUT THE FOLLOWING:
             - `email_id` (unique identifier)
             - `subject` (email subject line)
             - `sender` (sender email and name if available)
@@ -222,3 +224,15 @@ async def gmail_mcp_server(email: str):
             os.makedirs("transcripts/gmail", exist_ok=True)
             with open(f"transcripts/gmail/{email}_structured_response.json", "w") as f:
                 json.dump(structured_response.parsed, f, indent=2, default=str)
+
+            with open(f"transcripts/logs/gmail_logs/gmail_mcp_server.log", "a") as f:
+                f.write(f"Email: {email}\n")
+                f.write(f"Structured Response: {structured_response.text}\n")
+                f.write(f"--------------------------------\n")
+
+if __name__ == "__main__":
+    import sys
+    # Get email from command line argument, or use default
+    email = sys.argv[1] if len(sys.argv) > 1 else "sophia.nguyen.airbnb2025@gmail.com"
+    print(f"Running Gmail MCP Server for email: {email}")
+    asyncio.run(gmail_mcp_server(email))

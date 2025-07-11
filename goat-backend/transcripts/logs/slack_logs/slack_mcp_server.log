@@ -1,0 +1,491 @@
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "private_channel",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "1751929510",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "termination clause"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "1751929529",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "1751929537",
+      "sentiment": "positive",
+      "tone": "enthusiastic",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "1751929545",
+      "sentiment": "positive",
+      "tone": "informative",
+      "objections": [],
+      "intent": "update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "1751929554",
+      "sentiment": "positive",
+      "tone": "direct",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "1751929560",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    }
+  ],
+  "summary": "Sophia and Bruce are finalizing a deal. Sophia's legal team requested a change to the termination clause, which Bruce agreed to address. They are aiming to get signatures by Friday and start onboarding in early August.",
+  "last_activity": "1751929560",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 12,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "legal_review",
+    "timeline_sensitive"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Direct Message",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "1751929510.357719",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "termination clause"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "1751929529.134069",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "1751929537.125559",
+      "sentiment": "positive",
+      "tone": "optimistic",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "1751929545.059959",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "1751929554.525599",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "1751929560.545209",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    }
+  ],
+  "summary": "Bruce and Sophia are finalizing a deal. Sophia's legal team requested a change to the termination clause, and Bruce agreed to update the draft. They aim to have signatures by Friday to start onboarding on August 5.",
+  "last_activity": "1751929560.545209",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 10.91,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "legal_review",
+    "timeline_sensitive",
+    "positive_sentiment"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "unknown",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "1751929510.357719",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "termination clause wording"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "1751929529.134069",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "1751929537.125559",
+      "sentiment": "positive",
+      "tone": "encouraging",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "1751929545.059959",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "1751929554.525599",
+      "sentiment": "positive",
+      "tone": "hopeful",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "1751929560.545209",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    }
+  ],
+  "summary": "Sophia requested a change to the termination clause, and Bruce agreed to update the draft and coordinate with legal. Sophia confirmed this was the last blocker and they aim to have signatures by Friday.",
+  "last_activity": "1751929560.545209",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 19,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "legal_review",
+    "timeline_sensitive"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Direct Message with Bruce Wayne",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "1751929510.357719",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "termination clause wording"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "1751929529.134069",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "1751929537.125559",
+      "sentiment": "positive",
+      "tone": "excited",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "1751929545.059959",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "1751929554.525599",
+      "sentiment": "positive",
+      "tone": "direct",
+      "objections": [],
+      "intent": "timeline",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "1751929560.545209",
+      "sentiment": "positive",
+      "tone": "enthusiastic",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    }
+  ],
+  "summary": "Sophia raised an objection regarding the termination clause, requesting a 30-day notice instead of 60. Bruce agreed to coordinate with legal to update the draft. Sophia is pushing to get signatures wrapped up by Friday.",
+  "last_activity": "1751929560.545209",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 11.80,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "legal_review",
+    "timeline_sensitive"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Direct Message with Sophia",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "1751929510",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "termination clause"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "1751929529",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "1751929537",
+      "sentiment": "positive",
+      "tone": "optimistic",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "1751929545",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "1751929554",
+      "sentiment": "positive",
+      "tone": "direct",
+      "objections": [],
+      "intent": "inform",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "1751929560",
+      "sentiment": "positive",
+      "tone": "enthusiastic",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": true
+    }
+  ],
+  "summary": "Sophia requested a change to the termination clause in the contract. Bruce agreed to make the change and is coordinating with legal to finalize the updated draft. Sophia is pushing to finalize signatures by Friday.",
+  "last_activity": "1751929560",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 10,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "legal_review",
+    "timeline_sensitive"
+  ]
+}
+--------------------------------
