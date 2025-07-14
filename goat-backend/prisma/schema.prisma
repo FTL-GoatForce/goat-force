@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -16,10 +15,13 @@ model Deals{
   id Int @id @default(autoincrement())
   deal_name String
   company_name String
-  stage String
-  status String
-  deal_amount Float
-  expected_close_date DateTime
+  stage String?
+  status String?
+  deal_value Float
+  deal_description String
+  service_category String
+  contract_term_length String
+  expected_close_date String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   participants Participants[]
@@ -38,9 +40,10 @@ model Participants{
   prospect_name String
   email String
   slack_id String
-  role String
-  sentiment String
-  communication_score Float
+  phone_number String
+  role String?
+  communication_score Float?
+  sentiment String?
   deal Deals @relation(fields: [deal_id], references: [id])
   personality Personality[]
   created_at DateTime @default(now())
@@ -122,7 +125,10 @@ model ConversationHistory{
 model DealInsights{
   id Int @id @default(autoincrement())
   deal_id Int
-  kpi_insights Json
+  key_objections String[]
+  decision_maker_status String
+  urgency_level String
+  competitive_position String
   deal Deals @relation(fields: [deal_id], references: [id])
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

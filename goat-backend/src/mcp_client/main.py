@@ -63,9 +63,12 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     
     print("Running Slack MCP server...")
     slack_success = await asyncio.to_thread(run_slack_mcp_server, slack_channel_id)
-    
+    slack_time = time.time() - start_time
+    print(f"slack time: {slack_time:.2f}")
     print("Running Gmail MCP server...")
     gmail_success = await asyncio.to_thread(run_gmail_mcp_server, email)
+    gmail_time = time.time() - slack_time
+    print(f"gmail time: {gmail_time:.2f}")
     
     end_time = time.time()
     print(f"Time taken for MCP servers: {end_time - start_time} seconds")
@@ -73,10 +76,25 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     if slack_success and gmail_success:
         print("Running personality analysis...")
         await get_personality_analysis()
+        personality_time = time.time() - gmail_time
+        print(f"personality time: {personality_time:.2f}")
 
         print("Running Einstein analysis...")
         run_einstein_request(deal_id)
+        einstein_time = time.time() - personality_time
+        print(f"einstein time: {einstein_time:.2f}")
         end_time = time.time()
         print(f"Total time taken: {end_time - start_time} seconds")
+
+        return True
     else:
         print("One or more MCP servers failed, skipping Einstein analysis")
+
+
+if __name__ == "__main__":
+    import sys
+    deal_id = sys.argv[1]
+    slack_channel_id = sys.argv[2]
+    email = sys.argv[3]
+    asyncio.run(main(deal_id, slack_channel_id, email))
+    # python main.py 01J094KB9QUNP D094KB9QUNP sophia.nguyen.airbnb2025@gmail.com

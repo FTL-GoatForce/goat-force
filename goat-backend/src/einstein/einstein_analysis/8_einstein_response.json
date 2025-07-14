@@ -1,0 +1,76 @@
+{
+  "deal_id": "deal_001",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "Minor adjustments needed in the contract, which are being addressed promptly.",
+    "churn_risk_explanation": "Strong engagement and positive sentiment from the prospect.",
+    "timeline_risk_explanation": "Urgency to finalize by the end of the week, but minor adjustments could delay.",
+    "budget_risk_explanation": "No budget concerns indicated in the communication."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed the timeline and next steps after addressing the legal team's request."
+  },
+  
+  "TIMELINE": {
+    "event_date": "2025-07-11",
+    "event_description": "Expected signing of the contract and initiation of onboarding.",
+    "event_type": "contract_signing"
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal with Airbnb is progressing well, with both parties actively addressing minor contract adjustments. The urgency to finalize the agreement by Friday is evident, with onboarding planned for August 5th. Communication remains positive and proactive.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Receive updated contract from Bruce", "Confirm legal sign-off", "Coordinate signatures"],
+    "Escalation_Triggers": "Delay beyond Friday in contract signing",
+    "Deal_Acceleration_Tactics": "Maintain frequent communication to ensure all parties are aligned on next steps"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Follow-Up on Contract Finalization\n\nHi Bruce,\n\nI hope you're doing well. I wanted to follow up on the revised contract and see if there's any update from your legal team. We're eager to finalize everything by Friday so we can kick off onboarding on August 5th.\n\nThanks for your continued support!\n\nBest,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the revised contract. Any updates from legal? We're looking to wrap this up by Friday. Thanks!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["contract_finalization", "positive_sentiment", "quick_resolution", "no_objections", "clear_next_steps", "efficient_communication"]
+}
