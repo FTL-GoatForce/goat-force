@@ -26,4 +26,4 @@ if __name__ == "__main__":
 #  Code Notes 
 # *  This file (server) acts as a backend service that exposes our database to the client calls, 
 # *  We will communicate between server and client using FastMCP which will expose our functions as tools to Gemini
-# !  chatbot.py --- defines the actual backend services that interact with the Prisma database. It uses fastmcp to expose these database operations as "tools" that the client can call.
+# !  chatbot.py ---  uses fastmcp to expose these database operations as "tools" that the client can call.
