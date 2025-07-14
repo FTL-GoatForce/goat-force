@@ -60,7 +60,11 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
     "Deal_Risk_Score": [0-100],
     "Churn_Risk": [0-100],
     "Timeline_Risk": [0-100], 
-    "Budget_Risk": [0-100]
+    "Budget_Risk": [0-100],
+    "deal_risk_explanation": "[string]",
+    "churn_risk_explanation": "[string]",
+    "timeline_risk_explanation": "[string]",
+    "budget_risk_explanation": "[string]"
   }},
 
   "DEAL_INSIGHTS": {{
@@ -76,6 +80,11 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
     "engagement_trend": "[improving | declining | stable]",
     "last_touch_channel": "[slack | email | call | meeting]",
     "last_touch_summary": "[string]"
+  }},
+  "TIMELINE": {{
+    "event_date": "[ISO8601 date]",
+    "event_description": "[string]",
+    "event_type": "[string]"
   }},
 
   "AI_GENERATED_SUMMARY": "[string]",

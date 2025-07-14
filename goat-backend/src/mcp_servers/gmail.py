@@ -48,7 +48,6 @@ def get_gmail_prompt(email: str) -> str:
         IMPORTANT: 
         - Use the available MCP tools to get ALL emails in the thread
         - Do NOT limit the number of emails - get the complete conversation
-        - Focus on the specific thread about "Proposal for Q2 Rollout — Custom Analytics Suite"
         - Make sure to retrieve both sides of the conversation (from both sender and recipient)
 
         Output the results as a clean JSON array of ALL emails in the thread. Do **not** do any further analysis or interpretation.
@@ -152,6 +151,7 @@ async def gmail_mcp_server(email: str):
                 )
             except Exception as e:
                 print(f"Error with first Gemini API call: {e}")
+
 
             structured_prompt = get_structured_gmail_prompt(response.text)
             structured_response = await client.aio.models.generate_content(

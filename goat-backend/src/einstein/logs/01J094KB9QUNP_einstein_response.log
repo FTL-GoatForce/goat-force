@@ -1,0 +1,350 @@
+Deal ID: 01J094KB9QUNP
+Response: {
+  "deal_id": "D094KB9QUNP",
+  "client_company": "N/A",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-06T00:26:00Z",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 15,
+    "Budget_Risk": 5
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [],
+    "Decision_Maker_Status": "confirmed",
+    "Urgency_Level": "high",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 8.73,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed the update to the termination clause and is coordinating with his legal team."
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales rep, Sophia, and prospect, Bruce, are finalizing a contract. Sophia requested a tweak to the termination clause, which Bruce confirmed was not a problem and committed to having his legal team update. Both parties expressed optimism about the quick turnaround and aim to get signatures wrapped by Friday for an August 5th onboarding.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Confirm legal updates from Bruce", "Coordinate signatures once legal approval is received", "Prepare onboarding materials for August 5"],
+    "Escalation_Triggers": "Delay in legal approval beyond a couple of hours",
+    "Deal_Acceleration_Tactics": "Offer to assist with any legal questions or concerns"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Follow-Up on Contract Updates\n\nHi Bruce,\n\nI hope you're doing well! I just wanted to touch base regarding the updates to the termination clause we discussed. Please let me know if there’s anything further you need from my side to expedite the process with your legal team.\n\nLooking forward to your update!\n\nBest,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the legal updates for the contract. Let me know if you need any help from my side!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_negotiation", "smooth_progress", "quick_response", "no_objections", "clear_timeline", "positive_sentiment"]
+}
+--------------------------------
+Deal ID: 01J094KB9QUNP
+Response: {
+  "deal_id": "deal_001",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56Z",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-07",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30, 
+    "Budget_Risk": 10
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "identified",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed implementation support is included and is updating the proposal."
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales process is progressing positively, with key legal amendments discussed and an updated proposal shared. Both parties are actively communicating and aiming for a swift closure by the end of the week.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Monitor legal feedback", "Prepare for contract signing", "Coordinate onboarding logistics"],
+    "Escalation_Triggers": "Delay in legal sign-off beyond expected timeline",
+    "Deal_Acceleration_Tactics": "Offer additional incentives for quick closure"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Hi Bruce,\n\nI hope this message finds you well. I wanted to follow up on the revised proposal and check if your legal team has had a chance to finalize it. We're eager to move forward and ensure everything is in place for onboarding.\n\nThanks for your assistance!\n\nBest,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the legal review of the updated proposal. We're looking to finalize everything soon. Thanks!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce Wayne",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_amendment", "legal_review", "deal_closure_on_track", "positive_momentum", "quick_turnaround", "timeline_set", "no_objection", "proposal_sent", "clarification_needed", "deal_progression", "quick_response", "channel_change"]
+}
+--------------------------------
+Deal ID: 01J094KB9QUNP
+Response: {
+  "deal_id": "197e71cffc593dd2",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 20
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation_support"],
+    "Decision_Maker_Status": "active",
+    "Urgency_Level": "high",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed receipt of the Slack invite and is uploading the revised document."
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce Wayne, delivered a Salesforce Sales Suite Upgrade proposal to Sophia Nguyen at Airbnb. Sophia sought clarification on implementation support, which Bruce promptly provided and committed to revising the document. The conversation is now transitioning to Slack to facilitate a quicker resolution and close.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Send the revised proposal highlighting implementation support", "Schedule a follow-up meeting on Slack to finalize details", "Prepare onboarding materials for a smooth transition"],
+    "Escalation_Triggers": "If there is no response from Sophia within 48 hours after sending the revised document.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount for expedited signatures."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Follow-Up on Proposal Revision\n\nHi Sophia,\n\nI hope this message finds you well. I wanted to follow up on the revised proposal I sent regarding the Sales Suite Upgrade. Please let me know if you have any further questions or if there’s anything else I can assist with.\n\nLooking forward to your feedback!\n\nBest,\nBruce",
+    "Slack_Message": "Hey Sophia, just checking in to see if you received the updated proposal. Let me know if you need any more info or if we can set up a quick chat to finalize things!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["proposal_sent", "clarification_needed", "implementation_support_query", "document_revision", "transition_to_slack", "deal_progression"]
+}
+--------------------------------
+Deal ID: 01J094KB9QUNP
+Response: {
+  "deal_id": "D094KB9QUNP_197e71cffc593dd2",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 15, 
+    "Budget_Risk": 5
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support clarification"],
+    "Decision_Maker_Status": "aligned",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 27.5,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed actions and uploaded the revised document, looking forward to wrapping up the deal smoothly."
+  },
+
+  "AI_GENERATED_SUMMARY": "Sophia and Bruce are in the negotiation phase for a contract with a minor legal adjustment needed. Bruce has confirmed the inclusion of implementation support and is responsive to Sophia's queries. The urgency for closing the deal is high, with a target close date of July 11, 2025.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Finalize the revised proposal document", "Obtain signatures by July 11", "Kick off onboarding by August 5"],
+    "Escalation_Triggers": "Delay in legal sign-off beyond July 11",
+    "Deal_Acceleration_Tactics": "Maintain frequent communication and updates via Slack"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Follow-up on Proposal Revision\n\nHi Bruce,\n\nI hope this message finds you well. I wanted to follow up on the revised proposal document and ensure everything is on track for signatures by Friday. Please let me know if there are any updates from your legal team.\n\nThank you!\n\nBest,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the revised proposal. Are we still on track for signatures by Friday? Let me know if you need any support from my side!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["deal_progression", "contract_finalization", "legal_review", "positive_sentiment", "no_objections"]
+}
+--------------------------------
+Deal ID: 01J094KB9QUNP
+Response: {
+  "deal_id": "D094KB9QUNP",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T23:46:00.545Z",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "Minor legal amendment needed, but both parties are cooperative.",
+    "churn_risk_explanation": "Low churn risk as the client is engaged and responsive.",
+    "timeline_risk_explanation": "Some risk due to the legal review process, but timelines are set.",
+    "budget_risk_explanation": "No budget concerns mentioned in the discussions."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["Contractual clause", "implementation support"],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 8.73,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed the legal amendment and indicated a quick turnaround."
+  },
+  
+  "TIMELINE": {
+    "event_date": "2025-07-11",
+    "event_description": "Expected signatures finalized for contract.",
+    "event_type": "contract_signing"
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal between Sophia and Bruce is progressing positively with minor legal adjustments needed. Both parties are aligned on timelines, aiming for contract signing by July 11 to facilitate onboarding by August 5.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Monitor legal team's feedback", "Prepare for onboarding logistics", "Confirm signatures by Friday"],
+    "Escalation_Triggers": "Delay in legal approval beyond expected timeline",
+    "Deal_Acceleration_Tactics": "Maintain frequent communication and offer support as needed."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Quick Follow-Up on Contract Finalization\n\nHi Bruce,\n\nI hope you're doing well! I wanted to check in on the status of the legal review. We're eager to finalize everything by Friday to ensure a smooth onboarding process. Please let me know if there's anything else you need from our side.\n\nThanks,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the legal review. Looking forward to finalizing everything soon!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_finalization", "legal_review", "positive_deal_flow", "quick_resolution", "timeline_set"]
+}
+--------------------------------

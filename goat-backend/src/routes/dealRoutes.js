@@ -2,7 +2,9 @@ import express from "express";
 const router = express.Router();
 
 // Import deal controllers
-import { getDeals } from "../controllers/deal";
+import { createDeal } from "../controllers/deal.js";
 
 // Set routes coming after /deal
-router.get("/", getDeals); //
+router.post("/create", createDeal);
+
+export default router;
