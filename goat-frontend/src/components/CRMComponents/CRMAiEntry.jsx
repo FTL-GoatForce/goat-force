@@ -12,6 +12,7 @@ import {
   Tooltip,
   Chip,
 } from "@mui/material";
+import Markdown from "react-markdown";
 import { alpha } from "@mui/material";
 import logo from "../../assets/sfgoat.webp";
 
@@ -21,6 +22,7 @@ const CRMAiEntry = ({ sender, context }) => {
     <ListItem
       sx={{
         display: "flex",
+        alignItems: "flex-start",
         backgroundColor: "rgba(55, 70, 104, 0.5)",
         ml: 1,
         width: "fit-content",
@@ -34,7 +36,7 @@ const CRMAiEntry = ({ sender, context }) => {
     >
       <Avatar sx={{ mb: 0, height: 28, width: 28, mr: 1 }} src={logo} />
       <Typography sx={{ color: "text.primary", fontSize: ".9rem" }}>
-        {context}
+        <Markdown>{context}</Markdown>
       </Typography>
     </ListItem>
   );
