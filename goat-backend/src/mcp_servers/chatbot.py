@@ -1,4 +1,3 @@
-# from factmcp import FastMCP, CLient
 from fastmcp import FastMCP
 from prisma import Prisma
 from datetime import datetime
