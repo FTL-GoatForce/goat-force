@@ -4,8 +4,8 @@ from datetime import datetime
 from typing import Optional, List
 import asyncio
 
-mcp = FastMCP("chatbot-server")  # initalized our FastMCP server 
-prisma = Prisma()   # inttialized our prisma client
+mcp = FastMCP("chatbot-server")  # initialized our FastMCP server 
+prisma = Prisma()   # initialized our prisma client
 
 @mcp.tool
 async def get_deals():
