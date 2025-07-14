@@ -6,3 +6,7 @@ Steps
 - cd goat-backend
 - npm install
 - npm start
+
+Start FastAPI & MCP Server with
+
+- python src/mcp_client/chatClient.py

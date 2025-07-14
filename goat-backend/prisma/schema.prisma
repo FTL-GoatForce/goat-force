@@ -5,6 +5,10 @@ generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
+// New Python Client
+generator py {
+  provider = "prisma-client-py"
+}
 
 datasource db {
   provider = "postgresql"
