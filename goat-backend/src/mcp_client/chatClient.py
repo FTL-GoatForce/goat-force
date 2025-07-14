@@ -1,7 +1,6 @@
 import asyncio
 from fastmcp import Client
 from fastapi import FastAPI
-from datetime import datetime
 from pydantic import BaseModel
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -35,7 +34,7 @@ app.add_middleware(
 gemini_client =  genai.Client(api_key=api_key) # add api key here
 
 
-# ------------- Data Checking 
+# ------------- Data Checking  | Only accept a POST with JSON that has a message key of type string
 class MessageRequest (BaseModel):
     message: str
 
@@ -60,20 +59,23 @@ async def receieve_message(request: MessageRequest):
 
 # ------------ Once a message is recieved to the API Endpoint - Run MCP Server and create an API Request - Then Return the Gemini Response
 async def run(message: MessageRequest):
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
+    async with stdio_client(server_params) as (read, write):    # launches our MCP server 
+        async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
             try:
-                
-                await session.initialize()
+                # ----------- Starting our session giving gemini access to tools 
+                await session.initialize()  
                 response = await gemini_client.aio.models.generate_content(
                     model = "gemini-2.5-flash",
                     contents = f""" 
-                    You are an AI assistant that manages a user's CRM deal data. You have access to multiple tools that allow you to read from all of the users deals 
+                    You are a smart AI assistant that manages a user's CRM deal data, . You have access to multiple tools that allow you to read from all of the users deals.
+                    You are to allow the user to spend less time on administrative tasks and more time actively selling, ultimately improving deal close rates in turn producing more company revenue.
+
+
 
                     Your job is to:
                     1. Understand the user's natrual language message.
                     2. Decide which tool to call based on the user's intent.
-                    3. Take in the users request and respond as in natural language as an informed assistant on their deal
+                    3. Take in the users request and respond in natural language as an informed assistant on all their deals 
 
                     Here are the available tools available: 
                     1. 'get_deals'
@@ -102,6 +104,7 @@ async def run(message: MessageRequest):
                     "status": "error"
                 }
             
+#  Calling this in python auto starts the API Server 
 if __name__ == "__main__":
     print("Starting FastAPI Server")
     uvicorn.run(app, host="0.0.0.0", port=8000)

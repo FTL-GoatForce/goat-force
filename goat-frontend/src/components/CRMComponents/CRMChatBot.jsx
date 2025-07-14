@@ -22,12 +22,14 @@ import {
 } from "@mui/icons-material";
 import { alpha } from "@mui/material";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import logo from "../../assets/sfgoat.webp";
 import CRMChatbotTextEntry from "./CRMChatbotTextEntry";
 import CRMAiEntry from "./CRMAiEntry";
+import axios from "axios";
 
 const CRMChatBot = ({ handleExit }) => {
+  const messageRef = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -36,11 +38,30 @@ const CRMChatBot = ({ handleExit }) => {
     return localState ? JSON.parse(localState) : [];
   });
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
+    event.preventDefault();
     const chatObj = { context: prompt, sender: "User" };
     setChat((prev) => [...prev, chatObj]);
+    try {
+      setLoading(true);
+      const response = await axios.post("http://localhost:8000/api/message", {
+        message: prompt,
+      });
+      setLoading(false);
+
+      const LLM_Repy = response.data.response;
+      const LLM_chatObj = { context: LLM_Repy, sender: "Ai" };
+      setChat((prev) => [...prev, LLM_chatObj]);
+      console.log(LLM_Repy);
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+      setChat((prev) => [
+        ...prev,
+        { context: "Error: Could not connect to the backend", sender: "Ai" },
+      ]);
+    }
     setPrompt("");
-    event.preventDefault();
   }
   function handleNewChat() {
     localStorage.removeItem("chatHistory");
@@ -49,6 +70,7 @@ const CRMChatBot = ({ handleExit }) => {
 
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(chat));
+    messageRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
   return (
@@ -190,6 +212,9 @@ const CRMChatBot = ({ handleExit }) => {
         {/* END OF WELCOME MESSAGE */}
         <List
           sx={{
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
             overflowY: "auto",
             scrollbarGutter: "auto",
             display: "flex",
@@ -198,9 +223,7 @@ const CRMChatBot = ({ handleExit }) => {
           }}
         >
           {/* Looping through chats Start*/}
-          {loading && <CircularProgress />}
           {chat.map((current) => {
-            console.log(current.sender);
             if (current.sender == "User") {
               return (
                 <CRMChatbotTextEntry
@@ -214,9 +237,11 @@ const CRMChatBot = ({ handleExit }) => {
               );
             }
           })}
+
+          {loading && <CircularProgress sx={{ mt: 2, ml: 4 }} />}
+          <div ref={messageRef} />
         </List>
         {/* Looping through chats END */}
-
         {/* TEXTField & SUBMIT Chat Container START */}
         <Box
           sx={{
