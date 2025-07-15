@@ -1,0 +1,94 @@
+{
+  "deal_id": "197e71cffc593dd2",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 30,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 25,
+    "Budget_Risk": 15,
+    "deal_risk_explanation": "Minor objections raised but overall positive engagement.",
+    "churn_risk_explanation": "Low churn risk as the prospect is engaged and responsive.",
+    "timeline_risk_explanation": "Some urgency to finalize by Friday, but manageable.",
+    "budget_risk_explanation": "No budget concerns mentioned in communications."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 7,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Bruce confirmed implementation support and is transitioning to Slack for faster communication."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-06",
+        "event_description": "Requested a change to the termination clause in the contract.",
+        "event_type": "communication"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Sent formal proposal for the Sales Suite Upgrade.",
+        "event_type": "proposal"
+      },
+      {
+        "event_date": "2025-07-11",
+        "event_description": "Expected close date for the deal.",
+        "event_type": "deadline"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "Bruce Wayne has been actively engaging with Sophia Nguyen from Airbnb regarding the Salesforce Sales Suite Upgrade proposal. After addressing a key objection about implementation support, the conversation is moving to Slack for quicker communication. Both parties aim to finalize the agreement by Friday, July 11, to kick off onboarding on August 5.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Send the revised proposal highlighting implementation support.", "Coordinate signatures once legal signs off.", "Maintain regular communication via Slack."],
+    "Escalation_Triggers": "If no response from legal by the end of the day.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time incentive for quicker closing."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Proposal and Implementation Support",
+        "body": "Hi Sophia,\n\nI wanted to follow up on the proposal I sent and confirm the inclusion of implementation support for the first month. If you need any further clarifications or adjustments, please let me know. I'm looking forward to wrapping this up soon.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just checking in on the proposal and the implementation support details. Let me know if you have any questions!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["proposal_review", "implementation_question", "slack_transition", "document_revision", "quick_turnaround"]
+}

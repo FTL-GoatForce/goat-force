@@ -1,75 +1,38 @@
 
   {
-    "prospect_name": "Bruce",
-    "personality_communication_profile": {
-      "personality_traits": ["Cooperative", "Proactive", "Efficient", "Action-oriented"],
-      "communication_style": "Direct and concise, with a cooperative and reassuring tone.",
-      "decision_making_style": "Fast-mover, collaborative (coordinates with legal team), action-oriented.",
-      "objection_style": "Collaborative (actively addresses external requests without raising internal objections).",
-      "role_in_deal": "Influencer and key facilitator, coordinating internal legal processes."
-    },
-    "intent_sentiment": {
-      "intent_signals": ["Commitment to action", "Providing updates on progress", "Setting clear next steps to close"],
-      "overall_sentiment": "Highly positive and cooperative towards closing the deal.",
-      "tone_patterns": "Consistently cooperative, proactive, and reassuring."
-    },
-    "objections_concerns": {
-      "objection_types": [],
-      "objection_frequency_severity": "None. The prospect did not raise any objections; instead, they swiftly addressed a request from the sales rep's legal team."
-    },
-    "communication_behavior": {
-      "response_time": "Very fast, often within seconds.",
-      "engagement_level": "High engagement, active participation with clear, action-oriented messages.",
-      "message_complexity": "Short, concise, and focused on immediate next steps.",
-      "preferred_channel": "Slack (as evidenced by consistent and rapid interaction on this channel)."
-    },
-    "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "Negotiation/Closing. The conversation revolves around finalizing contract terms and signatures.",
-      "budget_risk_indicators": "None observed.",
-      "timeline_risk_indicators": "Low risk; the prospect is actively working to meet the proposed timeline.",
-      "churn_risk_indicators": "Very low; high engagement, positive sentiment, and proactive resolution of minor blockers."
-    },
-    "deal_insights": {
-      "key_objections": "None from the prospect.",
-      "decision_maker_status": "Influencer/Process Facilitator. While not the ultimate decision-maker, he is critical in driving the internal legal review and signature process.",
-      "urgency_level": "High; the prospect is aligned with the rep's urgency to close by Friday.",
-      "competitive_position": "Unknown; no competitive discussion in this thread, deal seems to be in closing stages."
-    }
-  },
-  {
     "prospect_name": "Sophia Nguyen",
     "personality_communication_profile": {
-      "personality_traits": ["Professional", "Organized", "Collaborative", "Practical", "Appreciative"],
-      "communication_style": "Professional, concise, and direct. Appreciative of quick responses.",
-      "decision_making_style": "Consensus-seeking (involves RevOps lead), practical (asks clarifying questions).",
-      "objection_style": "Direct and collaborative (raises specific questions for clarification, not outright objections).",
-      "role_in_deal": "Influencer and evaluator, seeking internal alignment."
+      "personality_traits": ["professional", "process-oriented", "collaborative", "efficient"],
+      "communication_style": "professional",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "direct inquiry",
+      "role_in_deal": "influencer"
     },
     "intent_sentiment": {
-      "intent_signals": ["Evaluating proposal", "Clarifying details", "Seeking internal alignment", "Expressing preference for faster communication"],
-      "overall_sentiment": "Positive to neutral, indicating active consideration and movement forward.",
-      "tone_patterns": "Professional, direct, and appreciative."
+      "intent_signals": ["evaluating", "seeking clarification", "moving forward"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional"
     },
     "objections_concerns": {
-      "objection_types": ["Technical/Scope (implementation support)"],
-      "objection_frequency_severity": "Low frequency (one specific question) and low severity (easily clarified and resolved)."
+      "objection_types": ["technical clarification"],
+      "objection_frequency_severity": "low frequency, low severity"
     },
     "communication_behavior": {
-      "response_time": "Fast to moderate, responding within minutes.",
-      "engagement_level": "Moderate to high; actively engages, provides feedback, and initiates a channel change.",
-      "message_complexity": "Concise and clear, focused on specific feedback or next steps.",
-      "preferred_channel": "Shifting from Email to Slack, explicitly stating it's 'faster for us at this point'."
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "slack"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "Proposal/Evaluation. Prospect is reviewing the formal proposal and gathering internal feedback.",
-      "budget_risk_indicators": "None observed; discount was previously discussed.",
-      "timeline_risk_indicators": "Low risk; prompt responses and desire for faster communication suggest a desire to proceed efficiently.",
-      "churn_risk_indicators": "Very low; high engagement, specific questions, and proactive channel change indicate strong interest."
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "none",
+      "timeline_risk_indicators": "low risk",
+      "churn_risk_indicators": "low risk"
     },
     "deal_insights": {
-      "key_objections": "Clarity on implementation support being included.",
-      "decision_maker_status": "Influencer/Key Stakeholder. She is responsible for forwarding the proposal and gathering initial feedback from internal teams (RevOps lead).",
-      "urgency_level": "Moderate; appreciates 'quick turnaround' and seeks 'faster' communication.",
-      "competitive_position": "Unknown; no competitive discussion in this thread."
+      "key_objections": "clarification on implementation support inclusion",
+      "decision_maker_status": "influencer",
+      "urgency_level": "moderate to high",
+      "competitive_position": "unknown"
     }
   }

@@ -1,0 +1,79 @@
+{
+  "deal_id": "D094KB9QUNP",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 15,
+    "Budget_Risk": 5,
+    "deal_risk_explanation": "Minor amendments are being made, but overall progress is positive.",
+    "churn_risk_explanation": "The prospect is engaged and responsive, indicating low churn risk.",
+    "timeline_risk_explanation": "The timeline is tight but achievable given current communication.",
+    "budget_risk_explanation": "No budget concerns have been raised in the discussions."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [],
+    "Decision_Maker_Status": "Engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Finalizing contract amendments and preparing for signatures."
+  },
+  "TIMELINE": {
+    "event_date": "2025-07-11",
+    "event_description": "Expected contract signatures and onboarding initiation.",
+    "event_type": "milestone"
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales rep (Sophia) and prospect (Bruce) are in the final stages of closing, addressing a minor legal amendment to the termination clause. Bruce has agreed and is coordinating with his legal team to make the change. Both parties are optimistic about signing by Friday to kick off onboarding on August 5th.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Confirm legal team's approval of the contract amendment.",
+      "Coordinate signatures for the contract.",
+      "Prepare onboarding materials for the August 5 initiation."
+    ],
+    "Escalation_Triggers": "If legal amendments are not approved by July 10.",
+    "Deal_Acceleration_Tactics": "Maintain frequent communication and provide any additional information needed by the prospect's legal team."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": "Subject: Follow-Up on Contract Amendment\n\nHi Bruce,\n\nI hope this message finds you well. I just wanted to touch base regarding the contract amendment we discussed. Please let me know if your legal team has any updates or if there's anything further you need from my side.\n\nLooking forward to wrapping this up!\n\nBest,\nSophia",
+    "Slack_Message": "Hey Bruce, just checking in on the contract amendment. Any updates from your legal team? Excited to get this finalized!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["contract_negotiation", "positive_sentiment", "quick_resolution", "no_objections", "onboarding_timeline"]
+}
