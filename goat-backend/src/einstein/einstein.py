@@ -81,10 +81,12 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
     "last_touch_channel": "[slack | email | call | meeting]",
     "last_touch_summary": "[string]"
   }},
-  "TIMELINE": {{
-    "event_date": "[ISO8601 date]",
-    "event_description": "[string]",
-    "event_type": "[string]"
+  "TIMELINE": {{ //Add multiple events, at least 3, 2 should be past events, 1 should be a future event
+    "event": {{
+      "event_date": "[ISO8601 date]",
+      "event_description": "[string]",
+      "event_type": "[string]"
+    }}
   }},
 
   "AI_GENERATED_SUMMARY": "[string]",
@@ -96,8 +98,13 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
   }},
 
   "AI_GENERATED_FOLLOW_UP": {{
-    "Email_Draft": "[string]",
-    "Slack_Message": "[string]"
+    "Email_Draft": [
+      {{
+        "subject": "[string]",
+        "body": "[string]"
+      }}
+    ],
+    "Slack_Message": [string]
   }},
 
   "PARTICIPANTS": [

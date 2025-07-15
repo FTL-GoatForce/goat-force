@@ -13,12 +13,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from personality.personality import get_personality_analysis
 
 
-def clear_cache():
-    cache_files = ['.channels_cache_v2.json', '.users_cache.json']
-    for cache_file in cache_files:
-        if os.path.exists(cache_file):
-            os.remove(cache_file)
-            print(f"Cleared cache file: {cache_file}")
+# def clear_cache():
+#     cache_files = ['.channels_cache_v2.json', '.users_cache.json']
+#     for cache_file in cache_files:
+#         if os.path.exists(cache_file):
+#             os.remove(cache_file)
+#             print(f"Cleared cache file: {cache_file}")
 
 
 def run_slack_mcp_server(channel_id: str):
@@ -57,38 +57,63 @@ def run_einstein_request(deal_id: str):
 
 
 async def main(deal_id: str, slack_channel_id: str, email: str):
-    clear_cache()
     
+    # Initialize timing variables
     start_time = time.time()
+    slack_start = start_time
+    gmail_start = None
+    personality_start = None
+    einstein_start = None
+    
+    # Track individual component times
+    component_times = {}
+    
     
     print("Running Slack MCP server...")
     slack_success = await asyncio.to_thread(run_slack_mcp_server, slack_channel_id)
-    slack_time = time.time() - start_time
-    print(f"slack time: {slack_time:.2f}")
+    slack_end = time.time()
+    slack_time = slack_end - slack_start
+    component_times['slack_mcp'] = slack_time
+    print(f"Slack MCP: {slack_time:.2f}s")
+
+    gmail_start = slack_end
     print("Running Gmail MCP server...")
     gmail_success = await asyncio.to_thread(run_gmail_mcp_server, email)
-    gmail_time = time.time() - slack_time
-    print(f"gmail time: {gmail_time:.2f}")
-    
-    end_time = time.time()
-    print(f"Time taken for MCP servers: {end_time - start_time} seconds")
+    gmail_end = time.time() 
+    gmail_time = gmail_end - gmail_start
+    component_times['gmail_mcp'] = gmail_time
+    print(f"Gmail MCP: {gmail_time:.2f}s")
     
     if slack_success and gmail_success:
+        personality_start = gmail_end
         print("Running personality analysis...")
         await get_personality_analysis()
-        personality_time = time.time() - gmail_time
-        print(f"personality time: {personality_time:.2f}")
+        personality_end = time.time()
+        personality_time = personality_end - personality_start
+        component_times['personality'] = personality_time
+        print(f"Personality: {personality_time:.2f}s")
 
+        einstein_start = personality_end
         print("Running Einstein analysis...")
-        run_einstein_request(deal_id)
-        einstein_time = time.time() - personality_time
-        print(f"einstein time: {einstein_time:.2f}")
-        end_time = time.time()
-        print(f"Total time taken: {end_time - start_time} seconds")
-
-        return True
+        einstein_success = run_einstein_request(deal_id)
+        einstein_end = time.time()
+        einstein_time = einstein_end - einstein_start
+        component_times['einstein'] = einstein_time
+        print(f"Einstein: {einstein_time:.2f}s")
+        
+        total_time = einstein_end - start_time
+        component_times['total'] = total_time
+        print(f"Total: {total_time:.2f}s")
+        
+        # Save the component times to a JSON file
+        basePath = os.getcwd()
+        with open(os.path.join(basePath, 'performance.json'), 'a') as f:
+            json.dump(component_times, f)
+        print("Component times saved to performance.json")
+        return einstein_success
     else:
-        print("One or more MCP servers failed, skipping Einstein analysis")
+        print("One or more MCP servers failed, skipping Einstein analysis")            
+        return False
 
 
 if __name__ == "__main__":
@@ -97,4 +122,3 @@ if __name__ == "__main__":
     slack_channel_id = sys.argv[2]
     email = sys.argv[3]
     asyncio.run(main(deal_id, slack_channel_id, email))
-    # python main.py 01J094KB9QUNP D094KB9QUNP sophia.nguyen.airbnb2025@gmail.com
