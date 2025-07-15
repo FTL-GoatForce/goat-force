@@ -1,38 +1,38 @@
 
   {
-    "prospect_name": "Sophia Nguyen",
+    "prospect_name": "David Gonzalez",
     "personality_communication_profile": {
-      "personality_traits": ["professional", "process-oriented", "collaborative", "efficient"],
-      "communication_style": "professional",
-      "decision_making_style": "consensus-seeking",
-      "objection_style": "direct inquiry",
+      "personality_traits": ["analytical", "cautious", "direct", "professional", "evaluative"],
+      "communication_style": "receptive but guarded, direct, professional, questioning",
+      "decision_making_style": "data-driven, cautious, process-oriented",
+      "objection_style": "direct, technical/specific",
       "role_in_deal": "influencer"
     },
     "intent_sentiment": {
-      "intent_signals": ["evaluating", "seeking clarification", "moving forward"],
-      "overall_sentiment": "positive",
-      "tone_patterns": "professional"
+      "intent_signals": ["expressing interest", "evaluating", "seeking information"],
+      "overall_sentiment": "neutral",
+      "tone_patterns": "receptive, professional, cautious, direct when raising concerns"
     },
     "objections_concerns": {
-      "objection_types": ["technical clarification"],
-      "objection_frequency_severity": "low frequency, low severity"
+      "objection_types": ["technical limitations", "past negative experiences"],
+      "objection_frequency_severity": "two distinct technical objections raised; moderate severity, solvable"
     },
     "communication_behavior": {
       "response_time": "fast",
       "engagement_level": "high",
-      "message_complexity": "short replies",
-      "preferred_channel": "slack"
+      "message_complexity": "concise and direct, sufficiently detailed",
+      "preferred_channel": "email"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "negotiation",
-      "budget_risk_indicators": "none",
-      "timeline_risk_indicators": "low risk",
-      "churn_risk_indicators": "low risk"
+      "deal_stage_signals": "qualification/discovery",
+      "budget_risk_indicators": "none mentioned",
+      "timeline_risk_indicators": "still early, internal discussions and requirements mapping ongoing",
+      "churn_risk_indicators": "no significant churn risk, highly engaged"
     },
     "deal_insights": {
-      "key_objections": "clarification on implementation support inclusion",
-      "decision_maker_status": "influencer",
-      "urgency_level": "moderate to high",
-      "competitive_position": "unknown"
+      "key_objections": "CRM's ability to handle multiple business units and segment permissions/reporting/workflows; ease of integration, particularly with Slack.",
+      "decision_maker_status": "key influencer or primary evaluator, potentially a decision-maker",
+      "urgency_level": "low to medium",
+      "competitive_position": "actively evaluating a few platforms; past negative experiences with other solutions present an opportunity"
     }
   }
