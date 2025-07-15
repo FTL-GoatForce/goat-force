@@ -20,6 +20,7 @@ import {
   Psychology,
   Fingerprint,
 } from "@mui/icons-material";
+import ShinyText from "../ReusableComponents/Shiny";
 import { alpha } from "@mui/material";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { useEffect, useState, useRef } from "react";
@@ -203,8 +204,12 @@ const CRMChatBot = ({ handleExit }) => {
                 variant="h2"
                 color="white"
               >
-                I'm your GoatForce AI assistant. Ask me anything about your CRM
-                data, deals, or pipeline insights
+                <ShinyText
+                  text="I'm your GoatForce AI assistant. Ask me anything about your CRM
+                data, deals, or pipeline insights "
+                ></ShinyText>
+                {/* I'm your GoatForce AI assistant. Ask me anything about your CRM
+                data, deals, or pipeline insights */}
                 <br />
                 <Fingerprint sx={{ ml: 1 }} color="white" />
               </Typography>

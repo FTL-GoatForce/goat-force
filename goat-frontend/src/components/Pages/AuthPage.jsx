@@ -77,7 +77,7 @@ const AuthPage = () => {
         >
           <Box
             sx={{
-              width: "70%",
+              width: "60%",
               m: 7,
             }}
           >
