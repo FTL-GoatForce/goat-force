@@ -18,7 +18,79 @@ async def get_deals():
     finally:
         await prisma.disconnect()
 
-    
+@mcp.tool
+async def get_deal_details(deal_id: int):
+    try:
+        await prisma.connect()
+        response = {}
+        deal = await prisma.deals.find_unique(
+            where={"id": deal_id}
+        )
+        response["deal"] = deal
+
+        participants = await prisma.participants.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["participants"] = participants
+        participant_id = participants[0].id
+
+        risks = await prisma.risks.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["risks"] = risks
+
+        activity_metrics = await prisma.activitymetrics.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["activityMetrics"] = activity_metrics
+
+        ai_recommendation = await prisma.airecommendation.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["aiRecommendation"] = ai_recommendation
+
+        follow_ups = await prisma.followup.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["followUps"] = follow_ups
+
+        tags = await prisma.tags.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["tags"] = tags
+
+        conversation_history = await prisma.conversationhistory.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["conversationHistory"] = conversation_history
+
+        deal_insights = await prisma.dealinsights.find_many(
+            where={"deal_id": deal_id}
+        )
+        response["dealInsights"] = deal_insights
+
+        risk_explanation = await prisma.riskexplanation.find_many(
+            where={"risk_id": risks[0].id}
+        )
+        response["riskExplanation"] = risk_explanation
+
+        personality = await prisma.personality.find_many(
+            where={"participant_id": participant_id}
+        )
+        response["personality"] = personality
+
+        timeline = await prisma.timeline.find_many(
+            where={"activity_metrics_id": activity_metrics[0].id}
+        )
+        response["timeline"] = timeline
+
+        return response
+    except Exception as e:
+        return {'err': str(e)}
+    finally:
+        await prisma.disconnect()
+
+
 # Within the FastMCP ecosystem, this line may be unnecessary. However, including it ensures that your FastMCP server runs for all users and clients in a consistent way and is therefore recommended as best practice.
 if __name__ == "__main__":
     mcp.run()

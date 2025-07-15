@@ -287,6 +287,18 @@
         "total": 124.06442308425903
       },
       "success": true
+    },
+    {
+      "timestamp": "2025-07-15T16:03:47.043516",
+      "deal_id": "1",
+      "component_times": {
+        "slack_mcp": 15.88641905784607,
+        "gmail_mcp": 75.34995794296265,
+        "personality": 7.555910110473633,
+        "einstein": 22.926479816436768,
+        "total": 105.83270192146301
+      },
+      "success": true
     }
   ]
 }
