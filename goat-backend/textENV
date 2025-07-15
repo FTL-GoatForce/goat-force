@@ -1,6 +1,7 @@
-# Make your own .env & add the following with your own values
 DATABASE_URL="postgresql://name:password@localhost:port/GoatDB?schema=public"
+PORT=""
 GOOGLE_API_KEY = ""
 CONSUMER_KEY= ""
 CONSUMER_SECRET = ""
 EINSTEIN_URL = ""
+FASTAPI_URL="

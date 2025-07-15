@@ -1,8 +1,8 @@
 {
-  "thread_id": "thread_D094KB9QUNP",
+  "thread_id": "D094KB9QUNP_1751929510",
   "channel": {
     "id": "D094KB9QUNP",
-    "name": "Direct Message",
+    "name": "Not resolvable with current tools",
     "type": "dm"
   },
   "participants": [
@@ -21,47 +21,47 @@
     {
       "from": "Sophia",
       "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
-      "timestamp": "2025-07-06T08:25:10Z",
+      "timestamp": "2025-07-07T14:45:10Z",
       "sentiment": "neutral",
       "tone": "direct",
       "objections": [],
-      "intent": "clarify_terms",
-      "action_required": true
+      "intent": "confirm",
+      "action_required": false
     },
     {
       "from": "Bruce",
       "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
-      "timestamp": "2025-07-06T08:25:29Z",
+      "timestamp": "2025-07-07T14:45:29Z",
       "sentiment": "positive",
       "tone": "cooperative",
       "objections": [],
-      "intent": "commit_to_action",
+      "intent": "commit",
       "action_required": false
     },
     {
       "from": "Sophia",
       "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
-      "timestamp": "2025-07-06T08:25:37Z",
+      "timestamp": "2025-07-07T14:45:37Z",
       "sentiment": "positive",
       "tone": "enthusiastic",
       "objections": [],
-      "intent": "reassure_progress",
+      "intent": "confirm",
       "action_required": false
     },
     {
       "from": "Bruce",
       "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
-      "timestamp": "2025-07-06T08:25:45Z",
+      "timestamp": "2025-07-07T14:45:45Z",
       "sentiment": "positive",
       "tone": "proactive",
       "objections": [],
-      "intent": "provide_update",
+      "intent": "update",
       "action_required": false
     },
     {
       "from": "Sophia",
       "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
-      "timestamp": "2025-07-06T08:25:54Z",
+      "timestamp": "2025-07-07T14:45:54Z",
       "sentiment": "positive",
       "tone": "appreciative",
       "objections": [],
@@ -71,16 +71,16 @@
     {
       "from": "Bruce",
       "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
-      "timestamp": "2025-07-06T08:26:00Z",
+      "timestamp": "2025-07-07T14:46:00Z",
       "sentiment": "positive",
-      "tone": "reassuring",
+      "tone": "confident",
       "objections": [],
-      "intent": "commit_to_next_steps",
+      "intent": "commit",
       "action_required": false
     }
   ],
-  "summary": "The sales rep, Sophia, and prospect, Bruce, are finalizing a contract. The prospect's legal team has a minor request for a termination clause tweak, which Bruce is promptly addressing. Both parties are aligned on the timeline for signing the agreement by Friday for an August 5th onboarding.",
-  "last_activity": "2025-07-06T08:26:00Z",
+  "summary": "The sales representative requested a minor legal tweak to the contract's termination clause. The prospect promptly agreed and confirmed the updated draft was sent to their legal team, anticipating quick finalization. Both parties expressed alignment on the timeline for signing by Friday and onboarding by August 5.",
+  "last_activity": "2025-07-07T14:46:00Z",
   "engagement_metrics": {
     "message_count": 6,
     "rep_response_time_sec": 8.73,
@@ -88,11 +88,10 @@
     "followups_committed": 0
   },
   "tags": [
-    "contract_finalization",
+    "deal_progress",
+    "legal_review",
     "positive_sentiment",
-    "quick_resolution",
-    "no_objections",
-    "clear_next_steps",
-    "efficient_communication"
+    "timeline_set",
+    "smooth_negotiation"
   ]
 }

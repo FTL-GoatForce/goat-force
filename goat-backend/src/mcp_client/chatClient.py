@@ -1,7 +1,6 @@
 import asyncio
 from fastmcp import Client
 from fastapi import FastAPI
-from datetime import datetime
 from pydantic import BaseModel
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -35,7 +34,7 @@ app.add_middleware(
 gemini_client =  genai.Client(api_key=api_key) # add api key here
 
 
-# ------------- Data Checking 
+# ------------- Data Checking  | Only accept a POST with JSON that has a message key of type string
 class MessageRequest (BaseModel):
     message: str
 
@@ -60,31 +59,50 @@ async def receieve_message(request: MessageRequest):
 
 # ------------ Once a message is recieved to the API Endpoint - Run MCP Server and create an API Request - Then Return the Gemini Response
 async def run(message: MessageRequest):
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
+    async with stdio_client(server_params) as (read, write):    # launches our MCP server 
+        async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
             try:
-                
-                await session.initialize()
+                # ----------- Starting our session giving gemini access to tools 
+                await session.initialize()  
                 response = await gemini_client.aio.models.generate_content(
                     model = "gemini-2.5-flash",
                     contents = f""" 
-                    You are an AI assistant that manages a user's CRM deal data. You have access to multiple tools that allow you to read from all of the users deals 
+                    You are **GoatForce**, an AI‑powered sales assistant that helps any sales rep stay on top of their CRM deals.  
+                    Your goal: cut down administrative work so the user can focus on selling, increase close rates, and drive more revenue.
+
+
 
                     Your job is to:
-                    1. Understand the user's natrual language message.
-                    2. Decide which tool to call based on the user's intent.
-                    3. Take in the users request and respond as in natural language as an informed assistant on their deal
+                    1. Read the user’s natural‑language message and identify their intent.  
+                    2. Decide whether you need to call **get_deals** (or simply reply if no data fetch is required).  
+                    3. Craft an informative response that helps the user act on their deals (e.g., show deal details, flag risks, suggest next steps, generate follow‑up reminders, summarize communications, compare deals, etc.).  
+                    4. Output your answer in **Markdown**.  
+                    5. Use clean, bolded field labels and line breaks—*no* asterisks or bullet‑point lists.  
+                    6. Keep the tone concise, professional, and action‑oriented.
 
                     Here are the available tools available: 
                     1. 'get_deals'
                     - Retrieves all deals from the database (including id).
                     - No required parameters.
                     
+                    
+                    ### Example deal‑detail format
+                    **Deal Name:** Test Deal  
+                    **Company:** Dariel Got Motion  
+                    **Stage:** Qualification  
+                    **Status:** Awaiting technical review  
+                    **Amount:** $20,000.00  
+                    **Expected Close Date:** January 1, 2026  
+                    **Created At:** July 14, 2025  
+                    **Updated At:** July 16, 2025  
+                    **Deal ID:** 1  
 
+                    ### Example summary / recommendation format
+                    You have five active deals. Two are overdue for follow‑up (IDs 3 & 4). I recommend emailing the decision maker at Apex Labs today and scheduling a demo for BrightCore by Friday to keep both opportunities warm.
 
                     Here is the user's message: {message.message}
 
-                    Return the response in markdown format.
+                    Return the response in markdown format using the guidelines above.
                     """,
 
                 # Giving gemini access to tools 
@@ -102,6 +120,7 @@ async def run(message: MessageRequest):
                     "status": "error"
                 }
             
+#  Calling this in python auto starts the API Server 
 if __name__ == "__main__":
     print("Starting FastAPI Server")
     uvicorn.run(app, host="0.0.0.0", port=8000)

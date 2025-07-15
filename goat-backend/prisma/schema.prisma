@@ -20,7 +20,6 @@ model Deals{
   deal_name String
   company_name String
   stage String?
-  status String?
   deal_value Float
   deal_description String
   service_category String
@@ -48,7 +47,7 @@ model Participants{
   role String?
   communication_score Float?
   sentiment String?
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   personality Personality[]
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -62,7 +61,7 @@ model Risks{
   timeline_risk_score Float
   budget_risk_score Float
   risk_explanation RiskExplanation[]
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -77,7 +76,7 @@ model ActivityMetrics{
   last_communication_summary String
   timeline Timeline[]
   created_at DateTime @default(now())
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   updated_at DateTime @updatedAt
 }
 
@@ -87,7 +86,7 @@ model AiRecommendation{
   next_steps String[]
   escalation_triggers String
   deal_acceleration_tactics String
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -101,7 +100,7 @@ model FollowUp{
   body String?
   message_id String?
   scheduled_at DateTime?
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -110,7 +109,7 @@ model Tags{
   id Int @id @default(autoincrement())
   deal_id Int
   tag String[]
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -121,7 +120,7 @@ model ConversationHistory{
   slack Json
   email Json
   deal_summary String
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -133,7 +132,7 @@ model DealInsights{
   decision_maker_status String
   urgency_level String
   competitive_position String
-  deal Deals @relation(fields: [deal_id], references: [id])
+  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -145,7 +144,7 @@ model RiskExplanation{
   timeline_risk_explanation String
   churn_risk_explanation String
   deal_risk_summary String
-  risk Risks @relation(fields: [risk_id], references: [id])
+  risk Risks @relation(fields: [risk_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -154,7 +153,7 @@ model Personality{
   id Int @id @default(autoincrement())
   participant_id Int
   personality_traits Json
-  participant Participants @relation(fields: [participant_id], references: [id])
+  participant Participants @relation(fields: [participant_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -162,10 +161,8 @@ model Personality{
 model Timeline{
   id Int @id @default(autoincrement())
   activity_metrics_id Int
-  event_date DateTime
-  event_type String
-  event_details Json
-  activity_metrics ActivityMetrics @relation(fields: [activity_metrics_id], references: [id])
+  event Json
+  activity_metrics ActivityMetrics @relation(fields: [activity_metrics_id], references: [id], onDelete: Cascade)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }

@@ -1,0 +1,107 @@
+Deal ID: 3
+Response: {
+  "deal_id": "197e6e21467c29cd",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "david.gonzalez.fedex2025@gmail.com",
+    "name": "David Gonzalez"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-14",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 40,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 10,
+    "deal_risk_explanation": "The deal is in the qualification stage with some technical concerns raised that need to be addressed.",
+    "churn_risk_explanation": "Prospect is currently evaluating multiple platforms, indicating a moderate risk of churn.",
+    "timeline_risk_explanation": "The timeline is reasonable, but the prospect is still in early discussions, which could delay decisions.",
+    "budget_risk_explanation": "No budget concerns indicated at this stage; the prospect is exploring options."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [
+      "handling multiple business units",
+      "ease of integration (Slack)"
+    ],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 128.67,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "David confirmed the meeting and raised a new concern about integration with Slack."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Initial outreach by Bruce Wayne proposing a discovery call.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "David confirmed interest and proposed a meeting.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-14",
+      "event_description": "Scheduled follow-up meeting to discuss CRM capabilities.",
+      "event_type": "meeting"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "David Gonzalez, the sales representative, has engaged with Bruce Wayne from FedEx regarding CRM solutions. A meeting is scheduled for July 14, 2025, to discuss specific technical concerns raised by the prospect. Key objections include the ability to handle multiple business units and integration with Slack.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Prepare materials addressing the handling of multiple business units.",
+      "Provide information on Slack integration capabilities.",
+      "Follow up with Bruce one day before the meeting to confirm."
+    ],
+    "Escalation_Triggers": "If the prospect raises additional concerns about integration or platform capabilities.",
+    "Deal_Acceleration_Tactics": "Offer a personalized demo focusing on the prospect's specific needs."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Looking Forward to Our Meeting",
+        "body": "Hi Bruce,\n\nI wanted to confirm our meeting on Tuesday at 11 a.m. PST. I’ll be prepared to discuss how our CRM can effectively manage multiple business units and address your integration concerns with Slack. \n\nPlease let me know if there’s anything specific you’d like to cover.\n\nBest,\nDavid"
+      }
+    ],
+    "Slack_Message": "Hi Bruce, just confirming our meeting on Tuesday at 11 a.m. PST. Looking forward to our discussion!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "unknown",
+      "sentiment": "neutral",
+      "communication_score": 70
+    }
+  ],
+
+  "TAGS": [
+    "meeting_scheduled",
+    "technical_objection",
+    "integration_concern",
+    "multi_business_unit_support"
+  ]
+}
+--------------------------------

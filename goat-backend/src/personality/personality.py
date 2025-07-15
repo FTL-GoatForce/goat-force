@@ -12,7 +12,7 @@ from utils.strip_json import strip_json
 import json
 from dotenv import load_dotenv  
 load_dotenv()
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 # Pydantic models for structured output
@@ -59,14 +59,15 @@ class PersonalityAnalysis(BaseModel):
     deal_dynamics_risk_assessment: DealDynamicsRiskAssessment
     deal_insights: DealInsights
 
-def personality_analysis_prompt():
+def personality_analysis_prompt(email: str, slack_id: str):
     return f"""
     You are an expert in behavioral analysis, personality profiling, and B2B sales communication.
     You will be provided with JSON data containing conversations (Slack and Email) between a sales representative and a prospect.
     Your task is to analyze the prospect and generate a structured personality profile along with insight into deal dynamics.
-
+    Only do the analysis for the prospect. DO NOT DO IT FOR BRUCE.
+    The prospect is the one listed in gmail.
     ANALYZE THIS SALES DATA:
-    {load_data()}
+    {load_data(email, slack_id)}
     
 
     Your output should include insights across the following categories:
@@ -112,9 +113,9 @@ def personality_analysis_prompt():
 """
 
 
-async def get_personality_analysis():
+async def get_personality_analysis(email: str, slack_id: str):
     try:
-        prompt = personality_analysis_prompt()
+        prompt = personality_analysis_prompt(email, slack_id)
         
         response = client.models.generate_content(
             model="gemini-2.5-flash",
@@ -137,6 +138,7 @@ async def get_personality_analysis():
             f.write(f"Response: {response_text}")
             f.write("--------------------------------\n")
         
+        return True
     except Exception as e:
         print(f"Error in personality analysis: {e}")
         return None

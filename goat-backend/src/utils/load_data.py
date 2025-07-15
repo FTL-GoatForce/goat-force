@@ -1,7 +1,7 @@
 import os
 import json
 
-def load_data() -> str:
+def load_data(email: str, slack_id: str) -> str:
     slack_data = []
     gmail_data = []
 
@@ -13,14 +13,14 @@ def load_data() -> str:
     # Load Slack transcripts
     if os.path.exists(slack_path):
         for file in os.listdir(slack_path):
-            if file.endswith("_structured_response.json"):
+            if file.endswith(f"{slack_id}_structured_response.json"):
                 with open(os.path.join(slack_path, file)) as f:
                     slack_data.append(json.load(f))
                     
     # Load Gmail transcripts         
     if os.path.exists(gmail_path):
         for file in os.listdir(gmail_path):
-            if file.endswith("_structured_response.json"):
+            if file.endswith(f"{email}_structured_response.json"):
                 with open(os.path.join(gmail_path, file)) as f:
                     gmail_data.append(json.load(f))
 

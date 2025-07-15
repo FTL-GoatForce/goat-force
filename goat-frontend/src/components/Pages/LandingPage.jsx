@@ -266,6 +266,7 @@ const LandingPage = () => {
               "&:hover": { bgcolor: "#00CC70" },
               ml: "auto",
             }}
+            onClick={() => navigate("/auth")}
           >
             Sign Up
           </Button>
