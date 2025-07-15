@@ -1,0 +1,107 @@
+{
+  "deal_id": "deal_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56Z",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 25,
+    "Churn_Risk": 15,
+    "Timeline_Risk": 20,
+    "Budget_Risk": 10,
+    "deal_risk_explanation": "Minor legal adjustments are being made, but overall alignment is positive.",
+    "churn_risk_explanation": "The prospect has shown sustained engagement and interest.",
+    "timeline_risk_explanation": "The timeline for signatures is set for this week, indicating urgency.",
+    "budget_risk_explanation": "No budget concerns have been raised by the prospect."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["multi-business unit handling", "integration concerns", "implementation support clarity"],
+    "Decision_Maker_Status": "Engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 19,
+    "prospect_response_time_sec": 602.5,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved sending a revised proposal and confirming next steps."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Proposal for Sales Suite Upgrade sent to Sophia Nguyen.",
+      "event_type": "proposal_sent"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Confirmation of meeting scheduled with David Gonzalez.",
+      "event_type": "meeting_scheduled"
+    },
+    {
+      "event_date": "2025-07-11",
+      "event_description": "Expected date for final signatures on the contract.",
+      "event_type": "contract_signing"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal with FedEx is currently in the negotiation stage, with both parties actively engaged in finalizing the contract. Key objections regarding implementation support and multi-business unit handling have been raised, but the overall sentiment remains positive. The expected close date is set for July 11, with a focus on expediting legal reviews and onboarding processes.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Follow up on legal review", "Prepare for implementation support discussion", "Confirm meeting details with David Gonzalez"],
+    "Escalation_Triggers": "If no response from legal by July 9, escalate to senior management.",
+    "Deal_Acceleration_Tactics": "Offer tailored solutions addressing the objections raised."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Proposal and Next Steps",
+        "body": "Hi Sophia,\n\nI hope this message finds you well. I wanted to follow up on the proposal I sent over regarding the Sales Suite Upgrade. Please let me know if there are any questions or if you need further clarification on the implementation support details.\n\nLooking forward to your feedback.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just checking in on the proposal and if there are any updates from your legal team. Let me know if you need anything from my side!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 80
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 75
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["deal_progress", "legal_review", "positive_sentiment", "timeline_set", "smooth_negotiation"]
+}

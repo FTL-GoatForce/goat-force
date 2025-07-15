@@ -1,0 +1,22 @@
+{
+  "thread_id": "data_unavailable",
+  "channel": {
+    "id": "D094RO7DZ4J",
+    "name": "",
+    "type": ""
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "Message data could not be retrieved due to an invalid channel ID or lack of permissions. Therefore, no summary or analysis can be generated.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "data_unavailable",
+    "channel_access_error"
+  ]
+}

@@ -50,7 +50,11 @@ def run_pipeline(request: Request):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-
+app.get("/performance")
+def get_performance():
+    with open('performance.json', 'r') as f:
+        data = f.read()
+        return json.loads(data)
 
 if __name__ == "__main__":
     import uvicorn

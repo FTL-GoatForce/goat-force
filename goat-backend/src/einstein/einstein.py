@@ -32,12 +32,13 @@ headers = {
     'x-client-feature-id': 'ai-platform-models-connected-app'
 }
 
-prompt = f"""
+def get_prompt(email: str, slack_id: str) -> str:
+    return f"""
 You are a sales intelligence AI analyzing deal data from multiple communication channels. 
 
 Your task is to analyze the data and provide a summary of the deal. 
 This is the slack data + gmail data:
-{load_data()}
+{load_data(email, slack_id)}
 
 FIll out all the fields to the best of your ability. 
 DO NOT ADD COMMENTS TO THE JSON.
@@ -124,10 +125,10 @@ Provide this analysis in a structured JSON format with clear numerical values an
 
 """
 
-async def einstein_request(deal_id: str):
+async def einstein_request(deal_id: str, email: str, slack_id: str):
     try:
         data = {
-            "prompt": prompt
+            "prompt": get_prompt(email, slack_id)
         }
 
         response = requests.post(string_url, headers=headers, json=data)
@@ -151,5 +152,7 @@ async def einstein_request(deal_id: str):
 if __name__ == "__main__": 
   import sys
   deal_id = sys.argv[1]
+  email = sys.argv[2]
+  slack_id = sys.argv[3]
   print(f"Running Einstein request for deal ID: {deal_id}")
-  asyncio.run(einstein_request(deal_id))
+  asyncio.run(einstein_request(deal_id, email, slack_id))
