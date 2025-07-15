@@ -29,6 +29,7 @@ import CRMAiEntry from "./CRMAiEntry";
 import axios from "axios";
 
 const CRMChatBot = ({ handleExit }) => {
+  const MCP = import.meta.env.VITE_MCP_SERVER;
   const messageRef = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
@@ -44,7 +45,7 @@ const CRMChatBot = ({ handleExit }) => {
     setChat((prev) => [...prev, chatObj]);
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8000/api/message", {
+      const response = await axios.post(MCP, {
         message: prompt,
       });
       setLoading(false);
