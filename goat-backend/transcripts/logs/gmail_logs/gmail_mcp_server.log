@@ -2704,3 +2704,328 @@ Structured Response: {
   ]
 }
 --------------------------------
+Email: sophia.nguyen.airbnb2025@gmail.com
+Structured Response: {
+  "thread_id": "197e71cffc593dd2",
+  "channel": {
+    "id": "email_thread_197e71cffc593dd2",
+    "name": "Email Thread",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia,Thanks again for your time last week. I’ve attached the formal proposal for the Sales Suite Upgrade. It includes the AI enhancement bundle and reflects the 8% discount we discussed.Let me know if you’d like to go over any specifics.",
+      "timestamp": "2025-07-07T15:59:19-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative",
+      "objections": [],
+      "intent": "propose, offer clarification",
+      "action_required": false
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hi Bruce,Appreciate the quick turnaround. This looks aligned overall — I’ll forward it to our RevOps lead and circle back with any questions.",
+      "timestamp": "2025-07-07T15:59:43-07:00",
+      "sentiment": "positive",
+      "tone": "professional, appreciative",
+      "objections": [],
+      "intent": "acknowledge, internal review, commit to follow-up",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia,Just wanted to check if your team had a chance to review the proposal.We’re flexible on start dates if that helps align internally.",
+      "timestamp": "2025-07-07T16:00:55-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, checking-in",
+      "objections": [],
+      "intent": "follow-up, facilitate",
+      "action_required": true
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hey Bruce,Just got some initial feedback. They’re mostly aligned — only question was whether implementation support is included in the first month.",
+      "timestamp": "2025-07-07T16:01:17-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, inquiring",
+      "objections": ["implementation support"],
+      "intent": "clarify, seek information",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Yes — full onboarding and implementation support are included for the first 30 days at no extra cost. I’ll highlight that in a revised version.Also happy to get on Slack if that’s easier for your side.",
+      "timestamp": "2025-07-07T16:01:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, helpful, accommodating",
+      "objections": [],
+      "intent": "clarify, resolve objection, propose communication channel",
+      "action_required": true
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "That helps a lot, thank you. Feel free to send the updated doc. And yes — let's move this to Slack, it’s faster for us at this point. I’ve sent you a dm on slack.",
+      "timestamp": "2025-07-07T16:02:35-07:00",
+      "sentiment": "positive",
+      "tone": "appreciative, decisive",
+      "objections": [],
+      "intent": "confirm, request updated document, transition communication",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Got the invite — thank you. Uploading the revised version now. Looking forward to wrapping this up smoothly.",
+      "timestamp": "2025-07-07T16:02:56-07:00",
+      "sentiment": "positive",
+      "tone": "professional, confident, confirming",
+      "objections": [],
+      "intent": "confirm receipt, provide update, close",
+      "action_required": false
+    }
+  ],
+  "summary": "Bruce Wayne sent the formal proposal, which Sophia Nguyen forwarded for internal review. Following a check-in, Sophia raised a question about implementation support, which Bruce promptly clarified. The conversation is now progressing positively, with the team transitioning to Slack for faster communication and Bruce committed to providing an updated document.",
+  "last_activity": "2025-07-07T16:02:56-07:00",
+  "engagement_metrics": {
+    "message_count": 7,
+    "rep_response_time_sec": 42.33,
+    "objections_raised": 1,
+    "followups_committed": 1
+  },
+  "tags": ["proposal_sent", "implementation_details", "communication_channel_change", "positive_momentum", "document_update_required"]
+}
+--------------------------------
+Email: sophia.nguyen.airbnb2025@gmail.com
+Structured Response: {
+  "thread_id": "197e71cffc593dd2",
+  "channel": {
+    "id": "197e71cffc593dd2",
+    "name": "Proposal - Salesforce Sales Suite Upgrade for Airbnb",
+    "type": "Email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia,Thanks again for your time last week. I’ve attached the formal proposal for the Sales Suite Upgrade. It includes the AI enhancement bundle and reflects the 8% discount we discussed.Let me know if you’d like to go over any specifics.Best,Bruce",
+      "timestamp": "2025-07-07T15:59:19-07:00",
+      "sentiment": "neutral",
+      "tone": "professional",
+      "objections": [],
+      "intent": "propose",
+      "action_required": false
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hi Bruce,Appreciate the quick turnaround. This looks aligned overall — I’ll forward it to our RevOps lead and circle back with any questions.Regards,Sophia",
+      "timestamp": "2025-07-07T15:59:43-07:00",
+      "sentiment": "positive",
+      "tone": "professional",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia,Just wanted to check if your team had a chance to review the proposal. We’re flexible on start dates if that helps align internally.Cheers,Bruce",
+      "timestamp": "2025-07-07T16:00:55-07:00",
+      "sentiment": "neutral",
+      "tone": "polite",
+      "objections": [],
+      "intent": "follow up",
+      "action_required": true
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hey Bruce,Just got some initial feedback. They’re mostly aligned — only question was whether implementation support is included in the first month.– Sophia",
+      "timestamp": "2025-07-07T16:01:17-07:00",
+      "sentiment": "neutral",
+      "tone": "direct",
+      "objections": [
+        "implementation support"
+      ],
+      "intent": "clarify",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Yes — full onboarding and implementation support are included for the first 30 days at no extra cost. I’ll highlight that in a revised version.Also happy to get on Slack if that’s easier for your side.Best,Bruce",
+      "timestamp": "2025-07-07T16:01:51-07:00",
+      "sentiment": "positive",
+      "tone": "helpful",
+      "objections": [],
+      "intent": "clarify",
+      "action_required": true
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "That helps a lot, thank you. Feel free to send the updated doc. And yes — let's move this to Slack, it’s faster for us at this point. I’ve sent you a dm on slack.Thanks,Sophia",
+      "timestamp": "2025-07-07T16:02:35-07:00",
+      "sentiment": "positive",
+      "tone": "grateful, urgent",
+      "objections": [],
+      "intent": "facilitate next steps",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Got the invite — thank you. Uploading the revised version now. Looking forward to wrapping this up smoothly.Talk soon,Bruce",
+      "timestamp": "2025-07-07T16:02:56-07:00",
+      "sentiment": "positive",
+      "tone": "responsive, eager",
+      "objections": [],
+      "intent": "update on progress",
+      "action_required": false
+    }
+  ],
+  "summary": "Sales rep Bruce Wayne submitted a proposal to Sophia Nguyen, who forwarded it for internal review. After a follow-up, Sophia inquired about implementation support, which Bruce confirmed was included and committed to revising the document. They have now agreed to shift communication to Slack, and Bruce is actively uploading the updated proposal.",
+  "last_activity": "2025-07-07T16:02:56-07:00",
+  "engagement_metrics": {
+    "message_count": 7,
+    "rep_response_time_sec": 42.33,
+    "objections_raised": 1,
+    "followups_committed": 1
+  },
+  "tags": [
+    "proposal_review",
+    "implementation_query",
+    "slack_transition",
+    "document_revision",
+    "positive_progress"
+  ]
+}
+--------------------------------
+Email: sophia.nguyen.airbnb2025@gmail.com
+Structured Response: {
+  "thread_id": "197e71cffc593dd2",
+  "channel": {
+    "id": "197e71cffc593dd2",
+    "name": "Proposal - Salesforce Sales Suite Upgrade for Airbnb",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "sophia.nguyen.airbnb2025@gmail.com",
+      "name": "Sophia Nguyen",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia, Thanks again for your time last week. I’ve attached the formal proposal for the Sales Suite Upgrade. It includes the AI enhancement bundle and reflects the 8% discount we discussed. Let me know if you’d like to go over any specifics. Best, Bruce",
+      "timestamp": "2025-07-07T15:59:19-07:00",
+      "sentiment": "positive",
+      "tone": "professional",
+      "objections": [],
+      "intent": "propose",
+      "action_required": false
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hi Bruce, Appreciate the quick turnaround. This looks aligned overall — I’ll forward it to our RevOps lead and circle back with any questions. Regards, Sophia",
+      "timestamp": "2025-07-07T15:59:43-07:00",
+      "sentiment": "positive",
+      "tone": "professional",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi Sophia, Just wanted to check if your team had a chance to review the proposal. We’re flexible on start dates if that helps align internally. Cheers, Bruce",
+      "timestamp": "2025-07-07T16:00:55-07:00",
+      "sentiment": "neutral",
+      "tone": "professional",
+      "objections": [],
+      "intent": "follow-up",
+      "action_required": false
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "Hey Bruce, Just got some initial feedback. They’re mostly aligned — only question was whether implementation support is included in the first month. – Sophia",
+      "timestamp": "2025-07-07T16:01:17-07:00",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [
+        "implementation support"
+      ],
+      "intent": "clarify",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Yes — full onboarding and implementation support are included for the first 30 days at no extra cost. I’ll highlight that in a revised version. Also happy to get on Slack if that’s easier for your side. Best, Bruce",
+      "timestamp": "2025-07-07T16:01:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional",
+      "objections": [],
+      "intent": "clarify",
+      "action_required": true
+    },
+    {
+      "from": "Sophia Nguyen",
+      "text": "That helps a lot, thank you. Feel free to send the updated doc. And yes — let's move this to Slack, it’s faster for us at this point. I’ve sent you a dm on slack. Thanks, Sophia",
+      "timestamp": "2025-07-07T16:02:35-07:00",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Got the invite — thank you. Uploading the revised version now. Looking forward to wrapping this up smoothly. Talk soon, Bruce",
+      "timestamp": "2025-07-07T16:02:56-07:00",
+      "sentiment": "positive",
+      "tone": "professional",
+      "objections": [],
+      "intent": "confirm",
+      "action_required": false
+    }
+  ],
+  "summary": "Bruce Wayne, the sales rep, sent a proposal for Salesforce Sales Suite Upgrade to Sophia Nguyen at Airbnb. Sophia sought clarification on implementation support, which Bruce confirmed is included, committing to update the proposal. The conversation is now transitioning to Slack for quicker communication, with Bruce confirming the updated document is being uploaded.",
+  "last_activity": "2025-07-07T16:02:56-07:00",
+  "engagement_metrics": {
+    "message_count": 7,
+    "rep_response_time_sec": 42.33,
+    "objections_raised": 1,
+    "followups_committed": 1
+  },
+  "tags": [
+    "proposal_review",
+    "implementation_question",
+    "slack_transition",
+    "document_revision",
+    "quick_turnaround"
+  ]
+}
+--------------------------------

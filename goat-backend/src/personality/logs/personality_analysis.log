@@ -1201,3 +1201,120 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Sophia Nguyen",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "appreciative", "decisive", "collaborative"],
+      "communication_style": "professional, appreciative, direct, clear",
+      "decision_making_style": "consensus-seeking (involving RevOps), practical (prefers faster communication), detail-oriented (inquiring about implementation)",
+      "objection_style": "collaborative, seeking clarification",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["acknowledging receipt", "internal review", "seeking clarification", "committing to follow-up", "transitioning communication"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional, appreciative, inquiring, decisive"
+    },
+    "objections_concerns": {
+      "objection_types": ["implementation support (clarification)"],
+      "objection_frequency_severity": "low frequency, low severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "concise, professional",
+      "preferred_channel": "initially email, then Slack for speed"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "proposal review, negotiation, moving towards close",
+      "budget_risk_indicators": "none",
+      "timeline_risk_indicators": "none (actively seeking to accelerate with Slack move)",
+      "churn_risk_indicators": "low"
+    },
+    "deal_insights": {
+      "key_objections": "clarification on implementation support inclusion",
+      "decision_maker_status": "influencer/facilitator, involving RevOps lead for final sign-off",
+      "urgency_level": "moderate to high (appreciates quick turnaround, wants faster communication)",
+      "competitive_position": "strong (no mention of competitors, focus is on internal alignment)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Sophia Nguyen",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "efficient", "collaborative", "action-oriented"],
+      "communication_style": "professional, direct, concise, later grateful and urgent",
+      "decision_making_style": "consensus-seeking, fast-mover once information is clear",
+      "objection_style": "direct and clear",
+      "role_in_deal": "influencer and key point of contact, facilitating internal review"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["acknowledging receipt", "forwarding for internal review", "clarifying terms", "facilitating next steps", "evaluating"],
+      "overall_sentiment": "positive and aligned",
+      "tone_patterns": "professional, direct, becomes grateful and urgent when a key concern is resolved and aiming to expedite"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical_scope_clarification"],
+      "objection_frequency_severity": "low frequency (one specific question raised), low severity (easily resolved clarification)"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high engagement (prompt responses, active forwarding, proactive channel shift)",
+      "message_complexity": "short, concise, and direct replies",
+      "preferred_channel": "initially email, prefers Slack for faster communication at this stage"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "proposal review and negotiation/clarification stage",
+      "budget_risk_indicators": "none observed",
+      "timeline_risk_indicators": "low risk (active engagement and desire to expedite)",
+      "churn_risk_indicators": "low risk (proactive engagement, positive sentiment, clear communication)"
+    },
+    "deal_insights": {
+      "key_objections": "clarification around 'implementation support' being included, which was easily addressed",
+      "decision_maker_status": "influencer / key point of contact (facilitating internal consensus, but not the ultimate signatory)",
+      "urgency_level": "moderate to high (indicated by quick responses and desire to shift to Slack)",
+      "competitive_position": "not explicitly mentioned; no indications of other vendors"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Sophia Nguyen",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "process-oriented", "collaborative", "efficient"],
+      "communication_style": "professional",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "direct inquiry",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "seeking clarification", "moving forward"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical clarification"],
+      "objection_frequency_severity": "low frequency, low severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "none",
+      "timeline_risk_indicators": "low risk",
+      "churn_risk_indicators": "low risk"
+    },
+    "deal_insights": {
+      "key_objections": "clarification on implementation support inclusion",
+      "decision_maker_status": "influencer",
+      "urgency_level": "moderate to high",
+      "competitive_position": "unknown"
+    }
+  }
+--------------------------------

@@ -1,37 +1,38 @@
+
   {
     "prospect_name": "Sophia Nguyen",
     "personality_communication_profile": {
-      "personality_traits": ["Professional", "Organized", "Collaborative", "Practical", "Appreciative"],
-      "communication_style": "Professional, concise, and direct. Appreciative of quick responses.",
-      "decision_making_style": "Consensus-seeking (involves RevOps lead), practical (asks clarifying questions).",
-      "objection_style": "Direct and collaborative (raises specific questions for clarification, not outright objections).",
-      "role_in_deal": "Influencer and evaluator, seeking internal alignment."
+      "personality_traits": ["professional", "process-oriented", "collaborative", "efficient"],
+      "communication_style": "professional",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "direct inquiry",
+      "role_in_deal": "influencer"
     },
     "intent_sentiment": {
-      "intent_signals": ["Evaluating proposal", "Clarifying details", "Seeking internal alignment", "Expressing preference for faster communication"],
-      "overall_sentiment": "Positive to neutral, indicating active consideration and movement forward.",
-      "tone_patterns": "Professional, direct, and appreciative."
+      "intent_signals": ["evaluating", "seeking clarification", "moving forward"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional"
     },
     "objections_concerns": {
-      "objection_types": ["Technical/Scope (implementation support)"],
-      "objection_frequency_severity": "Low frequency (one specific question) and low severity (easily clarified and resolved)."
+      "objection_types": ["technical clarification"],
+      "objection_frequency_severity": "low frequency, low severity"
     },
     "communication_behavior": {
-      "response_time": "Fast to moderate, responding within minutes.",
-      "engagement_level": "Moderate to high; actively engages, provides feedback, and initiates a channel change.",
-      "message_complexity": "Concise and clear, focused on specific feedback or next steps.",
-      "preferred_channel": "Shifting from Email to Slack, explicitly stating it's 'faster for us at this point'."
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "slack"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "Proposal/Evaluation. Prospect is reviewing the formal proposal and gathering internal feedback.",
-      "budget_risk_indicators": "None observed; discount was previously discussed.",
-      "timeline_risk_indicators": "Low risk; prompt responses and desire for faster communication suggest a desire to proceed efficiently.",
-      "churn_risk_indicators": "Very low; high engagement, specific questions, and proactive channel change indicate strong interest."
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "none",
+      "timeline_risk_indicators": "low risk",
+      "churn_risk_indicators": "low risk"
     },
     "deal_insights": {
-      "key_objections": "Clarity on implementation support being included.",
-      "decision_maker_status": "Influencer/Key Stakeholder. She is responsible for forwarding the proposal and gathering initial feedback from internal teams (RevOps lead).",
-      "urgency_level": "Moderate; appreciates 'quick turnaround' and seeks 'faster' communication.",
-      "competitive_position": "Unknown; no competitive discussion in this thread."
+      "key_objections": "clarification on implementation support inclusion",
+      "decision_maker_status": "influencer",
+      "urgency_level": "moderate to high",
+      "competitive_position": "unknown"
     }
   }

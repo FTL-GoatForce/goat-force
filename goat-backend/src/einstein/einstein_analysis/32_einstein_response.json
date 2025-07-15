@@ -1,0 +1,99 @@
+{
+  "deal_id": "D094KB9QUNP-197e71cffc593dd2",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094C5HKJET",
+    "name": "Sophia"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56Z",
+  "deal_stage": "proposal",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-09",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 15, 
+    "Budget_Risk": 5,
+    "deal_risk_explanation": "Both parties are actively engaged and addressing concerns, indicating low risk of deal loss.",
+    "churn_risk_explanation": "The prospect has shown consistent communication and interest, suggesting low churn risk.",
+    "timeline_risk_explanation": "The timeline is set for signatures by Friday, with onboarding planned for August 5, indicating manageable timeline risk.",
+    "budget_risk_explanation": "No budget concerns have been raised, and a discount has been offered, indicating low budget risk."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed the implementation support and is actively uploading the revised proposal."
+  },
+  
+  "TIMELINE": {
+    "events": [
+      {
+        "event_date": "2025-07-06",
+        "event_description": "Confirmed termination clause amendment and set a timeline for signatures.",
+        "event_type": "contract negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Proposal for Sales Suite Upgrade sent to prospect.",
+        "event_type": "proposal submission"
+      },
+      {
+        "event_date": "2025-07-09",
+        "event_description": "Expected date for deal closure and signing.",
+        "event_type": "deal closure"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal involves a proposal for a Sales Suite Upgrade for Airbnb, with key discussions around contract terms and implementation support. The parties are engaged in timely communication, with a focus on finalizing the deal by July 9, 2025, and onboarding scheduled for August 5, 2025.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Ensure the revised proposal is sent promptly.",
+      "Follow up with Sophia after legal review.",
+      "Prepare for onboarding logistics."
+    ],
+    "Escalation_Triggers": "If no response from legal by July 8, escalate to higher management.",
+    "Deal_Acceleration_Tactics": "Offer an additional incentive for quick signing."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Proposal Review",
+        "body": "Hi Sophia,\n\nI wanted to follow up regarding the proposal I sent over. Have you had a chance to discuss it with your RevOps lead? Please let me know if there are any questions or if you need further clarification on any points.\n\nLooking forward to your feedback!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just checking in on the proposal feedback. Let me know if you need any additional information!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_finalization", "no_objections", "positive_sentiment", "quick_resolution", "fast_response_time", "timeline_set", "proposal_review", "implementation_query", "slack_transition", "document_revision", "positive_progress"]
+}

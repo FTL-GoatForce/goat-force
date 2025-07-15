@@ -107,8 +107,16 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
         
         # Save the component times to a JSON file
         basePath = os.getcwd()
-        with open(os.path.join(basePath, 'performance.json'), 'a') as f:
-            json.dump(component_times, f)
+        with open(os.path.join(basePath, 'performance.json'), 'r+') as f:
+            data = json.load(f)
+            data['runs'].append({
+                "timestamp": datetime.now().isoformat(),
+                "deal_id": deal_id,
+                "component_times": component_times,
+                "success": True
+            })
+            f.seek(0)
+            json.dump(data, f, indent=2)
         print("Component times saved to performance.json")
         return einstein_success
     else:

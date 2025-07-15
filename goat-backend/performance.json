@@ -35,6 +35,30 @@
         "total": 158.23348712921143
       },
       "success": true
+    },
+    {
+      "timestamp": "2025-07-14T20:43:12.891432",
+      "deal_id": "30",
+      "component_times": {
+        "slack_mcp": 46.07301092147827,
+        "gmail_mcp": 104.06124019622803,
+        "personality": 7.709297180175781,
+        "einstein": 17.63630175590515,
+        "total": 175.47985005378723
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-07-14T21:17:23.141054",
+      "deal_id": "33",
+      "component_times": {
+        "slack_mcp": 38.61475706100464,
+        "gmail_mcp": 89.36222696304321,
+        "personality": 8.492886066436768,
+        "einstein": 19.211134910583496,
+        "total": 155.68100500106812
+      },
+      "success": true
     }
   ]
 }
