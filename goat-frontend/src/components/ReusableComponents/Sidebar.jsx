@@ -26,7 +26,7 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   // use state hooks, click will set active item to the clicked item
-  const [activeItem, setActiveItem] = useState("Overview");
+  const [activeItem, setActiveItem] = useState("/");
   const [open, setOpen] = useState(() => {
     //  using localstorage to hold the state of if the sidebar is open
     const localState = localStorage.getItem("sidebarOpen");
@@ -157,6 +157,7 @@ const SideBar = () => {
               onClick={() => {
                 console.log("Navigate to Overview");
                 setActiveItem("Overview");
+                navigate("/dashboard"); // navigate to the overview page
               }}
             >
               {" "}
@@ -190,7 +191,7 @@ const SideBar = () => {
                     color: "white", // change text color on hover
                   },
                 },
-                ...(activeItem === "Analytics" && {
+                ...(activeItem === "Sandbox" && {
                   backgroundColor: "primary.dark", // change background color if active
                   "& .MuiListItemIcon-root": {
                     color: "white", // change icon color if active
@@ -201,8 +202,9 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Analytics");
-                setActiveItem("Analytics");
+                console.log("Navigate to Sandbox");
+                setActiveItem("Sandbox");
+                navigate("/sandbox"); // navigate to the sandbox page
               }}
             >
               {" "}
@@ -216,7 +218,7 @@ const SideBar = () => {
                 <AnalyticsOutlinedIcon fontSize="small" />
               </ListItemIcon>
               {open && (
-                <ListItemText primary="Analytics" sx={{ color: "#A6ACB9" }} />
+                <ListItemText primary="Sandbox" sx={{ color: "#A6ACB9" }} />
               )}
             </ListItemButton>
           </ListItem>

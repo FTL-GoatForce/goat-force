@@ -85,8 +85,6 @@ const Dashboard = () => {
         {/* END Of ChatBot Section */}
       </Box>
 
-      <Sandbox/>
-
     </>
   );
 };

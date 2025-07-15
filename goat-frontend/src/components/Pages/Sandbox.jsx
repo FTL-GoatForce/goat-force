@@ -4,6 +4,8 @@ import SideBar from "../ReusableComponents/Sidebar";
 import { useState } from "react";
 import ContactSelector from "../SandboxComponents/ContactSelector";
 import ContactProfile from "../SandboxComponents/ContactProfile";
+import Recommendations from "../SandboxComponents/Recommendations";
+import ResponseStyle from "../SandboxComponents/ResponseStyle";
 
 // mock data (data flow)
 // deals.participants (to get contact information)
@@ -298,6 +300,7 @@ function Sandbox() {
 
 
               </Box>
+              {/* TODO: make these into components */}
               {/* Chat Box*/}
               <Box 
               border={1}
@@ -335,7 +338,26 @@ function Sandbox() {
               border={1}
               borderColor="divider"
               borderRadius={0}
-            ></Box>
+              display={"flex"}
+              flexDirection="column"
+              gap={2}
+              padding={2}
+            > 
+            {/* Recommendations Box */}
+            <Recommendations
+              selectedDeal={selectedDeal}
+              deals  ={deals}
+              />
+
+            
+            {/* Response Pattern */}
+            <ResponseStyle
+              selectedDeal={selectedDeal}
+              deals={deals}
+            />
+            
+            
+            </Box>
           </Box>
         </Box>
       </Box>
