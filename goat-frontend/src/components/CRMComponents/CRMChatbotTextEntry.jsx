@@ -32,6 +32,8 @@ const CRMChatbotTextEntry = ({ sender, context }) => {
           `1px solid ${alpha(theme.palette.primary.light, 0.2)}`,
         borderRadius: 2,
         alignSelf: "flex-end",
+        px: 1.5,
+        py: 0.75,
         mt: 1,
         mb: 1,
         mr: 1,
@@ -41,8 +43,8 @@ const CRMChatbotTextEntry = ({ sender, context }) => {
         sx={{
           mb: 0,
           bgcolor: "secondary.main",
-          width: 28,
-          height: 28,
+          width: 24,
+          height: 24,
           mr: 1,
         }}
       >

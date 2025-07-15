@@ -25,6 +25,8 @@ const CRMAiEntry = ({ sender, context }) => {
         alignItems: "flex-start",
         backgroundColor: "rgba(55, 70, 104, 0.5)",
         ml: 1,
+        px: 1.5,
+        py: 0.75,
         width: "fit-content",
         maxWidth: "80%",
         border: (theme) =>
@@ -34,8 +36,10 @@ const CRMAiEntry = ({ sender, context }) => {
         mb: 1,
       }}
     >
-      <Avatar sx={{ mb: 0, height: 28, width: 28, mr: 1 }} src={logo} />
-      <Typography sx={{ color: "text.primary", fontSize: ".9rem" }}>
+      <Avatar sx={{ mt: "2px", height: 24, width: 24, mr: 1 }} src={logo} />
+      <Typography
+        sx={{ color: "text.primary", fontSize: ".9rem", lineHeight: 1.4 }}
+      >
         <Markdown>{context}</Markdown>
       </Typography>
     </ListItem>
