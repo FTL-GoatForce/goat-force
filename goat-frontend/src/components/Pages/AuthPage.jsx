@@ -83,20 +83,17 @@ const AuthPage = () => {
           >
             <Auth
               supabaseClient={supabase}
-              // appearance={{ theme: ThemeSupa }}
               theme="dark"
               providers={[]}
               appearance={{
-                theme: customTheme, //  your color overrides
+                theme: customTheme,
                 variables: {
                   default: {
-                    /* 14‑16 px feels normal in a desktop UI */
                     fontSizes: {
                       baseBodySize: "16px",
                       inputFontSize: "16px",
                       buttonFontSize: "16px",
                     },
-                    /* extra padding gives inputs normal height */
                     space: {
                       inputPadding: "12px 16px",
                       buttonPadding: "12px 16px",
