@@ -27,8 +27,10 @@ import logo from "../../assets/sfgoat.webp";
 import CRMChatbotTextEntry from "./CRMChatbotTextEntry";
 import CRMAiEntry from "./CRMAiEntry";
 import axios from "axios";
+import LoadingThreeDotsPulse from "./LoadingThreeDotsPulse";
 
 const CRMChatBot = ({ handleExit }) => {
+  const MCP = import.meta.env.VITE_MCP_SERVER;
   const messageRef = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
@@ -44,7 +46,7 @@ const CRMChatBot = ({ handleExit }) => {
     setChat((prev) => [...prev, chatObj]);
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8000/api/message", {
+      const response = await axios.post(MCP, {
         message: prompt,
       });
       setLoading(false);
@@ -237,10 +239,10 @@ const CRMChatBot = ({ handleExit }) => {
               );
             }
           })}
-
-          {loading && <CircularProgress sx={{ mt: 2, ml: 4 }} />}
+          {loading && <LoadingThreeDotsPulse style={{ mt: 2 }} />}
           <div ref={messageRef} />
         </List>
+
         {/* Looping through chats END */}
         {/* TEXTField & SUBMIT Chat Container START */}
         <Box
