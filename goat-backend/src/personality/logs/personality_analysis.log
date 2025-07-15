@@ -2170,3 +2170,42 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "practical", "direct", "inquiring"],
+      "communication_style": "direct, professional, concise, inquiring",
+      "decision_making_style": "cautious, data-driven, practical",
+      "objection_style": "direct, specific",
+      "role_in_deal": "influencer/evaluator, potentially a decision-maker"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["engaging", "evaluating platforms", "qualifying vendor", "scheduling meeting", "requesting specific information"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional, direct, evaluative"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations", "integration challenges"],
+      "objection_frequency_severity": "low frequency, moderate severity (raised as 'sticking points' and 'snags' but in an inquiring manner)"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "concise and to the point",
+      "preferred_channel": "email (for initial contact and scheduling), open to discussing details on Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "early-stage evaluation/qualification",
+      "budget_risk_indicators": "low/not visible yet",
+      "timeline_risk_indicators": "vague/early stage (part of a broader overhaul, still mapping requirements)",
+      "churn_risk_indicators": "low (high engagement, positive sentiment)"
+    },
+    "deal_insights": {
+      "key_objections": "technical fit for multiple business units, ease of integration",
+      "decision_maker_status": "key influencer/evaluator, part of a team responsible for a broader overhaul",
+      "urgency_level": "moderate (part of an ongoing strategic initiative, not immediate)",
+      "competitive_position": "active competition (evaluating 'a few platforms')"
+    }
+  }
+--------------------------------

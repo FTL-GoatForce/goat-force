@@ -198,3 +198,75 @@ const saveEinsteinData = async (dealId, participant_id, slack_id, email, einstei
     throw error;
   }
 }
+
+export const getDealDetails = async (req, res) => {
+  try {
+    const response = {};
+    const { id } = req.params;
+    const deal = await prisma.deals.findUnique({
+      where: { id: parseInt(id) },
+    });
+    response.deal = deal;
+
+    const participants = await prisma.participants.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.participants = participants;
+    const participant_id = participants[0].id;
+
+    const risks = await prisma.risks.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.risks = risks;
+
+    const activityMetrics = await prisma.activityMetrics.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.activityMetrics = activityMetrics;
+
+    const aiRecommendation = await prisma.aiRecommendation.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.aiRecommendation = aiRecommendation;
+
+    const followUps = await prisma.followUp.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.followUps = followUps;
+
+    const tags = await prisma.tags.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.tags = tags;
+
+    const conversationHistory = await prisma.conversationHistory.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.conversationHistory = conversationHistory;
+
+    const dealInsights = await prisma.dealInsights.findMany({
+      where: { deal_id: parseInt(id) },
+    });
+    response.dealInsights = dealInsights;
+
+    const riskExplanation = await prisma.riskExplanation.findMany({
+      where: { risk_id: risks[0].id },
+    });
+    response.riskExplanation = riskExplanation;
+
+    const personality = await prisma.personality.findMany({
+      where: { participant_id: participant_id },
+    });
+    response.personality = personality;
+
+    const timeline = await prisma.timeline.findMany({
+      where: { activity_metrics_id: activityMetrics[0].id },
+    });
+    response.timeline = timeline;
+
+    res.status(200).json(response);
+  } catch (error) {
+    console.error("Error getting deal:", error);
+    res.status(500).json({ error: error.message });
+  }
+}

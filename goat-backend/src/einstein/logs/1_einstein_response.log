@@ -93,3 +93,102 @@ Response: {
   "TAGS": ["deal_progress", "legal_review", "positive_sentiment", "timeline_set", "smooth_negotiation"]
 }
 --------------------------------
+Deal ID: 1
+Response: {
+  "deal_id": "197e6e21467c29cd",
+  "client_company": "FedEx Ops",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-08-01",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 40,
+    "Churn_Risk": 30,
+    "Timeline_Risk": 20,
+    "Budget_Risk": 25,
+    "deal_risk_explanation": "The deal is in the qualification stage with some objections raised, but the prospect has shown interest.",
+    "churn_risk_explanation": "The prospect is evaluating multiple platforms, which raises concerns about potential churn.",
+    "timeline_risk_explanation": "The timeline appears stable as a meeting is scheduled, but internal discussions are still ongoing.",
+    "budget_risk_explanation": "No explicit budget concerns have been mentioned, but the prospect is still in the early evaluation phase."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["technical fit"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 24,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The prospect confirmed the meeting and requested additional information about CRM capabilities."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Initial outreach by Bruce Wayne to David Gonzalez regarding CRM solutions.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "David Gonzalez expressed interest and confirmed a meeting for further discussion.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-11",
+      "event_description": "Scheduled meeting to discuss CRM solutions and integration concerns.",
+      "event_type": "meeting"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "Bruce Wayne from GoatForce initiated a conversation with David Gonzalez at FedEx Ops about CRM solutions. David expressed interest and confirmed a meeting while raising concerns about integration and handling multiple business units. Bruce addressed these concerns by providing relevant materials and scheduling a meeting. The engagement is progressing positively with identified topics for discussion.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Prepare for the upcoming meeting by reviewing integration capabilities.",
+      "Gather additional case studies relevant to large, distributed operations.",
+      "Send follow-up materials as requested by the prospect."
+    ],
+    "Escalation_Triggers": "If the prospect indicates a preference for a competitor or expresses dissatisfaction with the provided materials.",
+    "Deal_Acceleration_Tactics": "Offer a demo or trial period to showcase the CRM's capabilities."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Looking Forward to Our Meeting",
+        "body": "Hi David,\n\nI’m looking forward to our meeting on Tuesday at 11 a.m. PST. In the meantime, I’ve attached a document that highlights how our CRM handles multiple business units, as discussed. Please let me know if you have any other questions before our call.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just confirming our meeting on Tuesday at 11 a.m. PST. Looking forward to our discussion!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "unknown",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["meeting_scheduled", "technical_question", "integration_concern", "product_info_request"]
+}
+--------------------------------
