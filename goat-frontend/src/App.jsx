@@ -7,7 +7,7 @@ import CRMDashboard from "./components/Pages/CRMDashboard";
 import CreateDeal from "./components/Pages/CreateDeal";
 import DealDetails from "./components/Pages/DealDetails";
 import AuthPage from "./components/Pages/AuthPage";
-
+import Sandbox from "./components/Pages/Sandbox";
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -118,6 +118,7 @@ function App() {
             <Route path="/dashboard" element={<CRMDashboard />} />
             <Route path="/create" element={<CreateDeal />} />
             <Route path="/details" element={<DealDetails />} />
+            <Route path="/sandbox" element={<Sandbox />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

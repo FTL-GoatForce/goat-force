@@ -13,15 +13,16 @@ import { AttachMoney, LocalOfferOutlined } from "@mui/icons-material";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 
-// maybe in different files => deal info, contact info, additional info
+// maybe in different files? => deal info, contact info, additional info
 const mockData = {
   deal: {
     deal_id: 12,
     deal_name: "Big Deal",
-    company_name: "Tech Corp",
+    client_company: "Tech Corp",
     deal_stage: "Negotiation",
-    deal_value: "$100,000",
+    deal_value_usd: "$100,000",
     deal_description: "Negotiating terms for a large software contract",
+    expected_close_date: "2024-12-31",
   },
 
   primary_contact: {
@@ -34,7 +35,6 @@ const mockData = {
     product: "Software License",
     contract_term: "1 year",
     tags: "high-value",
-    closed_date: "2024-12-31",
   },
 };
 
@@ -53,16 +53,16 @@ const style = {
   padding: 4,
 };
 
-// edit deal page modal pop-up when edit button is clicked (on home page will add later)
+// edit deal page modal pop-up when edit button is clicked
 function EditDeal({ deal_id }) {
-  // could fetch deal data using deal_id, or pass it down from parent component once 'edit' is clicked
+  // TODO: could fetch deal data using deal_id, or pass it down from parent component once 'edit' is clicked
   // the modal should already be pre-populated with the deal data
 
   // single state to hold all form data
   const [formData, setFormData] = useState({
-    companyName: mockData.deal.company_name,
+    companyName: mockData.deal.client_company,
     dealName: mockData.deal.deal_name,
-    dealValue: mockData.deal.deal_value,
+    dealValue: mockData.deal.deal_value_usd,
     dealStage: mockData.deal.deal_stage,
     dealDescription: mockData.deal.deal_description,
     contactName: mockData.primary_contact.name,
@@ -72,7 +72,7 @@ function EditDeal({ deal_id }) {
     product: mockData.additional_info.product,
     contractTerm: mockData.additional_info.contract_term,
     tags: mockData.additional_info.tags,
-    closedDate: mockData.additional_info.closed_date,
+    closedDate: mockData.deal.expected_close_date,
   });
 
   // generic handler for all form fields
