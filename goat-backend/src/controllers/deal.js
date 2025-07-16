@@ -270,3 +270,104 @@ export const getDealDetails = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 }
+
+export const getAllDeals = async (req, res) => {
+  try {
+    // Get all deals
+    const deals = await prisma.deals.findMany();
+    
+    // For each deal, get all related data
+    const dealsWithDetails = await Promise.all(
+      deals.map(async (deal) => {
+        const dealId = deal.id;
+        
+        // Get participants for this deal
+        const participants = await prisma.participants.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get risks for this deal
+        const risks = await prisma.risks.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get activity metrics for this deal
+        const activityMetrics = await prisma.activityMetrics.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get AI recommendations for this deal
+        const aiRecommendation = await prisma.aiRecommendation.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get follow-ups for this deal
+        const followUps = await prisma.followUp.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get tags for this deal
+        const tags = await prisma.tags.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get conversation history for this deal
+        const conversationHistory = await prisma.conversationHistory.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get deal insights for this deal
+        const dealInsights = await prisma.dealInsights.findMany({
+          where: { deal_id: dealId },
+        });
+        
+        // Get risk explanations if risks exist
+        let riskExplanation = [];
+        if (risks.length > 0) {
+          riskExplanation = await prisma.riskExplanation.findMany({
+            where: { risk_id: risks[0].id },
+          });
+        }
+        
+        // Get personality analysis for participants
+        const personality = participants.length > 0 ? 
+          await prisma.personality.findMany({
+            where: { participant_id: participants[0].id },
+          }) : [];
+        
+        // Get timeline if activity metrics exist
+        let timeline = [];
+        if (activityMetrics.length > 0) {
+          timeline = await prisma.timeline.findMany({
+            where: { activity_metrics_id: activityMetrics[0].id },
+          });
+        }
+        
+        // Return structured deal object with all details
+        return {
+          deal,
+          participants,
+          risks,
+          activityMetrics,
+          aiRecommendation,
+          followUps,
+          tags,
+          conversationHistory,
+          dealInsights,
+          riskExplanation,
+          personality,
+          timeline
+        };
+      })
+    );
+    
+    res.status(200).json({
+      totalDeals: dealsWithDetails.length,
+      deals: dealsWithDetails
+    });
+  } catch (error) {
+    console.error("Error getting all deals:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
