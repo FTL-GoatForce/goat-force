@@ -43,7 +43,54 @@
     background-position: -100%;
   }
 }
+.curved-loop-jacket {
+  /* min-height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
-.shiny-text.disabled {
-  animation: none;
+.curved-loop-svg {
+  user-select: none;
+  width: 100%;
+  aspect-ratio: 100 / 12;
+  overflow: visible;
+  display: block;
+  font-size: 5rem;
+  font-family: Montserrat;
+  /* color of curve text */
+  font-optical-sizing: auto;
+  font-weight: 300;
+  fill: #ffffff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.circular-text {
+  /* margin: 0 auto; */
+  margin-bottom: 20px;
+  border-radius: 50%;
+  width: 200px;
+  position: relative;
+  height: 200px;
+  font-weight: bold;
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+}
+
+.circular-text span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 24px;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
 }

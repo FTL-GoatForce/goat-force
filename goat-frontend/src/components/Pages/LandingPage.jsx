@@ -181,7 +181,16 @@ const LandingPage = () => {
     };
 
     const handleMouseMove = (e) => {
-      handleMove(e.clientX, e.clientY);
+      const canvas = canvasRef.current;
+      const rect = canvas.getBoundingClientRect(); // Get the position and size of the canvas in the browser
+
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+
+      const x = (e.clientX - rect.left) * scaleX;
+      const y = (e.clientY - rect.top) * scaleY;
+
+      handleMove(x, y); // useRef positioning correctly set
     };
 
     const handleTouchMove = (e) => {

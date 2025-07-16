@@ -103,6 +103,9 @@ async def run(message: MessageRequest):
                     "status": "error"
                 }
             
+
+    # Going to need a different post route and new mcp tool for SANDBOX mode, will give access to a contacts personality data and etc,
+    
 #  Calling this in python auto starts the API Server 
 if __name__ == "__main__":
     print("Starting FastAPI Server")

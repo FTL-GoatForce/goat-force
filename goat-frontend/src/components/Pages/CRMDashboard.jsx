@@ -1,7 +1,7 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
 import { motion, AnimatePresence, easeInOut } from "motion/react";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../ReusableComponents/Sidebar";
 import Header from "../ReusableComponents/Header";
 import CRMCards from "../CRMComponents/CRMCards";
@@ -10,9 +10,17 @@ import CRMGraphs from "../CRMComponents/CRMGraphs";
 import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import Sandbox from "./Sandbox";
-import { useState } from "react";
+import axios from "axios";
 
 const Dashboard = () => {
+  const [deals, setDeals] = useState([]);
+  useEffect(() => {
+    async function getAllDeals() {
+      const response = await axios.get("");
+      const data = response.data.response;
+    }
+  }, []);
+
   function handleExit() {
     setChatOpen((prev) => !prev);
   }
@@ -84,7 +92,6 @@ const Dashboard = () => {
         </Button>
         {/* END Of ChatBot Section */}
       </Box>
-
     </>
   );
 };
