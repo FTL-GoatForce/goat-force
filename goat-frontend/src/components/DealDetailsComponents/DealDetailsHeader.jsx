@@ -23,7 +23,7 @@ function DealDetailsHeader() {
             sx={{ color: "text.secondary" }}
             onClick={() => navigate("/dashboard")}
           >
-            Back to Deals
+            Back to Dashboard
           </Button>
 
           <Typography

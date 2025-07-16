@@ -12,7 +12,7 @@ function ContactSelector({ deals, onDealClick, selectedDeal }) {
         borderColor="divider"
         borderRadius={2}
         padding={2}
-        backgroundColor="#334155"
+        backgroundColor="background.paper"
         display={"flex"}
         flexDirection="column"
       >
@@ -53,7 +53,7 @@ function ContactSelector({ deals, onDealClick, selectedDeal }) {
                 : "transparent"
             }
             borderRadius={1}
-            backgroundColor="#475569"
+            backgroundColor="background.paper"
           >
             <Typography
               variant="body2"
