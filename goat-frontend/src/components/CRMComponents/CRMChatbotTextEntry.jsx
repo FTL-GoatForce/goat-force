@@ -43,8 +43,8 @@ const CRMChatbotTextEntry = ({ sender, context }) => {
         sx={{
           mb: 0,
           bgcolor: "secondary.main",
-          width: 24,
-          height: 24,
+          width: 23,
+          height: 23,
           mr: 1,
         }}
       >

@@ -1,9 +1,18 @@
 import React from "react";
-import { Paper, Box, TextField, Button, Typography } from "@mui/material";
+import {
+  Paper,
+  Box,
+  TextField,
+  Button,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import EditDeal from "../Pages/EditDeal"; // Importing the EditDeal modal component
-const CRMData = () => {
+import { useEffect } from "react";
+const CRMData = ({ deals }) => {
   const navigate = useNavigate();
+  if (!deals) return <CircularProgress sx={{ m: "0 auto" }} />;
   return (
     <>
       {/* Container for all data START */}
@@ -99,48 +108,7 @@ const CRMData = () => {
         {/* Table Headers END */}
 
         {/* Table Rows - Example Data */}
-        {[
-          {
-            deal: "Cloud Sync Expansion",
-            company: "Nike",
-            stage: "Negotiation",
-            value: "$120,000",
-            risk: "Low",
-            activity: "2 days ago",
-          },
-          {
-            deal: "Global CRM Overhaul",
-            company: "Fedex",
-            stage: "Proposal",
-            value: "$85,000",
-            risk: "Medium",
-            activity: "1 day ago",
-          },
-          {
-            deal: "Marketing Cloud Lite",
-            company: "Spotify",
-            stage: "Discovery",
-            value: "$200,000",
-            risk: "High",
-            activity: "Today",
-          },
-          {
-            deal: "Sales Suite Upgrade",
-            company: "Airbnb",
-            stage: "Qualified",
-            value: "$40,000",
-            risk: "Medium",
-            activity: "2 days ago",
-          },
-          {
-            deal: "Data360 Integration",
-            company: "Bank of America",
-            stage: "Qualified",
-            value: "$40,000",
-            risk: "Medium",
-            activity: "2 days ago",
-          },
-        ].map((row, index) => (
+        {deals.map((currentDeal, index) => (
           //  ROW Holding specific deal details
           <Box
             key={index}
@@ -154,54 +122,75 @@ const CRMData = () => {
             }}
           >
             <Typography variant="body1" color="text.primary">
-              {row.deal}
+              {currentDeal.deal.deal_name}
             </Typography>
             <Typography variant="body1" color="text.primary">
-              {row.company}
+              {currentDeal.deal.company_name}
             </Typography>
             <Typography variant="body1" color="text.primary">
-              {row.stage}
+              {currentDeal.deal.stage.charAt(0).toUpperCase() +
+                currentDeal.deal.stage.slice(1)}
             </Typography>
             <Typography
               variant="body1"
               sx={{
                 // if value is greater than 100k, color is green, if from 50k to 100k, color is yellow, else color is red
-                color: parseInt(row.value.replace(/[$,]/g, "")) > 100000
-                  ? "success.main"
-                  : parseInt(row.value.replace(/[$,]/g, "")) >= 50000
-                  ? "warning.main"
-                  : "error.main",
+                color:
+                  parseInt(currentDeal.deal.deal_value) > 100000
+                    ? "success.main"
+                    : parseInt(currentDeal.deal.deal_value) >= 50000
+                    ? "warning.main"
+                    : "error.main",
               }}
             >
-              {row.value}
+              {"$" + currentDeal.deal.deal_value}
             </Typography>
             <Typography
               variant="body1"
               sx={{
+                // if value is greater than 100k, color is green, if from 50k to 100k, color is yellow, else color is red
                 color:
-                  row.risk === "Medium"
+                  parseInt(
+                    currentDeal.risks[currentDeal.risks.length - 1]
+                      .deal_risk_score
+                  ) <= 35
+                    ? "success.main"
+                    : parseInt(
+                        currentDeal.risks[currentDeal.risks.length - 1]
+                          .deal_risk_score
+                      ) <= 65
                     ? "warning.main"
-                    : row.risk === "High"
-                    ? "error.main"
-                    : "success.main",
+                    : "error.main",
               }}
             >
-              {row.risk}
+              {currentDeal.risks[currentDeal.risks.length - 1]
+                .deal_risk_score <= 35
+                ? "Low"
+                : currentDeal.risks[currentDeal.risks.length - 1]
+                    .deal_risk_score <= 65
+                ? "Medium"
+                : "High"}
             </Typography>
-            <Typography variant="body1" color="text.primary">
-              {row.activity}
+            <Typography
+              variant="body1"
+              color="text.primary"
+              sx={{ color: "white" }}
+            >
+              {currentDeal.timeline[
+                currentDeal.timeline.length - 1
+              ].updated_at.slice(0, 10)}
             </Typography>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Button
                 variant="contained"
                 color="primary"
                 size="small"
-                onClick={() => navigate("/details")}
+                onClick={() => navigate(`/details/${currentDeal.deal.id}`)}
               >
                 View
               </Button>
               {/* TODO: pass in deal_id once data setup*/}
-              <EditDeal/>
+              <EditDeal deal={currentDeal} />
             </Box>
           </Box>
           //   ROW Holding specific deal details end

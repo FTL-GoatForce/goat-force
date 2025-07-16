@@ -117,7 +117,7 @@ function App() {
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/dashboard" element={<CRMDashboard />} />
             <Route path="/create" element={<CreateDeal />} />
-            <Route path="/details" element={<DealDetails />} />
+            <Route path="/details/:id" element={<DealDetails />} />
             <Route path="/sandbox" element={<Sandbox />} />
           </Routes>
         </BrowserRouter>

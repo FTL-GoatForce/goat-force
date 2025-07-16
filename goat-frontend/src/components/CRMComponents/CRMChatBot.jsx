@@ -31,7 +31,7 @@ import axios from "axios";
 import LoadingThreeDotsPulse from "./LoadingThreeDotsPulse";
 
 const CRMChatBot = ({ handleExit }) => {
-  const MCP = import.meta.env.VITE_MCP_SERVER;
+  const MCPServer = import.meta.env.VITE_MCP_SERVER;
   const messageRef = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
@@ -47,7 +47,7 @@ const CRMChatBot = ({ handleExit }) => {
     setChat((prev) => [...prev, chatObj]);
     try {
       setLoading(true);
-      const response = await axios.post(MCP, {
+      const response = await axios.post(MCPServer, {
         message: prompt,
       });
       setLoading(false);

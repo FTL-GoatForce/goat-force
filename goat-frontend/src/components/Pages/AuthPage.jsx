@@ -62,12 +62,13 @@ const AuthPage = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          bgcolor: "background.default",
+          bgcolor: "black",
         }}
       >
         <Header />
         <Card
           sx={{
+            borderRadius: "10px",
             width: "50%",
             display: "flex",
             flexDirection: "column",
