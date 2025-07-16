@@ -21,7 +21,7 @@ function ContactProfile({ deals, selectedDeal }) {
         borderColor="divider"
         borderRadius={2}
         padding={2}
-        backgroundColor="#334155"
+        backgroundColor="background.paper"
       >
         {/* card header */}
         <Box

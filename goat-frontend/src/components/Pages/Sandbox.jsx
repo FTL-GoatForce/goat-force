@@ -4,8 +4,10 @@ import SideBar from "../ReusableComponents/Sidebar";
 import { useState } from "react";
 import ContactSelector from "../SandboxComponents/ContactSelector";
 import ContactProfile from "../SandboxComponents/ContactProfile";
-import Recommendations from "../SandboxComponents/Recommendations";
-import ResponseStyle from "../SandboxComponents/ResponseStyle";
+import Header from "../ReusableComponents/Header";
+import { ArrowBack } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+
 
 // mock data (data flow)
 // deals.participants (to get contact information)
@@ -198,6 +200,8 @@ const mockData = [
 function Sandbox() {
   const [deals, setDeals] = useState(mockData); // TODO: change mock data fetched within this file => will contain all deals
   const [selectedDeal, setSelectedDeal] = useState(deals[0]); // find deal by id within deals array and set it to selectedDeal, selected deal begins at first
+  const navigate = useNavigate();
+  
 
   // fetch deals and set state
   // set selected deal filter array by id  (should contain necessary data)
@@ -230,7 +234,7 @@ function Sandbox() {
             flexGrow: 1, // Allow this column to take up remaining horizontal space
             gap: 2,
             flexDirection: "column",
-            backgroundColor: "#1E293B",
+            backgroundColor: "background.default",
           }}
         >
           {/* Header of page */}
@@ -239,10 +243,50 @@ function Sandbox() {
               fontSize={25}
               color="text.primary"
               fontWeight={"bold"}
-              marginLeft={2}
+              marginLeft={3}
               marginTop={2}
             >
-              Deal Practice Sandbox
+                    <Box
+                      className="deal-details-header"
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div>
+                        <Button
+                          variant="text"
+                          startIcon={<ArrowBack />}
+                          sx={{ color: "text.secondary" }}
+                          onClick={() => navigate("/dashboard")}
+                        >
+                          Back to Dashboard
+                        </Button>
+              
+                        <Typography
+                          variant="h5"
+                          sx={{ color: "text.primary", fontWeight: "bold" }}
+                          marginTop={0.7}
+                          marginLeft={1}
+                        >
+                          Sandbox Mode
+                        </Typography>
+                      </div>
+                      <div>
+                        <Chip
+                          label="High Risk"
+                          size="small"
+                          sx={{
+                            backgroundColor: "rgba(211, 47, 47, 0.1)", // Red background with low opacity
+                            color: "error.main", // Full opacity red text
+                            fontWeight: "medium",
+                            marginRight: 2,
+                            border: "1px solid rgba(211, 47, 47, 0.2)", // Optional: subtle border
+                          }}
+                        />
+                      </div>
+                    </Box>
             </Typography>
           </Box>
           {/* Cards Content of Page */}
@@ -256,10 +300,7 @@ function Sandbox() {
           >
             {/* Left Card, holds two cards flex column*/}
             <Box
-              width={"28%"}
-              border={1}
-              borderColor="divider"
-              borderRadius={0}
+              width={"33%"}
               padding={2}
               display={"flex"}
               flexDirection="column"
@@ -283,11 +324,9 @@ function Sandbox() {
             </Box>
             {/* Middle card */}
             <Box
-              width={"44%"}
-              border={1}
-              borderColor="divider"
-              borderRadius={0}
-              backgroundColor="background.paper"
+              marginTop={2}
+              width={"100%"}
+              backgroundColor="background.default"
               display={"flex"}
               flexDirection="column"
             >
@@ -303,9 +342,7 @@ function Sandbox() {
               {/* TODO: make these into components */}
               {/* Chat Box*/}
               <Box 
-              border={1}
               height={"15%"}
-              borderColor="divider"
               >
                 {/* Chat box components container => row */}
                 <Box
@@ -333,31 +370,7 @@ function Sandbox() {
 
             </Box>
             {/* Right card */}
-            <Box
-              width={"28%"}
-              border={1}
-              borderColor="divider"
-              borderRadius={0}
-              display={"flex"}
-              flexDirection="column"
-              gap={2}
-              padding={2}
-            > 
-            {/* Recommendations Box */}
-            <Recommendations
-              selectedDeal={selectedDeal}
-              deals  ={deals}
-              />
 
-            
-            {/* Response Pattern */}
-            <ResponseStyle
-              selectedDeal={selectedDeal}
-              deals={deals}
-            />
-            
-            
-            </Box>
           </Box>
         </Box>
       </Box>
