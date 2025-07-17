@@ -33,9 +33,11 @@ import LoadingThreeDotsPulse from "./LoadingThreeDotsPulse";
 const CRMChatBot = ({ handleExit }) => {
   const MCPServer = import.meta.env.VITE_MCP_SERVER;
   const messageRef = useRef(null);
+  const listRef = useRef(null);
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [streamingText, setStreamingText] = useState("");
   const [chat, setChat] = useState(() => {
     const localState = localStorage.getItem("chatHistory");
@@ -44,10 +46,12 @@ const CRMChatBot = ({ handleExit }) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setDisabled(true);
     const chatObj = { context: prompt, sender: "User" };
     const updatedChat = [...chat, chatObj];
     setChat(updatedChat);
     setStreamingText("");
+    setPrompt(""); // Clear the text field instantly
     
     try {
       setLoading(true);
@@ -84,7 +88,7 @@ const CRMChatBot = ({ handleExit }) => {
         { context: "Error: Could not connect to the backend", sender: "Ai" },
       ]);
     } finally {
-      setPrompt("");
+      setDisabled(false);
     }
   }
   function handleNewChat() {
@@ -94,7 +98,13 @@ const CRMChatBot = ({ handleExit }) => {
 
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(chat));
-    messageRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Auto-scroll 
+    setTimeout(() => {
+      if (listRef.current) {
+        listRef.current.scrollTop = listRef.current.scrollHeight;
+      }
+      messageRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   }, [chat, streamingText]);
 
   return (
@@ -193,7 +203,7 @@ const CRMChatBot = ({ handleExit }) => {
       {/* End of ChatBot Header */}
 
       {/* Start of Chat main content */}
-      <Box>
+      <Box sx={{ display: "flex", flexDirection: "column", height: "calc(90vh - 60px)" }}>
         {/* WELCOME MESSAGE */}
         {chat.length === 0 && (
           <Box
@@ -239,6 +249,7 @@ const CRMChatBot = ({ handleExit }) => {
         )}
         {/* END OF WELCOME MESSAGE */}
         <List
+          ref={listRef}
           sx={{
             "&::-webkit-scrollbar": {
               display: "none",
@@ -247,7 +258,8 @@ const CRMChatBot = ({ handleExit }) => {
             scrollbarGutter: "auto",
             display: "flex",
             flexDirection: "column",
-            height: "700px",
+            flex: 1,
+            minHeight: 0,
           }}
         >
           {/* Looping through chats Start*/}
@@ -276,16 +288,16 @@ const CRMChatBot = ({ handleExit }) => {
         {/* TEXTField & SUBMIT Chat Container START */}
         <Box
           sx={{
-            m: 2.5,
+            p: 2.5,
+            borderTop: "1px solid",
+            borderColor: "divider",
+            backgroundColor: "background.paper",
           }}
         >
           <form
             onSubmit={handleSubmit}
             style={{
-              position: "absolute",
-              bottom: 10,
-              marginLeft: 0,
-              width: 340,
+              width: "100%",
             }}
           >
             <Box sx={{ bgcolor: "background.paper" }}>
@@ -321,7 +333,7 @@ const CRMChatBot = ({ handleExit }) => {
               endIcon={<Send />}
               color="secondary"
               fullWidth
-              disabled={error}
+              disabled={error || disabled}
             >
               Send
             </Button>
