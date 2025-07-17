@@ -14,9 +14,18 @@ import {
   Analytics,
   AttachEmail,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 
-function InsightsCard() {
+// email parameters passed in
+function InsightsCard({ email_contact_address, email_subject, email_body, slack_contact_address, slack_body }) {
+  // State for editable email body
+  const [editableEmailBody, setEditableEmailBody] = useState(email_body || "");
+
+  // Handle text field changes
+  const handleEmailBodyChange = (event) => {
+    setEditableEmailBody(event.target.value);
+  };
+
   return (
     <>
       {/* Insights card */}
@@ -51,8 +60,11 @@ function InsightsCard() {
         <Box className="card-content" sx={{ mb: 3 }}>
           <TextField
             multiline
-            rows={5}
+            rows={10}
             variant="outlined"
+            value={editableEmailBody}
+            onChange={handleEmailBodyChange}
+            placeholder="Email content will appear here..."
             sx={{
               width: "100%",
               "& .MuiOutlinedInput-root": {
@@ -75,7 +87,8 @@ function InsightsCard() {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography variant="body2" color="text.secondary">
+            {/* TODO: maybe add later if more info */}
+            {/* <Typography variant="body2" color="text.secondary">
               Tone:
             </Typography>
             <Chip
@@ -87,11 +100,14 @@ function InsightsCard() {
               label="Professional & Solution-focused"
               size="small"
               variant="outlined"
-            />
+            /> */}
           </Box>
-
           <Box sx={{ display: "flex", gap: 1 }}>
-            <Button variant="outlined" size="small">
+            <Button 
+              variant="outlined" 
+              size="small"
+              onClick={() => setEditableEmailBody(email_body || "")} // Reset to original
+            >
               Regenerate
             </Button>
             <Button variant="contained" size="small">
