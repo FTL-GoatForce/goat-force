@@ -86,14 +86,27 @@ const saveEinsteinData = async (
   einsteinData
 ) => {
   try {
-    const { deal_stage, PARTICIPANTS, RISK_ASSESSMENT, DEAL_INSIGHTS, RECOMMENDATIONS, AI_GENERATED_FOLLOW_UP, AI_GENERATED_SUMMARY, ACTIVITY_ANALYSIS, TIMELINE, slack_transcript, gmail_transcript, personality_analysis, TAGS} = einsteinData;
-    
+    const {
+      deal_stage,
+      PARTICIPANTS,
+      RISK_ASSESSMENT,
+      DEAL_INSIGHTS,
+      RECOMMENDATIONS,
+      AI_GENERATED_FOLLOW_UP,
+      AI_GENERATED_SUMMARY,
+      ACTIVITY_ANALYSIS,
+      TIMELINE,
+      slack_transcript,
+      gmail_transcript,
+      personality_analysis,
+      TAGS,
+    } = einsteinData;
 
     const updatedDeal = await prisma.deals.update({
       where: { id: dealId },
-      data: { stage: deal_stage }
+      data: { stage: deal_stage },
     });
-    
+
     const updateParticipant = await prisma.participants.update({
       where: { id: participant_id },
       data: {
@@ -102,35 +115,35 @@ const saveEinsteinData = async (
         sentiment: PARTICIPANTS[0].sentiment,
       },
     });
-      
+
     const existingRisk = await prisma.risks.findFirst({
-      where: { deal_id: dealId }
+      where: { deal_id: dealId },
     });
-    
-    const updateRisks = existingRisk ? 
-      await prisma.risks.update({
-        where: { id: existingRisk.id },
-        data: {
-          deal_risk_score: RISK_ASSESSMENT.Deal_Risk_Score,
-          churn_risk_score: RISK_ASSESSMENT.Churn_Risk,
-          timeline_risk_score: RISK_ASSESSMENT.Timeline_Risk,
-          budget_risk_score: RISK_ASSESSMENT.Budget_Risk
-        }
-      }) :
-      await prisma.risks.create({
-        data: {
-          deal_id: dealId,
-          deal_risk_score: RISK_ASSESSMENT.Deal_Risk_Score,
-          churn_risk_score: RISK_ASSESSMENT.Churn_Risk,
-          timeline_risk_score: RISK_ASSESSMENT.Timeline_Risk,
-          budget_risk_score: RISK_ASSESSMENT.Budget_Risk
-        }
-      });
-    
+
+    const updateRisks = existingRisk
+      ? await prisma.risks.update({
+          where: { id: existingRisk.id },
+          data: {
+            deal_risk_score: RISK_ASSESSMENT.Deal_Risk_Score,
+            churn_risk_score: RISK_ASSESSMENT.Churn_Risk,
+            timeline_risk_score: RISK_ASSESSMENT.Timeline_Risk,
+            budget_risk_score: RISK_ASSESSMENT.Budget_Risk,
+          },
+        })
+      : await prisma.risks.create({
+          data: {
+            deal_id: dealId,
+            deal_risk_score: RISK_ASSESSMENT.Deal_Risk_Score,
+            churn_risk_score: RISK_ASSESSMENT.Churn_Risk,
+            timeline_risk_score: RISK_ASSESSMENT.Timeline_Risk,
+            budget_risk_score: RISK_ASSESSMENT.Budget_Risk,
+          },
+        });
+
     const existingRiskExplanation = await prisma.riskExplanation.findFirst({
-      where: { risk_id: updateRisks.id }
+      where: { risk_id: updateRisks.id },
     });
-    
+
     if (existingRiskExplanation) {
       await prisma.riskExplanation.update({
         where: { id: existingRiskExplanation.id },
@@ -138,8 +151,8 @@ const saveEinsteinData = async (
           budget_risk_explanation: RISK_ASSESSMENT.budget_risk_explanation,
           timeline_risk_explanation: RISK_ASSESSMENT.timeline_risk_explanation,
           churn_risk_explanation: RISK_ASSESSMENT.churn_risk_explanation,
-          deal_risk_summary: RISK_ASSESSMENT.deal_risk_explanation
-        }
+          deal_risk_summary: RISK_ASSESSMENT.deal_risk_explanation,
+        },
       });
     } else {
       await prisma.riskExplanation.create({
@@ -148,15 +161,15 @@ const saveEinsteinData = async (
           budget_risk_explanation: RISK_ASSESSMENT.budget_risk_explanation,
           timeline_risk_explanation: RISK_ASSESSMENT.timeline_risk_explanation,
           churn_risk_explanation: RISK_ASSESSMENT.churn_risk_explanation,
-          deal_risk_summary: RISK_ASSESSMENT.deal_risk_explanation
-        }
+          deal_risk_summary: RISK_ASSESSMENT.deal_risk_explanation,
+        },
       });
     }
-    
+
     const existingDealInsights = await prisma.dealInsights.findFirst({
-      where: { deal_id: dealId }
+      where: { deal_id: dealId },
     });
-    
+
     if (existingDealInsights) {
       await prisma.dealInsights.update({
         where: { id: existingDealInsights.id },
@@ -164,8 +177,8 @@ const saveEinsteinData = async (
           key_objections: DEAL_INSIGHTS.Key_Objections,
           decision_maker_status: DEAL_INSIGHTS.Decision_Maker_Status,
           urgency_level: DEAL_INSIGHTS.Urgency_Level,
-          competitive_position: DEAL_INSIGHTS.Competitive_Position
-        }
+          competitive_position: DEAL_INSIGHTS.Competitive_Position,
+        },
       });
     } else {
       await prisma.dealInsights.create({
@@ -174,23 +187,23 @@ const saveEinsteinData = async (
           key_objections: DEAL_INSIGHTS.Key_Objections,
           decision_maker_status: DEAL_INSIGHTS.Decision_Maker_Status,
           urgency_level: DEAL_INSIGHTS.Urgency_Level,
-          competitive_position: DEAL_INSIGHTS.Competitive_Position
-        }
+          competitive_position: DEAL_INSIGHTS.Competitive_Position,
+        },
       });
     }
-    
+
     const existingAiRecommendation = await prisma.aiRecommendation.findFirst({
-      where: { deal_id: dealId }
+      where: { deal_id: dealId },
     });
-    
+
     if (existingAiRecommendation) {
       await prisma.aiRecommendation.update({
         where: { id: existingAiRecommendation.id },
         data: {
           deal_acceleration_tactics: RECOMMENDATIONS.Deal_Acceleration_Tactics,
           escalation_triggers: RECOMMENDATIONS.Escalation_Triggers,
-          next_steps: RECOMMENDATIONS.Next_Steps
-        }
+          next_steps: RECOMMENDATIONS.Next_Steps,
+        },
       });
     } else {
       await prisma.aiRecommendation.create({
@@ -198,11 +211,11 @@ const saveEinsteinData = async (
           deal_id: dealId,
           deal_acceleration_tactics: RECOMMENDATIONS.Deal_Acceleration_Tactics,
           escalation_triggers: RECOMMENDATIONS.Escalation_Triggers,
-          next_steps: RECOMMENDATIONS.Next_Steps
-        }
+          next_steps: RECOMMENDATIONS.Next_Steps,
+        },
       });
     }
-    
+
     const updateEmailDraft = await prisma.followUp.create({
       data: {
         deal_id: dealId,
@@ -212,7 +225,7 @@ const saveEinsteinData = async (
         body: AI_GENERATED_FOLLOW_UP.Email_Draft[0].body,
       },
     });
-    
+
     const updateSlackMessage = await prisma.followUp.create({
       data: {
         deal_id: dealId,
@@ -221,70 +234,73 @@ const saveEinsteinData = async (
         body: AI_GENERATED_FOLLOW_UP.Slack_Message,
       },
     });
-    
+
     const existingTags = await prisma.tags.findFirst({
-      where: { deal_id: dealId }
+      where: { deal_id: dealId },
     });
-    
+
     if (existingTags) {
       await prisma.tags.update({
         where: { id: existingTags.id },
-        data: { tag: TAGS }
+        data: { tag: TAGS },
       });
     } else {
       await prisma.tags.create({
         data: {
           deal_id: dealId,
-          tag: TAGS
-        }
+          tag: TAGS,
+        },
       });
     }
-    
+
     const existingActivityMetrics = await prisma.activityMetrics.findFirst({
-      where: { deal_id: dealId }
+      where: { deal_id: dealId },
     });
-    
-    const updateActivityMetrics = existingActivityMetrics ?
-      await prisma.activityMetrics.update({
-        where: { id: existingActivityMetrics.id },
-        data: {
-          message_count: ACTIVITY_ANALYSIS.message_count,
-          prospect_response_time: ACTIVITY_ANALYSIS.prospect_response_time_sec,
-          engagement_trend: ACTIVITY_ANALYSIS.engagement_trend,
-          last_communication_source: ACTIVITY_ANALYSIS.last_touch_channel,
-          last_communication_summary: ACTIVITY_ANALYSIS.last_touch_summary
-        }
-      }) :
-      await prisma.activityMetrics.create({
-        data: {
-          deal_id: dealId,
-          message_count: ACTIVITY_ANALYSIS.message_count,
-          prospect_response_time: ACTIVITY_ANALYSIS.prospect_response_time_sec,
-          engagement_trend: ACTIVITY_ANALYSIS.engagement_trend,
-          last_communication_source: ACTIVITY_ANALYSIS.last_touch_channel,
-          last_communication_summary: ACTIVITY_ANALYSIS.last_touch_summary
-        }
-      });
-    
+
+    const updateActivityMetrics = existingActivityMetrics
+      ? await prisma.activityMetrics.update({
+          where: { id: existingActivityMetrics.id },
+          data: {
+            message_count: ACTIVITY_ANALYSIS.message_count,
+            prospect_response_time:
+              ACTIVITY_ANALYSIS.prospect_response_time_sec,
+            engagement_trend: ACTIVITY_ANALYSIS.engagement_trend,
+            last_communication_source: ACTIVITY_ANALYSIS.last_touch_channel,
+            last_communication_summary: ACTIVITY_ANALYSIS.last_touch_summary,
+          },
+        })
+      : await prisma.activityMetrics.create({
+          data: {
+            deal_id: dealId,
+            message_count: ACTIVITY_ANALYSIS.message_count,
+            prospect_response_time:
+              ACTIVITY_ANALYSIS.prospect_response_time_sec,
+            engagement_trend: ACTIVITY_ANALYSIS.engagement_trend,
+            last_communication_source: ACTIVITY_ANALYSIS.last_touch_channel,
+            last_communication_summary: ACTIVITY_ANALYSIS.last_touch_summary,
+          },
+        });
+
     const updateTimeline = await prisma.timeline.create({
       data: {
         activity_metrics_id: updateActivityMetrics.id,
         event: TIMELINE,
       },
     });
-    
-    const existingConversationHistory = await prisma.conversationHistory.findFirst({
-      where: { deal_id: dealId }
-    });
-    
+
+    const existingConversationHistory =
+      await prisma.conversationHistory.findFirst({
+        where: { deal_id: dealId },
+      });
+
     if (existingConversationHistory) {
       await prisma.conversationHistory.update({
         where: { id: existingConversationHistory.id },
         data: {
           slack: slack_transcript,
           email: gmail_transcript,
-          deal_summary: AI_GENERATED_SUMMARY
-        }
+          deal_summary: AI_GENERATED_SUMMARY,
+        },
       });
     } else {
       await prisma.conversationHistory.create({
@@ -292,29 +308,29 @@ const saveEinsteinData = async (
           deal_id: dealId,
           slack: slack_transcript,
           email: gmail_transcript,
-          deal_summary: AI_GENERATED_SUMMARY
-        }
+          deal_summary: AI_GENERATED_SUMMARY,
+        },
       });
     }
-    
+
     const existingPersonality = await prisma.personality.findFirst({
-      where: { participant_id: participant_id }
+      where: { participant_id: participant_id },
     });
-    
+
     if (existingPersonality) {
       await prisma.personality.update({
         where: { id: existingPersonality.id },
-        data: { personality_traits: personality_analysis }
+        data: { personality_traits: personality_analysis },
       });
     } else {
       await prisma.personality.create({
         data: {
           participant_id: participant_id,
-          personality_traits: personality_analysis
-        }
+          personality_traits: personality_analysis,
+        },
       });
     }
-    
+
     return true;
   } catch (error) {
     console.error("Error in saveEinsteinData:", error);
@@ -326,6 +342,18 @@ export const getDealDetails = async (req, res) => {
   try {
     const response = {};
     const { id } = req.params;
+
+    const lastDbUpdate = await getLastUpdatedAt();
+    const meta = await redis.get("deals_meta");
+    const parsedMeta = meta ? meta : null;
+
+    if (parsedMeta?.updated_at === lastDbUpdate) {
+      const cachedDeal = await redis.get(`deal_${id}`);
+      if (cachedDeal) {
+        console.log("Serving from cache");
+        return res.status(200).json(cachedDeal);
+      }
+    }
     const deal = await prisma.deals.findUnique({
       where: { id: parseInt(id) },
     });
@@ -416,51 +444,53 @@ export const getAllDeals = async (req, res) => {
     const dealsWithDetails = await Promise.all(
       deals.map(async (deal) => {
         const dealId = deal.id;
-        
+
         const participants = await prisma.participants.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const risks = await prisma.risks.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const activityMetrics = await prisma.activityMetrics.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const aiRecommendation = await prisma.aiRecommendation.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const followUps = await prisma.followUp.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const tags = await prisma.tags.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const conversationHistory = await prisma.conversationHistory.findMany({
           where: { deal_id: dealId },
         });
-        
+
         const dealInsights = await prisma.dealInsights.findMany({
           where: { deal_id: dealId },
         });
-        
+
         let riskExplanation = [];
         if (risks.length > 0) {
           riskExplanation = await prisma.riskExplanation.findMany({
             where: { risk_id: risks[0].id },
           });
         }
-        
-        const personality = participants.length > 0 ? 
-          await prisma.personality.findMany({
-            where: { participant_id: participants[0].id },
-          }) : [];
-        
+
+        const personality =
+          participants.length > 0
+            ? await prisma.personality.findMany({
+                where: { participant_id: participants[0].id },
+              })
+            : [];
+
         let timeline = [];
         if (activityMetrics.length > 0) {
           timeline = await prisma.timeline.findMany({
@@ -490,6 +520,13 @@ export const getAllDeals = async (req, res) => {
       totalDeals: dealsWithDetails.length,
       deals: dealsWithDetails,
     };
+
+    // caching individual deals for faster api calls in
+    for (const deal of dealsWithDetails) {
+      await redis.set(`deal_${deal.deal.id}`, JSON.stringify(deal));
+      console.log(`Caching ${deal.deal.id} seperately`);
+    }
+
     await redis.set("deals_cache", JSON.stringify(response));
     await redis.set("deals_meta", JSON.stringify({ updated_at: lastDbUpdate }));
     console.log("New Deals Cached");
@@ -503,59 +540,64 @@ export const getAllDeals = async (req, res) => {
   }
 };
 
-
 export const updateDeal = async (req, res) => {
   try {
     const { dealId, slack_id, email } = req.body;
-    
+
     // Convert dealId to integer for database operations
     const dealIdInt = parseInt(dealId);
-    
+
     if (isNaN(dealIdInt)) {
       throw new Error(`Invalid deal ID: ${dealId}`);
     }
-    
+
     // Get the participant for this deal
     const participant = await prisma.participants.findFirst({
       where: { deal_id: dealIdInt },
     });
-    
+
     if (!participant) {
       throw new Error(`No participant found for deal ${dealId}`);
     }
-    
+
     const participant_id = participant.id;
-    
+
     const run_pipeline = await fetch(`${FASTAPI_URL}/run`, {
       method: "POST",
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         deal_id: dealId.toString(),
-        slack_id: slack_id, 
-        email: email 
+        slack_id: slack_id,
+        email: email,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    
+
     if (!run_pipeline.ok) {
       const errorText = await run_pipeline.text();
       console.error("FastAPI error:", run_pipeline.status, errorText);
-      throw new Error(`FastAPI request failed: ${run_pipeline.status} - ${errorText}`);
+      throw new Error(
+        `FastAPI request failed: ${run_pipeline.status} - ${errorText}`
+      );
     }
-    
+
     const response = await run_pipeline.json();
     const einstein_data = response.data;
-    const einstein_response = await saveEinsteinData(dealIdInt, participant_id, slack_id, email, einstein_data);
-    
-    res.status(200).json({ 
-      message: "Deal updated successfully", 
-      einstein_response 
+    const einstein_response = await saveEinsteinData(
+      dealIdInt,
+      participant_id,
+      slack_id,
+      email,
+      einstein_data
+    );
+
+    res.status(200).json({
+      message: "Deal updated successfully",
+      einstein_response,
     });
   } catch (error) {
     console.error("Error updating deal:", error);
     res.status(500).json({ error: error.message });
   }
 };
-
-

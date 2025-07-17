@@ -29,7 +29,7 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Total Pipeline
         </Typography>
-        {totalCost != null ? (
+        {totalCost != 0 ? (
           <Typography variant="h5" color="text.primary" fontWeight={"bold"}>
             ${parseInt(totalCost)}
           </Typography>
@@ -56,7 +56,7 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Deals At Risk
         </Typography>
-        {parseInt(totalCost) != null ? (
+        {parseInt(totalCost) != 0 ? (
           <Typography
             variant="h5"
             fontWeight="bold"
@@ -87,7 +87,7 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Total Deals
         </Typography>
-        {parseInt(totalCost) != null ? (
+        {parseInt(totalCost) != 0 ? (
           <Typography
             variant="h5"
             fontWeight="bold"
@@ -118,7 +118,8 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Average Deal Value
         </Typography>
-        {parseInt(totalCost) != null ? (
+        {console.log(totalCost)}
+        {totalCost != 0 ? (
           <Typography
             variant="h5"
             fontWeight={"bold"}
