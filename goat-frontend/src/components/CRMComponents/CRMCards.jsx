@@ -118,7 +118,6 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Average Deal Value
         </Typography>
-        {console.log(totalCost)}
         {totalCost != 0 ? (
           <Typography
             variant="h5"

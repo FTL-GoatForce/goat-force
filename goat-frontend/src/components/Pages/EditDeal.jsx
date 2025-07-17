@@ -8,8 +8,14 @@ import {
   Card,
   CardHeader,
   TextField,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
-import { AttachMoney, LocalOfferOutlined } from "@mui/icons-material";
+import {
+  AttachMoney,
+  EditDocument,
+  LocalOfferOutlined,
+} from "@mui/icons-material";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 
@@ -95,10 +101,32 @@ function EditDeal({ deal_id }) {
 
   return (
     <>
-      <Button size="small" onClick={handleOpen} variant="contained">
-        {" "}
-        Edit Deal{" "}
-      </Button>{" "}
+      <Tooltip title="Edit Deal">
+        <IconButton
+          size="small"
+          onClick={handleOpen}
+          sx={{
+            textTransform: "none",
+            borderRadius: "8px",
+            fontWeight: 500,
+            background: "linear-gradient(135deg, #06b6d4, #0891b2)",
+            boxShadow: "0 4px 14px 0 rgba(6, 182, 212, 0.25)",
+            "&:hover": {
+              background: "linear-gradient(135deg, #0891b2, #0e7490)",
+              boxShadow: "0 6px 20px 0 rgba(6, 182, 212, 0.4)",
+              color: "black",
+            },
+            color: "white",
+          }}
+        >
+          <EditDocument
+            sx={{
+              color: "inherit",
+            }}
+          />
+        </IconButton>
+      </Tooltip>
+
       {/* Modal component to edit deal */}
       <Modal
         open={openModal}
@@ -381,7 +409,9 @@ function EditDeal({ deal_id }) {
                     </Typography>
                     <TextField
                       value={formData.product}
-                      onChange={(e) => handleInputChange("product", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("product", e.target.value)
+                      }
                       variant="outlined"
                       size="small"
                     />
@@ -413,7 +443,9 @@ function EditDeal({ deal_id }) {
                     </Typography>
                     <TextField
                       value={formData.tags}
-                      onChange={(e) => handleInputChange("tags", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("tags", e.target.value)
+                      }
                       variant="outlined"
                       size="small"
                     />
