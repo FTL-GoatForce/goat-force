@@ -16,6 +16,9 @@ function DealDetails() {
   const { id } = useParams();
   const [deal, setDeal] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [followUpData, setFollowUpData] = useState(null); // useState to store latest follow-up data, will change when update button is clicked and re-rendered
+
+
 
   // fetch deal data based on the ID from the URL
   useEffect(() => {
@@ -165,7 +168,14 @@ function DealDetails() {
     }
   };
 
-  console.log(deal);
+  // latest email / slack follow-up
+  const latestEmailFollowUp = deal.followUps
+    .filter((followUp) => followUp.communication_type === "Email")
+    .reverse()[0];
+  const latestSlackFollowUp = deal.followUps
+    .filter((followUp) => followUp.communication_type === "Slack")
+    .reverse()[0];
+
 
   return (
     <>
@@ -191,7 +201,10 @@ function DealDetails() {
             margin: "30px",
           }}
         >
-          <DealDetailsHeader deal_name={deal.deal.deal_name} />
+          <DealDetailsHeader
+            deal_name={deal.deal.deal_name}
+            risk_score={deal.risks[deal.risks.length - 1].deal_risk_score}
+          />
 
           <Box className="cards-container" sx={{ display: "flex", gap: 3 }}>
             <Box
@@ -205,7 +218,7 @@ function DealDetails() {
               }}
             >
               <DealSummary
-                dealSummary = {deal.conversationHistory[0].deal_summary}
+                dealSummary={deal.conversationHistory[0].deal_summary}
                 value={deal.deal.deal_value}
                 stage={deal.deal.stage}
                 closeDate={deal.deal.expected_close_date}
@@ -213,9 +226,15 @@ function DealDetails() {
                 company={deal.deal.company_name}
                 primaryContact={deal.participants[0].prospect_name}
               />
-              {/* TODO: update tone later if needed, in contact's atm */}
-              <InsightsCard               /> 
-              
+
+              <InsightsCard
+                email_contact_address={latestEmailFollowUp.contact_address}
+                email_subject={latestEmailFollowUp.subject}
+                email_body={latestEmailFollowUp.body}
+                slack_contact_address={latestSlackFollowUp.contact_address}
+                slack_body={latestSlackFollowUp.body}
+              />
+
               <MissingInformationCard />
             </Box>
 
