@@ -45,6 +45,12 @@ function DealSummary({
             subheader={
               dealSummary ? dealSummary : "No summary available for this deal."}
             subheaderTypographyProps={{ variant: "body2", color: "text.secondary", fontSize: 13, marginTop: 0.5, marginBottom: 0.5 }}
+            sx={{
+              "& .MuiCardHeader-title": {
+                fontSize: 16,
+                fontWeight: "bold",
+              },
+            }}
           />
 
         {/* card content */}

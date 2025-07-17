@@ -161,7 +161,7 @@ const SideBar = () => {
               }}
             >
               {" "}
-              {/* TODO: react router navigation*/}
+              
               <ListItemIcon
                 sx={{
                   color: "#A6ACB9",
