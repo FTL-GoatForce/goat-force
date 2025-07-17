@@ -50,6 +50,8 @@ function DealDetails() {
           className="deal-details-content"
           sx={{
             marginTop: "100px",
+            marginLeft: "50px",
+            marginRight: "50px",
             display: "flex",
             flexDirection: "column",
             flexGrow: 1,
