@@ -18,6 +18,7 @@ import {
 import { green } from "@mui/material/colors";
 
 function DealSummary({
+  dealSummary,
   value,
   stage,
   closeDate,
@@ -25,6 +26,7 @@ function DealSummary({
   company,
   primaryContact,
 }) {
+
   return (
     <>
       <Card
@@ -37,13 +39,19 @@ function DealSummary({
         }}
       >
         {/* card header */}
-        <Box className="card-header" sx={{ display: "flex" }}>
           <CardHeader
             avatar={<AttachMoney color="primary" />}
             title="Deal Summary"
-            subheader="Basic details about the deal opportunity"
+            subheader={
+              dealSummary ? dealSummary : "No summary available for this deal."}
+            subheaderTypographyProps={{ variant: "body2", color: "text.secondary", fontSize: 13, marginTop: 0.5, marginBottom: 0.5 }}
+            sx={{
+              "& .MuiCardHeader-title": {
+                fontSize: 16,
+                fontWeight: "bold",
+              },
+            }}
           />
-        </Box>
 
         {/* card content */}
         <Box

@@ -201,9 +201,11 @@ function DealDetails() {
                 flexDirection: "column",
                 gap: 3,
                 width: "65%",
+                maxWidth: "1000px",
               }}
             >
               <DealSummary
+                dealSummary = {deal.conversationHistory[0].deal_summary}
                 value={deal.deal.deal_value}
                 stage={deal.deal.stage}
                 closeDate={deal.deal.expected_close_date}
@@ -211,7 +213,9 @@ function DealDetails() {
                 company={deal.deal.company_name}
                 primaryContact={deal.participants[0].prospect_name}
               />
-              <InsightsCard />
+              {/* TODO: update tone later if needed, in contact's atm */}
+              <InsightsCard               /> 
+              
               <MissingInformationCard />
             </Box>
 
