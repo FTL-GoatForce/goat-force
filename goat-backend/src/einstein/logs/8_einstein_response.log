@@ -1,0 +1,190 @@
+Deal ID: 8
+Response: {
+  "deal_id": "197e6c7a52e39a6f",
+  "client_company": "Nike",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T14:48:47-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-14",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30, 
+    "Budget_Risk": 20,
+    "deal_risk_explanation": "The deal is progressing positively with no major objections, indicating low risk.",
+    "churn_risk_explanation": "The prospect has shown engagement and satisfaction with the proposal, reducing churn risk.",
+    "timeline_risk_explanation": "The timeline is somewhat uncertain but manageable, as the next steps are clear.",
+    "budget_risk_explanation": "The budget appears to be aligned, with only minor adjustments discussed."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["onboarding costs timing"],
+    "Decision_Maker_Status": "confirmed",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 7,
+    "prospect_response_time_sec": 180,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Bruce sent a revised proposal and confirmed next steps for contract preparation."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Proposal for Cloud Sync Expansion sent.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "James raised a question about onboarding costs.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-14",
+      "event_description": "Expected close date for contract finalization.",
+      "event_type": "future"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The sales rep, Bruce, sent the Cloud Sync Expansion proposal to prospect James. James raised a minor objection about deferring onboarding costs, which Bruce swiftly accommodated by agreeing to a delayed payment structure and sending a revised proposal. The conversation concluded with both parties confirming next steps for contract preparation and implementation, indicating a positive progression towards closing the deal.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Finalize the revised proposal", "Prepare draft contracts", "Schedule a follow-up call for next week"],
+    "Escalation_Triggers": "If no response is received within 3 days after sending the revised proposal.",
+    "Deal_Acceleration_Tactics": "Offer additional incentives for early contract signing."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Cloud Sync Expansion Proposal",
+        "body": "Hi James,\n\nI hope this message finds you well! I wanted to follow up on the revised proposal I sent over regarding the Cloud Sync Expansion. Please let me know if you have any further questions or if there's anything else I can assist with. Looking forward to your feedback!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi James, just checking in to see if you had a chance to review the revised proposal. Let me know if you need any further clarification!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "james.smith.nike2025@gmail.com",
+      "name": "James Smith",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["proposal sent", "onboarding costs negotiation", "objection handled", "contracting phase", "deal progressing", "positive sentiment"]
+}
+--------------------------------
+Deal ID: 8
+Response: {
+  "deal_id": "197e6c7a52e39a6f",
+  "client_company": "Nike",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T14:48:47-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-14",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 20,
+    "deal_risk_explanation": "The deal is progressing positively with no major objections, indicating low risk.",
+    "churn_risk_explanation": "The prospect has shown engagement and satisfaction with the proposal, reducing churn risk.",
+    "timeline_risk_explanation": "The timeline is somewhat uncertain but manageable, as the next steps are clear.",
+    "budget_risk_explanation": "The budget appears to be aligned, with only minor adjustments discussed."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["onboarding costs timing"],
+    "Decision_Maker_Status": "confirmed",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 7,
+    "prospect_response_time_sec": 180,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Bruce sent a revised proposal and confirmed next steps for contract preparation."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Proposal for Cloud Sync Expansion sent.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "James raised a question about onboarding costs.",
+      "event_type": "email"
+    },
+    {
+      "event_date": "2025-07-14",
+      "event_description": "Expected close date for contract finalization.",
+      "event_type": "future"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The sales rep, Bruce, sent the Cloud Sync Expansion proposal to prospect James. James raised a minor objection about deferring onboarding costs, which Bruce swiftly accommodated by agreeing to a delayed payment structure and sending a revised proposal. The conversation concluded with both parties confirming next steps for contract preparation and implementation, indicating a positive progression towards closing the deal.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Finalize the revised proposal", "Prepare draft contracts", "Schedule a follow-up call for next week"],
+    "Escalation_Triggers": "If no response is received within 3 days after sending the revised proposal.",
+    "Deal_Acceleration_Tactics": "Offer additional incentives for early contract signing."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Cloud Sync Expansion Proposal",
+        "body": "Hi James,\n\nI hope this message finds you well! I wanted to follow up on the revised proposal I sent over regarding the Cloud Sync Expansion. Please let me know if you have any further questions or if there's anything else I can assist with. Looking forward to your feedback!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi James, just checking in to see if you had a chance to review the revised proposal. Let me know if you need any further clarification!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "james.smith.nike2025@gmail.com",
+      "name": "James Smith",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["proposal sent", "onboarding costs negotiation", "objection handled", "contracting phase", "deal progressing", "positive sentiment"]
+}
+--------------------------------

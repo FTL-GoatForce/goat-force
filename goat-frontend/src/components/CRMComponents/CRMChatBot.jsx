@@ -36,6 +36,7 @@ const CRMChatBot = ({ handleExit }) => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [streamingText, setStreamingText] = useState("");
   const [chat, setChat] = useState(() => {
     const localState = localStorage.getItem("chatHistory");
     return localState ? JSON.parse(localState) : [];
@@ -44,27 +45,47 @@ const CRMChatBot = ({ handleExit }) => {
   async function handleSubmit(event) {
     event.preventDefault();
     const chatObj = { context: prompt, sender: "User" };
-    setChat((prev) => [...prev, chatObj]);
+    const updatedChat = [...chat, chatObj];
+    setChat(updatedChat);
+    setStreamingText("");
+    
     try {
       setLoading(true);
       const response = await axios.post(MCPServer, {
         message: prompt,
+        chatHistory: updatedChat,
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       setLoading(false);
 
-      const LLM_Repy = response.data.response;
-      const LLM_chatObj = { context: LLM_Repy, sender: "Ai" };
+      const LLM_Reply = response.data.response;
+      
+      // Simple streaming effect
+      let currentText = "";
+      for (let i = 0; i < LLM_Reply.length; i++) {
+        currentText += LLM_Reply[i];
+        setStreamingText(currentText);
+        await new Promise(resolve => setTimeout(resolve, 20));
+      }
+      
+      const LLM_chatObj = { context: LLM_Reply, sender: "Ai" };
       setChat((prev) => [...prev, LLM_chatObj]);
-      console.log(LLM_Repy);
+      setStreamingText("");
+      console.log(LLM_Reply);
     } catch (e) {
       console.log(e);
       setLoading(false);
+      setStreamingText("");
       setChat((prev) => [
         ...prev,
         { context: "Error: Could not connect to the backend", sender: "Ai" },
       ]);
+    } finally {
+      setPrompt("");
     }
-    setPrompt("");
   }
   function handleNewChat() {
     localStorage.removeItem("chatHistory");
@@ -74,7 +95,7 @@ const CRMChatBot = ({ handleExit }) => {
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(chat));
     messageRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chat]);
+  }, [chat, streamingText]);
 
   return (
     <Box
@@ -244,7 +265,10 @@ const CRMChatBot = ({ handleExit }) => {
               );
             }
           })}
-          {loading && <LoadingThreeDotsPulse style={{ mt: 2 }} />}
+          {streamingText && (
+            <CRMAiEntry sender="Ai" context={streamingText} />
+          )}
+          {loading && !streamingText && <LoadingThreeDotsPulse style={{ mt: 2 }} />}
           <div ref={messageRef} />
         </List>
 

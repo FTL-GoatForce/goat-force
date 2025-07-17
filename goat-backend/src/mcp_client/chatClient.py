@@ -37,6 +37,7 @@ gemini_client =  genai.Client(api_key=api_key) # add api key here
 # ------------- Data Checking  | Only accept a POST with JSON that has a message key of type string
 class MessageRequest (BaseModel):
     message: str
+    chatHistory: list = []
 
 
 # -------------- FastAPI Endpoint that recieves a post with a string
@@ -45,7 +46,8 @@ async def receieve_message(request: MessageRequest):
     try:
         # ----------- Receieve message request then run our MCP Server 
         print(f"Message Recieved: {request.message}")
-        result = await run(request)
+        print(f"Chat History: {request.chatHistory}")
+        result = await run(request, request.chatHistory)
         return {
             "success":True,
             "response": result
@@ -58,7 +60,7 @@ async def receieve_message(request: MessageRequest):
 
 
 # ------------ Once a message is recieved to the API Endpoint - Run MCP Server and create an API Request - Then Return the Gemini Response
-async def run(message: MessageRequest):
+async def run(message: MessageRequest, chatHistory: list):
     async with stdio_client(server_params) as (read, write):    # launches our MCP server 
         async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
             try:
@@ -85,6 +87,7 @@ async def run(message: MessageRequest):
                     Only answer based on the data retrieved. Avoid speculation. If more information is needed to answer the question properly, explain what’s missing.
 
                     The user's query is: {message.message}
+                    The chat history is: {chatHistory}
 
                     Always return the response in markdown format, 100-200 words.
                     """,

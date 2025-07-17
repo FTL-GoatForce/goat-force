@@ -2209,3 +2209,187 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "James Smith",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "direct",
+        "practical",
+        "efficient",
+        "collaborative",
+        "appreciative"
+      ],
+      "communication_style": "professional, direct, concise, appreciative",
+      "decision_making_style": "collaborative, practical, efficient",
+      "objection_style": "direct, clear, collaborative",
+      "role_in_deal": "influencer, key stakeholder (facilitates VP/finance review)"
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "evaluating",
+        "clarifying",
+        "negotiating",
+        "confirming acceptance",
+        "moving to next steps"
+      ],
+      "overall_sentiment": "positive (initially neutral, quickly became positive and appreciative)",
+      "tone_patterns": "professional, inquiring, confirming, appreciative"
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "budget-related (onboarding costs timing)"
+      ],
+      "objection_frequency_severity": "low frequency (one minor objection) and low severity (easily resolved)"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short, concise replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/proposal stage (moving to contracting)",
+      "budget_risk_indicators": "low (minor, resolved cost question)",
+      "timeline_risk_indicators": "low (no signs of delays)",
+      "churn_risk_indicators": "very low (high engagement, positive progression)"
+    },
+    "deal_insights": {
+      "key_objections": "timing of onboarding costs (resolved)",
+      "decision_maker_status": "influencer/key stakeholder (requires VP/finance approval but drives the process)",
+      "urgency_level": "moderate to high (quick responses, prompt movement to contracts)",
+      "competitive_position": "strong (no indications of competitive pressure)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "James Smith",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "pragmatic",
+        "professional",
+        "collaborative",
+        "efficient",
+        "financially conscious",
+        "appreciative"
+      ],
+      "communication_style": "professional, direct, concise, inquiring, confirming",
+      "decision_making_style": "collaborative, practical, efficient, consensus-seeking",
+      "objection_style": "direct, collaborative",
+      "role_in_deal": "influencer and key stakeholder"
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "evaluating",
+        "negotiating",
+        "confirming acceptance",
+        "moving to next steps"
+      ],
+      "overall_sentiment": "neutral to positive",
+      "tone_patterns": "professional, inquiring, appreciative, efficient"
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "budget-related"
+      ],
+      "objection_frequency_severity": "low frequency, low severity (one minor question)"
+    },
+    "communication_behavior": {
+      "response_time": "fast and consistent",
+      "engagement_level": "high",
+      "message_complexity": "short, concise replies with direct questions and confirmations",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, proposal review, moving into contracting",
+      "budget_risk_indicators": "low (minor question about deferring costs, easily resolved)",
+      "timeline_risk_indicators": "low (quick responses, confirming readiness to proceed)",
+      "churn_risk_indicators": "very low (high engagement, positive sentiment, clear next steps)"
+    },
+    "deal_insights": {
+      "key_objections": "deferment of onboarding costs",
+      "decision_maker_status": "influencer/key stakeholder (involves VP and finance, but his approval is crucial)",
+      "urgency_level": "moderate to high (prompt review and quick confirmations indicate desire to move efficiently)",
+      "competitive_position": "strong for the sales rep (no direct competitor mentions, focus on internal approvals)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "James Smith",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "efficient", "pragmatic", "appreciative"],
+      "communication_style": "direct, concise, professional",
+      "decision_making_style": "consensus-seeking (consults VP and finance), values flexibility, pragmatic",
+      "objection_style": "direct, specific, solution-oriented",
+      "role_in_deal": "key influencer with significant authority to move the deal forward"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating proposal", "negotiating minor terms", "confirming acceptance", "moving to next stage (finance review)"],
+      "overall_sentiment": "neutral (initially during negotiation) to positive (after objection resolution)",
+      "tone_patterns": "professional, inquiring, appreciative"
+    },
+    "objections_concerns": {
+      "objection_types": ["budget-related (timing of costs)"],
+      "objection_frequency_severity": "low frequency (one minor objection), low severity (easily resolved)"
+    },
+    "communication_behavior": {
+      "response_time": "fast (responded to proposal within 8 minutes, subsequent responses within 3-5 minutes)",
+      "engagement_level": "high (active participation, clear communication, prompt replies)",
+      "message_complexity": "short replies, direct questions/statements",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/proposal review, transitioning into contracting phase",
+      "budget_risk_indicators": "low risk (objection was about payment timing, not total cost, and was swiftly resolved)",
+      "timeline_risk_indicators": "low risk (no signs of delay, rather intent to finalize quickly)",
+      "churn_risk_indicators": "very low (high engagement, clear communication, prompt resolution of concerns)"
+    },
+    "deal_insights": {
+      "key_objections": "deferring onboarding costs until post-deployment",
+      "decision_maker_status": "influencer with direct access to decision-makers (VP, finance) and authority to move deal stages",
+      "urgency_level": "moderate to high (quick responses, desire to finalize and send to finance suggests a timely close)",
+      "competitive_position": "strong (no mention of competitors, smooth negotiation)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "James Smith",
+    "personality_communication_profile": {
+      "personality_traits": ["practical", "collaborative", "detail-oriented", "financially aware", "action-oriented", "polite"],
+      "communication_style": "professional, direct, concise, appreciative",
+      "decision_making_style": "consensus-seeking, stakeholder-influenced, efficient once questions are resolved",
+      "objection_style": "direct, polite, collaborative",
+      "role_in_deal": "influencer, internal coordinator"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluation", "negotiation", "acceptance", "internal coordination"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional, pragmatic, appreciative"
+    },
+    "objections_concerns": {
+      "objection_types": ["budget-related (payment terms)"],
+      "objection_frequency_severity": "low frequency, low severity (minor, resolved quickly)"
+    },
+    "communication_behavior": {
+      "response_time": "fast and consistent",
+      "engagement_level": "high",
+      "message_complexity": "low (concise, direct)",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/closing (proposal reviewed, minor negotiation, acceptance, preparing for contracts)",
+      "budget_risk_indicators": "minor, resolved budget timing concern",
+      "timeline_risk_indicators": "low (no indications of delays, prompt responses)",
+      "churn_risk_indicators": "very low (high engagement, quick resolution, positive sentiment)"
+    },
+    "deal_insights": {
+      "key_objections": "timing of onboarding costs (resolved)",
+      "decision_maker_status": "influencer, internal gatekeeper; likely requires VP/Finance approval for final sign-off",
+      "urgency_level": "moderate to high (prompt responses, quick resolution)",
+      "competitive_position": "strong, no apparent competitive threats mentioned"
+    }
+  }
+--------------------------------
