@@ -10,9 +10,54 @@ import {
 import { useNavigate } from "react-router-dom";
 import EditDeal from "../Pages/EditDeal"; // Importing the EditDeal modal component
 import { useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const CRMData = ({ deals }) => {
   const navigate = useNavigate();
-  if (!deals) return <CircularProgress sx={{ m: "0 auto" }} />;
+  if (!deals) {
+    return (
+      <Box
+        sx={{
+          padding: "24px",
+          backgroundColor: "background.paper",
+          border: "1px solid",
+          borderColor: "divider",
+          boxShadow: 5,
+          borderRadius: 2,
+        }}
+      >
+        <Skeleton
+          height={40}
+          width={"30%"}
+          style={{ marginBottom: 12 }}
+          baseColor={"#020617"}
+          highlightColor={"#06b6d4"}
+        />
+        {[...Array(3)].map((_, i) => (
+          <Box
+            key={i}
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "2fr 1.5fr 1fr 1fr 0.8fr 1.2fr 1.5fr",
+              gap: "16px",
+              paddingY: "12px",
+            }}
+          >
+            {Array(7)
+              .fill(0)
+              .map((_, j) => (
+                <Skeleton
+                  key={j}
+                  height={30}
+                  baseColor={"#020617"}
+                  highlightColor={"#06b6d4"}
+                />
+              ))}
+          </Box>
+        ))}
+      </Box>
+    );
+  }
   return (
     <>
       {/* Container for all data START */}

@@ -8,7 +8,6 @@ import Header from "../ReusableComponents/Header";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
-
 // mock data (data flow)
 // deals.participants (to get contact information)
 // deals.participants.personality (to get personality traits)
@@ -201,7 +200,6 @@ function Sandbox() {
   const [deals, setDeals] = useState(mockData); // TODO: change mock data fetched within this file => will contain all deals
   const [selectedDeal, setSelectedDeal] = useState(deals[0]); // find deal by id within deals array and set it to selectedDeal, selected deal begins at first
   const navigate = useNavigate();
-  
 
   // fetch deals and set state
   // set selected deal filter array by id  (should contain necessary data)
@@ -239,55 +237,47 @@ function Sandbox() {
         >
           {/* Header of page */}
           <Box>
-            <Typography
-              fontSize={25}
-              color="text.primary"
-              fontWeight={"bold"}
-              marginLeft={3}
-              marginTop={2}
+            <Box
+              className="deal-details-header"
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
             >
-                    <Box
-                      className="deal-details-header"
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
-                    >
-                      <div>
-                        <Button
-                          variant="text"
-                          startIcon={<ArrowBack />}
-                          sx={{ color: "text.secondary" }}
-                          onClick={() => navigate("/dashboard")}
-                        >
-                          Back to Dashboard
-                        </Button>
-              
-                        <Typography
-                          variant="h5"
-                          sx={{ color: "text.primary", fontWeight: "bold" }}
-                          marginTop={0.7}
-                          marginLeft={1}
-                        >
-                          Sandbox Mode
-                        </Typography>
-                      </div>
-                      <div>
-                        <Chip
-                          label="High Risk"
-                          size="small"
-                          sx={{
-                            backgroundColor: "rgba(211, 47, 47, 0.1)", // Red background with low opacity
-                            color: "error.main", // Full opacity red text
-                            fontWeight: "medium",
-                            marginRight: 2,
-                            border: "1px solid rgba(211, 47, 47, 0.2)", // Optional: subtle border
-                          }}
-                        />
-                      </div>
-                    </Box>
-            </Typography>
+              <div>
+                <Button
+                  variant="text"
+                  startIcon={<ArrowBack />}
+                  sx={{ color: "text.secondary" }}
+                  onClick={() => navigate("/dashboard")}
+                >
+                  Back to Dashboard
+                </Button>
+
+                <Typography
+                  variant="h5"
+                  sx={{ color: "text.primary", fontWeight: "bold" }}
+                  marginTop={0.7}
+                  marginLeft={1}
+                >
+                  Sandbox Mode
+                </Typography>
+              </div>
+              <div>
+                <Chip
+                  label="High Risk"
+                  size="small"
+                  sx={{
+                    backgroundColor: "rgba(211, 47, 47, 0.1)", // Red background with low opacity
+                    color: "error.main", // Full opacity red text
+                    fontWeight: "medium",
+                    marginRight: 2,
+                    border: "1px solid rgba(211, 47, 47, 0.2)", // Optional: subtle border
+                  }}
+                />
+              </div>
+            </Box>
           </Box>
           {/* Cards Content of Page */}
           <Box
@@ -315,12 +305,10 @@ function Sandbox() {
                 // TODO: pass in deals and onclick function
               </ContactSelector>
               {/* Card #2: Contact Profile */}
-              <ContactProfile 
+              <ContactProfile
                 selectedDeal={selectedDeal}
                 deals={deals}
-              >
-
-              </ContactProfile>
+              ></ContactProfile>
             </Box>
             {/* Middle card */}
             <Box
@@ -331,46 +319,34 @@ function Sandbox() {
               flexDirection="column"
             >
               {/* Message Box*/}
-              <Box
-                border={1}
-                height={"85%"}
-                borderColor="divider">
-
-
-
-              </Box>
+              <Box border={1} height={"85%"} borderColor="divider"></Box>
               {/* TODO: make these into components */}
               {/* Chat Box*/}
-              <Box 
-              height={"15%"}
-              >
+              <Box height={"15%"}>
                 {/* Chat box components container => row */}
-                <Box
-                display={"flex"}
-                flexDirection={"row"}
-                gap={1}
-                padding={2}
-                >
+                <Box display={"flex"} flexDirection={"row"} gap={1} padding={2}>
                   <TextField
                     variant="outlined"
                     placeholder="Type your response..."
                     size="small"
                     multiline
                     rows={3}
-                    sx={{ flexGrow: 1, backgroundColor: "#334155", borderRadius: 2}}
+                    sx={{
+                      flexGrow: 1,
+                      backgroundColor: "#334155",
+                      borderRadius: 2,
+                    }}
                   />
                   <Button variant="contained" color="primary">
-                    <span style={{ color: "white", fontWeight: "bold" }}>Send</span>
-                  </Button> {/* Send button */}
-
+                    <span style={{ color: "white", fontWeight: "bold" }}>
+                      Send
+                    </span>
+                  </Button>{" "}
+                  {/* Send button */}
                 </Box>
               </Box>
-
-
-
             </Box>
             {/* Right card */}
-
           </Box>
         </Box>
       </Box>
