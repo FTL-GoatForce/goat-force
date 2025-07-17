@@ -3,7 +3,7 @@ import { Box, Button, Typography, Chip, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ArrowBack } from "@mui/icons-material";
 
-function DealDetailsHeader() {
+function DealDetailsHeader({deal_name}) {
   const navigate = useNavigate();
   return (
     <>
@@ -31,7 +31,7 @@ function DealDetailsHeader() {
             sx={{ color: "text.primary", fontWeight: "bold" }}
             marginTop={1}
           >
-            Enterprise SaaS Platform - Acme Corp
+            {deal_name}
           </Typography>
         </div>
         <div>

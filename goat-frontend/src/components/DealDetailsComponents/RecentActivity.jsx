@@ -2,56 +2,60 @@ import React, { useState, useEffect } from "react";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import HygeineCardSuggestion from "./HygeineCardSuggestion";
 import RecentActivityCards from "./RecentActivityCards";
-
+import axios from "axios";
 import { Box, Card, CardHeader } from "@mui/material";
 
-// TODO: Mock data - replace with API call to TIMELINE array from deal object
-const mockTimelineData = [
-  {
-    date: "30 minutes ago",
-    event: "Deal Closed",
-    event_summary: "Successfully closed $50K software license deal",
-  },
-  {
-    date: "1 hour ago",
-    event: "Meeting Scheduled",
-    event_summary: "Product demo scheduled with ABC Corp",
-  },
-  {
-    date: "3 hours ago",
-    event: "Proposal Sent",
-    event_summary: "Quarterly service proposal deliveokred to client",
-  },
-  {
-    date: "4 hours ago",
-    event: "Call Completed",
-    event_summary: "Discovery call with potential enterprise client",
-  },
-  {
-    date: "6 hours ago",
-    event: "Contract Signed",
-    event_summary: "Annual maintenance contract renewed",
-  },
-  {
-    date: "8 hours ago",
-    event: "Lead Generated",
-    event_summary: "New qualified lead from marketing campaign",
-  },
-];
-
 function RecentActivity({ deal_id }) {
-  const [activities, setActivities] = useState([]); // state to hold sorted fetched activities
+  const [activities, setActivities] = useState([]); // array of activity objects fetched from DB
+  const [loading, setLoading] = useState(true);
+  const [containsActivity, setContainsActivity] = useState(false);
 
+  const fetchActivities = async () => {
+    try {
+      if (deal_id) {
+        const response = await axios.get(
+          `http://localhost:3000/deal/${deal_id}`
+        );
+        const dealData = response.data;
+        const allEvents = [];
+
+        // extract events from the timeline array (correct path based on your JSON)
+        dealData.timeline?.forEach((timelineEntry) => {
+          if (timelineEntry.event?.event) {
+            timelineEntry.event.event.forEach((eventItem) => {
+              const eventText = eventItem.event_type.replace(/_/g, " ");
+              allEvents.push({
+                date: eventItem.event_date,
+                event: eventText.charAt(0).toUpperCase() + eventText.slice(1), // capitalize the first letter
+                event_summary: eventItem.event_description,
+              });
+            });
+          }
+        });
+
+        // sort by date (most recent first)
+        const sortedEvents = allEvents.sort(
+          (a, b) => new Date(b.event_date) - new Date(a.event_date)
+        );
+        setActivities(sortedEvents);
+        console.log("Fetched activities:", sortedEvents);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch timeline data:", error);
+      setLoading(false);
+    }
+  };
+
+  // useEffect to call fetchActivities
   useEffect(() => {
-    // TODO:  when backend ready fetch data from Timeline Model: (event_date, event_type, event_details)
-    // we are fetching data from the specific DEALID (passed in from dashboard) + sorts it once fetched by date
-    // const recentActivities = await prisma.timeline.findMany({ where: { dealId: dealId }, orderBy: { event_date: "desc" } });
-    // API endpoint should exist so use axios to fetch json data
-    // setActivities(recentActivities);
-
-    // For now, we will use mock data
-    setActivities(mockTimelineData);
+    fetchActivities();
   }, [deal_id]);
+
+  // LOADING STATE
+  if (loading) {
+    return <div>Loading activities...</div>;
+  }
 
   return (
     <Card
@@ -87,14 +91,21 @@ function RecentActivity({ deal_id }) {
           overflow: "auto",
         }}
       >
-        {/* TODO: change this to map through actual data*/}
-        {activities.map((activity, index) => (
-          <RecentActivityCards
-            title={activity.event}
-            description={activity.event_summary}
-            timeCompleted={activity.date}
-          />
-        ))}
+        {/* If no activities, do not map through */}
+        {activities.length > 0 ? (
+          activities.map((activity, index) => (
+            <RecentActivityCards
+              key={index}
+              title={activity.event}
+              description={activity.event_summary}
+              timeCompleted={activity.date}
+            />
+          ))
+        ) : (
+          <Box sx={{ p: 2, textAlign: "center", color: "text.secondary" }}>
+            No recent activities found
+          </Box>
+        )}
       </Box>
     </Card>
   );
