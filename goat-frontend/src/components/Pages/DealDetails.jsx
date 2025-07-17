@@ -1,58 +1,74 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../ReusableComponents/Sidebar";
-import { Box } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import DealSummary from "../DealDetailsComponents/DealSummary";
 import DealDetailsHeader from "../DealDetailsComponents/DealDetailsHeader";
 import InsightsCard from "../DealDetailsComponents/InsightsCard";
 import MissingInformationCard from "../DealDetailsComponents/MissingInformationCard";
 import RecentActivity from "../DealDetailsComponents/RecentActivity";
 import ContactPersonality from "../DealDetailsComponents/ContactPersonality";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-// TODO: pass in deals.deal_name, deals.id prop fetched from the database
-// will not be fetched here, but in the parent component
-function DealDetails( {deal_name, deal_id, company_name, deal_stage, deal_status, deal_amount, expected_close_date} ) {
-  const [personalityData, setPersonalityData] = useState([]); 
+function DealDetails() {
+  const { id } = useParams();
+  const [deal, setDeal] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  // fetch deal data based on the ID from the URL
   useEffect(() => {
-    // const fetchPersonalityData = async () => {
-    // const response = await axios.get('/deals/{deal_id}/personality');
-    // set personalityData(response.data);
+    async function fetchDeal() {
+      try {
+        const response = await axios.get(`http://localhost:3000/deal/${id}`);
+        setDeal(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch deal:", error);
+        setLoading(false);
+      }
+    }
+    fetchDeal();
+  }, [id]);
 
-  
-
-  }, [deal_id]) // re-render when deal_id changes
-  
-  return (
-    <>
-      {/* page-container */}
+  // LOADING STATE - match your actual layout
+  if (loading) {
+    return (
       <Box
         className="deal-details-page"
         sx={{
           minHeight: "100vh",
-          display: "flex", 
+          display: "flex",
           flexDirection: "row",
           backgroundColor: "background.default",
-          width: "100%", 
+          width: "100%",
         }}
       >
-        <SideBar /> {/* The sidebar component */}
-        {/* full container of content (excluding sidebar)*/}
+        <SideBar />
         <Box
           className="deal-details-content"
           sx={{
+            marginTop: "100px",
+            marginLeft: "50px",
+            marginRight: "50px",
             display: "flex",
-            flexDirection: "column", // Arrange header, cards, and data in a column
-            flexGrow: 1, // Allow this column to take up remaining horizontal space
+            flexDirection: "column",
+            flexGrow: 1,
             gap: 2,
-            margin: "30px",
           }}
         >
-          {/* Header of page */}
-          <DealDetailsHeader />
+          {/* Header Skeleton */}
+          <Skeleton
+            height={60}
+            width="40%"
+            baseColor="#020617"
+            highlightColor="#06B6D4"
+          />
 
-          {/* Cards-container layout */}
+          {/* Cards Container */}
           <Box className="cards-container" sx={{ display: "flex", gap: 3 }}>
-            {/* Container with left 3 cards */}
+            {/* Left Cards (65% width) */}
             <Box
               className="deal-details-left-cards"
               sx={{
@@ -62,21 +78,30 @@ function DealDetails( {deal_name, deal_id, company_name, deal_stage, deal_status
                 width: "65%",
               }}
             >
-              {/* Left-side component cards */}
-              {/* TODO: pass in from function parameters (parent will fetch) */}
-              <DealSummary
-                value="$125,000"
-                stage="Negotiation"
-                closeDate="2024-01-15"
-                daysLeft="12"
-                company="Acme Corp"
-                primaryContact="John Smith"
+              {/* Deal Summary Card */}
+              <Skeleton
+                height={200}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
               />
-              <InsightsCard />
-              <MissingInformationCard />
+              {/* Insights Card */}
+              <Skeleton
+                height={300}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
+              />
+              {/* Missing Information Card */}
+              <Skeleton
+                height={250}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
+              />
             </Box>
 
-            {/* Container with right 2 cards */}
+            {/* Right Cards (35% width) */}
             <Box
               className="deal-details-right-cards"
               sx={{
@@ -86,13 +111,140 @@ function DealDetails( {deal_name, deal_id, company_name, deal_stage, deal_status
                 gap: 3,
               }}
             >
-              <RecentActivity />
-              {/* TODO: pass in data from personalityData useState */}
+              {/* Recent Activity Card */}
+              <Skeleton
+                height={400}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
+              />
+              {/* Contact Personality Card */}
+              <Skeleton
+                height={300}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    );
+  }
+
+  if (!deal) {
+    return <div>Deal not found</div>;
+  }
+
+  // helper function to capitalize the first letter of a string
+  const capitalizeFirst = (str) => {
+    if (!str) return "Unknown";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  // helper function to calculate days left until the deal's expected close date
+  const calculateDaysLeft = (closeDateString) => {
+    if (!closeDateString) return "Unknown";
+
+    const closeDate = new Date(closeDateString);
+    const today = new Date();
+
+    // reset time to start of day for accurate day calculation
+    today.setHours(0, 0, 0, 0);
+    closeDate.setHours(0, 0, 0, 0);
+
+    const diffInMs = closeDate - today;
+    const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+
+    if (diffInDays < 0) {
+      return `${Math.abs(diffInDays)} days overdue`;
+    } else if (diffInDays === 0) {
+      return "Due today";
+    } else {
+      return `${diffInDays} days left`;
+    }
+  };
+
+  console.log(deal);
+
+  return (
+    <>
+      {/* page-container */}
+      <Box
+        className="deal-details-page"
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "row",
+          backgroundColor: "background.default",
+          width: "100%",
+        }}
+      >
+        <SideBar />
+        <Box
+          className="deal-details-content"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            gap: 2,
+            margin: "30px",
+          }}
+        >
+          <DealDetailsHeader deal_name={deal.deal.deal_name} />
+
+          <Box className="cards-container" sx={{ display: "flex", gap: 3 }}>
+            <Box
+              className="deal-details-left-cards"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+                width: "65%",
+              }}
+            >
+              <DealSummary
+                value={deal.deal.deal_value}
+                stage={deal.deal.stage}
+                closeDate={deal.deal.expected_close_date}
+                daysLeft={calculateDaysLeft(deal.deal.expected_close_date)}
+                company={deal.deal.company_name}
+                primaryContact={deal.participants[0].prospect_name}
+              />
+              <InsightsCard />
+              <MissingInformationCard />
+            </Box>
+
+            <Box
+              className="deal-details-right-cards"
+              sx={{
+                display: "flex",
+                width: "35%",
+                flexDirection: "column",
+                gap: 3,
+              }}
+            >
+              <RecentActivity
+                timelineData={deal.timeline || []}
+                loading={loading}
+              />
               <ContactPersonality
-                communicationStyle={"Direct & Analytical"}
-                responseTime={"Within 2-4 hours"}
-                decisionMaking={"Data Driven, consensus-seeking"}
-                objectionStyle={"Price-focused, ROI-conscious"}
+                communicationStyle={capitalizeFirst(
+                  deal?.personality?.[0]?.personality_traits
+                    ?.personality_communication_profile?.communication_style
+                )}
+                responseTime={capitalizeFirst(
+                  deal?.personality?.[0]?.personality_traits
+                    ?.communication_behavior?.response_time
+                )}
+                decisionMaking={capitalizeFirst(
+                  deal?.personality?.[0]?.personality_traits
+                    ?.personality_communication_profile?.decision_making_style
+                )}
+                objectionStyle={capitalizeFirst(
+                  deal?.personality?.[0]?.personality_traits
+                    ?.personality_communication_profile?.objection_style
+                )}
               />
             </Box>
           </Box>

@@ -1,57 +1,49 @@
 import React, { useState, useEffect } from "react";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import HygeineCardSuggestion from "./HygeineCardSuggestion";
 import RecentActivityCards from "./RecentActivityCards";
-
 import { Box, Card, CardHeader } from "@mui/material";
 
-// TODO: Mock data - replace with API call to TIMELINE array from deal object
-const mockTimelineData = [
-  {
-    date: "30 minutes ago",
-    event: "Deal Closed",
-    event_summary: "Successfully closed $50K software license deal",
-  },
-  {
-    date: "1 hour ago",
-    event: "Meeting Scheduled",
-    event_summary: "Product demo scheduled with ABC Corp",
-  },
-  {
-    date: "3 hours ago",
-    event: "Proposal Sent",
-    event_summary: "Quarterly service proposal deliveokred to client",
-  },
-  {
-    date: "4 hours ago",
-    event: "Call Completed",
-    event_summary: "Discovery call with potential enterprise client",
-  },
-  {
-    date: "6 hours ago",
-    event: "Contract Signed",
-    event_summary: "Annual maintenance contract renewed",
-  },
-  {
-    date: "8 hours ago",
-    event: "Lead Generated",
-    event_summary: "New qualified lead from marketing campaign",
-  },
-];
+function RecentActivity({ timelineData, loading }) {
+  const [activities, setActivities] = useState([]);
 
-function RecentActivity({ deal_id }) {
-  const [activities, setActivities] = useState([]); // state to hold sorted fetched activities
+useEffect(() => {
+  if (!loading && timelineData && timelineData.length > 0) {
+    const allEvents = []; // events will be stored here
+    
+    // iterate through each timeline entry
+    timelineData.forEach((timelineEntry) => {
+      if (timelineEntry.event?.event && Array.isArray(timelineEntry.event.event)) {
+        timelineEntry.event.event.forEach((eventItem) => {
+          if (eventItem.event_type && eventItem.event_description) {
+            const eventText = eventItem.event_type.replace(/_/g, " ");
+            allEvents.push({
+              date: (eventItem.event_date),
+              event: eventText.charAt(0).toUpperCase() + eventText.slice(1), // Capitalize first letter
+              event_summary: eventItem.event_description,
+              event_date: eventItem.event_date
+            });
+          }
+        });
+      }
+    });
 
-  useEffect(() => {
-    // TODO:  when backend ready fetch data from Timeline Model: (event_date, event_type, event_details)
-    // we are fetching data from the specific DEALID (passed in from dashboard) + sorts it once fetched by date
-    // const recentActivities = await prisma.timeline.findMany({ where: { dealId: dealId }, orderBy: { event_date: "desc" } });
-    // API endpoint should exist so use axios to fetch json data
-    // setActivities(recentActivities);
+    // sort by date (most recent first)
+    const sortedEvents = allEvents.sort(
+      (a, b) => new Date(b.event_date) - new Date(a.event_date)
+    );
+    setActivities(sortedEvents); // store in state
+  }
+}, [timelineData, loading]);
 
-    // For now, we will use mock data
-    setActivities(mockTimelineData);
-  }, [deal_id]);
+
+  // Show loading state when parent is loading
+  if (loading) {
+    return (
+      <Card sx={{ padding: 1, boxShadow: 5, borderRadius: 2, border: "1px solid", borderColor: "divider" }}>
+        <Box sx={{ p: 2, textAlign: "center" }}>Loading activities...</Box>
+      </Card>
+    );
+  }
 
   return (
     <Card
@@ -63,7 +55,6 @@ function RecentActivity({ deal_id }) {
         borderColor: "divider",
       }}
     >
-      {/* card header */}
       <Box className="card-header" sx={{ display: "flex" }}>
         <CardHeader
           avatar={<AccessTimeIcon color="primary" />}
@@ -71,14 +62,11 @@ function RecentActivity({ deal_id }) {
           subheader="Latest updates and interactions with this deal"
         />
       </Box>
-      {/* card components container -> body */}
-      {/* 4 components w/ overlay flow */}
+      
       <Box
         className="card-content"
         sx={{
-          "&::-webkit-scrollbar": {
-            width: 2,
-          },
+          "&::-webkit-scrollbar": { width: 2 },
           padding: 2,
           display: "flex",
           flexDirection: "column",
@@ -87,14 +75,20 @@ function RecentActivity({ deal_id }) {
           overflow: "auto",
         }}
       >
-        {/* TODO: change this to map through actual data*/}
-        {activities.map((activity, index) => (
-          <RecentActivityCards
-            title={activity.event}
-            description={activity.event_summary}
-            timeCompleted={activity.date}
-          />
-        ))}
+        {activities.length > 0 ? (
+          activities.map((activity, index) => (
+            <RecentActivityCards
+              key={index}
+              title={activity.event}
+              description={activity.event_summary}
+              timeCompleted={activity.date}
+            />
+          ))
+        ) : (
+          <Box sx={{ p: 2, textAlign: "center", color: "text.secondary" }}>
+            No recent activities found
+          </Box>
+        )}
       </Box>
     </Card>
   );
