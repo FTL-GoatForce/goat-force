@@ -110,7 +110,7 @@ function DealSummary({
                 Days Left
               </Typography>
               <Typography variant="subtitle1" color="orange">
-                {daysLeft} days
+                {daysLeft} 
               </Typography>
             </Grid>
 
