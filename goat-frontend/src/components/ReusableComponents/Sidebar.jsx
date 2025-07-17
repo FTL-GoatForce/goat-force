@@ -52,7 +52,7 @@ const SideBar = () => {
         className="sidebar-container"
         sx={{
           width: open ? 300 : 80,
-          backgroundColor: "#121621", // TODO: update color later
+          backgroundColor: "#121621",
           display: "flex",
           flexDirection: "column",
           boxShadow: "0 0 30px rgba(0, 0, 0, 0.5)", // add shadow to the right border
