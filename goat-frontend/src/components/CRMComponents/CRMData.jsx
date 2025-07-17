@@ -6,12 +6,15 @@ import {
   Button,
   Typography,
   CircularProgress,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import EditDeal from "../Pages/EditDeal"; // Importing the EditDeal modal component
 import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Info, Refresh } from "@mui/icons-material";
 const CRMData = ({ deals }) => {
   const navigate = useNavigate();
   if (!deals) {
@@ -102,16 +105,6 @@ const CRMData = ({ deals }) => {
             </Button>
             <Button variant="outlined" color="primary">
               Closed
-            </Button>
-            {/* Refresh insights button -- will call our gemini to repopulate our DB qwith new insights */}
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: "grey",
-                "&:hover": { bgcolor: "white", color: "black" },
-              }}
-            >
-              Refresh my insights
             </Button>
           </Box>
         </Box>
@@ -225,17 +218,50 @@ const CRMData = ({ deals }) => {
                 currentDeal.timeline.length - 1
               ].updated_at.slice(0, 10)}
             </Typography>
-            <Box sx={{ display: "flex", gap: 1 }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                onClick={() => navigate(`/details/${currentDeal.deal.id}`)}
-              >
-                View
-              </Button>
-              {/* TODO: pass in deal_id once data setup*/}
+            <Box sx={{ display: "flex", gap: 1.3 }}>
+              <Tooltip title="View Deal">
+                <IconButton
+                  size="small"
+                  onClick={() => navigate(`/details/${currentDeal.deal.id}`)}
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: "8px",
+                    fontWeight: 500,
+                    background: "linear-gradient(135deg, #06b6d4, #0891b2)",
+                    boxShadow: "0 4px 14px 0 rgba(6, 182, 212, 0.25)",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #0891b2, #0e7490)",
+                      boxShadow: "0 6px 20px 0 rgba(6, 182, 212, 0.4)",
+                      color: "black",
+                    },
+                    color: "white",
+                  }}
+                >
+                  <Info />
+                </IconButton>
+              </Tooltip>
               <EditDeal deal={currentDeal} />
+              <Tooltip title="Refresh Insights">
+                <IconButton
+                  size="small"
+                  onClick={() => navigate(`/details/${currentDeal.deal.id}`)}
+                  sx={{
+                    textTransform: "none",
+                    borderRadius: "8px",
+                    fontWeight: 500,
+                    background: "linear-gradient(135deg, #06b6d4, #0891b2)",
+                    boxShadow: "0 4px 14px 0 rgba(6, 182, 212, 0.25)",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #0891b2, #0e7490)",
+                      boxShadow: "0 6px 20px 0 rgba(6, 182, 212, 0.4)",
+                      color: "black",
+                    },
+                    color: "white",
+                  }}
+                >
+                  <Refresh />
+                </IconButton>
+              </Tooltip>
             </Box>
           </Box>
           //   ROW Holding specific deal details end
