@@ -18,6 +18,14 @@ server_params = StdioServerParameters(
     ]
 )
 
+
+def get_gmail_data_file(email: str) -> str:
+    if os.path.exists(f"transcripts/gmail/{email}_structured_response.json"):
+        with open(f"transcripts/gmail/{email}_structured_response.json", "r") as f:
+            return json.load(f)
+    else:
+        return "{}"
+
 def get_gmail_prompt(email: str) -> str:
     return f"""
         You are retrieving sales-related email threads for structured analysis.
@@ -53,7 +61,7 @@ def get_gmail_prompt(email: str) -> str:
         Output the results as a clean JSON array of ALL emails in the thread. Do **not** do any further analysis or interpretation.
     """
 
-def get_structured_gmail_prompt(response: object) -> str:
+def get_structured_gmail_prompt(response: object, email: str) -> str:
     return f"""
     You are a sales assistant AI reviewing email threads between sales representatives and prospects. You are provided with structured email data from Gmail.
 
@@ -92,6 +100,15 @@ def get_structured_gmail_prompt(response: object) -> str:
     {response}
 
     ### Output Format:
+
+    Here is the current gmail data file we have:
+    {get_gmail_data_file(email)}
+
+
+    I want you to update this file by appending to the messages with new Non duplicate messages.
+
+    Update any other fields as neccessary, so the summary is accurate and up to date.
+    
 
     Respond ONLY with valid JSON following this schema:
 
@@ -153,7 +170,7 @@ async def gmail_mcp_server(email: str):
                 print(f"Error with first Gemini API call: {e}")
 
 
-            structured_prompt = get_structured_gmail_prompt(response.text)
+            structured_prompt = get_structured_gmail_prompt(response.text, email)
             structured_response = await client.aio.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=structured_prompt,

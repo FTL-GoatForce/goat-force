@@ -32,6 +32,14 @@ headers = {
     'x-client-feature-id': 'ai-platform-models-connected-app'
 }
 
+def get_einstein_data_file(deal_id: str) -> str:
+    if os.path.exists(os.path.join("src", "einstein", "einstein_analysis", f"{deal_id}_einstein_response.json")):
+        with open(os.path.join("src", "einstein", "einstein_analysis", f"{deal_id}_einstein_response.json"), "r") as f:
+            return json.load(f)
+    else:
+        print(f"No einstein data file found for deal ID: {deal_id}")
+        return "{}"
+
 def get_prompt(email: str, slack_id: str) -> str:
     return f"""
 You are a sales intelligence AI analyzing deal data from multiple communication channels. 
@@ -44,6 +52,11 @@ FIll out all the fields to the best of your ability.
 DO NOT ADD COMMENTS TO THE JSON.
 
 TASK: Analyze this deal data and provide a structured analysis in the following format:
+
+Here is the current einstein data file we have:
+{get_einstein_data_file(deal_id)}
+
+Update the fields as neccessary, so the analysis is accurate and up to date.
 
 {{
   "deal_id": "[string]",
@@ -156,3 +169,5 @@ if __name__ == "__main__":
   slack_id = sys.argv[3]
   print(f"Running Einstein request for deal ID: {deal_id}")
   asyncio.run(einstein_request(deal_id, email, slack_id))
+
+

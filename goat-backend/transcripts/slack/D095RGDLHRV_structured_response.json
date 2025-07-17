@@ -1,0 +1,22 @@
+{
+  "thread_id": "D095RGDLHRV",
+  "channel": {
+    "id": "D095RGDLHRV",
+    "name": "null",
+    "type": "null"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No messages were found for this thread, therefore no analysis can be performed. The channel name and type could not be resolved.",
+  "last_activity": "null",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "empty_thread",
+    "no_data"
+  ]
+}
