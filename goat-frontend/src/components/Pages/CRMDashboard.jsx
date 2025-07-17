@@ -4,6 +4,7 @@ import {
   AnimatePresence,
   easeInOut,
   numberValueTypes,
+  pipe,
 } from "motion/react";
 
 import React, { useEffect, useState } from "react";
@@ -186,8 +187,19 @@ const Dashboard = () => {
   // }
 
   const [deals, setDeals] = useState(null);
-  const [totalDeals, setTotalDeals] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);
+  // TODO: turn these into an object to pass in once data is fully populated to have efficient loading state
+  const [totalDeals, setTotalDeals] = useState(null);
+  const [pipeline, setPipeline] = useState(null);
+  const [dealsAtRisk, setDealAtRisk] = useState(null);
+  const [avgValue, setAvgValue] = useState(null);
+  const [cardData, setCardData] = useState({
+    pipeline: null,
+    totalDeals: null,
+    dealsAtRisk: null,
+    avgValue: null,
+  });
+
   useEffect(() => {
     async function getAllDeals() {
       try {
@@ -201,6 +213,29 @@ const Dashboard = () => {
     getAllDeals();
   }, []);
 
+  useEffect(() => {
+    generateCardData();
+  }, [deals]);
+
+  async function generateCardData() {
+    let cost = 0;
+    let risk = 0;
+
+    deals?.map((currentDeal) => {
+      cost += currentDeal.deal.deal_value;
+      if (currentDeal.risks[0].deal_risk_score > 65) {
+        risk += 1;
+      }
+    });
+    // Setting AVG deal Value
+    setPipeline(cost);
+    if (Array.isArray(deals) && deals.length > 0 && cost !== undefined) {
+      setAvgValue(cost / deals.length);
+    } else {
+      setAvgValue(null); // or setAvgValue("N/A")
+    }
+    setDealAtRisk(risk);
+  }
   function handleExit() {
     setChatOpen((prev) => !prev);
   }
@@ -238,7 +273,13 @@ const Dashboard = () => {
             }}
           >
             <CRMGraphs /> {/* The graphs component */}
-            <CRMCards /> {/* The cards component */}
+            <CRMCards
+              dealsAtRisk={dealsAtRisk}
+              totalDeals={totalDeals}
+              totalCost={pipeline}
+              avgValue={avgValue}
+            />{" "}
+            {/* The cards component */}
             <CRMData deals={deals} />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>
