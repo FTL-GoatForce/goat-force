@@ -1,7 +1,8 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, CircularProgress, Paper, Typography } from "@mui/material";
 import React from "react";
+import Loading from "../ReusableComponents/Loading";
 
-const CRMCard = () => {
+const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
   return (
     <Box
       sx={{
@@ -22,13 +23,19 @@ const CRMCard = () => {
           borderRadius: "5px",
           border: "1px solid",
           borderColor: "divider",
-          backgroundColor: "background.paper"
+          backgroundColor: "background.paper",
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Total Pipeline
         </Typography>
-        <Typography variant="h5" color="text.primary" fontWeight={"bold"}>$455K</Typography>
+        {totalCost != null ? (
+          <Typography variant="h5" color="text.primary" fontWeight={"bold"}>
+            ${parseInt(totalCost)}
+          </Typography>
+        ) : (
+          <Loading />
+        )}
       </Box>
       {/* Total Pipeline card END */}
 
@@ -43,15 +50,23 @@ const CRMCard = () => {
           borderRadius: "5px",
           border: "1px solid",
           borderColor: "divider",
-          backgroundColor: "background.paper"
+          backgroundColor: "background.paper",
         }}
       >
         <Typography variant="body2" color="text.secondary">
           Deals At Risk
         </Typography>
-        <Typography variant="h5" fontWeight="bold" sx={{ color: "error.main" }}>
-          2 Deals
-        </Typography>
+        {parseInt(totalCost) != null ? (
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            sx={{ color: "error.main" }}
+          >
+            {parseInt(dealsAtRisk)} at Risk
+          </Typography>
+        ) : (
+          <Loading />
+        )}
       </Box>
       {/* Open Deals card END */}
 
@@ -66,15 +81,23 @@ const CRMCard = () => {
           borderRadius: "5px",
           border: "1px solid",
           borderColor: "divider",
-          backgroundColor: "background.paper"
+          backgroundColor: "background.paper",
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Close Rate
+          Total Deals
         </Typography>
-        <Typography variant="h5" fontWeight="bold"sx={{ color: "success.main" }}>
-          73%
-        </Typography>
+        {parseInt(totalCost) != null ? (
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            sx={{ color: "success.main" }}
+          >
+            {totalDeals} Deals
+          </Typography>
+        ) : (
+          <Loading />
+        )}
       </Box>
       {/* Close Rate card END */}
 
@@ -89,15 +112,23 @@ const CRMCard = () => {
           borderRadius: "5px",
           border: "1px solid",
           borderColor: "divider",
-          backgroundColor: "background.paper"
+          backgroundColor: "background.paper",
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Growth
+          Average Deal Value
         </Typography>
-        <Typography variant="h5" fontWeight={"bold"} sx={{ color: "primary.main" }}>
-          +15%
-        </Typography>
+        {parseInt(totalCost) != null ? (
+          <Typography
+            variant="h5"
+            fontWeight={"bold"}
+            sx={{ color: "primary.main" }}
+          >
+            ${avgValue}
+          </Typography>
+        ) : (
+          <Loading />
+        )}
       </Box>
       {/* Growth card END */}
     </Box>
