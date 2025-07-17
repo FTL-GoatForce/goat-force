@@ -1,0 +1,92 @@
+Deal ID: 7
+Response: {
+  "deal_id": "123456",
+  "client_company": "ABC Corp",
+  "primary_rep": {
+    "id": "rep_001",
+    "name": "John Doe"
+  },
+  "last_activity_timestamp": "2023-10-01T12:00:00Z",
+  "deal_stage": "prospecting",
+  "deal_value_usd": 50000,
+  "expected_close_date": "2023-12-01",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 30,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 25,
+    "Budget_Risk": 15,
+    "deal_risk_explanation": "The deal is still in the early stages with limited engagement.",
+    "churn_risk_explanation": "Low churn risk as initial interest has been shown.",
+    "timeline_risk_explanation": "Moderate timeline risk due to the extended close date.",
+    "budget_risk_explanation": "Budget risk is low as the client has indicated a willingness to invest."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 0,
+    "prospect_response_time_sec": 0.0,
+    "engagement_trend": "stable",
+    "last_touch_channel": "email",
+    "last_touch_summary": "No email thread data was found for analysis due to an inability to retrieve emails."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2023-09-15",
+      "event_description": "Initial contact made with ABC Corp.",
+      "event_type": "outreach"
+    },
+    {
+      "event_date": "2023-09-25",
+      "event_description": "Follow-up email sent to ABC Corp.",
+      "event_type": "follow-up"
+    },
+    {
+      "event_date": "2023-11-01",
+      "event_description": "Schedule a meeting to discuss proposal.",
+      "event_type": "future_action"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal with ABC Corp is currently in the prospecting stage with a deal value of $50,000. There has been minimal communication activity recorded, and the expected close date is set for December 1, 2023. Risk assessments indicate a low overall deal risk, with some moderate concerns regarding the timeline.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Schedule a follow-up meeting with ABC Corp.",
+      "Prepare a detailed proposal to present during the meeting.",
+      "Identify key decision-makers at ABC Corp."
+    ],
+    "Escalation_Triggers": "If no response is received within the next two weeks.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount to encourage quicker decision-making."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Our Recent Discussion",
+        "body": "Hi [Client's Name],\n\nI hope this message finds you well. I'm reaching out to follow up on our previous conversation regarding our proposal. I would love to schedule a time to discuss any questions you may have and explore how we can move forward together.\n\nLooking forward to your response!\n\nBest,\nJohn Doe"
+      }
+    ],
+    "Slack_Message": "Hi team, I need to follow up with ABC Corp regarding our proposal. Any insights on their decision-making process?"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "client_001",
+      "name": "Jane Smith",
+      "role": "unknown",
+      "sentiment": "neutral",
+      "communication_score": 50
+    }
+  ],
+
+  "TAGS": ["no_data_found"]
+}
+--------------------------------

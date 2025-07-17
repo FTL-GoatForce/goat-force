@@ -18,6 +18,13 @@ client = genai.Client(api_key=API_KEY)
 
 server_params = get_slack_server_params()
 
+def get_slack_data_file(channel_id: str) -> str:
+    if os.path.exists(f"transcripts/slack/{channel_id}_structured_response.json"):
+        with open(f"transcripts/slack/{channel_id}_structured_response.json", "r") as f:
+            return json.load(f)
+    else:
+        return "{}"
+
 
 def get_analysis_slack_prompt(channel_id: str) -> str:
     return f"""
@@ -48,7 +55,7 @@ def get_analysis_slack_prompt(channel_id: str) -> str:
         Output the results as a clean JSON array of messages. Do **not** do any further analysis or interpretation.
     """
 
-def get_structured_slack_prompt(response: object) -> str:
+def get_structured_slack_prompt(response: object, channel_id: str) -> str:
     return f"""
     You are a sales assistant AI reviewing a Slack thread between a sales representative and a prospect. You are provided with structured message data from a thread.
 
@@ -84,6 +91,14 @@ def get_structured_slack_prompt(response: object) -> str:
             {response}
 
             ### Output Format:
+
+            Here is the current gmail data file we have:
+            {get_slack_data_file(channel_id)}
+
+
+            I want you to update this file by appending to the messages with new Non duplicate messages.
+
+            Update any other fields as neccessary, so the summary is accurate and up to date.
 
             Respond ONLY with valid JSON following this schema:
 
@@ -149,7 +164,7 @@ async def slack_mcp_server(channel_id: str):
             except Exception as e:
                 print(f"Error: {e}")
 
-            structured_prompt = get_structured_slack_prompt(response_text)
+            structured_prompt = get_structured_slack_prompt(response_text, channel_id)
             structured_response = await client.aio.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=structured_prompt,
