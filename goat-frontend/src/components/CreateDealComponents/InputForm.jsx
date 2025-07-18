@@ -107,7 +107,7 @@ const InputForm = () => {
               <TextField
                 sx={{ mb: 2 }}
                 fullWidth={true}
-                label="Contact Slack"
+                label="Slack ID"
               />
 
               <TextField
