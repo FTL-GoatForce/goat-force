@@ -4,7 +4,7 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { Menu } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import {
   Box,
@@ -24,9 +24,32 @@ import React from "react";
 const SideBar = () => {
   // navigation
   const navigate = useNavigate();
+  const location = useLocation(); // get the current url location
+
+  // function to get active item from current URL path, returns the active item
+  const getActiveItemFromPath = (pathname) => {
+    switch (pathname) {
+      case "/dashboard":
+        return "Overview";
+      case "/sandbox":
+        return "Sandbox";
+      case "/deals":
+        return "Deals";
+      case "/contacts":
+        return "Contacts";
+      case "/settings":
+        return "Settings";
+      default:
+        return "Overview"; // default fallback
+    }
+  };
 
   // use state hooks, click will set active item to the clicked item
-  const [activeItem, setActiveItem] = useState("/");
+  const [activeItem, setActiveItem] = useState(() => {
+    // Get initial active item from current location path
+    return getActiveItemFromPath(location.pathname);
+  });
+
   const [open, setOpen] = useState(() => {
     //  using localstorage to hold the state of if the sidebar is open
     const localState = localStorage.getItem("sidebarOpen");
@@ -44,6 +67,12 @@ const SideBar = () => {
   useEffect(() => {
     localStorage.setItem("sidebarOpen", JSON.stringify(open));
   }, [open]);
+
+  // Update active item when location changes
+  useEffect(() => {
+    const currentActiveItem = getActiveItemFromPath(location.pathname);
+    setActiveItem(currentActiveItem);
+  }, [location.pathname]);
 
   return (
     <>
@@ -161,7 +190,6 @@ const SideBar = () => {
               }}
             >
               {" "}
-              
               <ListItemIcon
                 sx={{
                   color: "#A6ACB9",
