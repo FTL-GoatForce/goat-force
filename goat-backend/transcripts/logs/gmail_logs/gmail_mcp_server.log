@@ -670,3 +670,706 @@ Structured Response: {
   ]
 }
 --------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi David,I came across your recent interview in Supply Chain Tech Weekly — sounds like you're tackling some ambitious transformation goals. I’d love to learn more about how your team currently manages customer interactions across departments.Would you be open to a quick call next week to explore if GoatForce might be a fit for your operations group?Best,Bruce",
+      "timestamp": "2025-07-07T14:55:37-07:00",
+      "sentiment": "positive",
+      "tone": "professional, inviting",
+      "objections": [],
+      "intent": "outreach, schedule meeting",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Hi Bruce,Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul.That said, we're still early — mostly internal discussions and mapping out requirements. I'm open to learning what you offer, especially if your team has worked with large, distributed ops teams before.Would early next week work?– David",
+      "timestamp": "2025-07-07T15:01:12-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, cautious",
+      "objections": [],
+      "intent": "qualify, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Thanks, David — early is often the best time to get involved.Yes, we’ve worked with distributed teams in logistics and supply chain —UPS, DHL, and others. I’d be happy to tailor the conversation to your needs.How’s Tuesday at 11 a.m. PST?Best,Bruce",
+      "timestamp": "2025-07-07T15:20:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, responsive",
+      "objections": [],
+      "intent": "confirm fit, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Tuesday 11 a.m. works. Please send the invite.In the meantime, feel free to share any material that outlines how your CRMhandles multiple business units. That’s been a sticking point for us withother platforms.– David",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, direct",
+      "objections": [
+        "Handling multiple business units"
+      ],
+      "intent": "confirm meeting, request information",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Calendar invite sent!Attaching a 1-pager that highlights how we segment permissions, reporting,and workflows across business units — particularly helpful for teams likeyours that manage both B2B and B2C flows.Talk soon,Bruce",
+      "timestamp": "2025-07-07T15:21:42-07:00",
+      "sentiment": "positive",
+      "tone": "professional, efficient",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Thanks Bruce — got the doc. Some good points in there.Let’s cover ease of integration on the Slack. That’s another area wherewe’ve hit snags in the past.Looking forward to learning more.Best,David",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative",
+      "objections": [
+        "Ease of integration"
+      ],
+      "intent": "acknowledge, raise new concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread initiated by Bruce Wayne (rep) to David Gonzalez (prospect) resulted in a scheduled meeting for Tuesday 11 AM PST, with the calendar invite already sent. The prospect raised concerns about handling multiple business units, which the rep addressed with an attached document, and a new concern regarding ease of integration was introduced for discussion during the upcoming call.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.8,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_objection",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi David,I came across your recent interview in Supply Chain Tech Weekly — sounds like you're tackling some ambitious transformation goals. I’d love to learn more about how your team currently manages customer interactions across departments.Would you be open to a quick call next week to explore if GoatForce might be a fit for your operations group?Best,Bruce",
+      "timestamp": "2025-07-07T14:55:37-07:00",
+      "sentiment": "positive",
+      "tone": "professional, inviting",
+      "objections": [],
+      "intent": "outreach, schedule meeting",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Hi Bruce,Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul.That said, we're still early — mostly internal discussions and mapping out requirements. I'm open to learning what you offer, especially if your team has worked with large, distributed ops teams before.Would early next week work?– David",
+      "timestamp": "2025-07-07T15:01:12-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, cautious",
+      "objections": [],
+      "intent": "qualify, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Thanks, David — early is often the best time to get involved.Yes, we’ve worked with distributed teams in logistics and supply chain —UPS, DHL, and others. I’d be happy to tailor the conversation to your needs.How’s Tuesday at 11 a.m. PST?Best,Bruce",
+      "timestamp": "2025-07-07T15:20:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, responsive",
+      "objections": [],
+      "intent": "confirm fit, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Tuesday 11 a.m. works. Please send the invite.In the meantime, feel free to share any material that outlines how your CRMhandles multiple business units. That’s been a sticking point for us withother platforms.– David",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, direct",
+      "objections": [
+        "Handling multiple business units"
+      ],
+      "intent": "confirm meeting, request information",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Calendar invite sent!Attaching a 1-pager that highlights how we segment permissions, reporting,and workflows across business units — particularly helpful for teams likeyours that manage both B2B and B2C flows.Talk soon,Bruce",
+      "timestamp": "2025-07-07T15:21:42-07:00",
+      "sentiment": "positive",
+      "tone": "professional, efficient",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Thanks Bruce — got the doc. Some good points in there.Let’s cover ease of integration on the Slack. That’s another area wherewe’ve hit snags in the past.Looking forward to learning more.Best,David",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative",
+      "objections": [
+        "Ease of integration"
+      ],
+      "intent": "acknowledge, raise new concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread between Bruce Wayne (rep) and David Gonzalez (prospect) initiated with an outreach for CRM solutions. A meeting has been scheduled for Tuesday at 11 AM PST, with the invite sent and relevant material shared to address the prospect's initial concern about handling multiple business units. A new key concern regarding the ease of integration has been raised by the prospect and will be a point of discussion for the upcoming meeting.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_objection",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, inviting",
+      "objections": [],
+      "intent": "outreach, schedule meeting",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, cautious, open",
+      "objections": [],
+      "intent": "qualify, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, responsive, confident",
+      "objections": [],
+      "intent": "confirm fit, propose specific meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, direct, informational",
+      "objections": ["Handling multiple business units"],
+      "intent": "confirm meeting, request information, raise technical concern",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, efficient",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, informative",
+      "objections": ["Ease of integration"],
+      "intent": "acknowledge receipt, raise new technical concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread between Bruce Wayne (rep) and David Gonzalez (prospect) initiated with an outreach for CRM solutions. A meeting has been scheduled for Tuesday at 11 AM PST. Bruce sent the calendar invite and relevant material addressing David's concern about managing multiple business units. David acknowledged receipt but raised a new concern about the ease of integration, which will be a key discussion point in the upcoming meeting.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_concern",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit",
+    "meeting_agenda_item"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, inquisitive, direct",
+      "objections": [],
+      "intent": "initial outreach, request discovery call",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, open, cautious",
+      "objections": [],
+      "intent": "qualify, express interest, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, responsive, confident",
+      "objections": [],
+      "intent": "confirm capability, propose specific meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, direct, informative",
+      "objections": [
+        "handling multiple business units"
+      ],
+      "intent": "confirm meeting, request pre-meeting material, raise technical concern",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional, efficient, helpful",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "tone": "professional, informative, cautious",
+      "objections": [
+        "ease of integration"
+      ],
+      "intent": "acknowledge receipt, raise new technical concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread between Bruce Wayne (rep) and David Gonzalez (prospect) initiated with an outreach for CRM solutions. A meeting has been scheduled for Tuesday at 11 AM PST. Bruce provided material addressing David's initial concern about managing multiple business units. David acknowledged receipt but has now raised a new technical sticking point regarding ease of integration, which will be a key discussion point for the upcoming meeting.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_concern",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit",
+    "meeting_agenda_item",
+    "discovery_call"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly — sounds like you're tackling some ambitious transformation goals. I’d love to learn more about how your team currently manages customer interactions across departments. Would you be open to a quick call next week to explore if GoatForce might be a fit for your operations group? Best, Bruce",
+      "timestamp": "2025-07-07T14:55:37-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, inquisitive, direct",
+      "objections": [],
+      "intent": "initial outreach, propose discovery call",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Hi Bruce,\r\n\r\nAppreciate the note. We are indeed evaluating a few platforms as part of a\r\nbroader overhaul.\r\n\r\nThat said, we're still early — mostly internal discussions and mapping out\r\nrequirements. I'm open to learning what you offer, especially if your team\r\nhas worked with large, distributed ops teams before.\r\n\r\nWould early next week work?\r\n\r\n– David\r\n\r\nOn Mon, Jul 7, 2025 at 2:55 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com>\r\nwrote:\r\n\r\n> Hi David,\r\n>\r\n> I came across your recent interview in Supply Chain Tech Weekly — sounds\r\n> like you're tackling some ambitious transformation goals. I’d love to learn\r\n> more about how your team currently manages customer interactions across\r\n> departments.\r\n>\r\n> Would you be open to a quick call next week to explore if GoatForce might\r\n> be a fit for your operations group?\r\n>\r\n> Best,\r\n> Bruce\r\n>",
+      "timestamp": "2025-07-07T15:01:12-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, cautious, open",
+      "objections": [],
+      "intent": "qualify vendor, express interest, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Thanks, David — early is often the best time to get involved.\r\n\r\nYes, we’ve worked with distributed teams in logistics and supply chain —\r\nUPS, DHL, and others. I’d be happy to tailor the conversation to your needs.\r\n\r\nHow’s Tuesday at 11 a.m. PST?\r\n\r\nBest,\r\n\r\nBruce\r\n",
+      "timestamp": "2025-07-07T15:20:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, responsive, confident",
+      "objections": [],
+      "intent": "confirm capability, propose specific meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Tuesday 11 a.m. works. Please send the invite.\r\n\r\nIn the meantime, feel free to share any material that outlines how your CRM\r\nhandles multiple business units. That’s been a sticking point for us with\r\nother platforms.\r\n\r\n– David\r\n\r\nOn Mon, Jul 7, 2025 at 3:21 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com>\r\nwrote:\r\n\r\n> Thanks, David — early is often the best time to get involved.\r\n>\r\n> Yes, we’ve worked with distributed teams in logistics and supply chain —\r\n> UPS, DHL, and others. I’d be happy to tailor the conversation to your needs.\r\n>\r\n> How’s Tuesday at 11 a.m. PST?\r\n>\r\n> Best,\r\n>\r\n> Bruce\r\n>\r\n",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, direct, informative",
+      "objections": [
+        "handling multiple business units"
+      ],
+      "intent": "confirm meeting, request pre-meeting material, raise technical concern",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Calendar invite sent!\r\n\r\nAttaching a 1-pager that highlights how we segment permissions, reporting,\r\nand workflows across business units — particularly helpful for teams like\r\nyours that manage both B2B and B2C flows.\r\n\r\nTalk soon,\r\n\r\nBruce\r\n",
+      "timestamp": "2025-07-07T15:21:42-07:00",
+      "sentiment": "positive",
+      "tone": "professional, efficient, helpful",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Thanks Bruce — got the doc. Some good points in there.\r\n\r\nLet’s cover ease of integration on the Slack. That’s another area where\r\nwe’ve hit snags in the past.\r\n\r\nLooking forward to learning more.\r\n\r\nBest,\r\n\r\nDavid\r\n\r\nOn Mon, Jul 7, 2025 at 3:21 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com>\r\nwrote:\r\n\r\n> Calendar invite sent!\r\n>\r\n> Attaching a 1-pager that highlights how we segment permissions, reporting,\r\n> and workflows across business units — particularly helpful for teams like\r\n> yours that manage both B2B and B2C flows.\r\n>\r\n> Talk soon,\r\n>\r\n> Bruce\r\n>",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative, cautious",
+      "objections": [
+        "ease of integration"
+      ],
+      "intent": "acknowledge receipt, raise new technical concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread began with Bruce Wayne (rep) initiating contact with David Gonzalez (prospect) about CRM solutions. A meeting has been successfully scheduled for Tuesday at 11 AM PST. Bruce provided requested material addressing David's initial concern regarding multiple business unit management, but David has now raised 'ease of integration' as a new technical concern to discuss.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_concern",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit",
+    "meeting_agenda_item",
+    "discovery_call"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly — sounds like you're tackling some ambitious transformation goals. I’d love to learn more about how your team currently manages customer interactions across departments. Would you be open to a quick call next week to explore if GoatForce might be a fit for your operations group? Best, Bruce",
+      "timestamp": "2025-07-07T14:55:37-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, inquisitive, direct",
+      "objections": [],
+      "intent": "initial outreach, propose discovery call",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we're still early — mostly internal discussions and mapping out requirements. I'm open to learning what you offer, especially if your team has worked with large, distributed ops teams before. Would early next week work?",
+      "timestamp": "2025-07-07T15:01:12-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, cautious, open",
+      "objections": [],
+      "intent": "qualify vendor, express interest, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Thanks, David — early is often the best time to get involved. Yes, we’ve worked with distributed teams in logistics and supply chain — UPS, DHL, and others. I’d be happy to tailor the conversation to your needs. How’s Tuesday at 11 a.m. PST?",
+      "timestamp": "2025-07-07T15:20:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, responsive, confident",
+      "objections": [],
+      "intent": "confirm capability, propose specific meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Tuesday 11 a.m. works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That’s been a sticking point for us with other platforms.",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, direct, informative",
+      "objections": [
+        "handling multiple business units"
+      ],
+      "intent": "confirm meeting, request pre-meeting material, raise technical concern",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units — particularly helpful for teams like yours that manage both B2B and B2C flows. Talk soon, Bruce",
+      "timestamp": "2025-07-07T15:21:42-07:00",
+      "sentiment": "positive",
+      "tone": "professional, efficient, helpful",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Thanks Bruce — got the doc. Some good points in there. Let’s cover ease of integration on the Slack. That’s another area where we’ve hit snags in the past. Looking forward to learning more.",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative, cautious",
+      "objections": [
+        "ease of integration"
+      ],
+      "intent": "acknowledge receipt, raise new technical concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread established a discovery call between Bruce Wayne (rep) and David Gonzalez (prospect) at FedEx. The call is scheduled for Tuesday at 11 AM PST, and Bruce has sent the calendar invite and a 1-pager addressing David's initial concern about managing multiple business units. David has acknowledged receipt but raised a new technical concern regarding 'ease of integration' that needs to be discussed.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_concern",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit",
+    "meeting_agenda_item",
+    "discovery_call",
+    "follow_up_required"
+  ]
+}
+--------------------------------
+Email: David.gonzalez.fedex2025@gmail.com
+Structured Response: {
+  "thread_id": "197e6e21467c29cd",
+  "channel": {
+    "id": "197e6e21467c29cd",
+    "name": "Exploring CRM Solutions for FedEx Ops",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly — sounds like you're tackling some ambitious transformation goals. I’d love to learn more about how your team currently manages customer interactions across departments. Would you be open to a quick call next week to explore if GoatForce might be a fit for your operations group? Best, Bruce",
+      "timestamp": "2025-07-07T14:55:37-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, inquisitive, direct",
+      "objections": [],
+      "intent": "initial outreach, propose discovery call",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we're still early — mostly internal discussions and mapping out requirements. I'm open to learning what you offer, especially if your team has worked with large, distributed ops teams before. Would early next week work?",
+      "timestamp": "2025-07-07T15:01:12-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, cautious, open",
+      "objections": [],
+      "intent": "qualify vendor, express interest, propose meeting time",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Thanks, David — early is often the best time to get involved. Yes, we’ve worked with distributed teams in logistics and supply chain — UPS, DHL, and others. I’d be happy to tailor the conversation to your needs. How’s Tuesday at 11 a.m. PST?",
+      "timestamp": "2025-07-07T15:20:51-07:00",
+      "sentiment": "positive",
+      "tone": "professional, responsive, confident",
+      "objections": [],
+      "intent": "confirm capability, propose specific meeting time",
+      "action_required": true
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Tuesday 11 a.m. works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That’s been a sticking point for us with other platforms.",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, direct, informative",
+      "objections": [
+        "handling multiple business units"
+      ],
+      "intent": "confirm meeting, request pre-meeting material, raise technical concern",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units — particularly helpful for teams like yours that manage both B2B and B2C flows. Talk soon, Bruce",
+      "timestamp": "2025-07-07T15:21:42-07:00",
+      "sentiment": "positive",
+      "tone": "professional, efficient, helpful",
+      "objections": [],
+      "intent": "confirm action, provide requested information",
+      "action_required": false
+    },
+    {
+      "from": "David Gonzalez",
+      "text": "Thanks Bruce — got the doc. Some good points in there. Let’s cover ease of integration on the Slack. That’s another area where we’ve hit snags in the past. Looking forward to learning more.",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "sentiment": "neutral",
+      "tone": "professional, informative, cautious",
+      "objections": [
+        "ease of integration"
+      ],
+      "intent": "acknowledge receipt, raise new technical concern, confirm interest",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales thread details initial outreach from Bruce Wayne (rep) to David Gonzalez (prospect) at FedEx, leading to a discovery call scheduled for Tuesday at 11 AM PST. Bruce sent the calendar invite and a 1-pager addressing David's concern about managing multiple business units. David acknowledged receipt and raised a new technical concern regarding 'ease of integration' that needs to be discussed.",
+  "last_activity": "2025-07-07T15:22:08-07:00",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 602.5,
+    "objections_raised": 2,
+    "followups_committed": 2
+  },
+  "tags": [
+    "CRM_evaluation",
+    "meeting_scheduled",
+    "integration_concern",
+    "multi_business_unit_challenge",
+    "document_shared",
+    "initial_outreach",
+    "technical_fit",
+    "meeting_agenda_item",
+    "discovery_call",
+    "follow_up_required"
+  ]
+}
+--------------------------------

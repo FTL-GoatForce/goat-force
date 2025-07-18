@@ -72,7 +72,15 @@ const CRMChatBot = ({ handleExit }) => {
       for (let i = 0; i < LLM_Reply.length; i++) {
         currentText += LLM_Reply[i];
         setStreamingText(currentText);
-        await new Promise(resolve => setTimeout(resolve, 20));
+        // Increase delay to 50ms for slower text streaming
+        await new Promise(resolve => setTimeout(resolve, 10));
+        
+        // Add extra delay for punctuation marks to create more natural pauses
+        if (['.', '!', '?', '\n'].includes(LLM_Reply[i])) {
+          await new Promise(resolve => setTimeout(resolve, 200));
+        } else if ([',', ';', ':'].includes(LLM_Reply[i])) {
+          await new Promise(resolve => setTimeout(resolve, 100)); 
+        }
       }
       
       const LLM_chatObj = { context: LLM_Reply, sender: "Ai" };

@@ -243,8 +243,6 @@ async def slack_mcp_server(channel_id: str):
 
 if __name__ == "__main__":
     import sys
-    # Get channel_id from command line argument, or use default
-    channel_id = sys.argv[1] if len(sys.argv) > 1 else "D094KB9QUNP"
+    channel_id = sys.argv[1] if len(sys.argv) > 1 else "D094R07DZ4J"
     print(f"Running Slack MCP Server for channel: {channel_id}")
     asyncio.run(slack_mcp_server(channel_id))
-    

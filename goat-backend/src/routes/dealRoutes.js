@@ -8,6 +8,6 @@ import { createDeal, getDealDetails, getAllDeals, updateDeal } from "../controll
 router.post("/create", createDeal);
 router.get("/all", getAllDeals);
 router.get("/:id", getDealDetails);
-router.post("/update", updateDeal);
+router.put("/update", updateDeal);
 
 export default router;

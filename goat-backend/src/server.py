@@ -37,7 +37,7 @@ def run_pipeline(request: Request):
                 gmail_data = f.read() 
                 gmail_transcript_json = json.loads(gmail_data)
             
-            with open(f'src/personality/personality_analysis/personality_analysis.json', 'r') as f:
+            with open(f'src/personality/personality_analysis/{request.email}.json', 'r') as f:
                 personality_data = f.read()
                 personality_json = json.loads(personality_data)
 
