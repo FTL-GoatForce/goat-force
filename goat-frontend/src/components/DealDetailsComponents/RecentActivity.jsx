@@ -6,40 +6,53 @@ import { Box, Card, CardHeader } from "@mui/material";
 function RecentActivity({ timelineData, loading }) {
   const [activities, setActivities] = useState([]);
 
-useEffect(() => {
-  if (!loading && timelineData && timelineData.length > 0) {
-    const allEvents = []; // events will be stored here
-    
-    // iterate through each timeline entry
-    timelineData.forEach((timelineEntry) => {
-      if (timelineEntry.event?.event && Array.isArray(timelineEntry.event.event)) {
-        timelineEntry.event.event.forEach((eventItem) => {
-          if (eventItem.event_type && eventItem.event_description) {
-            const eventText = eventItem.event_type.replace(/_/g, " ");
-            allEvents.push({
-              date: (eventItem.event_date),
-              event: eventText.charAt(0).toUpperCase() + eventText.slice(1), // Capitalize first letter
-              event_summary: eventItem.event_description,
-              event_date: eventItem.event_date
-            });
-          }
-        });
-      }
-    });
+  useEffect(() => {
+    if (!loading && timelineData && timelineData.length > 0) {
+      const allEvents = []; // events will be stored here
 
-    // sort by date (most recent first)
-    const sortedEvents = allEvents.sort(
-      (a, b) => new Date(b.event_date) - new Date(a.event_date)
-    );
-    setActivities(sortedEvents); // store in state
-  }
-}, [timelineData, loading]);
+      // Get the latest timeline entry
+      const latestEntry = timelineData[timelineData.length - 1];
 
+      latestEntry.event?.forEach((eventItem, index) => {
+        if (eventItem.event_type && eventItem.event_description) {
+          const eventText = eventItem.event_type.replace(/_/g, " ");
+          const processedEvent = {
+            date: eventItem.event_date,
+            event: eventText.charAt(0).toUpperCase() + eventText.slice(1),
+            event_summary: eventItem.event_description,
+            event_date: eventItem.event_date,
+          };
+          allEvents.push(processedEvent);
+        }
+      });
+
+      // Sort by date (most recent first)
+      const sortedEvents = allEvents.sort(
+        (a, b) => new Date(b.event_date) - new Date(a.event_date)
+      );
+
+      setActivities(sortedEvents);
+    } else {
+      console.log("Conditions not met:", {
+        loading,
+        timelineData,
+        timelineDataLength: timelineData?.length,
+      });
+    }
+  }, [timelineData, loading]);
 
   // Show loading state when parent is loading
   if (loading) {
     return (
-      <Card sx={{ padding: 1, boxShadow: 5, borderRadius: 2, border: "1px solid", borderColor: "divider" }}>
+      <Card
+        sx={{
+          padding: 1,
+          boxShadow: 5,
+          borderRadius: 2,
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
         <Box sx={{ p: 2, textAlign: "center" }}>Loading activities...</Box>
       </Card>
     );
@@ -62,7 +75,7 @@ useEffect(() => {
           subheader="Latest updates and interactions with this deal"
         />
       </Box>
-      
+
       <Box
         className="card-content"
         sx={{

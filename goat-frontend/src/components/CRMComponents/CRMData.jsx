@@ -266,8 +266,8 @@ const CRMData = ({ deals }) => {
               {currentDeal.deal.company_name}
             </Typography>
             <Typography variant="body1" color="text.primary">
-              {currentDeal.deal.stage.charAt(0).toUpperCase() +
-                currentDeal.deal.stage.slice(1)}
+              {/* {currentDeal.deal.stage.charAt(0).toUpperCase() +
+                currentDeal.deal.stage.slice(1)} */}
             </Typography>
             <Typography
               variant="body1"
