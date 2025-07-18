@@ -6,14 +6,26 @@ import { Box, Card, CardHeader } from "@mui/material";
 function RecentActivity({ timelineData, loading }) {
   const [activities, setActivities] = useState([]);
 
-  useEffect(() => {
-    if (!loading && timelineData && timelineData.length > 0) {
-      const allEvents = []; // events will be stored here
-
-      // Get the latest timeline entry
-      const latestEntry = timelineData[timelineData.length - 1];
-
-      latestEntry.event?.forEach((eventItem, index) => {
+useEffect(() => {
+  if (!loading && timelineData && timelineData.length > 0) {
+    const allEvents = []; // events will be stored here
+    
+    // Get the latest timeline entry
+    const latestEntry = timelineData[timelineData.length - 1];
+    
+    // Declare latestEvents outside the conditional
+    let latestEvents;
+    
+    // Check for nested event structure vs direct event structure
+    if (latestEntry?.event?.event) {
+      latestEvents = latestEntry.event.event;
+    } else {
+      latestEvents = latestEntry.event;
+    }
+    
+    // Make sure latestEvents exists and is an array before processing
+    if (latestEvents && Array.isArray(latestEvents)) {
+      latestEvents.forEach((eventItem, index) => {
         if (eventItem.event_type && eventItem.event_description) {
           const eventText = eventItem.event_type.replace(/_/g, " ");
           const processedEvent = {
@@ -25,21 +37,25 @@ function RecentActivity({ timelineData, loading }) {
           allEvents.push(processedEvent);
         }
       });
-
+      
       // Sort by date (most recent first)
       const sortedEvents = allEvents.sort(
         (a, b) => new Date(b.event_date) - new Date(a.event_date)
       );
-
+      
       setActivities(sortedEvents);
     } else {
-      console.log("Conditions not met:", {
-        loading,
-        timelineData,
-        timelineDataLength: timelineData?.length,
-      });
+      console.log("No valid events array found");
+      setActivities([]);
     }
-  }, [timelineData, loading]);
+  } else {
+    console.log("Conditions not met:", {
+      loading,
+      timelineData,
+      timelineDataLength: timelineData?.length,
+    });
+  }
+}, [timelineData, loading]);
 
   // Show loading state when parent is loading
   if (loading) {

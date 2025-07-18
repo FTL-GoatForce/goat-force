@@ -13,6 +13,10 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 function ContactProfile({ deals, selectedDeal }) {
+  // Get personality data from the correct path
+  const personalityData = selectedDeal?.personality?.[0]?.personality_traits;
+  const participant = selectedDeal?.participants?.[0];
+
   return (
     <>
       <Box
@@ -36,10 +40,9 @@ function ContactProfile({ deals, selectedDeal }) {
             alignItems={"center"}
           >
             <PersonOutlineOutlinedIcon color="primary" />
-            {selectedDeal.participants[0].name}'s Profile
+            {participant?.prospect_name || 'Contact'}'s Profile
           </Typography>
         </Box>
-
         {/* card content */}
         <Box
           display={"flex"}
@@ -51,30 +54,19 @@ function ContactProfile({ deals, selectedDeal }) {
           <Typography variant="body2" color="text.secondary">
             Style:{" "}
             <span style={{ color: "white" }}>
-              {
-                selectedDeal.participants?.[0]?.personality
-                  ?.personality_communication_profile?.communication_style
-              }
+              {personalityData?.personality_communication_profile?.communication_style || 'N/A'}
             </span>
           </Typography>
           <Typography alignItems={"center"} variant="body2" color="text.secondary">
-            Responds: {" "}
+            Responds:{" "}
             <span style={{ color: "white" }}>
-              {""}
-              {
-                selectedDeal.participants?.[0]?.personality
-                  ?.communication_behavior?.response_time
-              }
+              {personalityData?.communication_behavior?.response_time || 'N/A'}
             </span>
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Objection Style:{" "}
             <span style={{ color: "white" }}>
-              {" "}
-              {
-                selectedDeal.participants?.[0]?.personality
-                  ?.personality_communication_profile?.objection_style
-              }
+              {personalityData?.personality_communication_profile?.objection_style || 'N/A'}
             </span>
           </Typography>
           <Box>
@@ -82,16 +74,22 @@ function ContactProfile({ deals, selectedDeal }) {
               Concerns:
             </Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5, marginTop: 0.5 }}>
-              {selectedDeal.participants?.[0]?.personality?.objections_concerns?.objection_types?.map(
-                (objection, index) => (
-                  <Chip
-                    key={index}
-                    label={objection}
-                    size="small"
-                    variant="outlined"
-                    sx={{ fontSize: "11px", height: "20px" }}
-                  />
+              {personalityData?.objections_concerns?.objection_types?.length > 0 ? (
+                personalityData.objections_concerns.objection_types.map(
+                  (objection, index) => (
+                    <Chip
+                      key={index}
+                      label={objection}
+                      size="small"
+                      variant="outlined"
+                      sx={{ fontSize: "11px", height: "20px" }}
+                    />
+                  )
                 )
+              ) : (
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: "11px" }}>
+                  No concerns listed
+                </Typography>
               )}
             </Box>
           </Box>

@@ -337,7 +337,7 @@ function EditDeal({ deal_id }) {
                       variant="subtitle1"
                       color="text.primary"
                     >
-                      Slack ID
+                      Contact Slack
                     </Typography>
                     <TextField
                       value={formData.contactSlack}
