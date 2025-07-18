@@ -931,3 +931,2070 @@ Structured Response: {
   ]
 }
 --------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "U094SLLCY4C",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "state_requirements",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["early_stage_evaluation"],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["timeline"],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Deals off, priya said no, for any concerns to contact them.",
+      "timestamp": "2025-07-19T20:15:04Z",
+      "sentiment": "negative",
+      "tone": "definitive",
+      "objections": ["internal_decision"],
+      "intent": "terminate_engagement",
+      "action_required": true
+    }
+  ],
+  "summary": "The prospect, initially seeking a unified reporting solution for multi-regional operations, received a loom demo and was in an early evaluation phase with an August timeline. However, the prospect later informed the sales rep that the deal is off due to a negative internal stakeholder decision (Priya IT).",
+  "last_activity": "2025-07-19T20:15:04Z",
+  "engagement_metrics": {
+    "message_count": 11,
+    "rep_response_time_sec": 154778.2,
+    "objections_raised": 3,
+    "followups_committed": 1
+  },
+  "tags": [
+    "unified_reporting",
+    "multi_region_support",
+    "data_silos",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_delay",
+    "nurture_opportunity",
+    "long_response_time",
+    "deal_lost",
+    "internal_rejection",
+    "prospect_objection"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "U094SLLCY4C",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "state_requirements",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "early_stage_evaluation"
+      ],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "timeline"
+      ],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Deals off, priya said no, for any concerns to contact them.",
+      "timestamp": "2025-07-19T20:15:04Z",
+      "sentiment": "negative",
+      "tone": "definitive",
+      "objections": [
+        "internal_decision"
+      ],
+      "intent": "terminate_engagement",
+      "action_required": true
+    }
+  ],
+  "summary": "The prospect, initially seeking a unified reporting solution for multi-regional operations, received a loom demo and was in an early evaluation phase with an August timeline. However, the prospect later informed the sales rep that the deal is off due to a negative internal stakeholder decision (Priya IT).",
+  "last_activity": "2025-07-19T20:15:04Z",
+  "engagement_metrics": {
+    "message_count": 11,
+    "rep_response_time_sec": 154778.2,
+    "objections_raised": 3,
+    "followups_committed": 1
+  },
+  "tags": [
+    "unified_reporting",
+    "multi_region_support",
+    "data_silos",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_delay",
+    "nurture_opportunity",
+    "long_response_time",
+    "deal_lost",
+    "internal_rejection",
+    "prospect_objection",
+    "negative_sentiment"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {"thread_id": "D094R07DZ4J", "channel": {"id": "D094R07DZ4J", "name": "@U094SLLCY4C", "type": "dm"}, "participants": [{"id": "U094SLLCY4C", "name": "U094SLLCY4C", "role": "prospect"}, {"id": "U094K124HS7", "name": "Bruce", "role": "rep"}], "messages": [{"from": "U094SLLCY4C", "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.", "timestamp": "2025-07-09T14:42:02Z", "sentiment": "neutral", "tone": "informative", "objections": [], "intent": "state_requirements", "action_required": false}, {"from": "Bruce", "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?", "timestamp": "2025-07-09T14:42:13.104Z", "sentiment": "neutral", "tone": "clarifying", "objections": [], "intent": "qualify_needs", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.", "timestamp": "2025-07-09T14:42:19.589Z", "sentiment": "negative", "tone": "problem-focused", "objections": [], "intent": "articulate_pain_points", "action_required": false}, {"from": "Bruce", "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?", "timestamp": "2025-07-09T14:42:25.882Z", "sentiment": "positive", "tone": "proactive", "objections": [], "intent": "propose_solution", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.", "timestamp": "2025-07-09T14:42:32.500Z", "sentiment": "neutral", "tone": "cautious", "objections": ["early_stage_evaluation"], "intent": "manage_expectations", "action_required": true}, {"from": "Bruce", "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.", "timestamp": "2025-07-09T14:42:38.141Z", "sentiment": "positive", "tone": "accommodating", "objections": [], "intent": "fulfill_request", "action_required": false}, {"from": "U094SLLCY4C", "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.", "timestamp": "2025-07-09T14:42:44.848Z", "sentiment": "neutral", "tone": "informative", "objections": ["timeline"], "intent": "provide_update", "action_required": false}, {"from": "Bruce", "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.", "timestamp": "2025-07-09T14:42:50.035Z", "sentiment": "neutral", "tone": "patient", "objections": [], "intent": "nurture_relationship", "action_required": false}, {"from": "U094SLLCY4C", "text": "Will do. Appreciate the no-pressure vibe.", "timestamp": "2025-07-09T14:42:55.079Z", "sentiment": "positive", "tone": "appreciative", "objections": [], "intent": "acknowledge", "action_required": false}, {"from": "Bruce", "text": "Of course", "timestamp": "2025-07-18T12:00:37.070Z", "sentiment": "neutral", "tone": "casual", "objections": [], "intent": "acknowledge", "action_required": false}, {"from": "U094SLLCY4C", "text": "Deals off, priya said no, for any concerns to contact them.", "timestamp": "2025-07-19T20:15:04.641Z", "sentiment": "negative", "tone": "definitive", "objections": ["internal_decision"], "intent": "terminate_engagement", "action_required": true}], "summary": "The prospect initially sought a unified reporting solution for multi-regional operations, expressing issues with siloed legacy tools. The sales rep provided a short loom demo to accommodate the prospect's early evaluation stage and desire to avoid a \"full pitch.\" Despite initial positive feedback on the demo and an indicated August evaluation timeline, the deal was ultimately called off due to a negative internal stakeholder decision from \"Priya IT.\"", "last_activity": "2025-07-19T20:15:04.641Z", "engagement_metrics": {"message_count": 11, "rep_response_time_sec": 154778.255584, "objections_raised": 3, "followups_committed": 1}, "tags": ["unified_reporting", "multi_region_support", "data_silos", "loom_demo", "early_stage_evaluation", "timeline_delay", "nurture_opportunity", "long_response_time", "deal_lost", "internal_rejection", "prospect_objection", "negative_sentiment"]}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "early_stage_evaluation"
+      ],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "timeline"
+      ],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Deals off, priya said no, for any concerns to contact them.",
+      "timestamp": "2025-07-19T20:15:04Z",
+      "sentiment": "negative",
+      "tone": "definitive",
+      "objections": [
+        "internal_decision"
+      ],
+      "intent": "terminate_engagement",
+      "action_required": true
+    }
+  ],
+  "summary": "The conversation began with the prospect articulating their need to avoid siloed solutions for multi-regional operations. The sales rep offered a customized demo via Loom, which the prospect appreciated but noted they were in an early evaluation phase with an August timeline, needing to involve internal IT. After a significant period of inactivity, the prospect abruptly informed the rep that the deal is off due to an internal IT decision.",
+  "last_activity": "2025-07-19T20:15:04Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 193470.0,
+    "objections_raised": 3,
+    "followups_committed": 1
+  },
+  "tags": [
+    "multi_org_support",
+    "siloed_solutions",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_objection",
+    "internal_stakeholder",
+    "long_response_time",
+    "deal_lost",
+    "internal_rejection",
+    "negative_sentiment",
+    "prospect_objection"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["early_stage_evaluation"],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["timeline"],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Deals off, priya said no, for any concerns to contact them.",
+      "timestamp": "2025-07-19T20:15:04Z",
+      "sentiment": "negative",
+      "tone": "definitive",
+      "objections": ["internal_decision"],
+      "intent": "terminate_engagement",
+      "action_required": true
+    }
+  ],
+  "summary": "The conversation began with the prospect articulating their need to avoid siloed solutions for multi-regional operations. The sales rep offered a customized demo via Loom, which the prospect appreciated but noted they were in an early evaluation phase with an August timeline, needing to involve internal IT. After a significant period of inactivity, the prospect abruptly informed the rep that the deal is off due to an internal IT decision.",
+  "last_activity": "2025-07-19T20:15:04Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 193469.7782525,
+    "objections_raised": 3,
+    "followups_committed": 1
+  },
+  "tags": [
+    "multi_org_support",
+    "siloed_solutions",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_objection",
+    "internal_stakeholder",
+    "long_response_time",
+    "deal_lost",
+    "internal_rejection",
+    "negative_sentiment",
+    "prospect_objection"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "U094SLLCY4C",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "provide_context",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "early_stage_evaluation"
+      ],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "timeline"
+      ],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation began with the prospect outlining their need for a unified reporting solution across multiple regions to replace siloed legacy tools. The sales rep, Bruce, offered a tailored demo via Loom, which the prospect appreciated but noted they were in an early evaluation phase with an August timeline, needing to involve internal IT. The thread concludes with a positive rapport and an understanding that Bruce will stay in orbit.",
+  "last_activity": "2025-07-18T12:00:37Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 154777.97,
+    "objections_raised": 2,
+    "followups_committed": 1
+  },
+  "tags": [
+    "multi_region_operations",
+    "unified_reporting",
+    "siloed_solutions",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_objection",
+    "internal_stakeholder",
+    "long_response_time",
+    "nurturing_phase",
+    "positive_rapport"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {"thread_id": "D094R07DZ4J", "channel": {"id": "D094R07DZ4J", "name": "U094SLLCY4C", "type": "dm"}, "participants": [{"id": "U094SLLCY4C", "name": "U094SLLCY4C", "role": "prospect"}, {"id": "U094K124HS7", "name": "Bruce", "role": "rep"}], "messages": [{"from": "U094SLLCY4C", "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.", "timestamp": "2025-07-09T14:42:02Z", "sentiment": "neutral", "tone": "informative", "objections": [], "intent": "provide_context", "action_required": false}, {"from": "Bruce", "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?", "timestamp": "2025-07-09T14:42:13Z", "sentiment": "neutral", "tone": "clarifying", "objections": [], "intent": "qualify_needs", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.", "timestamp": "2025-07-09T14:42:19Z", "sentiment": "negative", "tone": "problem-focused", "objections": [], "intent": "articulate_pain_points", "action_required": false}, {"from": "Bruce", "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?", "timestamp": "2025-07-09T14:42:25Z", "sentiment": "positive", "tone": "proactive", "objections": [], "intent": "propose_solution", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.", "timestamp": "2025-07-09T14:42:32Z", "sentiment": "neutral", "tone": "cautious", "objections": ["early_stage_evaluation"], "intent": "manage_expectations", "action_required": true}, {"from": "Bruce", "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.", "timestamp": "2025-07-09T14:42:38Z", "sentiment": "positive", "tone": "accommodating", "objections": [], "intent": "fulfill_request", "action_required": false}, {"from": "U094SLLCY4C", "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.", "timestamp": "2025-07-09T14:42:44Z", "sentiment": "neutral", "tone": "informative", "objections": ["timeline"], "intent": "provide_update", "action_required": false}, {"from": "Bruce", "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.", "timestamp": "2025-07-09T14:42:50Z", "sentiment": "neutral", "tone": "patient", "objections": [], "intent": "nurture_relationship", "action_required": false}, {"from": "U094SLLCY4C", "text": "Will do. Appreciate the no-pressure vibe.", "timestamp": "2025-07-09T14:42:55Z", "sentiment": "positive", "tone": "appreciative", "objections": [], "intent": "acknowledge", "action_required": false}, {"from": "Bruce", "text": "Of course", "timestamp": "2025-07-18T12:00:37Z", "sentiment": "neutral", "tone": "casual", "objections": [], "intent": "acknowledge", "action_required": false}], "summary": "The conversation began with the prospect outlining their need for a unified reporting solution across multiple regions to replace siloed legacy tools. The sales rep, Bruce, quickly understood the need and offered a tailored Loom demo. The prospect appreciated the demo but indicated they are in an early evaluation phase with an August timeline, needing to involve internal IT. Bruce acknowledged this, committing to stay in orbit and offer further engagement when the prospect is ready, which was received positively.", "last_activity": "2025-07-18T12:00:37Z", "engagement_metrics": {"message_count": 10, "rep_response_time_sec": 154777.97, "objections_raised": 2, "followups_committed": 1}, "tags": ["multi_region_operations", "unified_reporting", "siloed_solutions", "loom_demo", "early_stage_evaluation", "timeline_objection", "internal_stakeholder", "long_response_time", "nurturing_phase", "positive_rapport"]}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "U094SLLCY4C",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "U094SLLCY4C",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "U094SLLCY4C",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "provide_context",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19Z",
+      "sentiment": "negative",
+      "tone": "problem-focused",
+      "objections": [],
+      "intent": "articulate_pain_points",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "early_stage_evaluation"
+      ],
+      "intent": "manage_expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "fulfill_request",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "\"This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.\"",
+      "timestamp": "2025-07-09T14:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "timeline"
+      ],
+      "intent": "provide_update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "nurture_relationship",
+      "action_required": false
+    },
+    {
+      "from": "U094SLLCY4C",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The prospect outlined a need for unified reporting across 4 regions to replace siloed legacy tools. The sales rep, Bruce, quickly understood the pain points and offered a multi-region demo via Loom. The prospect appreciated the demo but indicated they are in an early evaluation phase with an August timeline, requiring internal IT involvement for API and auth questions. Bruce acknowledged this, committing to provide value and stay engaged without pressure, which was well-received by the prospect, fostering positive rapport.",
+  "last_activity": "2025-07-18T12:00:37Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 154777.97,
+    "objections_raised": 2,
+    "followups_committed": 1
+  },
+  "tags": [
+    "multi_region_operations",
+    "unified_reporting",
+    "siloed_solutions",
+    "loom_demo",
+    "early_stage_evaluation",
+    "timeline_objection",
+    "internal_stakeholder",
+    "long_response_time",
+    "nurturing_phase",
+    "positive_rapport"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {"thread_id": "D094R07DZ4J", "channel": {"id": "D094R07DZ4J", "name": "U094SLLCY4C", "type": "dm"}, "participants": [{"id": "U094SLLCY4C", "name": "U094SLLCY4C", "role": "prospect"}, {"id": "U094K124HS7", "name": "Bruce", "role": "rep"}], "messages": [{"from": "U094SLLCY4C", "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.", "timestamp": "2025-07-09T14:42:02Z", "sentiment": "neutral", "tone": "informative", "objections": [], "intent": "provide_context", "action_required": false}, {"from": "Bruce", "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?", "timestamp": "2025-07-09T14:42:13Z", "sentiment": "neutral", "tone": "clarifying", "objections": [], "intent": "qualify_needs", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.", "timestamp": "2025-07-09T14:42:19Z", "sentiment": "negative", "tone": "problem-focused", "objections": [], "intent": "articulate_pain_points", "action_required": false}, {"from": "Bruce", "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?", "timestamp": "2025-07-09T14:42:25Z", "sentiment": "positive", "tone": "proactive", "objections": [], "intent": "propose_solution", "action_required": false}, {"from": "U094SLLCY4C", "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.", "timestamp": "2025-07-09T14:42:32Z", "sentiment": "neutral", "tone": "cautious", "objections": ["early_stage_evaluation"], "intent": "manage_expectations", "action_required": true}, {"from": "Bruce", "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.", "timestamp": "2025-07-09T14:42:38Z", "sentiment": "positive", "tone": "accommodating", "objections": [], "intent": "fulfill_request", "action_required": false}, {"from": "U094SLLCY4C", "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.", "timestamp": "2025-07-09T14:42:44Z", "sentiment": "neutral", "tone": "informative", "objections": ["timeline"], "intent": "provide_update", "action_required": false}, {"from": "Bruce", "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.", "timestamp": "2025-07-09T14:42:50Z", "sentiment": "neutral", "tone": "patient", "objections": [], "intent": "nurture_relationship", "action_required": false}, {"from": "U094SLLCY4C", "text": "Will do. Appreciate the no-pressure vibe.", "timestamp": "2025-07-09T14:42:55Z", "sentiment": "positive", "tone": "appreciative", "objections": [], "intent": "acknowledge", "action_required": false}, {"from": "Bruce", "text": "Of course", "timestamp": "2025-07-18T12:00:37Z", "sentiment": "neutral", "tone": "casual", "objections": [], "intent": "acknowledge", "action_required": false}], "summary": "The prospect outlined a need for unified reporting across 4 regions to replace siloed legacy tools. The sales rep, Bruce, quickly understood the pain points and offered a multi-region demo via Loom. The prospect appreciated the demo but indicated they are in an early evaluation phase with an August timeline, requiring internal IT involvement for API and auth questions. Bruce acknowledged this, committing to provide value and stay engaged without pressure, which was well-received by the prospect, fostering positive rapport.", "last_activity": "2025-07-18T12:00:37Z", "engagement_metrics": {"message_count": 10, "rep_response_time_sec": 154777.97, "objections_raised": 2, "followups_committed": 1}, "tags": ["multi_region_operations", "unified_reporting", "siloed_solutions", "loom_demo", "early_stage_evaluation", "timeline_objection", "internal_stakeholder", "long_response_time", "nurturing_phase", "positive_rapport"]}
+--------------------------------
+Channel ID: D094RO7DZ4J
+Structured Response: {
+  "thread_id": "data_unavailable",
+  "channel": {
+    "id": "D094RO7DZ4J",
+    "name": "",
+    "type": ""
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No conversation data was provided for analysis as the channel could not be found or accessed. Please provide valid message data for a summary and analysis.",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "data_unavailable",
+    "channel_not_found"
+  ]
+}
+--------------------------------
+Channel ID: D094RO7DZ4J
+Structured Response: {"thread_id": "data_unavailable", "channel": {"id": "D094RO7DZ4J", "name": "", "type": ""}, "participants": [], "messages": [], "summary": "No conversation data was provided for analysis as the channel could not be found or accessed. Please provide valid message data for a summary and analysis.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["data_unavailable", "channel_not_found"]}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "thread-D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": ["siloed solution"],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose next step",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not ready for full pitch", "evaluating landscape options"],
+      "intent": "set expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["long timeline", "evaluating other vendors"],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain presence",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": ["demo not impressive", "competitor selected"],
+      "intent": "reject",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales rep, Bruce, conducted initial discovery with a prospect regarding multi-org support. After providing a customized loom demo, the prospect expressed initial positive feedback but indicated a long evaluation timeline and the need to loop in IT. The deal was ultimately lost due to the demo not impressing the IT team, with the prospect moving forward with a competitor, compounded by a significant delay in the rep's last response.",
+  "last_activity": "2025-07-17T17:21:00Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 193470,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "demo_provided",
+    "timeline_objection",
+    "competitor_loss",
+    "late_response",
+    "technical_evaluation",
+    "deal_lost",
+    "siloed_solution_pain_point"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": ["siloed solution"],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose next step",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not ready for full pitch", "evaluating landscape options"],
+      "intent": "set expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["long timeline", "evaluating other vendors"],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain presence",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": ["demo not impressive", "competitor selected"],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "What if we do 250,000 instead?",
+      "timestamp": "2025-07-17T17:32:35Z",
+      "sentiment": "positive",
+      "tone": "negotiating",
+      "objections": [],
+      "intent": "negotiate price",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "We have a deal, send over the contract and we will finalize it. Done deal. Thanks for your business.",
+      "timestamp": "2025-07-17T17:33:07Z",
+      "sentiment": "positive",
+      "tone": "conclusive",
+      "objections": [],
+      "intent": "confirm deal",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales rep, Bruce, initially provided a demo and maintained contact despite a long evaluation timeline. The deal was nearly lost due to the demo not impressing the IT team and the prospect choosing a competitor. However, Bruce resurrected the deal by offering a significant price reduction to $250,000, which the prospect accepted. The deal is now confirmed, and the prospect is awaiting the contract.",
+  "last_activity": "2025-07-17T17:33:07Z",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 154915,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "demo_provided",
+    "timeline_objection",
+    "late_response",
+    "technical_evaluation",
+    "siloed_solution_pain_point",
+    "price_negotiation",
+    "discount_offered",
+    "deal_resurrected",
+    "deal_won_pending_contract"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": [
+        "siloed solution"
+      ],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose next step",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "not ready for full pitch",
+        "evaluating landscape options"
+      ],
+      "intent": "set expectations",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "long timeline",
+        "evaluating other vendors"
+      ],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain presence",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": [
+        "demo not impressive",
+        "competitor selected"
+      ],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "What if we do 250,000 instead?",
+      "timestamp": "2025-07-17T17:32:35Z",
+      "sentiment": "positive",
+      "tone": "negotiating",
+      "objections": [],
+      "intent": "negotiate price",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "We have a deal, send over the contract and we will finalize it. Done deal. Thanks for your business.",
+      "timestamp": "2025-07-17T17:33:07Z",
+      "sentiment": "positive",
+      "tone": "conclusive",
+      "objections": [],
+      "intent": "confirm deal",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales rep, Bruce, initially provided a demo and maintained contact despite a long evaluation timeline. The deal was nearly lost due to the demo not impressing the IT team and the prospect choosing a competitor. However, Bruce resurrected the deal by offering a significant price reduction to $250,000, which the prospect accepted. The deal is now confirmed, and the prospect is awaiting the contract.",
+  "last_activity": "2025-07-17T17:33:07Z",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 154915,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "demo_provided",
+    "timeline_objection",
+    "late_response",
+    "technical_evaluation",
+    "siloed_solution_pain_point",
+    "price_negotiation",
+    "discount_offered",
+    "deal_resurrected",
+    "deal_won_pending_contract"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": [
+        "siloed solution"
+      ],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "not ready for full pitch",
+        "evaluating other options"
+      ],
+      "intent": "qualify request",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "long evaluation timeline",
+        "technical validation needed"
+      ],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain engagement",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": [
+        "demo feedback (not impressive)",
+        "competitor chosen"
+      ],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "What if we do 250,000 instead?",
+      "timestamp": "2025-07-17T17:32:35Z",
+      "sentiment": "positive",
+      "tone": "negotiating",
+      "objections": [],
+      "intent": "negotiate price",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "We have a deal, send over the contract and we will finalize it. Done deal. Thanks for your business.",
+      "timestamp": "2025-07-17T17:33:07Z",
+      "sentiment": "positive",
+      "tone": "conclusive",
+      "objections": [],
+      "intent": "confirm deal",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales rep, Bruce, initially provided a demo and maintained contact despite a long evaluation timeline. The deal was nearly lost due to the demo not impressing the IT team and the prospect choosing a competitor. However, Bruce resurrected the deal by offering a significant price reduction to $250,000, which the prospect accepted. The deal is now confirmed, and the prospect is awaiting the contract.",
+  "last_activity": "2025-07-17T17:33:07Z",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 154915,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "demo_provided",
+    "timeline_objection",
+    "late_response",
+    "technical_evaluation",
+    "siloed_solution_pain_point",
+    "price_negotiation",
+    "discount_offered",
+    "deal_resurrected",
+    "deal_won_pending_contract",
+    "competitor_objection",
+    "demo_feedback_objection",
+    "cautious_prospect",
+    "rapport_building"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": ["siloed solution"],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not ready for full pitch", "evaluating other options"],
+      "intent": "qualify request",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["long evaluation timeline", "technical validation needed"],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain engagement",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": ["demo feedback (not impressive)", "competitor chosen"],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "What if we do 250,000 instead?",
+      "timestamp": "2025-07-17T17:32:35Z",
+      "sentiment": "positive",
+      "tone": "negotiating",
+      "objections": [],
+      "intent": "negotiate price",
+      "action_required": false
+    },
+    {
+      "from": "Prospect",
+      "text": "We have a deal, send over the contract and we will finalize it. Done deal. Thanks for your business.",
+      "timestamp": "2025-07-17T17:33:07Z",
+      "sentiment": "positive",
+      "tone": "conclusive",
+      "objections": [],
+      "intent": "confirm deal",
+      "action_required": true
+    }
+  ],
+  "summary": "The sales rep, Bruce, initially provided a demo and maintained contact despite a long evaluation timeline. The deal was nearly lost due to the demo not impressing the IT team and the prospect choosing a competitor. However, Bruce resurrected the deal by offering a significant price reduction to $250,000, which the prospect accepted. The deal is now confirmed, and the prospect is awaiting the contract.",
+  "last_activity": "2025-07-17T17:33:07Z",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 154915,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "demo_provided",
+    "timeline_objection",
+    "late_response",
+    "technical_evaluation",
+    "siloed_solution_pain_point",
+    "price_negotiation",
+    "discount_offered",
+    "deal_resurrected",
+    "deal_won_pending_contract",
+    "competitor_objection",
+    "demo_feedback_objection",
+    "cautious_prospect",
+    "rapport_building"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Prospect",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "David",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-06T20:42:13Z",
+      "sentiment": "neutral",
+      "tone": "inquiry",
+      "objections": [],
+      "intent": "discovery",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-06T20:42:19Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": [
+        "siloed solution concern"
+      ],
+      "intent": "state problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-06T20:42:25Z",
+      "sentiment": "positive",
+      "tone": "proposing",
+      "objections": [],
+      "intent": "propose solution",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-06T20:42:32Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": [
+        "not ready for full pitch",
+        "evaluating other options"
+      ],
+      "intent": "qualify request",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-06T20:42:38Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide solution",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-06T20:42:44Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [
+        "long evaluation timeline",
+        "technical validation needed"
+      ],
+      "intent": "provide update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-06T20:42:50Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain engagement",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-06T20:42:55Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-15T22:20:37Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-17T17:21:00Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": [
+        "demo not impressive",
+        "competitor chosen"
+      ],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Sorry to hear that David. Thanks for the notice.",
+      "timestamp": "2025-07-17T18:40:38Z",
+      "sentiment": "negative",
+      "tone": "empathetic",
+      "objections": [],
+      "intent": "acknowledge loss",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation initiated with the prospect's pain point regarding siloed legacy tools. Bruce provided a customized demo via Loom, which the prospect found solid but also indicated a long evaluation timeline and the need for IT validation. After a period of no activity, the prospect notified Bruce that the deal was lost because their IT team found the demo unimpressive, and they decided to proceed with a competitor. Bruce acknowledged the unfavorable outcome professionally.",
+  "last_activity": "2025-07-17T18:40:38Z",
+  "engagement_metrics": {
+    "message_count": 11,
+    "rep_response_time_sec": 15731.6,
+    "objections_raised": 7,
+    "followups_committed": 1
+  },
+  "tags": [
+    "discovery",
+    "siloed_solution_pain_point",
+    "demo_provided",
+    "cautious_prospect",
+    "evaluating_other_vendors",
+    "timeline_objection",
+    "technical_validation",
+    "rapport_building",
+    "long_response_time",
+    "deal_lost",
+    "demo_feedback_objection",
+    "competitor_chosen",
+    "professional_closure"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Bruce and Sophia DM",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "2025-07-06T15:05:10.357Z",
+      "sentiment": "neutral",
+      "tone": "direct",
+      "objections": [],
+      "intent": "request amendment",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "2025-07-06T15:05:29.134Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "commit to action",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "2025-07-06T15:05:37.125Z",
+      "sentiment": "positive",
+      "tone": "optimistic",
+      "objections": [],
+      "intent": "provide status update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "2025-07-06T15:05:45.059Z",
+      "sentiment": "positive",
+      "tone": "efficient",
+      "objections": [],
+      "intent": "provide status update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "2025-07-06T15:05:54.525Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "communicate timeline",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "2025-07-06T15:06:00.545Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "reassure; commit to follow-up",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation between Sophia (prospect) and Bruce (sales rep) focuses on finalizing contract terms. Sophia requested a modification to the termination clause, which Bruce swiftly agreed to coordinate with his legal team. Both parties expressed positive sentiment and confirmed internal approvals, with a mutual goal of signing by Friday for an August 5th onboarding.",
+  "last_activity": "2025-07-06T15:06:00.545Z",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 12.398,
+    "objections_raised": 0,
+    "followups_committed": 2
+  },
+  "tags": [
+    "contract_finalization",
+    "legal_amendment",
+    "timeline_alignment",
+    "positive_sentiment",
+    "quick_resolution",
+    "active_deal",
+    "no_objections"
+  ]
+}
+--------------------------------
+Channel ID: D095RGDLHRV
+Structured Response: {
+  "thread_id": "N/A",
+  "channel": {
+    "id": "N/A",
+    "name": "N/A",
+    "type": "N/A"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No messages or channel information could be retrieved for the specified channel ID. Therefore, a detailed summary and analysis cannot be generated.",
+  "last_activity": "N/A",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "data_not_retrieved"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {"thread_id":"D094R07DZ4J","channel":{"id":"D094R07DZ4J","name":"David","type":"dm"},"participants":[{"id":"U094K124HS7","name":"Bruce","role":"rep"},{"id":"U094SLLCY4C","name":"David","role":"prospect"}],"messages":[{"from":"Bruce","text":"Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?","timestamp":"2025-07-06T20:42:13Z","sentiment":"neutral","tone":"inquiry","objections":[],"intent":"discovery","action_required":true},{"from":"David","text":"Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.","timestamp":"2025-07-06T20:42:19Z","sentiment":"negative","tone":"candid","objections":["siloed solution concern"],"intent":"state problem","action_required":false},{"from":"Bruce","text":"Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?","timestamp":"2025-07-06T20:42:25Z","sentiment":"positive","tone":"proposing","objections":[],"intent":"propose solution","action_required":true},{"from":"David","text":"Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.","timestamp":"2025-07-06T20:42:32Z","sentiment":"neutral","tone":"cautious","objections":["not ready for full pitch","evaluating other options"],"intent":"qualify request","action_required":true},{"from":"Bruce","text":"Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.","timestamp":"2025-07-06T20:42:38Z","sentiment":"positive","tone":"agreeable","objections":[],"intent":"provide solution","action_required":false},{"from":"David","text":"This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.","timestamp":"2025-07-06T20:42:44Z","sentiment":"neutral","tone":"informative","objections":["long evaluation timeline","technical validation needed"],"intent":"provide update","action_required":false},{"from":"Bruce","text":"Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.","timestamp":"2025-07-06T20:42:50Z","sentiment":"positive","tone":"understanding","objections":[],"intent":"maintain engagement","action_required":false},{"from":"David","text":"Will do. Appreciate the no-pressure vibe.","timestamp":"2025-07-06T20:42:55Z","sentiment":"positive","tone":"appreciative","objections":[],"intent":"build rapport","action_required":false},{"from":"Bruce","text":"Of course","timestamp":"2025-07-15T22:20:37Z","sentiment":"positive","tone":"casual","objections":[],"intent":"acknowledge","action_required":false},{"from":"David","text":"Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.","timestamp":"2025-07-17T17:21:00Z","sentiment":"negative","tone":"direct","objections":["demo not impressive","competitor chosen"],"intent":"reject","action_required":true},{"from":"Bruce","text":"Sorry to hear that David. Thanks for the notice.","timestamp":"2025-07-17T18:40:38Z","sentiment":"negative","tone":"empathetic","objections":[],"intent":"acknowledge loss","action_required":false}],"summary":"The conversation started with the prospect outlining challenges with legacy tools. Bruce provided a concise demo via Loom. The prospect found it solid but expressed a long evaluation timeline and the need for IT review. After a significant period of inactivity, the prospect informed Bruce that the deal was off, citing the demo's lack of impressiveness to their IT team and their decision to proceed with a competitor. Bruce acknowledged the loss professionally.","last_activity":"2025-07-17T18:40:38Z","engagement_metrics":{"message_count":11,"rep_response_time_sec":155738.14,"objections_raised":7,"followups_committed":1},"tags":["discovery","pain_point","demo_request","demo_delivery","cautious_prospect","timeline_concern","technical_evaluation","competitor_evaluation","long_sales_cycle","deal_lost","negative_demo_feedback","competitor_won","professional_closure","long_rep_response_time","follow_up_committed"]}
+--------------------------------

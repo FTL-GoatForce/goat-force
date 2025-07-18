@@ -1,0 +1,94 @@
+{
+  "deal_id": "197e6c7a52e39a6f",
+  "client_company": "Nike",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T14:48:47-07:00",
+  "deal_stage": "proposal",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-07-14",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 30,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 30,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal shows strong engagement with timely responses and no major blockers.",
+    "churn_risk_explanation": "The prospect is engaged and has shown appreciation for flexibility, indicating low likelihood of switching.",
+    "timeline_risk_explanation": "With the next steps clearly outlined, the timeline appears manageable.",
+    "budget_risk_explanation": "No budget concerns have been raised, and the proposal aligns with expectations."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["onboarding cost timing"],
+    "Decision_Maker_Status": "Approved by VP",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 7,
+    "prospect_response_time_sec": 120,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Bruce sent the revised proposal and confirmed next steps."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Bruce sent the formal proposal for Cloud Sync Expansion.",
+        "event_type": "Proposal Sent"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "James raised a question about deferring onboarding costs.",
+        "event_type": "Objection Raised"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Draft contracts to be prepared and implementation prep to kick off.",
+        "event_type": "Next Steps"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales rep, Bruce Wayne, sent a proposal for Cloud Sync Expansion to prospect James Smith. James raised a minor objection regarding deferring onboarding costs, which Bruce quickly accommodated by updating and resending the proposal. Following James's approval, Bruce confirmed the revised terms and committed to preparing draft contracts and initiating implementation prep, indicating strong progress towards closing the deal.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Prepare draft contracts", "Initiate implementation prep", "Follow up with James next week"],
+    "Escalation_Triggers": "If there are no responses by the expected close date.",
+    "Deal_Acceleration_Tactics": "Offer additional incentives for early contract signing."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Proposal and Next Steps",
+        "body": "Hi James,\n\nI hope this message finds you well. I wanted to follow up on the revised proposal I sent over. Please let me know if you have any further questions or if there's anything else I can assist you with. Looking forward to your feedback!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi James, just checking in to see if you had any further thoughts on the proposal!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "james.smith.nike2025@gmail.com",
+      "name": "James Smith",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 80
+    }
+  ],
+
+  "TAGS": ["proposal_sent", "objection_handled", "contract_prep", "deal_progression", "onboarding_costs", "flexible_terms", "urgent_response_needed"]
+}

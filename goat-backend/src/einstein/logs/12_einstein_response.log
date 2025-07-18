@@ -1,0 +1,94 @@
+Deal ID: 12
+Response: {
+  "deal_id": "deal_12345",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094K124HS7",
+    "name": "Bruce"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "proposal",
+  "deal_value_usd": null,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 20,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal shows strong engagement with positive sentiment and timely responses.",
+    "churn_risk_explanation": "Low likelihood of switching to a competitor as the prospect is actively engaging.",
+    "timeline_risk_explanation": "The prospect has a clear timeline and urgency to close by Friday.",
+    "budget_risk_explanation": "No budget concerns have been raised in the discussions."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "aligned and engaged",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 13,
+    "prospect_response_time_sec": 42.33,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed sending the revised document and noted the prospect's request to transition to Slack for faster communication."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-06",
+      "event_description": "Sophia requested an amendment to the termination clause.",
+      "event_type": "Contract Amendment Request"
+    },
+    {
+      "event_date": "2025-07-06",
+      "event_description": "Bruce confirmed coordination with legal to update the contract.",
+      "event_type": "Legal Coordination"
+    },
+    {
+      "event_date": "2025-07-11",
+      "event_description": "Expected date for final signatures to kick off onboarding.",
+      "event_type": "Onboarding Kickoff"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal is progressing positively with active engagement from both Bruce and Sophia. They are finalizing contract terms and have a clear timeline for onboarding. Sophia's request for a contract amendment has been acknowledged, and Bruce is coordinating with legal to ensure timely completion. Both parties are aligned, with a target to close by Friday.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Confirm legal amendments with Sophia", "Send revised proposal highlighting implementation support", "Coordinate signature process"],
+    "Escalation_Triggers": "Any delays in legal approval or lack of response from Sophia.",
+    "Deal_Acceleration_Tactics": "Maintain frequent communication and ensure all queries are addressed promptly."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Revised Proposal and Next Steps",
+        "body": "Hi Sophia,\n\nI hope you're doing well! I wanted to follow up regarding the revised proposal and confirm that the implementation support will be included for the first month at no extra cost. I'll be sending over the updated document shortly. \n\nLooking forward to wrapping this up smoothly!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just checking in on the legal updates. Let me know if there's anything else you need from my side!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_finalization", "legal_amendment", "timeline_alignment", "positive_sentiment", "active_deal"]
+}
+--------------------------------
