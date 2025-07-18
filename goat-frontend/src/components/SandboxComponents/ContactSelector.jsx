@@ -40,7 +40,7 @@ function ContactSelector({ deals, onDealClick, selectedDeal }) {
         {/* Map through deals array to create cards */}
         {deals.map((deal) => (
           <Box
-            key={deal.deal_id}
+            key={deal.deal.id}
             marginTop={1}
             display="flex"
             flexDirection="column"
@@ -48,7 +48,7 @@ function ContactSelector({ deals, onDealClick, selectedDeal }) {
             padding={1.2}
             border={1}
             borderColor={
-              selectedDeal.deal_id === deal.deal_id
+              selectedDeal.deal.id === deal.deal.id
                 ? "primary.light"
                 : "transparent"
             }
@@ -60,26 +60,27 @@ function ContactSelector({ deals, onDealClick, selectedDeal }) {
               color="text.primary"
               fontWeight={"bold"}
             >
-              {deal.deal_name}
+              {deal.deal.deal_name}
             </Typography>
             <Typography
               fontSize={12}
               variant="subtitle1"
               color="text.secondary"
             >
-              {deal.participants[0].name}
+              {deal.participants[0].prospect_name}
             </Typography>
             <Typography fontSize={13} color="primary.light" fontWeight={"bold"}>
-              ${deal.deal_value_usd}
+              ${deal.deal.deal_value}
             </Typography>
             <Button
               variant="contained"
               sx={{ color: "white", fontWeight: "bold" }}
               color="primary"
               size="small"
-              onClick={() => onDealClick(deal.deal_id)}
+              // when clicked, specific deal use state is changed passing the current deal's id
+              onClick={() => onDealClick(deal.deal.id)}
             >
-              Practice with {deal.participants[0].name}
+              Practice with {deal.participants[0].prospect_name}
             </Button>
           </Box>
         ))}

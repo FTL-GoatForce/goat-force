@@ -218,6 +218,7 @@ function DealDetails() {
               }}
             >
               <DealSummary
+              // all these values are fetched once id is clicked so up to date
                 dealSummary={deal.conversationHistory[0].deal_summary}
                 value={deal.deal.deal_value}
                 stage={deal.deal.stage}
