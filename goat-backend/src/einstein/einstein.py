@@ -58,6 +58,21 @@ Here is the current einstein data file we have:
 
 Update the fields as neccessary, so the analysis is accurate and up to date.
 
+Always adjust risk in case of a drastic event.
+
+The Deal Risk Score is a holistic indicator (0–100) that evaluates the overall health and momentum of a deal by analyzing activity metrics, 
+participant engagement, risk signals, and contextual cues from Slack and Gmail transcripts. A score between 0–30 represents Low Risk, meaning 
+the deal shows strong engagement, timely responses, aligned priorities, and no major blockers. A score from 31–59 indicates Medium Risk, suggesting
+there are emerging concerns such as slower response times, unclear next steps, or early signs of misalignment that could impact the deal’s trajectory if
+not addressed. A score of 60 or above flags the deal as High Risk, where key issues are present — such as stalled communication, negative sentiment, 
+timeline pressure, unresolved objections, or low buyer intent or even the deal being called off(100)— and immediate action is needed to prevent loss.
+
+The Churn Risk Score is a measure of the likelihood of the prospect switching to a competitor.
+
+The Timeline Risk Score is a measure of the likelihood of the deal not closing on time.
+
+The Budget Risk Score is a measure of the likelihood of the deal not being budgeted.
+
 {{
   "deal_id": "[string]",
   "client_company": "[string]",

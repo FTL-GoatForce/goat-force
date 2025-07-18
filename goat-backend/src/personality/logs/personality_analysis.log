@@ -2393,3 +2393,102 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "practical", "evaluative", "direct", "requirements-driven"],
+      "communication_style": "professional, direct, concise",
+      "decision_making_style": "cautious, structured, requirements-driven",
+      "objection_style": "direct, specific, focuses on past pain points",
+      "role_in_deal": "key influencer, primary contact in initial evaluation"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "qualifying", "seeking information", "proposing meeting"],
+      "overall_sentiment": "neutral",
+      "tone_patterns": "professional, cautious, direct"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations", "past negative experience", "integration challenges"],
+      "objection_frequency_severity": "two distinct and significant objections raised early, indicating critical past issues"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "concise, to the point",
+      "preferred_channel": "email (with openness to Slack for specific topics)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "qualification / discovery, early-stage evaluation",
+      "budget_risk_indicators": "no explicit budget mentions",
+      "timeline_risk_indicators": "still early in internal discussions, indicates a non-urgent but methodical timeline",
+      "churn_risk_indicators": "low churn risk (high engagement, proactive questions)"
+    },
+    "deal_insights": {
+      "key_objections": "handling multiple business units and ease of integration are critical pain points stemming from past experiences.",
+      "decision_maker_status": "key influencer or primary stakeholder responsible for initial evaluation and requirements mapping.",
+      "urgency_level": "low to moderate; they are actively evaluating but are 'still early' in a 'broader overhaul' project.",
+      "competitive_position": "GoatForce is one of several platforms being evaluated; overcoming past 'sticking points' is crucial for competitive advantage."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Analytical",
+        "Cautious",
+        "Direct",
+        "Process-oriented",
+        "Pragmatic",
+        "Values transparency",
+        "Appreciative"
+      ],
+      "communication_style": "Professional, informative, direct, with a focus on problem-solving and requirements, occasionally uses a touch of casualness.",
+      "decision_making_style": "Cautious, process-driven, methodical, deliberative, involves other stakeholders (consensus-seeking).",
+      "objection_style": "Direct, transparent, articulates past pain points clearly, sets boundaries politely.",
+      "role_in_deal": "Key influencer or project lead, responsible for evaluation and requirements mapping, involves technical stakeholders; not the sole ultimate decision-maker."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Evaluating vendors",
+        "Expressing pain points",
+        "Setting boundaries",
+        "Managing timeline expectations",
+        "Confirming interest in learning more",
+        "Actively seeking specific information"
+      ],
+      "overall_sentiment": "Neutral to positive. Engaged and receptive, but cautious and methodical, appreciates a no-pressure sales approach.",
+      "tone_patterns": "Predominantly professional, informative, and direct, with a clear focus on problem-solving and requirements. Occasional cautiousness and appreciation."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Early stage evaluation",
+        "Timeline constraints",
+        "Technical limitations (handling multiple business units)",
+        "Technical limitations (ease of integration)",
+        "Avoiding siloed solutions"
+      ],
+      "objection_frequency_severity": "Moderate frequency (4 distinct points). Moderate to high severity, especially concerning technical fit (multi-BU and integration issues based on past failures)."
+    },
+    "communication_behavior": {
+      "response_time": "Fast and consistent (seconds on Slack, minutes on Email).",
+      "engagement_level": "High engagement level, provides detailed context, proactive in conversation, and raises specific concerns.",
+      "message_complexity": "Medium complexity; messages are structured, informative, and professional.",
+      "preferred_channel": "Slack for detailed and ongoing technical discussions; Email for initial outreach and scheduling."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Early stage evaluation and qualification; in the vendor selection/requirements gathering phase.",
+      "budget_risk_indicators": "No immediate budget risk indicators observed.",
+      "timeline_risk_indicators": "High timeline risk due to an explicitly stated extended evaluation period (through August) and ongoing internal discussions.",
+      "churn_risk_indicators": "Low churn risk. Prospect is highly engaged, responsive, and seems genuinely interested, despite the long timeline."
+    },
+    "deal_insights": {
+      "key_objections": "Technical fit (difficulty handling multiple business units and integration complexity, avoiding silos) and the extended evaluation timeline.",
+      "decision_maker_status": "Influencer/project lead who drives the evaluation and involves key stakeholders like IT, but not the sole ultimate decision-maker for final approval.",
+      "urgency_level": "Low urgency. The prospect is methodical and not looking for a quick solution, indicating a deliberate, paced evaluation.",
+      "competitive_position": "The prospect is actively evaluating multiple vendors, and the sales process is clearly competitive, focusing on specific feature comparisons like multi-BU handling and integration."
+    }
+  }
+--------------------------------

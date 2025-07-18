@@ -22,6 +22,7 @@ import PersonIcon from "@mui/icons-material/Person";
 const CRMChatbotTextEntry = ({ sender, context }) => {
   return (
     <ListItem
+      data-sender="User"
       sx={{
         display: "flex",
         backgroundColor: "rgba(55, 70, 104, 0.5)",

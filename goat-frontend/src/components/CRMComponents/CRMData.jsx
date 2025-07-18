@@ -11,12 +11,75 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import EditDeal from "../Pages/EditDeal"; // Importing the EditDeal modal component
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Info, Refresh } from "@mui/icons-material";
+import axios from "axios";
+import slackGif from "../../assets/slack.gif";
+import gmailGif from "../../assets/gmail.gif";
+import geminiGif from "../../assets/gemini.gif";
+import einsteinGif from "../../assets/einstein.gif";
+
 const CRMData = ({ deals }) => {
   const navigate = useNavigate();
+  const [loadingStates, setLoadingStates] = useState({});
+  const [loadingIcons, setLoadingIcons] = useState({});
+  const [transitionStates, setTransitionStates] = useState({});
+
+  // GIFs for rotating loading animation
+  const loadingSequence = [
+    { name: "Slack", gif: slackGif, color: "#4A154B" },
+    { name: "Gmail", gif: gmailGif, color: "#EA4335" },
+    { name: "Gemini", gif: geminiGif, color: "#4285F4" },
+    { name: "Einstein", gif: einsteinGif, color: "#FF6B35" }
+  ];
+
+    async function refreshInsights(deal_id, slack_id, email) {
+    // Set loading state for this specific deal
+    setLoadingStates(prev => ({ ...prev, [deal_id]: true }));
+    setLoadingIcons(prev => ({ ...prev, [deal_id]: 0 })); // Start with first icon
+    setTransitionStates(prev => ({ ...prev, [deal_id]: false }));
+    
+    // Start rotating animation with transition effects
+    const interval = setInterval(() => {
+      // Start transition (spin out and fade out)
+      setTransitionStates(prev => ({ ...prev, [deal_id]: true }));
+      
+      // After transition completes, switch to next GIF
+      setTimeout(() => {
+        setLoadingIcons(prev => {
+          const currentIndex = prev[deal_id] || 0;
+          const nextIndex = (currentIndex + 1) % loadingSequence.length;
+          return { ...prev, [deal_id]: nextIndex };
+        });
+        // Reset transition state
+        setTransitionStates(prev => ({ ...prev, [deal_id]: false }));
+      }, 800); // Wait for transition to complete
+    }, 10000); // Rotate every 10 seconds
+    
+    try {
+      console.log(deal_id, slack_id, email);
+      const response = await axios.put(
+        `http://localhost:3000/deal/update`,
+        {
+          dealId: deal_id,
+          slack_id: slack_id,
+          email: email,
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.error("Error refreshing insights:", error);
+    } finally {
+      // Clear loading state and stop animation
+      clearInterval(interval);
+      setLoadingStates(prev => ({ ...prev, [deal_id]: false }));
+      setLoadingIcons(prev => ({ ...prev, [deal_id]: 0 }));
+      setTransitionStates(prev => ({ ...prev, [deal_id]: false }));
+    }
+  }
+  
   if (!deals) {
     return (
       <Box
@@ -144,21 +207,58 @@ const CRMData = ({ deals }) => {
           </Typography>
         </Box>
         {/* Table Headers END */}
-
+        
         {/* Table Rows - Example Data */}
         {deals.map((currentDeal, index) => (
-          //  ROW Holding specific deal details
-          <Box
-            key={index}
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "2fr 1.5fr 1fr 1fr 0.8fr 1.2fr 1.5fr",
-              gap: "16px", // Converted from gap-4
-              paddingY: "12px", // Converted from py-3
-              borderBottom: "1px solid",
-              borderColor: "divider",
-            }}
-          >
+          loadingStates[currentDeal.deal.id] ? (
+            // Loading state - show centered loading with gif
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingY: "8px",
+                borderBottom: "1px solid",
+                borderColor: "divider",
+                minHeight: "50px",
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <Typography variant="h6" color="text.primary" sx={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+                  Gathering latest insights on {currentDeal.deal.deal_name}...
+                </Typography>
+                <img
+                  src={loadingSequence[loadingIcons[currentDeal.deal.id] || 0]?.gif || slackGif}
+                  alt="Loading"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "8px",
+                    transition: transitionStates[currentDeal.deal.id] 
+                      ? "all 0.8s ease-in-out" 
+                      : "all 0.3s ease",
+                    transform: transitionStates[currentDeal.deal.id]
+                      ? `rotate(720deg) scale(0.8)`
+                      : `rotate(0deg) scale(1)`,
+                    opacity: transitionStates[currentDeal.deal.id] ? 0 : 1,
+                  }}
+                />
+              </Box>
+            </Box>
+          ) : (
+            // Normal row when not loading
+            <Box
+              key={index}
+              sx={{
+                display: "grid",
+                gridTemplateColumns: "2fr 1.5fr 1fr 1fr 0.8fr 1.2fr 1.5fr",
+                gap: "16px", // Converted from gap-4
+                paddingY: "12px", // Converted from py-3
+                borderBottom: "1px solid",
+                borderColor: "divider",
+              }}
+            >
             <Typography variant="body1" color="text.primary">
               {currentDeal.deal.deal_name}
             </Typography>
@@ -244,7 +344,13 @@ const CRMData = ({ deals }) => {
               <Tooltip title="Refresh Insights">
                 <IconButton
                   size="small"
-                  onClick={() => navigate(`/details/${currentDeal.deal.id}`)}
+                  onClick={() => {
+                    refreshInsights(
+                      currentDeal.deal.id,
+                      currentDeal.participants[0].slack_id,
+                      currentDeal.participants[0].email
+                    );
+                  }}
                   sx={{
                     textTransform: "none",
                     borderRadius: "8px",
@@ -264,7 +370,7 @@ const CRMData = ({ deals }) => {
               </Tooltip>
             </Box>
           </Box>
-          //   ROW Holding specific deal details end
+          )
         ))}
       </Box>
       {/* Container for all data END */}

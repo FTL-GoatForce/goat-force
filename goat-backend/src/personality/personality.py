@@ -74,6 +74,7 @@ def personality_analysis_prompt(email: str, slack_id: str):
 
     0. Prospect Name:
         - Prospect Name: What is the name of the prospect?
+        - There is only one prospect in the data. Id and name are the same. Combine the data into one prospect. Use the name from the gmail data.
 
     1. Personality & Communication Profile
         - Personality Traits (e.g., analytical, assertive, reserved)
@@ -129,11 +130,11 @@ async def get_personality_analysis(email: str, slack_id: str):
         response_text = response_text.strip("[]")
         
         base_path = os.getcwd()
-        with open(os.path.join(base_path, "src", "personality", "personality_analysis", "personality_analysis.json"), "w") as f:
+        with open(os.path.join(base_path, "src", "personality", "personality_analysis", f"{email}.json"), "w") as f:
             f.write(response_text)
         print("Written personality analysis to file")
 
-        with open(os.path.join(base_path, "src", "personality", "logs", "personality_analysis.log"), "a") as f:
+        with open(os.path.join(base_path, "src", "personality", "logs", f"{email}.log"), "a") as f:
             f.write(f"Personality analysis completed successfully")
             f.write(f"Response: {response_text}")
             f.write("--------------------------------\n")

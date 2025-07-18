@@ -89,7 +89,7 @@ async def run(message: MessageRequest, chatHistory: list):
                     The user's query is: {message.message}
                     The chat history is: {chatHistory}
 
-                    Always return the response in markdown format, 100-200 words.
+                    Always return the response in markdown format, 100-200 words. Instead of bullet points,just make a new line for each point.
                     """,
                 # Giving gemini access to tools 
                  config=types.GenerateContentConfig(
