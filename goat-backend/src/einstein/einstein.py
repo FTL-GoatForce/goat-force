@@ -40,7 +40,7 @@ def get_einstein_data_file(deal_id: str) -> str:
         print(f"No einstein data file found for deal ID: {deal_id}")
         return "{}"
 
-def get_prompt(email: str, slack_id: str) -> str:
+def get_prompt(email: str, slack_id: str, deal_id: str) -> str:
     return f"""
 You are a sales intelligence AI analyzing deal data from multiple communication channels. 
 
@@ -56,9 +56,30 @@ TASK: Analyze this deal data and provide a structured analysis in the following 
 Here is the current einstein data file we have:
 {get_einstein_data_file(deal_id)}
 
-Update the fields as neccessary, so the analysis is accurate and up to date.
+--- INSTRUCTIONS ---
+1. Use the communication data to analyze deal progress and participant engagement.
+2. **CRITICAL**: The communication data contains the MOST RECENT information. You MUST update ALL fields based on the latest conversation data, even if it contradicts the existing Einstein data file.
+3. **ALWAYS OVERWRITE** outdated values in the existing Einstein data file with the current status from the communication data:
+   - Update `deal_stage` based on the final outcome in the conversation
+   - Update `deal_value_usd` if mentioned in the latest conversation
+   - Update `expected_close_date` if mentioned
+   - **COMPLETELY REPLACE** the `RISK_ASSESSMENT` section with current risk scores
+   - Update all explanations to reflect the current conversation state
+4. When updating the TIMELINE:
+   - **REPLACE** the entire timeline with events from the current conversation
+   - Use this format:
+     Event type: [2-3 words, no past tense verbs like "Scheduled", not a communication form]
+     Event description: [Clear, concise summary of the event]
+   - Examples:
+     - Event type: Deal Lost | Event description: The deal was called off by the prospect.
+     - Event type: Deal Won | Event description: The prospect accepted the counter-offer and confirmed the deal.
+     - Event type: Price Negotiation | Event description: Rep offered $250,000 discount to save the deal.
+5. **RISK SCORE UPDATES**: 
+   - If the deal is CLOSED WON: Set `Deal_Risk_Score` to 0-10, `Churn_Risk` to 0-10, `Timeline_Risk` to 0-10
+   - If the deal is CLOSED LOST: Set `Deal_Risk_Score` to 90-100, `Churn_Risk` to 80-100
+   - If the deal is ACTIVE: Assess based on current conversation sentiment and engagement
+6. **ALWAYS PRIORITIZE** the latest conversation data over the existing Einstein data file.
 
-Always adjust risk in case of a drastic event.
 
 The Deal Risk Score is a holistic indicator (0–100) that evaluates the overall health and momentum of a deal by analyzing activity metrics, 
 participant engagement, risk signals, and contextual cues from Slack and Gmail transcripts. A score between 0–30 represents Low Risk, meaning 
@@ -72,7 +93,6 @@ The Churn Risk Score is a measure of the likelihood of the prospect switching to
 The Timeline Risk Score is a measure of the likelihood of the deal not closing on time.
 
 The Budget Risk Score is a measure of the likelihood of the deal not being budgeted.
-
 {{
   "deal_id": "[string]",
   "client_company": "[string]",
@@ -82,7 +102,7 @@ The Budget Risk Score is a measure of the likelihood of the deal not being budge
   }},
   "last_activity_timestamp": "[ISO8601 datetime]",
   "deal_stage": "[prospecting | qualification | proposal | negotiation | closed_won | closed_lost]",
-  "deal_value_usd": [number],
+  "deal_value_usd": [number], // Update this based on the latest conversation (e.g., $250,000 from the counter-offer)
   "expected_close_date": "[ISO8601 date]",
 
   "RISK_ASSESSMENT": {{
@@ -156,7 +176,7 @@ Provide this analysis in a structured JSON format with clear numerical values an
 async def einstein_request(deal_id: str, email: str, slack_id: str):
     try:
         data = {
-            "prompt": get_prompt(email, slack_id)
+            "prompt": get_prompt(email, slack_id, deal_id)
         }
 
         response = requests.post(string_url, headers=headers, json=data)

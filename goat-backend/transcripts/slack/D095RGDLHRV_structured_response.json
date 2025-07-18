@@ -1,14 +1,14 @@
 {
-  "thread_id": "D095RGDLHRV",
+  "thread_id": "N/A",
   "channel": {
-    "id": "D095RGDLHRV",
-    "name": "null",
-    "type": "null"
+    "id": "N/A",
+    "name": "N/A",
+    "type": "N/A"
   },
   "participants": [],
   "messages": [],
-  "summary": "No messages were found for this thread, therefore no analysis can be performed. The channel name and type could not be resolved.",
-  "last_activity": "null",
+  "summary": "No messages or channel information could be retrieved for the specified channel ID. Therefore, a detailed summary and analysis cannot be generated.",
+  "last_activity": "N/A",
   "engagement_metrics": {
     "message_count": 0,
     "rep_response_time_sec": 0,
@@ -16,7 +16,6 @@
     "followups_committed": 0
   },
   "tags": [
-    "empty_thread",
-    "no_data"
+    "data_not_retrieved"
   ]
 }

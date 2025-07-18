@@ -1,0 +1,87 @@
+{
+  "deal_id": "deal-001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "U094K124HS7",
+    "name": "Bruce"
+  },
+  "last_activity_timestamp": "2025-07-17T18:40:38Z",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": 0,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 100,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 100,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal was lost after the prospect found the demo unimpressive.",
+    "churn_risk_explanation": "High likelihood of switching to a competitor as the deal has been lost.",
+    "timeline_risk_explanation": "The deal timeline is no longer relevant as the deal is closed lost.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["demo not impressive", "competitor chosen"],
+    "Decision_Maker_Status": "Priya (IT) involved in decision-making",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 11,
+    "prospect_response_time_sec": 0,
+    "engagement_trend": "declining",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "The prospect notified the rep that the deal was lost."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-17",
+      "event_description": "The deal was called off by the prospect.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-07-06",
+      "event_description": "A demo was provided to the prospect.",
+      "event_type": "Demo Provided"
+    },
+    {
+      "event_date": "2025-08-01",
+      "event_description": "Review potential re-engagement strategies with the prospect.",
+      "event_type": "Future Follow-Up"
+    }
+  ],
+  "AI_GENERATED_SUMMARY": "The sales rep, Bruce, conducted initial discovery with the prospect, David, regarding multi-org support. After providing a customized Loom demo, the prospect expressed initial positive feedback but indicated a long evaluation timeline and the need to loop in IT. Ultimately, the deal was lost as the prospect found the demo unimpressive and chose to proceed with a competitor.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Consider reaching out to the prospect for future opportunities.",
+      "Gather feedback on the demo to improve future presentations."
+    ],
+    "Escalation_Triggers": "If the prospect shows interest in re-engaging or provides feedback on the demo.",
+    "Deal_Acceleration_Tactics": "Offer personalized demos or additional resources to address specific concerns raised by the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Thank You and Future Opportunities",
+        "body": "Hi David,\n\nThank you for the update regarding the decision. I appreciate your candid feedback on the demo. If there’s anything specific you think could improve our offering, I’d love to hear your thoughts. Please keep us in mind for any future needs.\n\nBest regards,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, thanks for the update. If you have any feedback on the demo, I’d appreciate it. Let’s stay in touch for future opportunities!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep",
+      "sentiment": "negative",
+      "communication_score": 70
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "David",
+      "role": "decision_maker",
+      "sentiment": "negative",
+      "communication_score": 80
+    }
+  ],
+  "TAGS": ["discovery", "demo_provided", "deal_lost", "competitor_chosen", "feedback_requested"]
+}

@@ -1,8 +1,8 @@
 {
   "thread_id": "197e6c7a52e39a6f",
   "channel": {
-    "id": "197e6c7a52e39a6f",
-    "name": "Salesforce Proposal for Cloud Sync Expansion",
+    "id": "email_channel_id",
+    "name": "Email",
     "type": "email"
   },
   "participants": [
@@ -20,44 +20,44 @@
   "messages": [
     {
       "from": "Bruce Wayne",
-      "text": "Hi James,Hope you had a great weekend. I\u2019ve attached the formal proposal for theCloud Sync Expansion. Let me know if anything jumps out, or if you'd liketo walk through it together.",
+      "text": "Hi James, Hope you had a great weekend. I\u2019ve attached the formal proposal for the Cloud Sync Expansion. Let me know if anything jumps out, or if you'd like to walk through it together.",
       "timestamp": "2025-07-07T14:31:44-07:00",
-      "sentiment": "positive",
-      "tone": "professional, friendly, proactive",
+      "sentiment": "neutral",
+      "tone": "professional",
       "objections": [],
-      "intent": "send proposal, solicit feedback",
+      "intent": "send proposal",
       "action_required": false
     },
     {
       "from": "Bruce Wayne",
-      "text": "Perfect \u2014 happy to hop on a call or clarify anything if needed. I alsoincluded a few line-item breakdowns in the doc just in case leadershipwants more granularity.",
+      "text": "Perfect \u2014 happy to hop on a call or clarify anything if needed. I also included a few line-item breakdowns in the doc just in case leadership wants more granularity.",
       "timestamp": "2025-07-07T14:37:38-07:00",
       "sentiment": "positive",
-      "tone": "helpful, professional, proactive",
+      "tone": "helpful",
       "objections": [],
-      "intent": "offer assistance, provide additional detail",
+      "intent": "offer clarification",
       "action_required": false
     },
     {
       "from": "James Smith",
-      "text": "Hey Bruce,Reviewed it with our VP \u2014 overall no red flags. One minor question on theonboarding costs. Can those be deferred until post-deployment?",
+      "text": "Hey Bruce, Reviewed it with our VP \u2014 overall no red flags. One minor question on the onboarding costs. Can those be deferred until post-deployment?",
       "timestamp": "2025-07-07T14:40:00-07:00",
       "sentiment": "neutral",
-      "tone": "professional, inquiring",
+      "tone": "inquisitive",
       "objections": [
-        "onboarding costs timing"
+        "onboarding cost timing"
       ],
-      "intent": "clarify, negotiate",
+      "intent": "clarify terms",
       "action_required": true
     },
     {
       "from": "Bruce Wayne",
-      "text": "Absolutely. We can structure it so onboarding fees kick in 30 days aftergo-live. I\u2019ll update the proposal and resend it.",
+      "text": "Absolutely. We can structure it so onboarding fees kick in 30 days after go-live. I\u2019ll update the proposal and resend it.",
       "timestamp": "2025-07-07T14:42:02-07:00",
       "sentiment": "positive",
-      "tone": "accommodating, professional, solution-oriented",
+      "tone": "accommodating",
       "objections": [],
-      "intent": "address objection, confirm flexibility",
+      "intent": "resolve objection",
       "action_required": true
     },
     {
@@ -65,9 +65,9 @@
       "text": "That\u2019s perfect. I\u2019ll forward that to finance \u2014 that change should check the last box. Appreciate the flexibility.",
       "timestamp": "2025-07-07T14:45:00-07:00",
       "sentiment": "positive",
-      "tone": "appreciative, confirming",
+      "tone": "appreciative",
       "objections": [],
-      "intent": "confirm acceptance, internal coordination",
+      "intent": "confirm acceptance",
       "action_required": false
     },
     {
@@ -75,37 +75,37 @@
       "text": "No problem at all. Revised version attached \u2014 let me know if anything else needs adjusting. Otherwise, we\u2019re good to prep contracts.",
       "timestamp": "2025-07-07T14:47:02-07:00",
       "sentiment": "positive",
-      "tone": "professional, proactive",
+      "tone": "professional",
       "objections": [],
-      "intent": "send revised proposal, confirm readiness to proceed",
-      "action_required": true
+      "intent": "send revised proposal",
+      "action_required": false
     },
     {
       "from": "Bruce Wayne",
       "text": "We can have draft contracts ready early next week. Happy to kick off implementation prep on our end as well. Excited to get this moving.",
       "timestamp": "2025-07-07T14:48:47-07:00",
       "sentiment": "positive",
-      "tone": "enthusiastic, confident, proactive",
+      "tone": "enthusiastic",
       "objections": [],
-      "intent": "commit to contract, signal readiness for implementation",
+      "intent": "next steps",
       "action_required": true
     }
   ],
-  "summary": "The sales rep, Bruce, sent the Cloud Sync Expansion proposal. Prospect James raised a minor objection regarding onboarding costs, which Bruce accommodated. James confirmed satisfaction with the revised terms, leading Bruce to send the updated proposal and commit to drafting contracts and preparing for implementation, indicating deal progression.",
+  "summary": "The sales rep, Bruce Wayne, sent a proposal for Cloud Sync Expansion to prospect James Smith. James raised a minor objection regarding deferring onboarding costs, which Bruce quickly accommodated by updating and resending the proposal. Following James's approval, Bruce confirmed the revised terms and committed to preparing draft contracts and initiating implementation prep, indicating strong progress towards closing the deal.",
   "last_activity": "2025-07-07T14:48:47-07:00",
   "engagement_metrics": {
     "message_count": 7,
     "rep_response_time_sec": 122,
     "objections_raised": 1,
-    "followups_committed": 4
+    "followups_committed": 2
   },
   "tags": [
-    "proposal sent",
-    "onboarding costs negotiation",
-    "objection handled",
-    "revised proposal sent",
-    "contract preparation",
-    "implementation planning",
-    "deal progression"
+    "proposal_sent",
+    "objection_handled",
+    "contract_prep",
+    "deal_progression",
+    "onboarding_costs",
+    "flexible_terms",
+    "urgent_response_needed"
   ]
 }
