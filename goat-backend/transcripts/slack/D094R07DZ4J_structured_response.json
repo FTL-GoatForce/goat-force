@@ -2,13 +2,13 @@
   "thread_id": "D094R07DZ4J",
   "channel": {
     "id": "D094R07DZ4J",
-    "name": "U094SLLCY4C",
+    "name": "David",
     "type": "dm"
   },
   "participants": [
     {
       "id": "U094SLLCY4C",
-      "name": "U094SLLCY4C",
+      "name": "David",
       "role": "prospect"
     },
     {
@@ -19,7 +19,7 @@
   ],
   "messages": [
     {
-      "from": "U094SLLCY4C",
+      "from": "David",
       "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
       "timestamp": "2025-07-09T14:42:02Z",
       "sentiment": "neutral",
@@ -39,9 +39,9 @@
       "action_required": false
     },
     {
-      "from": "U094SLLCY4C",
+      "from": "David",
       "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
-      "timestamp": "2025-07-09T14:42:19Z",
+      "timestamp": "2025-07-09T14:42:19.589Z",
       "sentiment": "negative",
       "tone": "problem-focused",
       "objections": [],
@@ -51,7 +51,7 @@
     {
       "from": "Bruce",
       "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
-      "timestamp": "2025-07-09T14:42:25Z",
+      "timestamp": "2025-07-09T14:42:25.882Z",
       "sentiment": "positive",
       "tone": "proactive",
       "objections": [],
@@ -59,9 +59,9 @@
       "action_required": false
     },
     {
-      "from": "U094SLLCY4C",
+      "from": "David",
       "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
-      "timestamp": "2025-07-09T14:42:32Z",
+      "timestamp": "2025-07-09T14:42:32.500Z",
       "sentiment": "neutral",
       "tone": "cautious",
       "objections": [
@@ -73,7 +73,7 @@
     {
       "from": "Bruce",
       "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
-      "timestamp": "2025-07-09T14:42:38Z",
+      "timestamp": "2025-07-09T14:42:38.141Z",
       "sentiment": "positive",
       "tone": "accommodating",
       "objections": [],
@@ -81,9 +81,9 @@
       "action_required": false
     },
     {
-      "from": "U094SLLCY4C",
+      "from": "David",
       "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
-      "timestamp": "2025-07-09T14:42:44Z",
+      "timestamp": "2025-07-09T14:42:44.848Z",
       "sentiment": "neutral",
       "tone": "informative",
       "objections": [
@@ -95,7 +95,7 @@
     {
       "from": "Bruce",
       "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
-      "timestamp": "2025-07-09T14:42:50Z",
+      "timestamp": "2025-07-09T14:42:50.035Z",
       "sentiment": "neutral",
       "tone": "patient",
       "objections": [],
@@ -103,9 +103,9 @@
       "action_required": false
     },
     {
-      "from": "U094SLLCY4C",
+      "from": "David",
       "text": "Will do. Appreciate the no-pressure vibe.",
-      "timestamp": "2025-07-09T14:42:55Z",
+      "timestamp": "2025-07-09T14:42:55.079Z",
       "sentiment": "positive",
       "tone": "appreciative",
       "objections": [],
@@ -115,7 +115,7 @@
     {
       "from": "Bruce",
       "text": "Of course",
-      "timestamp": "2025-07-18T12:00:37Z",
+      "timestamp": "2025-07-18T12:00:37.070Z",
       "sentiment": "neutral",
       "tone": "casual",
       "objections": [],
@@ -123,25 +123,36 @@
       "action_required": false
     },
     {
-      "from": "U094SLLCY4C",
-      "text": "Deals off, priya said no, for any concerns to contact them.",
-      "timestamp": "2025-07-19T20:15:04Z",
+      "from": "David",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-19T20:15:00.915Z",
       "sentiment": "negative",
       "tone": "definitive",
       "objections": [
-        "internal_decision"
+        "internal_decision",
+        "product_feature"
       ],
       "intent": "terminate_engagement",
       "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Sorry to hear that David. Thanks for the notice.",
+      "timestamp": "2025-07-19T21:30:38.498Z",
+      "sentiment": "negative",
+      "tone": "regretful",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
     }
   ],
-  "summary": "The prospect, initially seeking a unified reporting solution for multi-regional operations, received a loom demo and was in an early evaluation phase with an August timeline. However, the prospect later informed the sales rep that the deal is off due to a negative internal stakeholder decision (Priya IT).",
-  "last_activity": "2025-07-19T20:15:04Z",
+  "summary": "The conversation began with the prospect, David, outlining complex multi-regional needs and a desire to avoid siloed solutions. The sales rep, Bruce, provided a loom demo, which David initially found solid, indicating an August timeline for vendor evaluation. However, after a significant period of inactivity, David informed Bruce that the deal was lost because an internal stakeholder deemed the demo unimpressive, and they decided to proceed with a competitor.",
+  "last_activity": "2025-07-19T21:30:38.498Z",
   "engagement_metrics": {
-    "message_count": 11,
-    "rep_response_time_sec": 154778.2,
-    "objections_raised": 3,
-    "followups_committed": 1
+    "message_count": 12,
+    "rep_response_time_sec": 155963.339,
+    "objections_raised": 4,
+    "followups_committed": 2
   },
   "tags": [
     "unified_reporting",
@@ -150,10 +161,11 @@
     "loom_demo",
     "early_stage_evaluation",
     "timeline_delay",
-    "nurture_opportunity",
+    "no_pressure_approach",
     "long_response_time",
     "deal_lost",
     "internal_rejection",
-    "prospect_objection"
+    "product_objection",
+    "competitor_lost"
   ]
 }
