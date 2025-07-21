@@ -1,65 +1,79 @@
-import os
-import asyncio
-from datetime import datetime
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
+import os.path
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+import json 
 from google import genai
 from google.genai import types
-import json
+import base64
+from email.mime.text import MIMEText
+import google.auth
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 from dotenv import load_dotenv
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY")) 
-
-server_params = StdioServerParameters(
-    command="npx",
-    args=[
-        "@gongrzhe/server-gmail-autoauth-mcp"
-    ]
-)
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+# If modifying these scopes, delete the file token.json.
+SCOPES = ["https://mail.google.com/"]
 
 
-def get_gmail_data_file(email: str) -> str:
+def clean_body(body: str):
+    # Convert newlines to HTML line breaks
+    cleaned_body = body.replace('\n', '<br>')
+    return cleaned_body
+
+def send_email(email: str, subject: str, body: str):
+    creds = None
+    if os.path.exists("token.json"):
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open("token.json", "w") as token:
+            token.write(creds.to_json())
+    try: 
+        service = build ("gmail", "v1", credentials=creds)
+        print("body", body)
+        message = MIMEText(clean_body(body), "html")
+        message["To"] = email
+        message["From"] = "bruce.wayne.goatforce@gmail.com"
+        message["Subject"] = subject
+        encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
+
+        create_message = {"raw": encoded_message}
+        # pylint: disable=E1101
+        send_message = (
+            service.users()
+            .messages()
+            .send(userId="me", body=create_message)
+            .execute()
+        )
+        print(f'Message Id: {send_message["id"]}')
+    except HttpError as error:
+        print(f"An error occurred: {error}")
+        send_message = None
+    return send_message
+
+
+
+def get_gmail_data_file(email: str) -> dict:
     if os.path.exists(f"transcripts/gmail/{email}_structured_response.json"):
         with open(f"transcripts/gmail/{email}_structured_response.json", "r") as f:
-            return json.load(f)
+            content = f.read().strip()
+            if content:  # Check if file is not empty
+                return json.loads(content)
+            else:
+                return {}
     else:
-        return "{}"
+        return {}
 
-def get_gmail_prompt(email: str) -> str:
-    return f"""
-        You are retrieving sales-related email threads for structured analysis.
-    
-        Steps:
-        1. Access the Gmail account
-        2. Retrieve ALL emails between me and {email}
-        3. Make sure to get the COMPLETE conversation thread, including:
-            - All emails
-            - All replies and responses
-            - The entire email chain from start to finish
-        4. For each email, MAKE SURE TO EXTRACT AND OUTPUT THE FOLLOWING:
-            - `email_id` (unique identifier)
-            - `subject` (email subject line)
-            - `sender` (sender email and name if available)
-            - `recipients` (list of recipient emails)
-            - `date` (timestamp)
-            - `body` (email content)
-            - `thread_id` (if part of a conversation thread)
-            - Any other relevant metadata
-
-        Also, try to infer the following for each email if possible:
-        - `is_from_rep` (true/false) - based on sender domain or context
-        - `is_prospect_objection` (true/false) - based on email content
-        - `is_follow_up` (true/false) - based on subject or content
-        - `urgency_level` (low/medium/high) - based on content analysis
-
-        IMPORTANT: 
-        - Use the available MCP tools to get ALL emails in the thread
-        - Do NOT limit the number of emails - get the complete conversation
-        - Make sure to retrieve both sides of the conversation (from both sender and recipient)
-
-        Output the results as a clean JSON array of ALL emails in the thread. Do **not** do any further analysis or interpretation.
-    """
 
 def get_structured_gmail_prompt(response: object, email: str) -> str:
     return f"""
@@ -102,7 +116,7 @@ def get_structured_gmail_prompt(response: object, email: str) -> str:
     ### Output Format:
 
     Here is the current gmail data file we have:
-    {get_gmail_data_file(email)}
+    {json.dumps(get_gmail_data_file(email), indent=2)}
 
 
     I want you to update this file by appending to the messages with new Non duplicate messages.
@@ -149,34 +163,98 @@ def get_structured_gmail_prompt(response: object, email: str) -> str:
     }}
     ```
     If any field is missing or unclear, leave it blank or null — do not make things up.
+
+    Make sure they all follow the same format.
+    Never break the format. Always include all fields.
     """
 
 
-async def gmail_mcp_server(email: str):
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-            try:
-                prompt = get_gmail_prompt(email)
-                response = await client.aio.models.generate_content(
-                    model="gemini-2.5-flash",
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        temperature=0,
-                        tools=[session]
-                    ),
-                )
-            except Exception as e:
-                print(f"Error with first Gemini API call: {e}")
+def get_emails(email: str):
+    """
+    Shows basic usage of the Gmail API.
+    Lists the user's Gmail messages.
+    """
+    creds = None
+    if os.path.exists("token.json"):
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open("token.json", "w") as token:
+            token.write(creds.to_json())
+
+    try:
+        service = build("gmail", "v1", credentials=creds)
+        
+        results = (
+            service.users().messages().list(userId="me", labelIds=["INBOX"], q=f"from:{email}").execute()
+        )
+        messages = results.get("messages", [])
+
+        if not messages:
+            print("No messages found.")
+            return
+
+        seen_threads = set()
+        all_messages = []
+        
+        for message in messages:
+            msg = service.users().messages().get(userId="me", id=message["id"]).execute()
+            thread_id = msg.get("threadId")
+            
+            # Skip if we've already processed this thread
+            if thread_id in seen_threads:
+                continue
+                
+            seen_threads.add(thread_id)
+
+            print(f"All Threads: {seen_threads}")
+            
+            thread = service.users().threads().get(userId="me", id=thread_id).execute()
+            thread_messages = thread.get("messages", [])
+            
+            print(f"\nThread ID: {thread_id}")
+            print(f"Number of messages in thread: {len(thread_messages)}")
+            
+            for i, thread_msg in enumerate(thread_messages):
+                headers = thread_msg.get("payload", {}).get("headers", [])
+                subject = next((h["value"] for h in headers if h["name"] == "Subject"), "No Subject")
+                from_header = next((h["value"] for h in headers if h["name"] == "From"), "Unknown")
+                date = next((h["value"] for h in headers if h["name"] == "Date"), "Unknown")
+                
+                message_data = {
+                    "from": from_header,
+                    "subject": subject,
+                    "timestamp": date,
+                    "text": thread_msg.get('snippet', 'No snippet')
+                }          
+                all_messages.append(message_data)      
+        
+        return all_messages
+
+    except HttpError as error:
+        # TODO(developer) - Handle errors from gmail API.
+        print(f"An error occurred: {error}")
 
 
-            structured_prompt = get_structured_gmail_prompt(response.text, email)
-            structured_response = await client.aio.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=structured_prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    response_schema={
+def run_gmail(email: str):
+    print("Getting emails")
+    emails = get_emails(email)
+    print(f"Emails: {emails}")
+    get_gmail_data_file(email)
+    prompt = get_structured_gmail_prompt(emails, email)
+    print("Running gmail")
+    try: 
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema={
                         "type": "object",
                         "properties": {
                             "thread_id": {"type": "string"},
@@ -237,19 +315,18 @@ async def gmail_mcp_server(email: str):
                         "required": ["thread_id", "channel", "participants", "messages", "summary", "engagement_metrics", "tags"]
                     }
                 ),
-            )
-            os.makedirs("transcripts/gmail", exist_ok=True)
-            with open(f"transcripts/gmail/{email}_structured_response.json", "w") as f:
-                json.dump(structured_response.parsed, f, indent=2, default=str)
+        )
+        os.makedirs("transcripts/gmail", exist_ok=True)
+        with open(f"transcripts/gmail/{email}_structured_response.json", "w") as f:
+            json.dump(response.parsed, f, indent=2, default=str)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-            with open(f"transcripts/logs/gmail_logs/gmail_mcp_server.log", "a") as f:
-                f.write(f"Email: {email}\n")
-                f.write(f"Structured Response: {structured_response.text}\n")
-                f.write(f"--------------------------------\n")
 
 if __name__ == "__main__":
     import sys
     # Get email from command line argument, or use default
-    email = sys.argv[1] if len(sys.argv) > 1 else "sophia.nguyen.airbnb2025@gmail.com"
-    print(f"Running Gmail MCP Server for email: {email}")
-    asyncio.run(gmail_mcp_server(email))
+    email = sys.argv[1] if len(sys.argv) > 1 else "david.gonzalez.fedex2025@gmail.com"
+    print(f"Running Gmail API Service for email: {email}")
+    run_gmail(email)
+    print("Gmail API Service completed")

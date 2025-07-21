@@ -2,37 +2,37 @@
   {
     "prospect_name": "David Gonzalez",
     "personality_communication_profile": {
-      "personality_traits": ["cautious", "structured", "pragmatic", "problem-aware", "direct", "collaborative", "patient"],
-      "communication_style": "professional, direct, informative, cautious, definitive",
-      "decision_making_style": "deliberate, process-driven, consensus-seeking, influenced by technical stakeholders",
-      "objection_style": "direct, transparent, proactive in stating boundaries and concerns",
-      "role_in_deal": "evaluator, influencer (not ultimate decision-maker)"
+      "personality_traits": ["analytical", "cautious", "direct", "process-oriented", "collaborative"],
+      "communication_style": "direct",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
     },
     "intent_sentiment": {
-      "intent_signals": ["active evaluation", "qualifying vendor", "raising technical concerns", "managing expectations", "providing updates", "terminating engagement"],
-      "overall_sentiment": "neutral, problem-focused, appreciative (of sales approach), definitively negative (due to deal termination)",
-      "tone_patterns": "professional, informative, direct, cautious, definitive"
+      "intent_signals": ["evaluating", "qualifying", "requesting information", "rejecting"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "candid"
     },
     "objections_concerns": {
-      "objection_types": ["technical_limitations", "early_stage_evaluation", "timeline", "internal_stakeholder_block"],
-      "objection_frequency_severity": "frequent (5 distinct objections); severity ranges from moderate (technical concerns, early stage, timeline) to high (deal termination due to internal stakeholder)"
+      "objection_types": ["siloed solution concern", "not ready for full pitch", "evaluating other options", "long evaluation timeline", "technical validation needed", "demo not impressive", "competitor chosen", "multi-business unit complexity", "ease of integration"],
+      "objection_frequency_severity": "frequent"
     },
     "communication_behavior": {
-      "response_time": "generally fast during active conversation, but inconsistent with a significant delay for final negative update",
-      "engagement_level": "high during initial discovery and evaluation phases, dropped significantly upon deal termination",
-      "message_complexity": "varied; can be detailed and informative, also direct and concise; professional tone",
-      "preferred_channel": "adapts to both Slack and Email; comfortable with both for different communication purposes"
+      "response_time": "inconsistent",
+      "engagement_level": "low",
+      "message_complexity": "structured",
+      "preferred_channel": "slack"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "moved from initial outreach/qualification to early-stage evaluation/discovery, then abruptly terminated (lost)",
-      "budget_risk_indicators": "no direct budget concerns mentioned",
-      "timeline_risk_indicators": "low urgency, long evaluation timeline (through August), indicating potential for deal delays",
-      "churn_risk_indicators": "high churn risk; deal was lost due to an internal stakeholder's decision"
+      "deal_stage_signals": "evaluation",
+      "budget_risk_indicators": "no explicit budget mention",
+      "timeline_risk_indicators": "delays",
+      "churn_risk_indicators": "lack of engagement"
     },
     "deal_insights": {
-      "key_objections": "Internal stakeholder approval (Priya IT being the blocker), early stage evaluation, long timeline, and technical concerns (multi-business unit handling, integration).",
-      "decision_maker_status": "Influencer, not the ultimate decision-maker; Priya IT holds blocking power.",
-      "urgency_level": "Low urgency ('no rush', 'evaluating vendors through August').",
-      "competitive_position": "Actively evaluating multiple platforms; deal lost due to internal reasons rather than direct competition."
+      "key_objections": "technical limitations",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "lost to competitor"
     }
   }

@@ -1,0 +1,210 @@
+Deal ID: 10
+Response: {
+  "deal_id": "197e6e21467c29cd",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-08-01",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 45,
+    "Churn_Risk": 30,
+    "Timeline_Risk": 40,
+    "Budget_Risk": 20,
+    "deal_risk_explanation": "The deal shows moderate engagement with some technical objections raised, but no major blockers.",
+    "churn_risk_explanation": "The prospect has raised concerns but remains engaged, indicating a moderate risk of switching.",
+    "timeline_risk_explanation": "The timeline for closing is uncertain due to technical discussions that need to be resolved.",
+    "budget_risk_explanation": "No explicit budget concerns have been raised, indicating low risk in this area."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["technical fit - multiple business units", "technical fit - ease of integration"],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 602.5,
+    "engagement_trend": "stable",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The latest message from Bruce Wayne addressed David's technical concerns and confirmed a meeting."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Meeting scheduled to discuss CRM solutions and technical concerns.",
+      "event_type": "Meeting Scheduled"
+    },
+    {
+      "event_date": "2025-07-06",
+      "event_description": "David raised technical concerns regarding multiple business units and ease of integration.",
+      "event_type": "Objection Raised"
+    },
+    {
+      "event_date": "2025-07-08",
+      "event_description": "Upcoming meeting to address technical fit and integration concerns.",
+      "event_type": "Meeting Scheduled"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal with FedEx is currently in the qualification stage, with Bruce Wayne engaging David Gonzalez about CRM solutions. A meeting is scheduled to address technical concerns raised by the prospect regarding integration and handling multiple business units. The engagement level is stable, but there are some technical objections that need to be resolved to move forward effectively.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Prepare detailed information on integration capabilities.",
+      "Address technical objections during the upcoming meeting.",
+      "Follow up post-meeting to ensure all concerns are addressed."
+    ],
+    "Escalation_Triggers": "If objections remain unresolved after the meeting, escalate to senior management.",
+    "Deal_Acceleration_Tactics": "Offer a trial period for the CRM solution to demonstrate ease of integration."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Our Upcoming Meeting",
+        "body": "Hi David,\n\nI hope this message finds you well. I wanted to confirm our meeting scheduled for Tuesday at 11 AM PST. I will ensure to have all the necessary information ready to address your technical concerns regarding integration and multiple business units.\n\nLooking forward to our discussion!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just confirming our meeting for Tuesday at 11 AM PST. Excited to discuss CRM solutions!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "neutral",
+      "communication_score": 70
+    }
+  ],
+
+  "TAGS": ["CRM_evaluation", "technical_requirements", "integration_concerns", "multiple_business_units", "meeting_scheduled", "vendor_qualification", "initial_engagement", "followup_call"]
+}
+--------------------------------
+Deal ID: 10
+Response: {
+  "deal_id": "197e6e21467c29cd",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": 0,
+  "expected_close_date": "2025-08-01",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 45,
+    "Churn_Risk": 30,
+    "Timeline_Risk": 40,
+    "Budget_Risk": 20,
+    "deal_risk_explanation": "The deal shows moderate engagement with some technical objections raised, but no major blockers.",
+    "churn_risk_explanation": "The prospect has raised concerns but remains engaged, indicating a moderate risk of switching.",
+    "timeline_risk_explanation": "The timeline for closing is uncertain due to technical discussions that need to be resolved.",
+    "budget_risk_explanation": "No explicit budget concerns have been raised, indicating low risk in this area."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [
+      "technical fit - multiple business units",
+      "technical fit - ease of integration"
+    ],
+    "Decision_Maker_Status": "engaged",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 602.5,
+    "engagement_trend": "stable",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The latest message from Bruce Wayne addressed David's technical concerns and confirmed a meeting."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Meeting scheduled to discuss CRM solutions and technical concerns.",
+      "event_type": "Meeting Scheduled"
+    },
+    {
+      "event_date": "2025-07-06",
+      "event_description": "David raised technical concerns regarding multiple business units and ease of integration.",
+      "event_type": "Objection Raised"
+    },
+    {
+      "event_date": "2025-07-08",
+      "event_description": "Upcoming meeting to address technical fit and integration concerns.",
+      "event_type": "Meeting Scheduled"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal with FedEx is currently in the qualification stage, with Bruce Wayne engaging David Gonzalez about CRM solutions. A meeting is scheduled to address technical concerns raised by the prospect regarding integration and handling multiple business units. The engagement level is stable, but there are some technical objections that need to be resolved to move forward effectively.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Prepare detailed information on integration capabilities.",
+      "Address technical objections during the upcoming meeting.",
+      "Follow up post-meeting to ensure all concerns are addressed."
+    ],
+    "Escalation_Triggers": "If objections remain unresolved after the meeting, escalate to senior management.",
+    "Deal_Acceleration_Tactics": "Offer a trial period for the CRM solution to demonstrate ease of integration."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Our Upcoming Meeting",
+        "body": "Hi David,\n\nI hope this message finds you well. I wanted to confirm our meeting scheduled for Tuesday at 11 AM PST. I will ensure to have all the necessary information ready to address your technical concerns regarding integration and multiple business units.\n\nLooking forward to our discussion!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just confirming our meeting for Tuesday at 11 AM PST. Excited to discuss CRM solutions!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "neutral",
+      "communication_score": 70
+    }
+  ],
+
+  "TAGS": [
+    "CRM_evaluation",
+    "technical_requirements",
+    "integration_concerns",
+    "multiple_business_units",
+    "meeting_scheduled",
+    "vendor_qualification",
+    "initial_engagement",
+    "followup_call"
+  ]
+}
+--------------------------------

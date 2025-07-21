@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import dotenv from "dotenv";
-
-const prisma = new PrismaClient();
+import prisma from "../db/db.js";
 dotenv.config();
 const FASTAPI_URL = process.env.FASTAPI_URL;
 

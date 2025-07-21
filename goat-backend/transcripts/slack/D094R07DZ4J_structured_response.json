@@ -15,6 +15,11 @@
       "id": "U094K124HS7",
       "name": "Bruce",
       "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "David",
+      "role": "prospect"
     }
   ],
   "messages": [
@@ -43,9 +48,9 @@
       "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
       "timestamp": "2025-07-09T14:42:19.589Z",
       "sentiment": "negative",
-      "tone": "problem-focused",
-      "objections": [],
-      "intent": "articulate_pain_points",
+      "tone": "candid",
+      "objections": ["siloed solution concern"],
+      "intent": "state problem",
       "action_required": false
     },
     {
@@ -55,8 +60,8 @@
       "sentiment": "positive",
       "tone": "proactive",
       "objections": [],
-      "intent": "propose_solution",
-      "action_required": false
+      "intent": "propose solution",
+      "action_required": true
     },
     {
       "from": "David",
@@ -64,10 +69,8 @@
       "timestamp": "2025-07-09T14:42:32.500Z",
       "sentiment": "neutral",
       "tone": "cautious",
-      "objections": [
-        "early_stage_evaluation"
-      ],
-      "intent": "manage_expectations",
+      "objections": ["not ready for full pitch", "evaluating other options"],
+      "intent": "qualify request",
       "action_required": true
     },
     {
@@ -75,10 +78,10 @@
       "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
       "timestamp": "2025-07-09T14:42:38.141Z",
       "sentiment": "positive",
-      "tone": "accommodating",
+      "tone": "agreeable",
       "objections": [],
-      "intent": "fulfill_request",
-      "action_required": false
+      "intent": "provide solution",
+      "action_required": true
     },
     {
       "from": "David",
@@ -86,11 +89,9 @@
       "timestamp": "2025-07-09T14:42:44.848Z",
       "sentiment": "neutral",
       "tone": "informative",
-      "objections": [
-        "timeline"
-      ],
-      "intent": "provide_update",
-      "action_required": false
+      "objections": ["long evaluation timeline", "technical validation needed"],
+      "intent": "provide update",
+      "action_required": true
     },
     {
       "from": "Bruce",
@@ -99,7 +100,7 @@
       "sentiment": "neutral",
       "tone": "patient",
       "objections": [],
-      "intent": "nurture_relationship",
+      "intent": "maintain engagement",
       "action_required": false
     },
     {
@@ -109,7 +110,7 @@
       "sentiment": "positive",
       "tone": "appreciative",
       "objections": [],
-      "intent": "acknowledge",
+      "intent": "build rapport",
       "action_required": false
     },
     {
@@ -127,12 +128,9 @@
       "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
       "timestamp": "2025-07-19T20:15:00.915Z",
       "sentiment": "negative",
-      "tone": "definitive",
-      "objections": [
-        "internal_decision",
-        "product_feature"
-      ],
-      "intent": "terminate_engagement",
+      "tone": "direct",
+      "objections": ["internal_decision", "product_feature"],
+      "intent": "reject",
       "action_required": true
     },
     {
