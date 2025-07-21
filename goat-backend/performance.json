@@ -731,6 +731,30 @@
         "total": 102.20204591751099
       },
       "success": true
+    },
+    {
+      "timestamp": "2025-07-21T11:39:33.937668",
+      "deal_id": "14",
+      "component_times": {
+        "slack_mcp": 25.236526012420654,
+        "gmail_api": 67.84084701538086,
+        "personality": 5.979706764221191,
+        "einstein": 17.503607988357544,
+        "total": 91.32456612586975
+      },
+      "success": true
+    },
+    {
+      "timestamp": "2025-07-21T12:35:34.190646",
+      "deal_id": "14",
+      "component_times": {
+        "slack_mcp": 85.43737292289734,
+        "gmail_api": 25.3552029132843,
+        "personality": 10.31662917137146,
+        "einstein": 17.686840772628784,
+        "total": 113.44116115570068
+      },
+      "success": true
     }
   ]
 }
