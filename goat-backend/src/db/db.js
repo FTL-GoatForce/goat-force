@@ -13,8 +13,6 @@ if (!global.prisma) {
         url: process.env.DATABASE_URL,
       },
     },
-    // Add connection pooling configuration
-    log: ['query', 'info', 'warn', 'error'],
     // Connection pool settings
     __internal: {
       engine: {
