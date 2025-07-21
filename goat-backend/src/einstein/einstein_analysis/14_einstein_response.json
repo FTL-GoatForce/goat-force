@@ -1,0 +1,95 @@
+{
+  "deal_id": "Data360Integration",
+  "client_company": "BOA2025",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2024-07-08T13:59:43Z",
+  "deal_stage": "proposal",
+  "deal_value_usd": 210000,
+  "expected_close_date": null,
+  
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 30,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 10,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The engagement is strong with active communication and no major blockers identified.",
+    "churn_risk_explanation": "The prospect is engaged and actively seeking clarifications, indicating a low likelihood of switching to competitors.",
+    "timeline_risk_explanation": "The follow-up meeting is scheduled, suggesting that the deal is progressing as planned.",
+    "budget_risk_explanation": "No budget concerns were raised in the discussions."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["Technical details clarification", "Pricing breakdown"],
+    "Decision_Maker_Status": "Engaged",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 8,
+    "prospect_response_time_sec": 6.84,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "The latest Slack conversation involved onboarding and updates on legal feedback regarding pricing."
+  },
+  
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2024-07-08",
+        "event_description": "Diego provided an update on sharing the pricing breakdown with his legal team.",
+        "event_type": "Update Status"
+      },
+      {
+        "event_date": "2024-07-08",
+        "event_description": "Bruce reassured Diego about holding the current pricing.",
+        "event_type": "Pricing Discussion"
+      },
+      {
+        "event_date": "2024-07-09",
+        "event_description": "Follow-up meeting scheduled to check in on legal feedback.",
+        "event_type": "Next Meeting"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The Slack thread initiated with Sales Rep Bruce Wayne welcoming prospect Diego. Diego provided an update on sharing the pricing breakdown with his legal team, expecting feedback soon. Bruce proactively offered support from his legal/revops team and reassured Diego about holding the current pricing. The conversation concluded with Bruce committing to follow up after Diego receives legal feedback, highlighting a collaborative and positive progression of the sales cycle.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Prepare for the follow-up meeting", "Clarify any remaining technical questions", "Confirm pricing details"],
+    "Escalation_Triggers": "If no agreement is reached in the next meeting",
+    "Deal_Acceleration_Tactics": "Provide additional resources or case studies to support the proposal"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Data360 Integration Proposal",
+        "body": "Hi Diego,\n\nI hope this message finds you well. I wanted to confirm our upcoming meeting on Friday to discuss the Data360 integration proposal further. Please let me know if there are any specific topics you would like to address.\n\nLooking forward to our conversation.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Diego, just confirming our meeting on Friday regarding the Data360 integration proposal. Let me know if you have any specific questions!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "diego.lopez.boa2025@gmail.com",
+      "name": "Diego Lopez",
+      "role": "decision_maker",
+      "sentiment": "neutral",
+      "communication_score": 75
+    }
+  ],
+
+  "TAGS": ["action_required", "legal_review", "positive_engagement", "pricing_discussion", "quick_rep_response", "rep_followup_committed", "welcome"]
+}

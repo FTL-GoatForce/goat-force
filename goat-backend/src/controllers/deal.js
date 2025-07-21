@@ -1,10 +1,8 @@
 // Controller Imports
-import { PrismaClient } from "@prisma/client";
 import dotenv from "dotenv";
 import { getLastUpdatedAt } from "../utils/getLastUpdatedAt.js";
 import redis from "../utils/redis.js";
-
-const prisma = new PrismaClient();
+import prisma from "../db/db.js";
 dotenv.config();
 const FASTAPI_URL = process.env.FASTAPI_URL;
 
