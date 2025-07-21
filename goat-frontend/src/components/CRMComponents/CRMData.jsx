@@ -53,10 +53,9 @@ const CRMData = ({
     console.log("✅ globalStats changed:", globalStats);
   }, [globalStats]);
 
-  // Polling every 2 seconds if we have something that is Processing
+  // Polling every 10 seconds to check for processing status
   useEffect(() => {
     let interval = null;
-    let previousStats = { ...globalStats };
 
     const fetchStats = async () => {
       const res = await axios.get("http://localhost:3000/deal/stats");
@@ -64,27 +63,7 @@ const CRMData = ({
         res.data.map((d) => [d.id, d.job_status])
       );
 
-      // Check if any deal just finished processing (went from "processing" to "idle")
-      const justFinishedDeals = Object.keys(stats).filter(
-        (dealId) =>
-          previousStats[dealId] === "processing" && stats[dealId] === "idle"
-      );
-
       setGlobalStats(stats);
-
-      // If any deals just finished processing, trigger a refresh to get updated data
-      if (justFinishedDeals.length > 0) {
-        console.log(
-          "Deals finished processing:",
-          justFinishedDeals,
-          "- triggering refresh"
-        );
-        setTimeout(() => {
-          setRefresh(true);
-        }, 500);
-      }
-
-      previousStats = { ...stats };
 
       const anyProcessing = Object.values(stats).includes("processing");
       if (!anyProcessing && interval) {
