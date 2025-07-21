@@ -4,11 +4,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import json
+from mcp_servers.gmail_api import send_email
 
 class Request(BaseModel):
     deal_id: str
     slack_id: str
     email: str
+
+class SendEmailRequest(BaseModel):
+    email: str
+    subject: str
+    body: str
 
 app = FastAPI()
 app.add_middleware(
@@ -50,11 +56,15 @@ def run_pipeline(request: Request):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-app.get("/performance")
-def get_performance():
-    with open('performance.json', 'r') as f:
-        data = f.read()
-        return json.loads(data)
+@app.post("/email/send")
+def send_email_request(request: SendEmailRequest):
+    try:
+        response = send_email(request.email, request.subject, request.body)
+        print("response", response)
+        return {"status": "success", "message": "Email sent"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 
 if __name__ == "__main__":
     import uvicorn

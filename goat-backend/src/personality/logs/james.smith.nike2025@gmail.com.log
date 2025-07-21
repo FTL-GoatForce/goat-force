@@ -1,0 +1,39 @@
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "James Smith",
+    "personality_communication_profile": {
+      "personality_traits": ["pragmatic", "collaborative", "clear", "action-oriented", "appreciative"],
+      "communication_style": "formal",
+      "decision_making_style": "collaborative",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "negotiating", "confirming acceptance"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional"
+    },
+    "objections_concerns": {
+      "objection_types": ["budget_related"],
+      "objection_frequency_severity": "low frequency, low severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "low risk, focused on payment terms",
+      "timeline_risk_indicators": "low risk",
+      "churn_risk_indicators": "very low"
+    },
+    "deal_insights": {
+      "key_objections": "deferment of onboarding costs",
+      "decision_maker_status": "key influencer and facilitator, requires VP and finance approval",
+      "urgency_level": "high",
+      "competitive_position": "unknown"
+    }
+  }
+--------------------------------
