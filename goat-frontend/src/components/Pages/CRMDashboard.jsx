@@ -53,6 +53,10 @@ const Dashboard = () => {
         const response = await axios.get("http://localhost:3000/deal/all");
         setDeals(response.data.deals);
         setTotalDeals(response.data.totalDeals);
+        // Reset refresh state after fetching data
+        if (refresh) {
+          setRefresh(false);
+        }
       } catch (error) {
         console.log(error);
       }

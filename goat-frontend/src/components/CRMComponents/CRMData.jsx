@@ -81,7 +81,7 @@ const CRMData = ({
         );
         setTimeout(() => {
           setRefresh(true);
-        }, 100);
+        }, 500);
       }
 
       previousStats = { ...stats };
