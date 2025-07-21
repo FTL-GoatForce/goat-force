@@ -236,7 +236,8 @@ function DealDetails() {
                 slack_body={latestSlackFollowUp.body}
               />
 
-              <MissingInformationCard />
+              {/* TODO:  Replace if go back to auto-fill idea */}
+              {/* <MissingInformationCard /> */}
             </Box>
 
             <Box
