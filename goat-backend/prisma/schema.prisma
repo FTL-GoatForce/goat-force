@@ -25,6 +25,7 @@ model Deals{
   service_category String
   contract_term_length String
   expected_close_date String
+  job_status String @default("idle")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   participants Participants[]

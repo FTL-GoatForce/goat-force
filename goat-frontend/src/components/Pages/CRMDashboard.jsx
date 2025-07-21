@@ -31,6 +31,7 @@ const Dashboard = () => {
     dealsAtRisk: null,
     avgValue: null,
   });
+  const [globalStats, setGlobalStats] = useState({});
 
   useEffect(() => {
     async function getAllDeals() {
@@ -112,7 +113,11 @@ const Dashboard = () => {
               avgValue={avgValue}
             />{" "}
             {/* The cards component */}
-            <CRMData deals={deals} />{" "}
+            <CRMData
+              deals={deals}
+              globalStats={globalStats}
+              setGlobalStats={setGlobalStats}
+            />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>
         </Box>

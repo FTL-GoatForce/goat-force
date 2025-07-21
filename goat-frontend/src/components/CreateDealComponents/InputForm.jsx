@@ -40,8 +40,8 @@ const InputForm = () => {
   const baseServer = import.meta.env.VITE_BACKEND_SERVER;
 
   async function handleSave() {
-    // await axios.post(`${baseServer}create`, deal);
-    console.log(deal);
+    await axios.post(`${baseServer}create`, deal);
+    console.log("deal created", deal);
   }
   // routering
   const handleDateChange = (date, e) => {
@@ -56,6 +56,14 @@ const InputForm = () => {
     setDeal((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };
+
+  const handleNumberChange = (e) => {
+    const { name, value } = e.target;
+    setDeal((prev) => ({
+      ...prev,
+      [name]: parseFloat(value),
     }));
   };
   return (
@@ -167,7 +175,7 @@ const InputForm = () => {
                   <TextField
                     name="deal_value"
                     label="Deal Value"
-                    onChange={handleInputChange}
+                    onChange={handleNumberChange}
                   />
                 </Grid>
                 <Grid>

@@ -21,12 +21,52 @@ import gmailGif from "../../assets/gmail.gif";
 import geminiGif from "../../assets/gemini.gif";
 import einsteinGif from "../../assets/einstein.gif";
 
-const CRMData = ({ deals }) => {
+const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   const navigate = useNavigate();
-  const [loadingStates, setLoadingStates] = useState({});
   const [loadingIcons, setLoadingIcons] = useState({});
   const [transitionStates, setTransitionStates] = useState({});
 
+  // Immediate fetch on component mount
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/deal/stats");
+        const stats = Object.fromEntries(
+          res.data.map((d) => [d.id, d.job_status])
+        );
+        setGlobalStats(stats);
+      } catch (e) {
+        console.error("Error fetching global stats:", e);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  // logging whenever global stats changes
+  useEffect(() => {
+    console.log("✅ globalStats changed:", globalStats);
+  }, [globalStats]);
+
+  // Polling every 2 seconds if we have something that is Processing
+  useEffect(() => {
+    let interval = null;
+    const fetchStats = async () => {
+      const res = await axios.get("http://localhost:3000/deal/stats");
+      const stats = Object.fromEntries(
+        res.data.map((d) => [d.id, d.job_status])
+      );
+      setGlobalStats(stats);
+
+      const anyProcessing = Object.values(stats).includes("processing");
+      if (!anyProcessing && interval) {
+        clearInterval(interval);
+      }
+    };
+
+    interval = setInterval(fetchStats, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
   // GIFs for rotating loading animation
   const loadingSequence = [
     { name: "Slack", gif: slackGif, color: "#4A154B" },
@@ -36,8 +76,14 @@ const CRMData = ({ deals }) => {
   ];
 
   async function refreshInsights(deal_id, slack_id, email) {
+    await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
+      job_status: "processing",
+    });
+    const response = await axios.get(`http://localhost:3000/deal/stats`);
+    setGlobalStats(
+      Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
+    );
     // Set loading state for this specific deal
-    setLoadingStates((prev) => ({ ...prev, [deal_id]: true }));
     setLoadingIcons((prev) => ({ ...prev, [deal_id]: 0 })); // Start with first icon
     setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
 
@@ -60,7 +106,7 @@ const CRMData = ({ deals }) => {
 
     try {
       console.log(deal_id, slack_id, email);
-      await new Promise((resolve) => setTimeout(resolve, 7000));
+      await new Promise((resolve) => setTimeout(resolve, 10000));
       // const response = await axios.put(
       //   `http://localhost:3000/deal/update`,
       //   {
@@ -75,7 +121,14 @@ const CRMData = ({ deals }) => {
     } finally {
       // Clear loading state and stop animation
       clearInterval(interval);
-      setLoadingStates((prev) => ({ ...prev, [deal_id]: false }));
+      await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
+        job_status: "idle",
+      });
+      const response = await axios.get(`http://localhost:3000/deal/stats`);
+      setGlobalStats(
+        Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
+      );
+      console.log("globalStats After", globalStats);
       setLoadingIcons((prev) => ({ ...prev, [deal_id]: 0 }));
       setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
     }
@@ -211,7 +264,7 @@ const CRMData = ({ deals }) => {
 
         {/* Table Rows - Example Data */}
         {deals.map((currentDeal, index) =>
-          loadingStates[currentDeal.deal.id] ? (
+          (globalStats[currentDeal.deal.id] ?? "idle") !== "idle" ? (
             // Loading state - show centered loading with gif
             <Box
               key={index}

@@ -26,6 +26,7 @@ export const createDeal = async (req, res) => {
         service_category,
         contract_term_length,
         expected_close_date,
+        job_status: "processing",
       },
     });
     const dealId = deal.id;
@@ -69,6 +70,10 @@ export const createDeal = async (req, res) => {
       email,
       einstein_data
     );
+    await prisma.deals.update({
+      where: { id: dealId },
+      data: { job_status: "idle" },
+    });
     res.status(200).json({ deal, participant, einstein_response });
   } catch (error) {
     console.log("Error creating deal or participant", error);
@@ -340,7 +345,9 @@ export const getDealDetails = async (req, res) => {
   try {
     const response = {};
     const { id } = req.params;
-
+    if (!id) {
+      res.status(500);
+    }
     const lastDbUpdate = await getLastUpdatedAt();
     const meta = await redis.get("deals_meta");
     const parsedMeta = meta ? meta : null;
@@ -559,6 +566,11 @@ export const updateDeal = async (req, res) => {
     }
 
     const participant_id = participant.id;
+    // Set Deal to loading
+    await prisma.deals.update({
+      where: { id: dealId },
+      data: { job_status: "processing" },
+    });
 
     const run_pipeline = await fetch(`${FASTAPI_URL}/run`, {
       method: "POST",
@@ -589,7 +601,11 @@ export const updateDeal = async (req, res) => {
       email,
       einstein_data
     );
-
+    // Set Deal Status back to idle
+    await prisma.deals.update({
+      where: { id: dealId },
+      data: { job_status: "idle" },
+    });
     res.status(200).json({
       message: "Deal updated successfully",
       einstein_response,
@@ -597,5 +613,36 @@ export const updateDeal = async (req, res) => {
   } catch (error) {
     console.error("Error updating deal:", error);
     res.status(500).json({ error: error.message });
+  }
+};
+
+export const updateJob = async (req, res) => {
+  const { id } = req.params;
+  const { job_status } = req.body;
+
+  try {
+    const updatedDeal = await prisma.deals.update({
+      where: { id: parseInt(id) },
+      data: { job_status },
+    });
+    res.status(200).json(updatedDeal);
+  } catch (e) {
+    console.error("error: ", e);
+    res.status(500);
+  }
+};
+
+export const getAllJobs = async (req, res) => {
+  try {
+    const status = await prisma.deals.findMany({
+      select: {
+        id: true,
+        job_status: true,
+      },
+    });
+    res.status(200).json(status);
+  } catch (e) {
+    console.error("error in getAllJobs:", e);
+    res.status(500).json({ error: e.message });
   }
 };
