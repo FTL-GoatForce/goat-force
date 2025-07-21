@@ -33,14 +33,14 @@ def run_slack_mcp_server(channel_id: str):
     return result.returncode == 0
 
 
-def run_gmail_mcp_server(email: str):
-    gmail_script_path = os.path.join(os.path.dirname(__file__), '..', 'mcp_servers', 'gmail.py')
+def run_gmail_api_service(email: str):
+    gmail_script_path = os.path.join(os.path.dirname(__file__), '..', 'mcp_servers', 'gmail_api.py')
     result = subprocess.run([sys.executable, gmail_script_path, email], 
                           capture_output=True, text=True, cwd=os.getcwd())
-    print("Gmail MCP Server Output:")
+    print("Gmail API Service Output:")
     print(result.stdout)
     if result.stderr:
-        print("Gmail MCP Server Errors:")
+        print("Gmail API Service Errors:")
         print(result.stderr)
     return result.returncode == 0
 
@@ -82,7 +82,7 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     async def run_gmail_with_timing():
         nonlocal gmail_completion_time
         start = time.time()
-        result = await asyncio.to_thread(run_gmail_mcp_server, email)
+        result = await asyncio.to_thread(run_gmail_api_service, email)
         gmail_completion_time = time.time() - start
         return result
     
@@ -96,10 +96,10 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     gmail_time = gmail_completion_time if gmail_completion_time is not None else 0
     
     component_times['slack_mcp'] = slack_time
-    component_times['gmail_mcp'] = gmail_time
+    component_times['gmail_api'] = gmail_time
     
     print(f"Slack MCP completed in {slack_time:.2f}s")
-    print(f"Gmail MCP completed in {gmail_time:.2f}s")
+    print(f"Gmail API Service completed in {gmail_time:.2f}s")
     print(f"Parallel execution time: {parallel_end - start_time:.2f}s")
     
     if slack_success and gmail_success:

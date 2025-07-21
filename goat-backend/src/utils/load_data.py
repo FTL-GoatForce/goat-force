@@ -28,5 +28,4 @@ def load_data(email: str, slack_id: str) -> str:
 
     # Convert to JSON string
     json_data = json.dumps(all_data)
-    print(json_data)
     return json_data

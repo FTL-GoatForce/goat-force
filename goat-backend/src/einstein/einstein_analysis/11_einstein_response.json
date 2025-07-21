@@ -26,7 +26,7 @@
     "Competitive_Position": "behind"
   },
   "ACTIVITY_ANALYSIS": {
-    "message_count": 11,
+    "message_count": 10,
     "prospect_response_time_sec": 0,
     "engagement_trend": "declining",
     "last_touch_channel": "slack",
@@ -83,5 +83,20 @@
       "communication_score": 80
     }
   ],
-  "TAGS": ["discovery", "demo_provided", "deal_lost", "competitor_chosen", "feedback_requested"]
+  "TAGS": [
+    "pain_point",
+    "demo_request",
+    "demo_delivery",
+    "cautious_prospect",
+    "timeline_objection",
+    "technical_evaluation",
+    "competitor_evaluation",
+    "long_sales_cycle",
+    "deal_lost",
+    "negative_demo_feedback",
+    "competitor_won",
+    "professional_closure",
+    "late_response",
+    "follow_up_committed"
+  ]
 }

@@ -26,6 +26,24 @@ function InsightsCard({ email_contact_address, email_subject, email_body, slack_
     setEditableEmailBody(event.target.value);
   };
 
+  const handleSendEmail = async () => {
+    console.log("Sending email");
+    console.log("email_subject", email_subject)
+    console.log("editableEmailBody", editableEmailBody)
+    const response = await fetch("http://localhost:3001/email/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: "olivermajano01@gmail.com",
+        subject: email_subject,
+        body:  editableEmailBody,
+      }),
+    });
+    
+  };
+
   return (
     <>
       {/* Insights card */}
@@ -110,7 +128,7 @@ function InsightsCard({ email_contact_address, email_subject, email_body, slack_
             >
               Regenerate
             </Button>
-            <Button variant="contained" size="small">
+            <Button variant="contained" size="small" onClick={handleSendEmail}>
               Send Follow Up
             </Button>
           </Box>
