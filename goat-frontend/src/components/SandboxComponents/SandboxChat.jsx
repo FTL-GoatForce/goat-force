@@ -3,29 +3,41 @@ import { Box, Button, Typography, Chip, TextField } from "@mui/material";
 import CRMChatbotTextEntry from "../CRMComponents/CRMChatbotTextEntry";
 import { useState } from "react";
 import CRMAiEntry from "../CRMComponents/CRMAiEntry";
+import { m } from "motion/react";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 function SandboxChat({ selectedDeal, deals }) {
   const [prompt, setPrompt] = useState(""); // holds the user's input on the chat box
   const [messages, setMessages] = useState([]); // holds the chat messages
-  const [response, setResponse] = useState(""); // holds the AI response
-  const [error, setError] = useState(null); // holds any error messages
+  const [error, setError] = useState(false); // holds any error messages
   const [loading, setLoading] = useState(false); // loading state for the AI response
 
   // display user message / ai response
   const handleSend = async () => {
     // USER INPUT VALIDATION / SENDING
     if (!prompt.trim()) return; // do not send empty messages
-    setError(null);
+
     // create a new message object from user and append to messages array
     const newMessage = { context: prompt, sender: "User" };
-    setMessages([...messages, newMessage]);
+    const updatedMessages = [...messages, newMessage]; // Create updated array first
+    setMessages(updatedMessages);
+
+    const currentPrompt = prompt; // Store current prompt before clearing
     setPrompt(""); // clear the input field
 
     try {
       setLoading(true);
       // AI API call to get the response
+      // const aiResponse = await axios.post()
+      const aiResponse =
+        "This is a mock AI response based on the prompt: " + currentPrompt; // Mock response for demonstration
+
+      // use updatedMessages array instead of the old messages state (async state update)
+      setMessages([...updatedMessages, { context: aiResponse, sender: "Ai" }]);
     } catch (err) {
-      setError("Failed to get response from AI");
+      console.error("Error fetching AI response:", err);
+      setError(true); // set error state if API call fails
     } finally {
       setLoading(false);
     }
@@ -37,6 +49,13 @@ function SandboxChat({ selectedDeal, deals }) {
       e.preventDefault(); // prevent new line
       handleSend(); // call handlesend function
     }
+  };
+
+  // TODO: pass to parent sandbox to reset chat once new selected deal is chosen
+  const handleChatReset = () => {
+    setMessages([]); // clear messages
+    setPrompt(""); // clear input field
+    setError(false); // reset error state
   };
 
   return (
@@ -56,23 +75,30 @@ function SandboxChat({ selectedDeal, deals }) {
           gap={1}
           height={"100%"}
           overflow={"auto"}
+          maxHeight={"900px"}
         >
           {/* Displaying the messages object: {context: prompt (user input), sender: "User"} */}
           {messages.map((message, index) => {
-            if (message.sender == "User") {
+            if (message.sender === "User") {
               return (
                 <CRMChatbotTextEntry
+                  key={index} // Add key prop
                   sender={message.sender}
                   context={message.context}
                 />
               );
             } else {
               return (
-                <CRMAiEntry sender={message.sender} context={message.context} />
+                <CRMAiEntry
+                  key={index} // Add key prop
+                  sender={message.sender}
+                  context={message.context}
+                />
               );
             }
           })}
-          {/* TODO: Displaying the AI response */}
+          {/* Display loading indicator while AI is responding */}
+          {loading && <CRMAiEntry sender="Ai" context="Thinking..." />}
         </Box>
       </Box>
       {/* Chat Box*/}
@@ -101,8 +127,10 @@ function SandboxChat({ selectedDeal, deals }) {
             onClick={handleSend}
             disabled={loading}
           >
-            <span style={{ color: "white", fontWeight: "bold" }}>Send</span>
-          </Button>{" "}
+            <span style={{ color: "white", fontWeight: "bold" }}>
+              {loading ? "Sending..." : "Send"}
+            </span>
+          </Button>
         </Box>
       </Box>
     </Box>
