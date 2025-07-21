@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import axios from 'axios';
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import SandboxChat from "../SandboxComponents/SandboxChat";
 
 function Sandbox() {
   const [deals, setDeals] = useState([]);
@@ -220,6 +221,9 @@ function Sandbox() {
               display={"flex"}
               flexDirection="column"
               maxWidth={"425px"}
+              minHeight={"80%"}
+              maxHeight={"95%"}
+              overflow={"auto"}
               gap={2}
             >
               {/* Card #1: Contact Selector */}
@@ -235,42 +239,10 @@ function Sandbox() {
               />
             </Box>
             {/* Middle card */}
-            <Box
-              marginTop={2}
-              width={"100%"}
-              backgroundColor="background.default"
-              display={"flex"}
-              flexDirection="column"
-            >
-              {/* Message Box*/}
-              <Box border={1} height={"85%"} borderColor="divider"></Box>
-              {/* TODO: make these into components */}
-              {/* Chat Box*/}
-              <Box height={"15%"}>
-                {/* Chat box components container => row */}
-                <Box display={"flex"} flexDirection={"row"} gap={1} padding={2}>
-                  <TextField
-                    variant="outlined"
-                    placeholder="Type your response..."
-                    size="small"
-                    multiline
-                    rows={3}
-                    sx={{
-                      flexGrow: 1,
-                      backgroundColor: "#334155",
-                      borderRadius: 2,
-                    }}
-                  />
-                  <Button variant="contained" color="primary">
-                    <span style={{ color: "white", fontWeight: "bold" }}>
-                      Send
-                    </span>
-                  </Button>{" "}
-                  {/* Send button */}
-                </Box>
-              </Box>
-            </Box>
-            {/* Right card */}
+            <SandboxChat
+              selectedDeal={selectedDeal}
+              deals={deals}
+            />
           </Box>
         </Box>
       </Box>

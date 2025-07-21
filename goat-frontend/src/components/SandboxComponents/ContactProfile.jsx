@@ -20,7 +20,9 @@ function ContactProfile({ deals, selectedDeal }) {
   return (
     <>
       <Box
-        height={"42%"}
+        height={"100%"}
+        display={"flex"}
+        flexDirection="column"
         border={1}
         borderColor="divider"
         borderRadius={2}
