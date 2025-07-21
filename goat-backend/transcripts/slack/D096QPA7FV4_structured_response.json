@@ -1,0 +1,22 @@
+{
+  "thread_id": "D096QPA7FV4",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": ""
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No messages were retrieved from the channel 'D096QPA7FV4', so a detailed summary and analysis cannot be provided. The tool indicated the channel might be empty or not a standard conversation channel.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_available",
+    "channel_empty_or_unsupported"
+  ]
+}
