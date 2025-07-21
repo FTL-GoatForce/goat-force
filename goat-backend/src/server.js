@@ -24,41 +24,21 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-// Connection monitoring
-let lastTotalCount = 0;
-let lastAppCount = 0;
+// Simple connection monitoring
+let lastConnectionCount = 0;
 
 const logConnectionCount = async () => {
   try {
-    // Get total connections
-    const totalResult = await prisma.$queryRaw`SELECT count(*) as connection_count FROM pg_stat_activity WHERE datname = current_database()`;
-    const totalCount = parseInt(totalResult[0].connection_count);
+    const result = await prisma.$queryRaw`SELECT count(*) as connection_count FROM pg_stat_activity WHERE datname = current_database()`;
+    const currentCount = parseInt(result[0].connection_count);
     
-    // Get app-specific connections (connections from your app's IP/process)
-    const appResult = await prisma.$queryRaw`
-      SELECT count(*) as connection_count 
-      FROM pg_stat_activity 
-      WHERE datname = current_database() 
-      AND application_name LIKE '%prisma%' 
-      OR application_name LIKE '%node%'
-      OR application_name LIKE '%postgres%'
-    `;
-    const appCount = parseInt(appResult[0].connection_count);
-    
-    // Log only if there are changes
-    if (totalCount !== lastTotalCount || appCount !== lastAppCount) {
-      const totalChange = totalCount > lastTotalCount ? `+${totalCount - lastTotalCount}` : `${totalCount - lastTotalCount}`;
-      const appChange = appCount > lastAppCount ? `+${appCount - lastAppCount}` : `${appCount - lastAppCount}`;
-      
-      console.log(`📊 Total DB connections: ${totalCount} (${totalChange}) | Your App: ${appCount} (${appChange})`);
-      
-      lastTotalCount = totalCount;
-      lastAppCount = appCount;
+    if (currentCount !== lastConnectionCount) {
+      console.log(`📊 DB Connections: ${currentCount}`);
+      lastConnectionCount = currentCount;
     }
     
-    return { totalCount, appCount };
+    return currentCount;
   } catch (error) {
-    console.log('Could not get connection count:', error.message);
     return null;
   }
 };
