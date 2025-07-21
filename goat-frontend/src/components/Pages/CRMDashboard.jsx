@@ -25,6 +25,7 @@ const Dashboard = () => {
   const [pipeline, setPipeline] = useState(null);
   const [dealsAtRisk, setDealAtRisk] = useState(null);
   const [avgValue, setAvgValue] = useState(null);
+  const [refresh, setRefresh] = useState(null);
   const [cardData, setCardData] = useState({
     pipeline: null,
     totalDeals: null,
@@ -47,6 +48,19 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
+    async function getAllDeals() {
+      try {
+        const response = await axios.get("http://localhost:3000/deal/all");
+        setDeals(response.data.deals);
+        setTotalDeals(response.data.totalDeals);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getAllDeals();
+  }, [refresh]);
+
+  useEffect(() => {
     generateCardData();
   }, [deals]);
 
@@ -56,7 +70,7 @@ const Dashboard = () => {
 
     deals?.map((currentDeal) => {
       cost += currentDeal.deal.deal_value;
-      if (currentDeal.risks[0].deal_risk_score > 65) {
+      if (currentDeal.risks[0]?.deal_risk_score > 65) {
         risk += 1;
       }
     });
@@ -117,6 +131,8 @@ const Dashboard = () => {
               deals={deals}
               globalStats={globalStats}
               setGlobalStats={setGlobalStats}
+              refresh={refresh}
+              setRefresh={setRefresh}
             />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>

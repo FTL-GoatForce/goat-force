@@ -33,7 +33,6 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         {totalCost != 0 ? (
           <Typography variant="h5" color="text.primary" fontWeight={"bold"}>
             ${parseInt(totalCost)}{" "}
-            <AttachMoney sx={{ verticalAlign: "middle", mb: 0.4 }} />
           </Typography>
         ) : (
           <Loading />
@@ -129,7 +128,6 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
             sx={{ color: "primary.main" }}
           >
             ${avgValue}{" "}
-            <AttachMoney sx={{ verticalAlign: "middle", mb: 0.4 }} />
           </Typography>
         ) : (
           <Loading />

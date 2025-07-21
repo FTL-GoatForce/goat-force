@@ -21,7 +21,13 @@ import gmailGif from "../../assets/gmail.gif";
 import geminiGif from "../../assets/gemini.gif";
 import einsteinGif from "../../assets/einstein.gif";
 
-const CRMData = ({ deals, globalStats, setGlobalStats }) => {
+const CRMData = ({
+  deals,
+  globalStats,
+  setGlobalStats,
+  setRefresh,
+  refresh,
+}) => {
   const navigate = useNavigate();
   const [loadingIcons, setLoadingIcons] = useState({});
   const [transitionStates, setTransitionStates] = useState({});
@@ -50,12 +56,35 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   // Polling every 2 seconds if we have something that is Processing
   useEffect(() => {
     let interval = null;
+    let previousStats = { ...globalStats };
+
     const fetchStats = async () => {
       const res = await axios.get("http://localhost:3000/deal/stats");
       const stats = Object.fromEntries(
         res.data.map((d) => [d.id, d.job_status])
       );
+
+      // Check if any deal just finished processing (went from "processing" to "idle")
+      const justFinishedDeals = Object.keys(stats).filter(
+        (dealId) =>
+          previousStats[dealId] === "processing" && stats[dealId] === "idle"
+      );
+
       setGlobalStats(stats);
+
+      // If any deals just finished processing, trigger a refresh to get updated data
+      if (justFinishedDeals.length > 0) {
+        console.log(
+          "Deals finished processing:",
+          justFinishedDeals,
+          "- triggering refresh"
+        );
+        setTimeout(() => {
+          setRefresh(true);
+        }, 100);
+      }
+
+      previousStats = { ...stats };
 
       const anyProcessing = Object.values(stats).includes("processing");
       if (!anyProcessing && interval) {
@@ -63,10 +92,12 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
       }
     };
 
-    interval = setInterval(fetchStats, 5000);
+    interval = setInterval(fetchStats, 10000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [globalStats]);
   // GIFs for rotating loading animation
   const loadingSequence = [
     { name: "Slack", gif: slackGif, color: "#4A154B" },
@@ -106,31 +137,39 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
 
     try {
       console.log(deal_id, slack_id, email);
-      await new Promise((resolve) => setTimeout(resolve, 10000));
-      // const response = await axios.put(
-      //   `http://localhost:3000/deal/update`,
-      //   {
-      //     dealId: deal_id,
-      //     slack_id: slack_id,
-      //     email: email,
-      //   }
-      // );
-      // console.log(response);
+      const response = await axios.put(`http://localhost:3000/deal/update`, {
+        dealId: deal_id,
+        slack_id: slack_id,
+        email: email,
+      });
+      console.log("Insights update response:", response);
     } catch (error) {
       console.error("Error refreshing insights:", error);
     } finally {
       // Clear loading state and stop animation
       clearInterval(interval);
+
+      // Set job status to idle
       await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
         job_status: "idle",
       });
-      const response = await axios.get(`http://localhost:3000/deal/stats`);
+
+      // Update global stats
+      const statsResponse = await axios.get(`http://localhost:3000/deal/stats`);
       setGlobalStats(
-        Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
+        Object.fromEntries(statsResponse.data.map((d) => [d.id, d.job_status]))
       );
-      console.log("globalStats After", globalStats);
+
+      // Clear loading states
       setLoadingIcons((prev) => ({ ...prev, [deal_id]: 0 }));
       setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
+
+      // Add a small delay to ensure backend has processed the updates
+      setTimeout(() => {
+        // Trigger refresh to get latest deal data with updated risk scores
+        console.log("Triggering refresh to fetch updated deal data");
+        setRefresh(true);
+      }, 100);
     }
   }
 
@@ -327,8 +366,10 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
                 {currentDeal.deal.company_name}
               </Typography>
               <Typography variant="body1" color="text.primary">
-                {currentDeal.deal.stage.charAt(0).toUpperCase() +
-                  currentDeal.deal.stage.slice(1)}
+                {currentDeal.deal.stage
+                  ? currentDeal.deal.stage.charAt(0).toUpperCase() +
+                    currentDeal.deal.stage.slice(1)
+                  : "Start"}
               </Typography>
               <Typography
                 variant="body1"
@@ -344,41 +385,54 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
               >
                 {"$" + currentDeal.deal.deal_value}
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{
-                  // if value is greater than 100k, color is green, if from 50k to 100k, color is yellow, else color is red
-                  color:
-                    parseInt(
-                      currentDeal.risks[currentDeal.risks.length - 1]
-                        .deal_risk_score
-                    ) <= 35
-                      ? "success.main"
-                      : parseInt(
-                          currentDeal.risks[currentDeal.risks.length - 1]
-                            .deal_risk_score
-                        ) <= 65
-                      ? "warning.main"
-                      : "error.main",
-                }}
-              >
-                {currentDeal.risks[currentDeal.risks.length - 1]
-                  .deal_risk_score <= 35
-                  ? "Low"
-                  : currentDeal.risks[currentDeal.risks.length - 1]
-                      .deal_risk_score <= 65
-                  ? "Medium"
-                  : "High"}
-              </Typography>
+              {currentDeal.risks?.length > 0 ? (
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color:
+                      parseInt(
+                        currentDeal.risks[currentDeal.risks.length - 1]
+                          .deal_risk_score
+                      ) <= 35
+                        ? "success.main"
+                        : parseInt(
+                            currentDeal.risks[currentDeal.risks.length - 1]
+                              .deal_risk_score
+                          ) <= 65
+                        ? "warning.main"
+                        : "error.main",
+                  }}
+                >
+                  {parseInt(
+                    currentDeal.risks[currentDeal.risks.length - 1]
+                      .deal_risk_score
+                  ) <= 35
+                    ? "Low"
+                    : parseInt(
+                        currentDeal.risks[currentDeal.risks.length - 1]
+                          .deal_risk_score
+                      ) <= 65
+                    ? "Medium"
+                    : "High"}
+                </Typography>
+              ) : (
+                <Typography variant="body1" sx={{ color: "success.main" }}>
+                  Low
+                </Typography>
+              )}
+
               <Typography
                 variant="body1"
                 color="text.primary"
                 sx={{ color: "white" }}
               >
-                {currentDeal.timeline[
-                  currentDeal.timeline.length - 1
-                ].updated_at.slice(0, 10)}
+                {currentDeal.timeline?.length > 0
+                  ? currentDeal.timeline[
+                      currentDeal.timeline.length - 1
+                    ].updated_at.slice(0, 10)
+                  : "No update"}
               </Typography>
+
               <Box sx={{ display: "flex", gap: 1.3 }}>
                 <Tooltip title="View Deal">
                   <IconButton
