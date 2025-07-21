@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Box, Button, Typography, Chip, TextField } from "@mui/material";
 import CRMChatbotTextEntry from "../CRMComponents/CRMChatbotTextEntry";
 import { useState } from "react";
@@ -59,6 +59,11 @@ function SandboxChat({ selectedDeal, deals }) {
     setError(false); // reset error state
   };
 
+  // selectedDeal is updated, reset chat
+  useEffect(() => {
+    handleChatReset();
+  }, [selectedDeal]);
+
   return (
     <Box
       marginTop={2}
@@ -83,7 +88,7 @@ function SandboxChat({ selectedDeal, deals }) {
             <CRMAiEntry
               sender={"Ai"}
               context={
-                `Hi, I am ${selectedDeal.participants[0].prospect_name}. Practice with preparing for a call with me!`
+                `Hi, I am ${selectedDeal.participants[0].prospect_name}. Practice preparing for a call with me!`
               }
             />
           </Box>
