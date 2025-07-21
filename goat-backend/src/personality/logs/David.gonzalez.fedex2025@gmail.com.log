@@ -191,3 +191,1079 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "structured",
+        "problem-aware",
+        "cautious",
+        "collaborative",
+        "appreciative",
+        "direct"
+      ],
+      "communication_style": "direct and informative, at times casual, sets clear boundaries, brief and definitive",
+      "decision_making_style": "cautious and evaluative, consensus-seeking, influenced by internal stakeholders",
+      "objection_style": "direct but polite, informative regarding timeline, definitive when conveying external decision",
+      "role_in_deal": "influencer and key point of contact, ultimately impacted by an internal blocker (Priya IT)"
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "showing interest",
+        "evaluating",
+        "managing expectations",
+        "articulating pain points",
+        "terminating engagement"
+      ],
+      "overall_sentiment": "initially neutral-to-slightly positive, then negative when articulating pain points and at deal termination",
+      "tone_patterns": "informative, problem-focused, cautious, appreciative, definitive"
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "early stage evaluation",
+        "timeline",
+        "internal stakeholder decision",
+        "handling multiple business units (technical)",
+        "ease of integration (technical)"
+      ],
+      "objection_frequency_severity": "Raised concerns consistently. The 'Priya said no' objection was definitive and high severity, leading to deal termination. Other objections were more about process management and technical requirements."
+    },
+    "communication_behavior": {
+      "response_time": "inconsistent, initially quick then a long delay before termination",
+      "engagement_level": "initially high (detailed requirements, feedback, inviting IT), declines significantly ending abruptly",
+      "message_complexity": "varies from detailed explanations to short, definitive replies",
+      "preferred_channel": "both Slack and Email (used Slack for rapid exchanges and final notification, Email for initial outreach and scheduling)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "started in qualification/discovery, moved to early evaluation, ended in lost/blocked stage due to internal decision",
+      "budget_risk_indicators": "no explicit mention of budget concerns",
+      "timeline_risk_indicators": "explicitly stated 'no rush, evaluating through August', indicating a longer sales cycle and potential for delay",
+      "churn_risk_indicators": "lack of engagement before termination, abrupt termination due to internal blocker (Priya IT), and unaddressed technical concerns"
+    },
+    "deal_insights": {
+      "key_objections": "the primary, deal-killing objection was an internal stakeholder (Priya IT) rejecting the solution. Other key objections included being in an early evaluation phase, a longer timeline, and technical concerns regarding 'handling multiple business units' and 'ease of integration'.",
+      "decision_maker_status": "David Gonzalez is an influencer and key point of contact, but not the ultimate technical decision-maker. Priya IT appears to be a critical blocker/technical decision-maker.",
+      "urgency_level": "low initially ('no rush, evaluating through August'), which allowed time for internal stakeholders to block the deal.",
+      "competitive_position": "prospect was 'gathering landscape options' and 'evaluating vendors', indicating an active competitive environment."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "U094SLLCY4C",
+    "personality_communication_profile": {
+      "personality_traits": ["structured", "goal-oriented", "problem-aware", "cautious", "methodical", "appreciative"],
+      "communication_style": "informative, problem-focused, cautious, direct, professional",
+      "decision_making_style": "consensus-seeking, cautious, structured, data-informed",
+      "objection_style": "direct, relational, attributive",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["initial evaluation", "articulating pain points", "managing expectations", "providing updates", "terminating engagement"],
+      "overall_sentiment": "initially neutral/problem-focused, became positive, then definitively negative",
+      "tone_patterns": "informative, problem-focused, cautious, appreciative, definitive"
+    },
+    "objections_concerns": {
+      "objection_types": ["early stage evaluation", "timeline", "internal stakeholder rejection"],
+      "objection_frequency_severity": "moderate frequency, severity escalated from low to critical (deal killer)"
+    },
+    "communication_behavior": {
+      "response_time": "initially fast, inconsistent, with a very slow final response indicating deal termination",
+      "engagement_level": "initially high, decreased significantly towards the end",
+      "message_complexity": "mixed (structured explanations, concise replies, emoji usage, abrupt final message)",
+      "preferred_channel": "Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from qualification to early evaluation, then to deal lost",
+      "budget_risk_indicators": "no explicit budget concerns mentioned",
+      "timeline_risk_indicators": "explicitly stated long evaluation timeline ('evaluating vendors through August no rush')",
+      "churn_risk_indicators": "long gap in communication before termination, abrupt termination message, internal stakeholder as primary blocker"
+    },
+    "deal_insights": {
+      "key_objections": "not ready for a full pitch, extended evaluation timeline, internal technical rejection (Priya IT)",
+      "decision_maker_status": "influencer/champion who failed to secure internal technical approval, not the ultimate decision-maker",
+      "urgency_level": "low ('no rush', 'evaluating through August')",
+      "competitive_position": "actively gathering landscape options, implying evaluation of other vendors"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "strategic", "practical", "collaborative", "process-oriented", "direct", "problem-focused", "technically aware"],
+      "communication_style": "professional and direct, adapting to more casual and concise on Slack; appreciates a \"no-pressure\" approach and is definitive when communicating decisions",
+      "decision_making_style": "cautious, process-driven, consensus-seeking (involves IT), and collaborative",
+      "objection_style": "direct and clear, often proactive in setting boundaries or expectations; can be definitive when a decision is made",
+      "role_in_deal": "influencer and key evaluator, but not the ultimate decision-maker; internal IT (Priya) appears to be the final blocker/decision-maker"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["articulate_pain_points", "manage_expectations", "provide_update", "terminate_engagement", "engage", "confirm_meeting", "acknowledge"],
+      "overall_sentiment": "mixed; initially expressed pain points with interest in solutions, cautiously neutral/positive during engagement, then abruptly negative upon deal termination",
+      "tone_patterns": "generally professional and direct; adaptable to context (more casual on Slack, more formal on Email); becomes definitive when communicating a decision"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical_fit", "early_stage_evaluation", "timeline", "internal_decision"],
+      "objection_frequency_severity": "frequent, starting as mild cautions/boundary-setting and increasing in severity to a definitive deal-breaker (internal IT decision)"
+    },
+    "communication_behavior": {
+      "response_time": "initially very fast (seconds/minutes) during active engagement, but experienced a very long period of inactivity (days) before the final deal termination",
+      "engagement_level": "initially high and proactive, providing information and asking for specific materials; decreased over time, culminating in a terse termination",
+      "message_complexity": "generally concise and direct, providing necessary information without excessive detail; functional and to the point",
+      "preferred_channel": "shows preference for both Email (initial formal outreach, scheduling) and Slack (quick, direct follow-ups, technical questions, informal communication)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from initial discovery/qualification to an active evaluation phase, but ultimately ended as 'Deal Lost'",
+      "budget_risk_indicators": "no direct budget risk indicators explicitly mentioned",
+      "timeline_risk_indicators": "clear, but extended evaluation timeline (through August); significant communication gap before termination suggests internal delays or priority shifts",
+      "churn_risk_indicators": "high churn risk due to early stage, dependency on internal stakeholders (Priya IT being a clear blocker), and a period of disengagement followed by abrupt termination"
+    },
+    "deal_insights": {
+      "key_objections": "technical compatibility for complex, distributed operations (multi-org/unit support, integration ease, APIs/auth) and the ultimate internal decision/approval process by IT stakeholders",
+      "decision_maker_status": "an influential evaluator/project lead who is not the ultimate decision-maker; an internal IT stakeholder (Priya) was the final blocker",
+      "urgency_level": "low immediate urgency for the specific vendor, but part of a broader organizational overhaul; had a defined, unhurried evaluation timeline through August",
+      "competitive_position": "actively evaluating multiple solutions; the sales rep addressed one previous 'sticking point' (multi-business unit handling), but the deal was ultimately lost due to an internal IT objection, suggesting competitive pressure or an internal direction"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Bruce Wayne",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Proactive",
+        "Problem-focused",
+        "Cautious",
+        "Analytical",
+        "Direct",
+        "Stakeholder-dependent"
+      ],
+      "communication_style": "Professional and direct, capable of formal outreach (email) and more casual but still professional updates (Slack). Uses emojis to soften tone. Appreciative of low-pressure sales approaches.",
+      "decision_making_style": "Deliberate and evaluative, seeking technical fit and avoiding past 'sticking points'. Heavily influenced by internal technical stakeholders (Priya IT).",
+      "objection_style": "Direct and clear, often attributing the source of concern (e.g., 'Priya IT said no'). Raises technical and timeline concerns factually rather than emotionally.",
+      "role_in_deal": "Appears to be an initial evaluator, internal champion, and project lead. However, the ultimate decision-maker or technical gatekeeper is an internal IT stakeholder ('Priya IT'), making the prospect primarily an influencer or conduit for internal decisions."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Initial interest and active vendor evaluation",
+        "Articulating pain points and specific technical requirements",
+        "Managing expectations regarding sales process and timeline",
+        "Seeking technical validation (APIs, integration, multi-unit handling)",
+        "Providing status updates on internal evaluation",
+        "Terminating engagement due to internal decision"
+      ],
+      "overall_sentiment": "Begins positive/curious, shifts to neutral and evaluative, and concludes negatively with the deal termination.",
+      "tone_patterns": "Ranges from professional and curious in initial outreach to cautious and problem-focused during evaluation. Becomes definitively negative and definitive upon deal termination, yet also appreciative of a no-pressure approach."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Early stage evaluation/Not ready for full pitch",
+        "Timeline/Urgency (evaluating through August)",
+        "Technical fit (APIs, auth, multi-business unit handling, ease of integration)",
+        "Internal stakeholder decision (Priya IT)"
+      ],
+      "objection_frequency_severity": "Objections are frequent, ranging from mild (setting expectations for pitch) to high severity (critical technical concerns, ultimate internal rejection)."
+    },
+    "communication_behavior": {
+      "response_time": "Initially fast in the early engagement phase (email), but becomes inconsistent and notably slow prior to the deal's termination (long gap before 'Deals off' message).",
+      "engagement_level": "High during initial exploration and scheduling, moderate during information gathering, then significantly drops off leading to an abrupt, low-engagement termination.",
+      "message_complexity": "Varies from concise confirmations to more detailed descriptions of pain points, requirements, and internal processes.",
+      "preferred_channel": "Comfortable with both Email for formal outreach and Slack for ongoing, more direct, and informal (yet professional) communication."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved from initial outreach/qualification (Email) to an early-stage vendor evaluation and technical validation (Slack), ultimately terminating before a formal proposal or negotiation phase.",
+      "budget_risk_indicators": "No explicit budget concerns were raised, but the internal IT decision to 'say no' could implicitly involve budget or ROI considerations not directly communicated.",
+      "timeline_risk_indicators": "An explicit evaluation timeline ('through August, no rush') was communicated, indicating a controlled but potentially lengthy sales cycle. The abrupt termination after a long silence signifies high timeline risk, specifically regarding internal decision cycles.",
+      "churn_risk_indicators": "High churn risk indicated by the prolonged silence before the final message, the abrupt termination of the deal, and the lack of opportunity for the sales rep to address the specific concerns that led to the internal IT rejection."
+    },
+    "deal_insights": {
+      "key_objections": "The most significant objections were the need to avoid a 'full pitch' due to being in early evaluation, the set evaluation timeline, critical technical fit issues (APIs, integration, multi-business unit support), and ultimately, the 'no' from the internal IT stakeholder.",
+      "decision_maker_status": "The prospect is an influential evaluator/project lead, actively involved in early stages and information gathering. However, they are not the ultimate decision-maker; 'Priya IT' is a crucial technical gatekeeper whose decision directly led to the deal's termination.",
+      "urgency_level": "Initially low urgency ('no rush', 'evaluating through August'), indicating a structured, measured evaluation process rather than an immediate need. The termination was a definitive end to this process.",
+      "competitive_position": "The prospect is actively evaluating 'a few platforms' and 'gathering landscape options', indicating a highly competitive environment. Past 'sticking points' with 'other platforms' on multi-business unit handling and integration suggest high standards and previous negative experiences, making technical fit paramount."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Bruce Wayne",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "problem-focused",
+        "cautious",
+        "direct",
+        "values autonomy",
+        "influenced by others"
+      ],
+      "communication_style": "direct, informative, cautious, professional yet casual, boundary-setting",
+      "decision_making_style": "consensus-seeking, evaluative, influenced by internal stakeholders (IT)",
+      "objection_style": "direct, externalized, definitive",
+      "role_in_deal": "influencer, potential blocker, not ultimate decision maker"
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "articulating pain points",
+        "evaluating solutions",
+        "managing expectations",
+        "providing updates",
+        "terminating engagement"
+      ],
+      "overall_sentiment": "initially neutral/problem-focused, shifted to positive (appreciative of no-pressure approach), ultimately negative (deal termination)",
+      "tone_patterns": "problem-focused, cautious, informative, appreciative, definitive"
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "early stage evaluation",
+        "timeline/urgency",
+        "internal decision (technical/IT alignment)"
+      ],
+      "objection_frequency_severity": "raised multiple objections consistently throughout the initial engagement, with the final internal decision being definitive and severe."
+    },
+    "communication_behavior": {
+      "response_time": "initially fast, then significantly slow before final message (approx. 2.24 days)",
+      "engagement_level": "initially medium to high, then dropped significantly",
+      "message_complexity": "short to medium length, clear and functional",
+      "preferred_channel": "Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "started at qualification, moved to early evaluation/discovery, then internal review, and ended abruptly at an internal decision stage (lost early)",
+      "budget_risk_indicators": "no explicit mentions of budget constraints or pushback",
+      "timeline_risk_indicators": "explicitly stated 'no rush' and 'evaluating through August', indicating a longer sales cycle. Loss was due to internal decision, not timeline overrun.",
+      "churn_risk_indicators": "long period of unresponsiveness before final decision, decision-making power resided with an unseen internal stakeholder (Priya IT), definitive negative outcome without further negotiation."
+    },
+    "deal_insights": {
+      "key_objections": "The primary objection was an internal technical decision ('Priya IT said no'), likely related to APIs and authentication. Early evaluation stage and a non-urgent timeline were also contributing factors.",
+      "decision_maker_status": "The prospect is an influencer or champion rather than the ultimate decision-maker, especially on technical validation. Priya IT held the final veto.",
+      "urgency_level": "Low urgency; the prospect explicitly stated 'no rush' and a timeline stretching 'through August'.",
+      "competitive_position": "Unknown. The prospect was 'gathering landscape options', implying active evaluation of other vendors, but the deal was lost due to an internal decision rather than a direct competitive win/loss."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Bruce Wayne",
+    "personality_communication_profile": {
+      "personality_traits": ["strategic", "analytical", "structured", "cautious", "proactive", "professional", "confident"],
+      "communication_style": "professional, direct, informative, strategic, clear in setting expectations, somewhat informal (uses emoji in Slack), appreciative of no-pressure approach",
+      "decision_making_style": "collaborative (involves IT and execs), process-oriented, deliberate, strategic, seeks tailored solutions",
+      "objection_style": "direct but polite, transparent about evaluation process and limitations",
+      "role_in_deal": "key influencer and evaluator, likely a project lead, responsible for initial vendor assessment and stakeholder coordination"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["active evaluation", "serious interest", "qualifying vendors", "articulating pain points", "managing sales approach", "stakeholder coordination", "seeking specific technical details"],
+      "overall_sentiment": "overall positive and open, but with an underlying caution, especially around technical fit and avoiding past mistakes",
+      "tone_patterns": "professional, direct, informative, pragmatic, cautious, appreciative of transparency and a non-aggressive sales approach"
+    },
+    "objections_concerns": {
+      "objection_types": ["early stage evaluation/timeline", "technical fit (multi-region/multi-business unit support)", "ease of integration", "avoiding siloed solutions"],
+      "objection_frequency_severity": "moderate frequency (4 distinct objections across threads), moderate severity; clearly states requirements and past pain points without being aggressive"
+    },
+    "communication_behavior": {
+      "response_time": "fast and consistent, especially within active conversation threads (within seconds to minutes)",
+      "engagement_level": "high engagement; provides context, asks questions, gives clear instructions and feedback",
+      "message_complexity": "mix of detailed context-setting and concise, direct replies; messages are generally clear and structured",
+      "preferred_channel": "flexible and active on both Slack and Email, suggesting no strong singular preference, but potentially channel-specific uses (e.g., Slack for quick updates/links, Email for formal scheduling/documents)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "early stage evaluation and qualification; moving towards initial discovery/demo after requirements gathering",
+      "budget_risk_indicators": "low explicit budget risk, as cost has not been mentioned, but remains an unknown",
+      "timeline_risk_indicators": "clear, long timeline ('evaluating vendors through August', 'no rush', 'still early', 'broader overhaul') indicates a deliberate, non-urgent sales cycle",
+      "churn_risk_indicators": "low churn risk due to high engagement, clear communication, and consistent follow-up"
+    },
+    "deal_insights": {
+      "key_objections": "evaluation is in early stages with an August timeline; critical technical requirements include multi-region/multi-business unit support, ease of integration, and avoiding siloed solutions",
+      "decision_maker_status": "key influencer and evaluator, likely a project lead who coordinates with IT and executives; not the sole decision-maker but holds significant influence",
+      "urgency_level": "low to moderate urgency; prospect explicitly stated 'no rush' and has a leisurely evaluation timeline",
+      "competitive_position": "highly competitive; prospect is actively evaluating multiple vendors and has identified past 'sticking points' with other platforms, creating an opportunity for differentiation"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "cautious", "direct", "pragmatic", "appreciative", "structured"],
+      "communication_style": "professional, direct, somewhat cautious, appreciative of transparency and a no-pressure approach, clear in expressing needs and concerns",
+      "decision_making_style": "cautious, process-driven, seeks specific technical fit, involves internal stakeholders, values thorough evaluation, not a fast-mover",
+      "objection_style": "direct, raises concerns as questions or statements of current process, not confrontational",
+      "role_in_deal": "key influencer and evaluator, responsible for identifying and shortlisting solutions, requires buy-in from IT and potentially executives"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["active evaluation", "information gathering", "seeking solutions to pain points", "qualifying vendor suitability", "managing expectations"],
+      "overall_sentiment": "generally neutral to positive, cautious but open to learning and evaluating, appreciates an accommodating approach",
+      "tone_patterns": "professional, informative, direct, somewhat cautious, pragmatic, occasionally appreciative"
+    },
+    "objections_concerns": {
+      "objection_types": ["timeline/urgency", "technical limitations - multi-business unit/region support", "technical limitations - ease of integration", "early stage evaluation"],
+      "objection_frequency_severity": "moderate frequency (4 distinct concerns/objections); severity is moderate, indicating specific requirements rather than deal-breaking issues"
+    },
+    "communication_behavior": {
+      "response_time": "generally responsive within a conversation, but overall thread response time can be long due to evaluation timeline",
+      "engagement_level": "high engagement, provides context, asks questions, raises concerns proactively, confirms actions",
+      "message_complexity": "moderate to high complexity, providing sufficient detail and clear requests",
+      "preferred_channel": "appears comfortable on both Slack and Email, with a slight indication for deeper, real-time discussions or follow-ups on Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "qualification/early evaluation; actively mapping requirements and evaluating multiple vendors",
+      "budget_risk_indicators": "no explicit budget risk indicators; budget likely being determined during this evaluation phase",
+      "timeline_risk_indicators": "moderate timeline risk; explicitly states 'no rush' and an evaluation timeline through August, indicating a longer sales cycle",
+      "churn_risk_indicators": "low churn risk; good engagement, positive rapport, clear communication of next steps"
+    },
+    "deal_insights": {
+      "key_objections": "technical fit for multi-business unit/region support; ease of integration with existing systems; current early evaluation stage and an extended evaluation timeline (through August)",
+      "decision_maker_status": "influencer/evaluator; will involve IT and possibly executives later in the process; not the sole decision maker",
+      "urgency_level": "low to moderate urgency; actively moving but at their own pace, not an urgent need",
+      "competitive_position": "active competition; prospect is 'gathering landscape options' and 'evaluating a few platforms'; has hit 'snags' with other platforms, which is an opportunity"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "cautious", "professional", "direct", "appreciative"],
+      "communication_style": "direct, professional, informative, occasionally humorous, requests specific information, sets clear boundaries",
+      "decision_making_style": "cautious, data-driven (seeks technical details), consensus-seeking (involves IT), evaluates multiple options",
+      "objection_style": "direct, clear, sets expectations and states limitations/concerns explicitly",
+      "role_in_deal": "influencer, evaluator, key stakeholder (involved in initial discussions and technical vetting), likely not the sole decision-maker"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating vendors", "gathering landscape options", "mapping requirements", "seeking technical clarification", "scheduling meetings", "seeking solutions for pain points (siloed data, multi-business unit handling)"],
+      "overall_sentiment": "neutral to positive (professional, open to learning, appreciative of 'no-pressure vibe', keen to address technical snags)",
+      "tone_patterns": "professional, informative, problem-focused, cautious, appreciative, direct, inquisitive"
+    },
+    "objections_concerns": {
+      "objection_types": ["timeline/urgency (early stage, through August no rush)", "technical fit (avoiding siloed solutions, handling multiple business units, ease of integration)", "early stage evaluation (still gathering landscape options, internal discussions)"],
+      "objection_frequency_severity": "moderate frequency (raised multiple specific concerns), moderate severity (clear requirements/boundaries rather than hard blockers, but critical for solution fit)"
+    },
+    "communication_behavior": {
+      "response_time": "responsive initially (quick replies in both threads), but indicates a longer evaluation timeline, which may lead to slower subsequent replies.",
+      "engagement_level": "high (provides detailed context, asks probing questions, requests specific materials, proactively raises new discussion points)",
+      "message_complexity": "mix of concise, direct replies and more elaborate messages providing context, requirements, or expressing concerns.",
+      "preferred_channel": "comfortable with both Email (for formal scheduling/documentation) and Slack (for quick interactions, demo review, and discussion of technical points)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "early-stage evaluation and qualification (still mapping requirements, gathering landscape options, internal discussions).",
+      "budget_risk_indicators": "no explicit budget mentions, but implied caution around technical fit could hint at cost-benefit analysis later.",
+      "timeline_risk_indicators": "high (explicitly states 'through August no rush', 'still early', indicating a long sales cycle and low urgency).",
+      "churn_risk_indicators": "low (high engagement, clear communication, proactive in seeking information, positive rapport with rep)."
+    },
+    "deal_insights": {
+      "key_objections": "primary objections revolve around technical fit for complex, distributed operations (unifying data, multi-region support, handling multiple business units, ease of integration) and the protracted evaluation timeline.",
+      "decision_maker_status": "influencer/evaluator. He is actively involved in vetting solutions and has a clear understanding of needs and pain points, but will involve 'Priya IT' and mentions 'execs want unified reporting', suggesting others are higher up in the decision chain.",
+      "urgency_level": "low. Prospect explicitly stated 'no rush' and is in an 'early' evaluation phase with an August timeline.",
+      "competitive_position": "prospect is 'evaluating a few platforms' and 'gathering landscape options', indicating an active competitive landscape. The solution must clearly differentiate on its ability to handle complex, distributed operations and integration."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["informative", "cautious", "professional", "direct", "analytical", "appreciative"],
+      "communication_style": "Professional and direct, provides context, manages expectations, appreciates no-pressure approach.",
+      "decision_making_style": "Cautious, thorough, consensus-seeking (involves IT), data-driven (focus on technical details).",
+      "objection_style": "Direct and clear, expresses genuine concerns and needs.",
+      "role_in_deal": "Key influencer and technical stakeholder, likely not the sole decision-maker."
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "articulating_pain_points", "seeking_clarification", "information_gathering", "managing_expectations", "confirming_interest"],
+      "overall_sentiment": "Neutral to positive towards the product and the conversation, negative towards existing siloed solutions.",
+      "tone_patterns": "Informative, problem-focused, cautious, professional, and appreciative, maintaining a clear and consistent communication style."
+    },
+    "objections_concerns": {
+      "objection_types": ["technical_limitations", "timeline_urgency"],
+      "objection_frequency_severity": "Frequent, with moderate severity. Concerns are clearly articulated and represent genuine requirements, not stalling tactics."
+    },
+    "communication_behavior": {
+      "response_time": "Generally responsive; quick in real-time chat (Slack), standard for email exchanges.",
+      "engagement_level": "High engagement, providing detailed context, asking specific questions, and confirming actions.",
+      "message_complexity": "Structured and clear, providing sufficient detail and specific technical requirements.",
+      "preferred_channel": "Engaged in both Slack (DM) and Email, comfortable using both for different communication needs."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Early stage evaluation/discovery; focused on technical fit and understanding capabilities.",
+      "budget_risk_indicators": "Low; no explicit mention or pushback on budget yet.",
+      "timeline_risk_indicators": "Moderate; a clear but unhurried timeline ('evaluating vendors through August') indicates a longer sales cycle.",
+      "churn_risk_indicators": "Low; high engagement, clear communication, and positive rapport indicate low churn risk."
+    },
+    "deal_insights": {
+      "key_objections": "Avoiding siloed solutions, ensuring technical fit (APIs, authentication, multiple business units, ease of integration), and the extended evaluation timeline.",
+      "decision_maker_status": "Key influencer/stakeholder; critical for technical validation and internal coordination, but higher-level executives are also involved.",
+      "urgency_level": "Low to medium; the prospect is proactively gathering options with no immediate pressure for a quick decision.",
+      "competitive_position": "Neutral/unknown; the prospect is actively 'gathering landscape options' and 'evaluating vendors,' implying they are in a competitive evaluation process."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "cautious", "analytical", "direct"],
+      "communication_style": "professional, direct, inquisitive, detail-oriented",
+      "decision_making_style": "cautious, data-driven, evaluative",
+      "objection_style": "direct, collaborative",
+      "role_in_deal": "influencer/key stakeholder"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "showing interest", "seeking clarification", "qualifying vendor"],
+      "overall_sentiment": "professional, cautious, open to evaluation",
+      "tone_patterns": "consistent professional, inquisitive, and direct tone"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations"],
+      "objection_frequency_severity": "moderate frequency (2 distinct technical concerns), moderate severity (require discussion and clarification, not hard blockers)"
+    },
+    "communication_behavior": {
+      "response_time": "normal",
+      "engagement_level": "high (multiple messages, specific questions, acknowledges receipt)",
+      "message_complexity": "medium (provides sufficient detail for questions and acknowledgments)",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "qualification/evaluation",
+      "budget_risk_indicators": "low risk (no budget mentions)",
+      "timeline_risk_indicators": "low risk (no explicit timeline delays or urgency mentioned)",
+      "churn_risk_indicators": "low risk (active engagement and interest)"
+    },
+    "deal_insights": {
+      "key_objections": "technical fit for multiple business units and ease of integration",
+      "decision_maker_status": "influencer/key stakeholder",
+      "urgency_level": "moderate (shows interest and engages, but no explicit urgency)",
+      "competitive_position": "unknown (no competitive mentions in the conversation)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["professional", "cautious", "direct", "analytical", "qualifying", "open"],
+      "communication_style": "professional, direct, inquisitive, qualifying, focused on technical fit",
+      "decision_making_style": "cautious, data-driven, analytical, seeking clarity on technical fit",
+      "objection_style": "direct, specific, proactive in raising technical concerns for discussion",
+      "role_in_deal": "influencer, technical evaluator"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["acknowledge outreach", "qualify vendor", "propose meeting", "seek clarification", "express technical concern", "confirm interest", "evaluate solution"],
+      "overall_sentiment": "positive-neutral, cautious but interested in exploring solution fit",
+      "tone_patterns": "professional, cautious, direct, inquisitive"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations"],
+      "objection_frequency_severity": "moderate frequency (2 distinct), moderate severity (raised for discussion, not as blockers)"
+    },
+    "communication_behavior": {
+      "response_time": "moderate to fast",
+      "engagement_level": "high (multiple messages, specific questions, confirming interest)",
+      "message_complexity": "structured, clear, concise with specific questions/concerns",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "qualification, discovery, initial technical requirements gathering, meeting scheduled",
+      "budget_risk_indicators": "low - no explicit budget mentions or pushback",
+      "timeline_risk_indicators": "low - meeting scheduled promptly, no delays indicated",
+      "churn_risk_indicators": "low - high engagement, active participation, clear interest"
+    },
+    "deal_insights": {
+      "key_objections": "technical fit for multiple business units, ease of integration",
+      "decision_maker_status": "influencer / technical evaluator",
+      "urgency_level": "moderate - active in evaluation, prompt meeting scheduling",
+      "competitive_position": "unknown"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Practical",
+        "Cautious",
+        "Discerning",
+        "Collaborative",
+        "Strategic",
+        "Transparent",
+        "Direct",
+        "Organized",
+        "Curious",
+        "Specific",
+        "Appreciative"
+      ],
+      "communication_style": "Professional yet candid and direct, specific in requests, appreciates straightforwardness.",
+      "decision_making_style": "Cautious, analytical, data-driven, and consensus-seeking, involving technical stakeholders.",
+      "objection_style": "Direct and specific, clearly stating concerns or expectations.",
+      "role_in_deal": "Influencer and key evaluator; involves technical stakeholders (e.g., Priya IT) in the decision-making process."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Exploring solutions",
+        "Actively evaluating (early stage)",
+        "Seeking specific technical information",
+        "Setting boundaries and managing expectations",
+        "Rejecting based on technical assessment"
+      ],
+      "overall_sentiment": "Generally professional and open to initial discovery, but becomes negative if technical expectations are not met. Initially positive and engaged in subsequent outreach.",
+      "tone_patterns": "Professional, cautious, direct, candid, informative, appreciative, and analytical when discussing technical issues."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Technical fit (siloed solution, multi-business unit support, APIs/auth, integration, demo impressiveness)",
+        "Timeline/Urgency (not ready for pitch, long evaluation period)",
+        "Competitive (evaluating other vendors, selected competitor)",
+        "Value/Proof (demo not impressive)"
+      ],
+      "objection_frequency_severity": "Frequent and specific, particularly regarding technical fit. Severity is high as these objections have directly led to a lost deal."
+    },
+    "communication_behavior": {
+      "response_time": "Generally fast and responsive during active engagement, especially in initial stages.",
+      "engagement_level": "High; actively participates in discovery, asks specific questions, provides context, gives feedback, and involves others.",
+      "message_complexity": "Concise, direct, and informative. Prefers efficient information transfer (e.g., short looms, screenshots, 1-pagers).",
+      "preferred_channel": "Appears comfortable with both Slack (DM) and Email, but indicates a preference for Slack for specific interactive discussions on technical points."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Currently in Qualification/Early Evaluation. Actively gathering landscape options and evaluating vendors.",
+      "budget_risk_indicators": "No explicit budget mentions, but a lost deal due to a competitor (partially on technical merit) could imply a value-for-money consideration.",
+      "timeline_risk_indicators": "High risk due to explicitly stated long evaluation timeline ('evaluating vendors through August', 'no rush'). This allows ample time for competitors.",
+      "churn_risk_indicators": "High churn/loss risk due to active competitive evaluation and a strong reliance on internal technical validation ('Priya IT said the demo wasn't impressive'). Technical misalignments or unimpressive demos are critical churn drivers."
+    },
+    "deal_insights": {
+      "key_objections": "Technical fit (multi-business unit, integration, APIs, demo quality) and long evaluation timeline combined with active competitive evaluation.",
+      "decision_maker_status": "Key influencer and evaluator. The ultimate decision appears to involve technical stakeholders (e.g., IT department).",
+      "urgency_level": "Low to Medium. The prospect is undergoing a 'broader overhaul' and stated 'no rush,' indicating a strategic, not urgent, initiative.",
+      "competitive_position": "Highly competitive. The prospect is actively evaluating multiple platforms and has shown a willingness to move forward with competitors if technical fit or value is not perceived."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Cautious",
+        "Analytical",
+        "Direct",
+        "Collaborative",
+        "Process-Oriented",
+        "Strategic",
+        "Appreciative"
+      ],
+      "communication_style": "Candid, direct, professional, uses emojis for casualness in Slack, appreciative of a no-pressure approach.",
+      "decision_making_style": "Collaborative, data-driven, evaluates multiple options, initially cautious but decisive when conditions (e.g., price) are met.",
+      "objection_style": "Direct and candid, raises specific technical concerns and clearly states when the deal is off.",
+      "role_in_deal": "Key influencer and decision-maker; he is the primary point of contact who makes the final acceptance, but heavily relies on technical validation from team members (e.g., Priya IT) and internal evaluations."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Evaluating multiple vendors",
+        "Seeking specific technical information",
+        "Setting clear expectations and timelines",
+        "Rejecting the offer",
+        "Negotiating price",
+        "Confirming the deal"
+      ],
+      "overall_sentiment": "Starts neutral and cautious, becomes negative when reporting the demo failure and competitor selection, then turns positive and conclusive after a successful price negotiation.",
+      "tone_patterns": "Candid and informative initially, shifts to cautious and direct when setting expectations, then to frustrated and direct when rejecting, and finally to conclusive and appreciative upon deal acceptance."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Technical fit (siloed solutions, multi-business unit handling, APIs/auth, ease of integration)",
+        "Value proposition/Demo effectiveness (demo not impressive)",
+        "Timeline/urgency (long evaluation cycle)",
+        "Competitive pressure (moving forward with someone else)",
+        "Price (implicitly, given the significant discount accepted)"
+      ],
+      "objection_frequency_severity": "High frequency and severity. David consistently raises specific technical concerns and openly communicates when the solution isn't meeting expectations, leading to a near-loss of the deal."
+    },
+    "communication_behavior": {
+      "response_time": "Inconsistent; initially very fast (seconds/minutes), but included a significant gap (days) during internal evaluation, followed by rapid responses during critical negotiation phases.",
+      "engagement_level": "High engagement. He provides detailed context, proactively asks for specific information, loops in other team members, and actively participates in negotiations.",
+      "message_complexity": "A mix of concise, direct replies and more structured updates (e.g., timelines, internal processes). Messages are clear and focused on specific concerns or next steps.",
+      "preferred_channel": "Both Slack and Email are used and accepted. He explicitly suggests moving a technical discussion to Slack, indicating comfort and preference for quick, iterative conversations on that channel."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved from initial outreach/qualification, through evaluation and proposal, into a critical negotiation phase after a near-loss, concluding with a closed-won pending contract.",
+      "budget_risk_indicators": "High budget risk, as a significant price reduction was ultimately required to win back the deal after it was lost to a competitor. Price was a critical, albeit initially unstated, factor.",
+      "timeline_risk_indicators": "High timeline risk. David explicitly stated 'no rush' and mentioned evaluating vendors 'through August', indicating a protracted sales cycle and lack of immediate urgency.",
+      "churn_risk_indicators": "Very high churn risk. The deal was nearly lost due to the demo not impressing the IT team and the prospect opting for a competitor. The deal was only salvaged by a substantial price concession."
+    },
+    "deal_insights": {
+      "key_objections": "The most significant objections were the perceived lack of impressiveness from the initial demo (technical/value fit) and the subsequent selection of a competitor. Price also became a key objection implicitly, as a large discount closed the deal.",
+      "decision_maker_status": "David is a key decision-maker and influencer. While he relies on technical input from his team (Priya IT), he ultimately makes the final call on proceeding with the contract and commits to the deal.",
+      "urgency_level": "Low to moderate initially, with a stated long evaluation timeline. Urgency became high only during the negotiation phase when the deal was on the brink of being lost and a significant discount was presented.",
+      "competitive_position": "Initially weak, as the prospect opted for a competitor after the demo. The competitive position became strong only after Bruce offered a substantial price reduction, indicating that price was the decisive factor in winning back the deal."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Analytical",
+        "Direct",
+        "Cautious",
+        "Pragmatic",
+        "Collaborative",
+        "Values Autonomy",
+        "Decisive",
+        "Problem-aware"
+      ],
+      "communication_style": "Direct and professional, often softening with emojis. Provides clear updates and expectations, values low-pressure interactions.",
+      "decision_making_style": "Data/feature-driven, involves technical stakeholders (Priya IT), evaluates multiple options, and can be swayed by significant value/price concessions. Decisive once terms are met.",
+      "objection_style": "Direct and clear, expresses concerns upfront and specifically (e.g., 'not ready for full pitch', 'demo wasn't impressive', 'technical fit').",
+      "role_in_deal": "Highly influential and likely a primary decision-maker with budgetary authority, capable of committing to a deal after negotiation. Collaborates with technical influencers (Priya IT)."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Initial interest (scheduling meeting, requesting info)",
+        "Evaluating options and setting expectations",
+        "Indicating potential rejection (due to competitive choice)",
+        "Negotiating terms",
+        "Confirming purchase/deal"
+      ],
+      "overall_sentiment": "Initially cautious/neutral, becoming negative during evaluation due to competitive choice and demo feedback, then turning positive after price negotiation and deal acceptance.",
+      "tone_patterns": "Generally professional and direct. Can be candid about problems and expectations. Becomes appreciative when a mutually beneficial outcome is reached."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Technical limitations (siloed solution, multi-business unit handling, integration, demo impressiveness)",
+        "Timeline/urgency (long evaluation period, no rush)",
+        "Competition (moving forward with another vendor)",
+        "Price/Value (required significant discount to close)"
+      ],
+      "objection_frequency_severity": "Frequent (raised multiple specific concerns and explicitly stated moving with a competitor). Severity was high, leading to a near-lost deal that required significant price concession to resurrect."
+    },
+    "communication_behavior": {
+      "response_time": "Fast during active engagement and rapid exchanges (often within minutes). Can be slower during evaluation periods or when disengaging (e.g., 2-day delay before deal cancellation).",
+      "engagement_level": "High. Actively provides context, asks specific questions, offers direct feedback, gives updates on internal processes, and engages in negotiation.",
+      "message_complexity": "Mix of concise, direct replies and more detailed explanations when providing context or raising specific concerns. Generally provides necessary detail without excessive length.",
+      "preferred_channel": "Actively uses both Slack (DM) and Email. Expressed a preference to cover 'ease of integration on the Slack', suggesting comfort with Slack for detailed or real-time discussions, and the deal concluded on Slack."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved from early discovery/qualification to detailed evaluation, then to a critical negotiation phase after a near-loss, finally resulting in a closed-won deal.",
+      "budget_risk_indicators": "High. The deal was only salvaged by a significant price reduction, indicating budget was a major influencing factor and point of contention.",
+      "timeline_risk_indicators": "High. Explicitly stated a long evaluation timeline ('evaluating vendors through August, no rush'), indicating a prolonged sales cycle and competitive landscape.",
+      "churn_risk_indicators": "Very High. The prospect explicitly stated 'Deals off' and that they were 'moving forward with someone else' due to a competitor and an unimpressive demo. This was a clear and direct churn signal that was only reversed by a substantial price adjustment."
+    },
+    "deal_insights": {
+      "key_objections": "Technical fit (multi-org support, integration, demo impressiveness to IT) and Price/Value were the most critical objections. Competition was a direct consequence of these.",
+      "decision_maker_status": "Highly influential and likely a key decision-maker. While involving others (Priya IT) for technical validation, David directly communicated the deal status and accepted the final offer, implying budget and final approval authority.",
+      "urgency_level": "Initially low ('no rush', 'evaluating through August'). However, once the critical pricing objection was met, the urgency to finalize the deal became high, leading to a rapid close.",
+      "competitive_position": "Initially weak, as the prospect chose a competitor based on the initial demo. The deal was only won back through a significant price concession, highlighting that initial value proposition or competitive differentiation was insufficient."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Cautious",
+        "Analytical",
+        "Direct",
+        "Pragmatic",
+        "Professional",
+        "Problem-aware",
+        "Decisive"
+      ],
+      "communication_style": "Direct, professional, candid, concise, appreciative of low-pressure, uses emojis occasionally in informal settings.",
+      "decision_making_style": "Cautious, data-driven (technical details), consensus-seeking (involves IT), evaluative, price-sensitive.",
+      "objection_style": "Direct, transparent, raises technical and process-related objections clearly.",
+      "role_in_deal": "Key influencer with commercial decision-making authority, relies on technical stakeholders for product validation."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Evaluating options",
+        "Setting boundaries for engagement",
+        "Providing updates on process/timeline",
+        "Raising technical concerns",
+        "Rejecting (initially)",
+        "Confirming deal (after negotiation)"
+      ],
+      "overall_sentiment": "Initially neutral/cautious, then negative (when rejecting), quickly shifts to positive after significant price negotiation.",
+      "tone_patterns": "Candid, cautious, informative, direct, appreciative, then blunt (rejection), and finally conclusive/positive. Professional in email communications."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Technical limitations (siloed solution, APIs, authentication, multi-business unit handling, integration ease)",
+        "Timeline/urgency (long evaluation, no rush)",
+        "Process-related (not ready for full pitch, evaluating other options)",
+        "Product/solution fit (demo not impressive)",
+        "Competitive choice",
+        "Price/Value (implied by acceptance of discount)"
+      ],
+      "objection_frequency_severity": "Frequent and significant, leading to the deal being lost and then resurrected only by a substantial price reduction. Technical objections are consistently high-priority."
+    },
+    "communication_behavior": {
+      "response_time": "Often quick when actively engaged (seconds), but periods of very slow response or silence (e.g., 11-day gap before rejection). Inconsistent.",
+      "engagement_level": "Moderate to high when actively engaged (detailed questions, specific requests), but capable of significant disengagement. Overall good engagement when in active dialogue.",
+      "message_complexity": "Mix of short, direct replies and more detailed statements of problems, concerns, or timelines. Generally uses full sentences and professional language.",
+      "preferred_channel": "Actively uses both Slack (for ongoing, quick dialogue) and Email (for initial professional setup and formal requests). Seems comfortable with both."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved from Discovery/Qualification to deep Evaluation, then to a critical Negotiation phase, and finally Closed-Won.",
+      "budget_risk_indicators": "High budget sensitivity, as evidenced by the deal being resurrected only after a substantial price reduction. Price was a clear leverage point.",
+      "timeline_risk_indicators": "High, with an explicit 'no rush' and 'evaluating vendors through August' indicating a lengthy sales cycle and potential for delays.",
+      "churn_risk_indicators": "Very high, as the deal was explicitly stated as 'off' and a competitor had been chosen. Mitigated only by an aggressive price negotiation."
+    },
+    "deal_insights": {
+      "key_objections": "Technical fit (multi-org, integration, APIs), product impression (demo), competitive preference, and price.",
+      "decision_maker_status": "Key influencer with significant commercial decision-making power, but reliant on technical stakeholders (Priya IT) for product validation and deeper technical assessment.",
+      "urgency_level": "Initially low, driven by a methodical evaluation process. Urgency became high only when the deal was resurrected with a significant price concession, suggesting a budget-driven timeline rather than an inherent business need for speed.",
+      "competitive_position": "The product was not the clear front-runner and was actively being evaluated against competitors, with a competitor initially chosen. Price became the critical differentiator to win the deal."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "Analytical",
+        "Cautious",
+        "Direct",
+        "Pragmatic",
+        "Transparent",
+        "Collaborative",
+        "Appreciative",
+        "Decisive",
+        "Value-driven"
+      ],
+      "communication_style": "Direct, candid, professional, concise, technical",
+      "decision_making_style": "Collaborative (involves IT), deliberate, analytical, detail-oriented, value-driven, open to negotiation",
+      "objection_style": "Direct, specific, transparent",
+      "role_in_deal": "Key influencer and economic buyer, relies on technical validation from others (Priya IT)"
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "Problem-solving",
+        "Information-gathering",
+        "Vendor evaluation",
+        "Negotiating",
+        "Purchasing"
+      ],
+      "overall_sentiment": "Cautiously optimistic then negative due to external factors then positive upon negotiation",
+      "tone_patterns": "Direct, candid, professional, cautious, shifts from informative to conclusive"
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "Technical limitations",
+        "Timeline/urgency",
+        "Competitive loss"
+      ],
+      "objection_frequency_severity": "Frequent, varied, escalating to high severity (deal loss) before being overcome by negotiation"
+    },
+    "communication_behavior": {
+      "response_time": "Inconsistent, quick when actively engaged, long gaps during evaluation, very fast during active negotiation",
+      "engagement_level": "High when actively engaged or providing updates/feedback, lower during evaluation periods",
+      "message_complexity": "Concise, direct, and to the point",
+      "preferred_channel": "Both Slack and Email, with a slight preference for Slack for detailed technical discussions"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved through discovery, evaluation, near-loss, negotiation, and closed-won",
+      "budget_risk_indicators": "Price sensitivity indicated by immediate acceptance of a large discount to salvage the deal",
+      "timeline_risk_indicators": "Long evaluation timeline, no immediate urgency",
+      "churn_risk_indicators": "High churn risk due to technical dissatisfaction and competitor win, but mitigated by strong negotiation"
+    },
+    "deal_insights": {
+      "key_objections": "Technical fit and competitive loss were critical, timeline was a softer initial concern",
+      "decision_maker_status": "Influencer and economic buyer, with technical decision-making delegated to a degree",
+      "urgency_level": "Initially low, but became high when the deal was almost lost, leading to a swift resolution once a strong incentive was offered",
+      "competitive_position": "Competitive, initially losing to a competitor but won back through a significant price concession"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": [
+        "candid",
+        "cautious",
+        "evaluative",
+        "direct",
+        "technically-minded",
+        "appreciative"
+      ],
+      "communication_style": "direct, professional, at times casual (uses emojis, 'haha'), appreciative when comfortable, clear in stating requirements and rejections.",
+      "decision_making_style": "cautious, evaluative, consensus-seeking (involving IT), problem-aware, influenced by technical validation.",
+      "objection_style": "direct (states concerns explicitly), upfront (qualifies requests), definitive (when rejecting).",
+      "role_in_deal": "key influencer, primary point of contact, initial evaluator, but not the ultimate technical decision-maker (defers to IT for technical validation)."
+    },
+    "intent_sentiment": {
+      "intent_signals": [
+        "problem statement",
+        "qualifying requests",
+        "evaluating options",
+        "requesting specific information",
+        "seeking technical validation",
+        "rejection"
+      ],
+      "overall_sentiment": "Starts neutral to slightly negative (problem-focused), moves to neutral/positive (engaged, appreciative of no pressure), then becomes negative (deal lost).",
+      "tone_patterns": "candid, cautious, informative, appreciative, direct, definitive in rejection."
+    },
+    "objections_concerns": {
+      "objection_types": [
+        "product fit (siloed solution)",
+        "timeline/urgency (long evaluation)",
+        "technical limitations (APIs, auth, multi-business unit, integration, demo not impressive)",
+        "competition (evaluating other options, competitor chosen)"
+      ],
+      "objection_frequency_severity": "Frequent from early on, escalating in severity from qualification concerns to definitive deal loss due to technical fit and competitor selection."
+    },
+    "communication_behavior": {
+      "response_time": "Initially fast (seconds/minutes) when actively engaged, but with a significant delay before the final deal loss notification (days/weeks). Inconsistent overall.",
+      "engagement_level": "High initial engagement (detailed replies, specific requests), then a noticeable drop-off leading to deal loss. Actively engaged when requesting specific information.",
+      "message_complexity": "Mix of short, direct replies and more detailed explanations or specific requests for information/material.",
+      "preferred_channel": "Comfortable with both Slack (for quick exchanges, demo review) and Email (for formal scheduling, initial information exchange). Both channels were actively used."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moved from discovery/qualification to active evaluation (gathering landscape options, technical validation) before ultimately being lost in the evaluation/decision stage.",
+      "budget_risk_indicators": "No explicit budget risk indicators were mentioned by the prospect.",
+      "timeline_risk_indicators": "Explicitly stated a long evaluation timeline ('evaluating vendors through August', 'no rush'), indicating low urgency and potential for deal delays or loss to other vendors.",
+      "churn_risk_indicators": "Long periods of silence, direct feedback that the demo was unimpressive to IT, and clear notification of choosing a competitor are strong churn/loss indicators."
+    },
+    "deal_insights": {
+      "key_objections": "The most significant objections were related to technical fit (avoiding siloed solutions, integration capabilities, multi-business unit handling) culminating in the 'demo wasn't impressive' feedback from IT, and competition (actively evaluating other vendors).",
+      "decision_maker_status": "David is a strong influencer and project lead, but not the sole decision-maker. Technical validation from 'Priya IT' was critical and ultimately led to the deal's loss.",
+      "urgency_level": "Low. David explicitly stated 'no rush' and a timeline stretching 'through August' for vendor evaluation.",
+      "competitive_position": "The deal was lost to a competitor, indicating the proposed solution did not sufficiently differentiate itself or meet the technical validation requirements of their IT team compared to alternatives."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "analytical", "direct", "results-oriented", "collaborative"],
+      "communication_style": "candid, cautious, informative, direct, professional",
+      "decision_making_style": "consensus-seeking, evaluative, technical-oriented, methodical",
+      "objection_style": "direct, technical, proactive",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["problem identification", "evaluation", "information gathering", "qualification", "rejection"],
+      "overall_sentiment": "neutral to positive (initially), negative (finally)",
+      "tone_patterns": "candid, cautious, informative, direct, professional"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations", "timeline/urgency", "product/feature dissatisfaction", "competitive selection"],
+      "objection_frequency_severity": "frequent, with the final technical objection being high severity and deal-losing"
+    },
+    "communication_behavior": {
+      "response_time": "inconsistent (fast during active engagement, very slow during internal evaluation/after decision)",
+      "engagement_level": "initially high, then significantly declined",
+      "message_complexity": "medium (concise sentences providing context and concerns)",
+      "preferred_channel": "both (engaged actively in Slack for ongoing discussions, Email for formal scheduling/documents)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from qualification/discovery to evaluation/proposal, ultimately lost",
+      "budget_risk_indicators": "low direct budget risk (no explicit mentions)",
+      "timeline_risk_indicators": "high (explicitly stated 'no rush' and 'evaluating through August')",
+      "churn_risk_indicators": "high (lack of sustained engagement, reliance on external technical validation, active competitive evaluation, explicit negative feedback from internal stakeholders)"
+    },
+    "deal_insights": {
+      "key_objections": "technical fit for multi-org/business units and integrations; demo failing to impress technical stakeholders; long evaluation timeline and competitive landscape",
+      "decision_maker_status": "influencer and key stakeholder, requiring technical buy-in from others (e.g., Priya IT)",
+      "urgency_level": "low (long-term strategic evaluation)",
+      "competitive_position": "unfavorable (actively evaluating competitors and ultimately chosen by a competitor based on technical validation)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "analytical", "practical", "direct", "collaborative", "transparent", "problem-aware", "appreciative"],
+      "communication_style": "direct, candid, concise, informative, occasionally casual and friendly, appreciates low-pressure interactions",
+      "decision_making_style": "cautious, analytical, consensus-seeking (especially technical validation), methodical, unhurried",
+      "objection_style": "direct, clear, provides reasoning, sets boundaries and expectations",
+      "role_in_deal": "influencer (needs technical validation from internal stakeholders like Priya IT), key point of contact, but not the ultimate decision-maker"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["problem identification", "information gathering", "qualification", "internal evaluation", "seeking practical solutions", "comparing vendors", "rejection"],
+      "overall_sentiment": "initially problem-aware and open, cautiously optimistic after initial demo, but ultimately negative due to specific internal technical feedback",
+      "tone_patterns": "candid, cautious, informative, appreciative (of no-pressure), and finally direct and conclusive"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical fit", "product value", "timeline/urgency", "competitive evaluation", "internal stakeholder alignment", "process alignment"],
+      "objection_frequency_severity": "frequent and consistent, particularly on technical and timeline fronts; severity escalated from setting boundaries to a critical deal-breaking objection regarding the demo's impressiveness to IT"
+    },
+    "communication_behavior": {
+      "response_time": "very fast during active conversation phases, but a significant multi-day delay during internal evaluation leading to eventual deal loss",
+      "engagement_level": "moderate to high during active discussion and problem outlining, but dropped significantly during internal review periods before the deal was lost",
+      "message_complexity": "generally concise, practical, and to-the-point, providing necessary details without excessive length",
+      "preferred_channel": "actively engaged on both Slack and Email, with the more detailed and conclusive communications occurring on Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from early-stage discovery/qualification to mid-stage demo/solution exploration and evaluation, but stalled and was ultimately lost during the internal evaluation phase",
+      "budget_risk_indicators": "no direct mention of budget or cost concerns; the deal never progressed to a stage where budget was explicitly discussed, which in itself is an indicator of risk",
+      "timeline_risk_indicators": "high timeline risk explicitly stated as 'evaluating vendors through August, no rush', indicating a long sales cycle and low urgency, followed by a prolonged period of inactivity",
+      "churn_risk_indicators": "high risk of deal loss indicated by a significant drop in engagement, negative feedback from an internal technical stakeholder (Priya IT), and the explicit decision to move forward with a competitor"
+    },
+    "deal_insights": {
+      "key_objections": "avoiding siloed solutions (initial pain point), not being ready for a full pitch, long evaluation timeline, and most critically, the demo not being impressive to their IT team leading to a competitive loss",
+      "decision_maker_status": "David is a primary point of contact and a strong influencer, but not the sole or final decision-maker, relying heavily on input and validation from technical stakeholders like Priya IT",
+      "urgency_level": "low urgency, explicitly stated by the prospect as 'no rush' with an evaluation timeline extending through August",
+      "competitive_position": "one of several vendors being actively evaluated; ultimately lost to a competitor due to perceived lack of impressiveness, particularly on technical grounds from the IT perspective"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "professional", "direct", "analytical", "collaborative"],
+      "communication_style": "Professional and direct, often concise. Values transparency and a 'no-pressure' approach. Uses informal language (e.g., 'haha fair', ':smile:') in casual settings like Slack but remains professional in email.",
+      "decision_making_style": "Cautious and consensus-seeking, involving technical stakeholders (e.g., 'Priya IT') in evaluations. Emphasizes thoroughness ('gathering landscape options', 'evaluating vendors through August') over speed.",
+      "objection_style": "Direct and clear. States concerns upfront without being aggressive. Provides specific reasons for objections and decisions, even when delivering bad news.",
+      "role_in_deal": "Key influencer and evaluator. Actively participates in discovery and evaluation but relies on technical validation from others (e.g., IT team) for final decision-making."
+    },
+    "intent_sentiment": {
+      "intent_signals": ["problem identification", "information gathering", "solution evaluation", "qualification of requests", "technical validation", "rejection"],
+      "overall_sentiment": "Starts neutral to slightly negative regarding current solutions, becomes cautiously positive/neutral after initial engagement and receiving information, but ultimately turns negative when the deal is lost due to unmet technical expectations.",
+      "tone_patterns": "Professional and candid, shifting from cautious and informative during evaluation to direct and decisive during rejection. Values efficiency and direct communication."
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations (siloed solution, APIs/auth, multi-business unit handling, integration difficulty)", "timeline/urgency (long evaluation cycle)", "competitive evaluation (comparing options, chosen competitor)", "product fit (demo not impressive to IT)"],
+      "objection_frequency_severity": "Objections are raised frequently (multiple times across conversations). Severity ranges from mild cautions ('don't go full pitch mode yet') to critical deal-ending concerns ('demo wasn't impressive', 'moving forward with someone else')."
+    },
+    "communication_behavior": {
+      "response_time": "Generally fast when actively engaged in a conversation (within minutes or seconds). However, exhibits very slow response times when the deal is stalling or lost (days to weeks), indicating disengagement.",
+      "engagement_level": "High during active exchanges, providing specific context and asking targeted questions. Engagement drops significantly during periods of internal evaluation or when moving towards a competitor, leading to eventual disengagement and deal loss.",
+      "message_complexity": "Concise and direct, providing necessary information without excessive detail. Uses clear language and sometimes includes informal elements like emojis in Slack.",
+      "preferred_channel": "Comfortable with both Slack for quick, informal updates and clarifications, and Email for initial formal contact, scheduling, and document sharing. The choice of channel seems driven by the nature of the interaction."
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Moves from early discovery/qualification to evaluation and technical validation, ultimately leading to a lost deal. The process is characterized by a deliberate, extended evaluation phase.",
+      "budget_risk_indicators": "No explicit budget discussions, but the active evaluation of multiple vendors and eventual selection of a competitor implies a competitive budget environment where value and solution fit were paramount.",
+      "timeline_risk_indicators": "High timeline risk explicitly stated ('evaluating vendors through August', 'no rush'). This long evaluation period allows ample opportunity for competitors to gain traction.",
+      "churn_risk_indicators": "High churn risk indicated by the prospect's cautious approach, extended evaluation timeline, involvement of multiple stakeholders (IT), and ultimately the clear communication of a decision to go with a competitor due to perceived lack of impressiveness."
+    },
+    "deal_insights": {
+      "key_objections": "The most critical objections revolved around the technical capabilities and the perception of the solution by the IT team (e.g., 'demo wasn't impressive'). The general concern about siloed solutions and ease of integration were also significant.",
+      "decision_maker_status": "Highly influential evaluator. While not the sole ultimate decision-maker, David holds significant sway and serves as the primary conduit for information and feedback, particularly from key technical stakeholders like Priya IT.",
+      "urgency_level": "Low urgency. David explicitly stated 'no rush' and a lengthy evaluation timeline ('through August'), indicating that the current pain points were not critical enough to expedite the purchasing process.",
+      "competitive_position": "The prospect was actively evaluating multiple vendors, and the competition ultimately won the deal. This indicates a highly competitive landscape where specific technical fit and stakeholder approval were crucial differentiators."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["cautious", "direct", "professional", "analytical", "appreciative"],
+      "communication_style": "direct, professional, candid, concise, becomes casual on Slack",
+      "decision_making_style": "cautious, consultative (involves IT), deliberate, evaluates multiple options",
+      "objection_style": "direct, informative, raises specific technical concerns",
+      "role_in_deal": "influencer, key stakeholder, not the ultimate decision-maker (especially for technical validation)"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["initial interest", "evaluation of platforms", "problem statement", "request for information", "scheduling meeting", "stall/delay", "rejection"],
+      "overall_sentiment": "initially neutral/cautious, briefly positive after receiving materials, ultimately negative (deal lost)",
+      "tone_patterns": "candid about challenges, cautious about commitment, professional, direct when setting boundaries or delivering news, appreciative of 'no-pressure' approach"
+    },
+    "objections_concerns": {
+      "objection_types": ["technical limitations (siloed solution, APIs, integration, demo impression)", "timeline/urgency (not ready for full pitch, long evaluation)", "competitive (evaluating others)"],
+      "objection_frequency_severity": "frequent and increasing in severity; initially general concerns about silos and timeline, escalating to critical technical dissatisfaction (demo not impressive) which led to deal loss"
+    },
+    "communication_behavior": {
+      "response_time": "initially fast (minutes/seconds), inconsistent with significant delays before providing bad news (days/weeks)",
+      "engagement_level": "high during initial discovery and information gathering, then drops significantly after demo delivery, re-engages only to convey deal loss",
+      "message_complexity": "generally short to medium in length, direct, and to the point; provides structured updates",
+      "preferred_channel": "comfortable with both email (for formal initiation/scheduling) and Slack (for quick updates, detailed discussions, and ultimately deal status)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from initial discovery/qualification to an extended evaluation and technical validation phase, eventually leading to a lost deal",
+      "budget_risk_indicators": "no explicit budget concerns mentioned",
+      "timeline_risk_indicators": "high risk; explicit mentions of 'no rush', 'still early', 'evaluating vendors through August', and significant communication gaps indicate a slow, deliberate process and high timeline risk",
+      "churn_risk_indicators": "high risk; lack of immediate urgency, mention of evaluating 'other options'/'other platforms', requirement for IT validation that wasn't met (demo unimpressive), and eventual selection of a competitor were clear churn indicators"
+    },
+    "deal_insights": {
+      "key_objections": "avoiding siloed solutions, seamless technical integration (APIs, multi-business unit support, ease of integration), and the solution's ability to impress technical stakeholders (IT team)",
+      "decision_maker_status": "influencer and key stakeholder, but not the sole decision-maker; final decision heavily reliant on technical validation from 'Priya IT'",
+      "urgency_level": "low; explicitly stated 'no rush' and a lengthy evaluation timeline through August",
+      "competitive_position": "weakened over time; prospect was actively evaluating competitors, and the solution ultimately failed to differentiate or impress the critical technical stakeholder, leading to a loss to a competitor"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "candid", "cautious", "direct", "pragmatic", "solution-oriented", "technical-minded"],
+      "communication_style": "direct professional, can be casual with rapport, informative, appreciative of no-pressure",
+      "decision_making_style": "cautious, collaborative/consensus-seeking (involves IT), data-informed (technical aspects), takes time for evaluation",
+      "objection_style": "direct and explicit, states concerns upfront",
+      "role_in_deal": "influencer/champion, not the ultimate decision-maker; IT (Priya) holds significant sway"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["exploring options", "evaluating vendors", "seeking technical validation", "rejecting offer"],
+      "overall_sentiment": "initially cautiously interested and evaluative, shifts to negative upon deal loss",
+      "tone_patterns": "direct, professional, candid, can be casual, and eventually very direct/final"
+    },
+    "objections_concerns": {
+      "objection_types": ["siloed solution/integration complexity", "not ready for full pitch", "long evaluation timeline", "technical validation/demo quality", "competitive alternatives"],
+      "objection_frequency_severity": "moderate frequency, high severity (especially technical and competitive objections at the end)"
+    },
+    "communication_behavior": {
+      "response_time": "initially responsive and engaged, significant drop-off in activity before deal loss",
+      "engagement_level": "generally high in early stages, provides detailed context and asks specific questions; decreased significantly before deal loss",
+      "message_complexity": "mix of short and detailed messages, capable of structured communication",
+      "preferred_channel": "comfortable with both Slack (quick exchanges) and Email (formal communication/scheduling)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "started at discovery/qualification, moved into solution presentation/evaluation, ultimately lost post-demo",
+      "budget_risk_indicators": "no direct budget risk indicators in provided data",
+      "timeline_risk_indicators": "high timeline risk due to explicit extended evaluation period ('through August') and multiple stakeholders",
+      "churn_risk_indicators": "very high churn risk that materialized due to long evaluation cycles, reliance on external technical validation, and active competitive evaluation"
+    },
+    "deal_insights": {
+      "key_objections": "siloed solutions/integration, demo quality (to IT), long evaluation timeline/lack of urgency, strong competitive alternatives",
+      "decision_maker_status": "significant influencer/champion, but Priya IT (technical validation) was a critical blocker/influencer",
+      "urgency_level": "low urgency, explicitly stated 'no rush'",
+      "competitive_position": "weak; prospect actively evaluated multiple vendors and ultimately chose a competitor"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "David Gonzalez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "cautious", "direct", "process-oriented", "collaborative"],
+      "communication_style": "direct",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "qualifying", "requesting information", "rejecting"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "candid"
+    },
+    "objections_concerns": {
+      "objection_types": ["siloed solution concern", "not ready for full pitch", "evaluating other options", "long evaluation timeline", "technical validation needed", "demo not impressive", "competitor chosen", "multi-business unit complexity", "ease of integration"],
+      "objection_frequency_severity": "frequent"
+    },
+    "communication_behavior": {
+      "response_time": "inconsistent",
+      "engagement_level": "low",
+      "message_complexity": "structured",
+      "preferred_channel": "slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "evaluation",
+      "budget_risk_indicators": "no explicit budget mention",
+      "timeline_risk_indicators": "delays",
+      "churn_risk_indicators": "lack of engagement"
+    },
+    "deal_insights": {
+      "key_objections": "technical limitations",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "lost to competitor"
+    }
+  }
+--------------------------------

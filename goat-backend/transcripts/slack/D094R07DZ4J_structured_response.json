@@ -19,16 +19,6 @@
   ],
   "messages": [
     {
-      "from": "Bruce",
-      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
-      "timestamp": "2025-07-06T20:42:13Z",
-      "sentiment": "neutral",
-      "tone": "inquiry",
-      "objections": [],
-      "intent": "discovery",
-      "action_required": true
-    },
-    {
       "from": "David",
       "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
       "timestamp": "2025-07-06T20:42:19Z",
@@ -44,8 +34,8 @@
       "from": "Bruce",
       "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
       "timestamp": "2025-07-06T20:42:25Z",
-      "sentiment": "positive",
-      "tone": "proposing",
+      "sentiment": "neutral",
+      "tone": "solution-oriented",
       "objections": [],
       "intent": "propose solution",
       "action_required": true
@@ -71,7 +61,7 @@
       "tone": "agreeable",
       "objections": [],
       "intent": "provide solution",
-      "action_required": false
+      "action_required": true
     },
     {
       "from": "David",
@@ -84,7 +74,7 @@
         "technical validation needed"
       ],
       "intent": "provide update",
-      "action_required": false
+      "action_required": true
     },
     {
       "from": "Bruce",
@@ -140,21 +130,20 @@
       "action_required": false
     }
   ],
-  "summary": "The conversation started with the prospect outlining challenges with legacy tools. Bruce provided a concise demo via Loom. The prospect found it solid but expressed a long evaluation timeline and the need for IT review. After a significant period of inactivity, the prospect informed Bruce that the deal was off, citing the demo's lack of impressiveness to their IT team and their decision to proceed with a competitor. Bruce acknowledged the loss professionally.",
+  "summary": "The conversation initiated with David expressing challenges with siloed legacy tools. Bruce offered a tailored Loom demo, which David initially liked but indicated a lengthy evaluation timeline and a need for IT review. After a significant period of inactivity, David abruptly notified Bruce that the deal was lost due to negative feedback from their IT team regarding the demo and their decision to proceed with a competitor. Bruce acknowledged the loss professionally.",
   "last_activity": "2025-07-17T18:40:38Z",
   "engagement_metrics": {
-    "message_count": 11,
-    "rep_response_time_sec": 155738.14,
+    "message_count": 10,
+    "rep_response_time_sec": 157651.6,
     "objections_raised": 7,
     "followups_committed": 1
   },
   "tags": [
-    "discovery",
     "pain_point",
     "demo_request",
     "demo_delivery",
     "cautious_prospect",
-    "timeline_concern",
+    "timeline_objection",
     "technical_evaluation",
     "competitor_evaluation",
     "long_sales_cycle",
@@ -162,7 +151,7 @@
     "negative_demo_feedback",
     "competitor_won",
     "professional_closure",
-    "long_rep_response_time",
+    "late_response",
     "follow_up_committed"
   ]
 }

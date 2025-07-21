@@ -1,0 +1,159 @@
+{
+  "thread_id": "Data360Integration-Proposal-BruceWayne-DiegoLopez",
+  "channel": {
+    "id": "email_thread_data360_proposal",
+    "name": "Initial Proposal for Data360 Integration",
+    "type": "Email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "diego.lopez.boa2025@gmail.com",
+      "name": "Diego Lopez",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne",
+      "tone": "professional",
+      "action_required": false
+    },
+    {
+      "from": "Diego Lopez",
+      "tone": "professional",
+      "action_required": false
+    }
+  ],
+  "summary": "The email thread details the progress of Data360 integration proposal discussions between Bruce Wayne and Diego Lopez. Diego sought clarifications on technical details and pricing, prompting Bruce to provide itemized breakdowns and confirm inclusions. A follow-up meeting is scheduled for Friday to discuss contract duration and shift future communication to Slack.",
+  "last_activity": "2025-07-07T16:17:20-07:00",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 29.8,
+    "objections_raised": 0,
+    "followups_committed": 3
+  },
+  "tags": [
+    "technical_question",
+    "pricing_discussion",
+    "proposal_discussion",
+    "next_meeting_scheduled",
+    "communication_channel_change",
+    "clarification_needed",
+    "positive_progress"
+  ]
+}

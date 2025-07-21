@@ -1,0 +1,38 @@
+
+  {
+    "prospect_name": "Diego Lopez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "cooperative", "practical", "process-oriented", "detail-oriented"],
+      "communication_style": "direct",
+      "decision_making_style": "consensus-seeking",
+      "objection_style": "indirect",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "progressing", "seeking_clarity", "engaged"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional"
+    },
+    "objections_concerns": {
+      "objection_types": [],
+      "objection_frequency_severity": "low"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "low",
+      "timeline_risk_indicators": "low",
+      "churn_risk_indicators": "low"
+    },
+    "deal_insights": {
+      "key_objections": "none_explicit",
+      "decision_maker_status": "influencer",
+      "urgency_level": "moderate",
+      "competitive_position": "unknown"
+    }
+  }

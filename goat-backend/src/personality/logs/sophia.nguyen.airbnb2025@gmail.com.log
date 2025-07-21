@@ -1,0 +1,39 @@
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Sophia Nguyen",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "proactive", "efficient", "professional", "decisive"],
+      "communication_style": "professional, direct, concise, responsive",
+      "decision_making_style": "fast-mover, consensus-seeking",
+      "objection_style": "direct, collaborative",
+      "role_in_deal": "key influencer/facilitator"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["advancing the deal", "resolving blockers", "seeking clarity", "communicating timeline", "requesting amendments"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "direct, professional, proactive, optimistic, decisive"
+    },
+    "objections_concerns": {
+      "objection_types": ["legal/contractual", "clarity/scope"],
+      "objection_frequency_severity": "low frequency, low severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "concise, direct, structured",
+      "preferred_channel": "slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, proposal review, closing",
+      "budget_risk_indicators": "low",
+      "timeline_risk_indicators": "low",
+      "churn_risk_indicators": "very low"
+    },
+    "deal_insights": {
+      "key_objections": "termination clause wording, implementation support inclusion",
+      "decision_maker_status": "key influencer/facilitator",
+      "urgency_level": "high",
+      "competitive_position": "strong, favorable"
+    }
+  }
+--------------------------------
