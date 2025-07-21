@@ -48,6 +48,7 @@ function Sandbox() {
     setSelectedDeal(deal);
   };
 
+
   // LOADING STATE - matching the layout structure
   if (loading) {
     return (
