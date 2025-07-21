@@ -17,19 +17,31 @@ import {
 import React, { useState } from "react";
 
 // email parameters passed in
-function InsightsCard({ email_contact_address, email_subject, email_body, slack_contact_address, slack_body }) {
+function InsightsCard({
+  email_contact_address,
+  email_subject,
+  email_body,
+  slack_contact_address,
+  slack_body,
+}) {
   // State for editable email body
   const [editableEmailBody, setEditableEmailBody] = useState(email_body || "");
+  const [emailSubject, setEmailSubject] = useState(email_subject || "");
 
   // Handle text field changes
   const handleEmailBodyChange = (event) => {
     setEditableEmailBody(event.target.value);
   };
 
+  const handleEmailSubjectChange = (event) => {
+    setEmailSubject(event.target.value);
+    console.log("Email Subject:", event.target.value);
+  };
+
   const handleSendEmail = async () => {
     console.log("Sending email");
-    console.log("email_subject", email_subject)
-    console.log("editableEmailBody", editableEmailBody)
+    console.log("email_subject", email_subject);
+    console.log("editableEmailBody", editableEmailBody);
     const response = await fetch("http://localhost:3001/email/send", {
       method: "POST",
       headers: {
@@ -38,10 +50,9 @@ function InsightsCard({ email_contact_address, email_subject, email_body, slack_
       body: JSON.stringify({
         email: "olivermajano01@gmail.com",
         subject: email_subject,
-        body:  editableEmailBody,
+        body: editableEmailBody,
       }),
     });
-    
   };
 
   return (
@@ -76,13 +87,32 @@ function InsightsCard({ email_contact_address, email_subject, email_body, slack_
 
         {/* Card Content -> Text Field */}
         <Box className="card-content" sx={{ mb: 3 }}>
+          {/* Email Subject */}
           <TextField
+            variant="outlined"
+            label="Email Subject"
+            value={emailSubject}
+            placeholder="Enter email subject..."
+            fullWidth
+            onChange={handleEmailSubjectChange}
+            sx={{
+              marginBottom: 2.5,
+              width: "100%",
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "background.paper",
+              },
+            }}
+          />
+
+          {/* Email Body */}
+          <TextField
+          label="Email Description"
             multiline
             rows={10}
             variant="outlined"
             value={editableEmailBody}
             onChange={handleEmailBodyChange}
-            placeholder="Email content will appear here..."
+            placeholder="Enter email content..."
             sx={{
               width: "100%",
               "& .MuiOutlinedInput-root": {
@@ -121,8 +151,8 @@ function InsightsCard({ email_contact_address, email_subject, email_body, slack_
             /> */}
           </Box>
           <Box sx={{ display: "flex", gap: 1 }}>
-            <Button 
-              variant="outlined" 
+            <Button
+              variant="outlined"
               size="small"
               onClick={() => setEditableEmailBody(email_body || "")} // Reset to original
             >
