@@ -10,7 +10,7 @@ const FASTAPI_URL = process.env.FASTAPI_URL;
 export const createDeal = async (req, res) => {
   const io = getSocketInstance();
   let dealId = null;
-  
+
   try {
     const {
       company_name,
@@ -100,39 +100,24 @@ export const createDeal = async (req, res) => {
         dealId,
         status: "idle",
       });
-      console.log(
-        `Backend Emitted JobStatusUpdate for deal ${dealId} (idle)`
-      );
+      console.log(`Backend Emitted JobStatusUpdate for deal ${dealId} (idle)`);
     } catch (socketError) {
       console.error("WebSocket emission error:", socketError);
       // Continue processing even if WebSocket fails
     }
 
+    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to refetch a certain deal
+    // io.emit("NewDeal", {
+    //   newDeals: true,
+    // });
+    //
+
     res.status(200).json({ deal, participant, einstein_response });
   } catch (error) {
     console.log("Error creating deal or participant", error);
-    
+
     // Emit error status if dealId exists
-    if (dealId) {
-      try {
-        await prisma.deals.update({
-          where: { id: dealId },
-          data: { job_status: "error" },
-        });
-        
-        io.emit("JobStatusUpdate", {
-          dealId,
-          status: "error",
-          error: error.message,
-        });
-        console.log(
-          `Backend Emitted JobStatusUpdate for deal ${dealId} (error)`
-        );
-      } catch (socketError) {
-        console.error("WebSocket emission error:", socketError);
-      }
-    }
-    
+
     res.status(500).json({ error: error.message });
   }
 };
@@ -604,7 +589,7 @@ export const getAllDeals = async (req, res) => {
 export const updateDeal = async (req, res) => {
   const io = getSocketInstance();
   let dealIdInt = null;
-  
+
   try {
     const { dealId, slack_id, email } = req.body;
 
@@ -688,7 +673,7 @@ export const updateDeal = async (req, res) => {
       console.error("WebSocket emission error:", socketError);
       // Continue processing even if WebSocket fails
     }
-    
+
     // Set Deal Status back to idle
     await prisma.deals.update({
       where: { id: dealIdInt },
@@ -698,30 +683,15 @@ export const updateDeal = async (req, res) => {
       message: "Deal updated successfully",
       einstein_response,
     });
+
+    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to refetch a certain deal
+    // io.emit("NewDeal", {
+    //   newDeals: true,
+    // });
+    //
   } catch (error) {
     console.error("Error updating deal:", error);
-    
-    // Emit error status if dealIdInt exists
-    if (dealIdInt) {
-      try {
-        await prisma.deals.update({
-          where: { id: dealIdInt },
-          data: { job_status: "error" },
-        });
-        
-        io.emit("JobStatusUpdate", {
-          dealId: dealIdInt,
-          status: "error",
-          error: error.message,
-        });
-        console.log(
-          `Backend Emitted JobStatusUpdate for deal ${dealIdInt} (error)`
-        );
-      } catch (socketError) {
-        console.error("WebSocket emission error:", socketError);
-      }
-    }
-    
+
     res.status(500).json({ error: error.message });
   }
 };
