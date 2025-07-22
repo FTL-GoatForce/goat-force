@@ -1,6 +1,7 @@
 import { Box, CircularProgress, Paper, Typography } from "@mui/material";
 import React from "react";
 import Loading from "../ReusableComponents/Loading";
+import { AttachMoney, TrendingUp, Warning } from "@mui/icons-material";
 
 const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
   return (
@@ -31,7 +32,7 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         </Typography>
         {totalCost != 0 ? (
           <Typography variant="h5" color="text.primary" fontWeight={"bold"}>
-            ${parseInt(totalCost)}
+            ${parseInt(totalCost)}{" "}
           </Typography>
         ) : (
           <Loading />
@@ -62,7 +63,8 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
             fontWeight="bold"
             sx={{ color: "error.main" }}
           >
-            {parseInt(dealsAtRisk)} at Risk
+            {parseInt(dealsAtRisk)} at Risk{" "}
+            <Warning sx={{ verticalAlign: "middle", mb: 1 }} />
           </Typography>
         ) : (
           <Loading />
@@ -93,7 +95,8 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
             fontWeight="bold"
             sx={{ color: "success.main" }}
           >
-            {totalDeals} Deals
+            {totalDeals} Deals{" "}
+            <TrendingUp sx={{ verticalAlign: "middle", mb: 0.4 }} />
           </Typography>
         ) : (
           <Loading />
@@ -124,7 +127,7 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
             fontWeight={"bold"}
             sx={{ color: "primary.main" }}
           >
-            ${avgValue}
+            ${avgValue}{" "}
           </Typography>
         ) : (
           <Loading />

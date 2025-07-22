@@ -2,7 +2,15 @@ import express from "express";
 const router = express.Router();
 
 // Import deal controllers
-import { createDeal, getDealDetails, getAllDeals, updateDeal } from "../controllers/deal.js";
+import {
+  createDeal,
+  getDealDetails,
+  getAllDeals,
+  updateDeal,
+  updateJob,
+  getAllJobs,
+} from "../controllers/deal.js";
+
 import prisma from "../db/db.js";
 
 // Simple connection monitoring middleware
@@ -16,7 +24,9 @@ router.use(monitorConnections);
 // Set routes coming after /deal
 router.post("/create", createDeal);
 router.get("/all", getAllDeals);
+router.get("/stats", getAllJobs);
 router.get("/:id", getDealDetails);
 router.put("/update", updateDeal);
+router.put("/jobUpdate/:id", updateJob);
 
 export default router;

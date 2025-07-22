@@ -31,6 +31,7 @@ const Dashboard = () => {
     dealsAtRisk: null,
     avgValue: null,
   });
+  const [globalStats, setGlobalStats] = useState({});
 
   useEffect(() => {
     async function getAllDeals() {
@@ -55,7 +56,7 @@ const Dashboard = () => {
 
     deals?.map((currentDeal) => {
       cost += currentDeal.deal.deal_value;
-      if (currentDeal.risks[0].deal_risk_score > 65) {
+      if (currentDeal.risks[0]?.deal_risk_score > 65) {
         risk += 1;
       }
     });
@@ -101,7 +102,7 @@ const Dashboard = () => {
               maxWidth: "1280px", // Apply max-width to content area
               padding: "24px", // Apply padding to content area
               margin: "0 auto", // Center the content horizontally within its column
-              marginTop: "32px", // Spacing from the CRMHeader
+              marginTop: "10px", // Spacing from the CRMHeader
             }}
           >
             <CRMGraphs deals={deals} /> {/* The graphs component */}
@@ -112,7 +113,11 @@ const Dashboard = () => {
               avgValue={avgValue}
             />{" "}
             {/* The cards component */}
-            <CRMData deals={deals} />{" "}
+            <CRMData
+              deals={deals}
+              globalStats={globalStats}
+              setGlobalStats={setGlobalStats}
+            />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>
         </Box>
