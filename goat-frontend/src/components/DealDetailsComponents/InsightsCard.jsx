@@ -252,7 +252,7 @@ function InsightsCard({
           autoHideDuration={2000}
           onClose={() => setError(false)} // set error back to false when closed
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          message={"Failed to send email. Please try again."}
+          message={"Failed to send message. Please try again."}
           sx={{ transform: "translateX(5px)" }}
         >
           <Alert
@@ -270,7 +270,7 @@ function InsightsCard({
           open={isSending}
           autoHideDuration={10000}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          message={"Sending email..."}
+          message={"Sending message..."}
           onClose={() => setIsSending(false)} // set sending back to false when closed
           sx={{ transform: "translateX(5px)" }}
         >
@@ -280,7 +280,7 @@ function InsightsCard({
             severity="info"
             sx={{ width: "100%" }}
           >
-            Sending email...
+            Sending message...
           </Alert>
         </Snackbar>
 
@@ -290,7 +290,7 @@ function InsightsCard({
           autoHideDuration={2000}
           onClose={() => setSent(false)} // set sent back to false when closed
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          message={"Email sent successfully!"}
+          message={"Message sent successfully!"}
           sx={{ transform: "translateX(5px)" }}
         >
           <Alert
@@ -299,7 +299,7 @@ function InsightsCard({
             severity="success"
             sx={{ width: "100%" }}
           >
-            Email sent successfully!
+            Message sent successfully!
           </Alert>
         </Snackbar>
         {/* Card Header */}
@@ -445,13 +445,13 @@ function InsightsCard({
           {/* Email Body */}
           {method === "email" && (
             <TextField
-              label={editableEmailBody ? "Email Body" : "No email follow-ups currently..."}
+              label={"Email Body" }
               multiline
               rows={10}
               variant="outlined"
               value={editableEmailBody}
               onChange={handleEmailBodyChange}
-              placeholder={isTyping ? "" : "No follow-ups currently..."}
+              placeholder={"Enter email body..."}
               disabled={isTyping}
               sx={{
                 width: "100%",
@@ -466,13 +466,13 @@ function InsightsCard({
         {/* Slack Body */}
         {method === "slack" && (
           <TextField
-            label="Enter Slack Message"
+            label="Slack Body"
             multiline
             rows={10}
             variant="outlined"
             value={slackBody}
             onChange={handleSlackBodyChange}
-            placeholder={isTyping ? "" : "Enter Slack message..."}
+            placeholder={"Enter Slack message..."}
             disabled={isTyping}
             sx={{
               width: "100%",
