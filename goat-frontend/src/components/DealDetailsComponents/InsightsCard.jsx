@@ -9,6 +9,10 @@ import {
   CircularProgress,
   Alert,
   Snackbar,
+  FormControl,
+  Select,
+  MenuItem,
+  Menu,
 } from "@mui/material";
 import {
   AutoAwesome,
@@ -30,11 +34,20 @@ function InsightsCard({
   // State for editable email body
   const [editableEmailBody, setEditableEmailBody] = useState("");
   const [emailSubject, setEmailSubject] = useState("");
+  const [slackBody, setSlackBody] = useState(""); // holds slack body text
   const [isTyping, setIsTyping] = useState(false); // typing animation state
   const [isGenerating, setIsGenerating] = useState(false); // generation state => adds loading spinner + disables buttons
   const [isSending, setIsSending] = useState(false); // sending state (loading spinner)
   const [sent, setSent] = useState(false); // email sent state (confirmation message)
   const [error, setError] = useState(false); // error state for API calls, (email sent error)
+  const [method, setMethod] = useState("email"); // method to send (email or slack) => default is email
+  const [displayMenu, setDisplayMenu] = useState(false); // state to control menu visibility
+
+  // track what content has been generated
+  const [generatedContent, setGeneratedContent] = useState({
+    email: false,
+    slack: false,
+  });
 
   // refs to track if we should continue typing
   const typingIntervalRef = useRef(null);
@@ -66,14 +79,18 @@ function InsightsCard({
 
   // initialize typing animation on component mount
   useEffect(() => {
+    if (generatedContent[method]) {
+      return; // if content already generated, skip typing animation
+    }
+
     const startTypingAnimation = async () => {
-      if (email_subject || email_body) {
+      if (email_subject || email_body || slack_body) {
         setIsGenerating(true);
         setIsTyping(true);
         shouldContinueTyping.current = true;
 
         // type subject first
-        if (email_subject) {
+        if (email_subject && method === "email") {
           await typeText(email_subject, setEmailSubject, 15);
         }
 
@@ -81,9 +98,20 @@ function InsightsCard({
         await new Promise((resolve) => setTimeout(resolve, 300));
 
         // type body after email subject is complete
-        if (email_body) {
+        if (email_body && method === "email") {
           await typeText(email_body, setEditableEmailBody, 15);
         }
+
+        // type slack body if provided, and user selects it => start generating
+        if (slack_body && method === "slack") {
+          await typeText(slack_body, setSlackBody, 15);
+        }
+
+        // Mark this method as generated
+        setGeneratedContent((prev) => ({
+          ...prev,
+          [method]: true,
+        }));
 
         // once finished, reset typing states
         setIsTyping(false);
@@ -100,7 +128,7 @@ function InsightsCard({
         clearInterval(typingIntervalRef.current);
       }
     };
-  }, [email_subject, email_body]);
+  }, [email_subject, email_body, slack_body, method]);
 
   // Handle manual text field changes (overrides typing)
   const handleEmailBodyChange = (event) => {
@@ -112,6 +140,12 @@ function InsightsCard({
   const handleEmailSubjectChange = (event) => {
     shouldContinueTyping.current = false;
     setEmailSubject(event.target.value);
+    setIsTyping(false);
+  };
+
+  const handleSlackBodyChange = (event) => {
+    shouldContinueTyping.current = false;
+    setSlackBody(event.target.value);
     setIsTyping(false);
   };
 
@@ -142,7 +176,10 @@ function InsightsCard({
       setSent(true); // set sent state to true
       console.log("Email sent successfully");
 
-      // 2. reset email body and subject (optional)
+      // 2. reset email body and subject and delete from einstein_response_json
+      setEditableEmailBody(""); // clear email body
+      setEmailSubject(""); // clear email subject
+
       // open modal
     } else {
       // set error state to true, set sending state to false
@@ -151,8 +188,51 @@ function InsightsCard({
     }
   };
 
+  // TODO: handle sending slack message
+  const handleSendSlackMessage = async () => {
+    console.log("Sending Slack message");
+    console.log("slack_body", slackBody);
+    console.log("slack_contact_address", slack_contact_address);
+    setIsSending(true); // set sending state to true, waiting for confirmation
+
+    // const response = await fetch("http://localhost:3001/slack/send",
+
+    // if (response.ok) { update states within } else { set error state to true }
+    if (true) { // TODO: replace with response.ok
+      // 1. sent state true, use sent state to show confirmation modal
+      await new Promise((resolve) => setTimeout(resolve, 3500));
+      setIsSending(false); 
+      setSent(true); 
+      console.log("Slack message sent successfully");
+
+      // 2. reset slack body and delete from einstein_response_json
+      setSlackBody(""); 
+    }
+    else {
+      setIsSending(false);
+      setError(true); 
+      console.error("Failed to send Slack message");
+    }
+  };
+
+  // DISPLAY MENU HANDLERS
+  const handleMenuSelection = (event) => {
+    setDisplayMenu(!displayMenu); // toggle menu visibility
+  };
+
+  const handleMenuClose = () => {
+    setDisplayMenu(false); // close menu
+  };
+
+  const handleMenuItemClick = (method) => {
+    setMethod(method);
+    handleMenuClose();
+  };
+
   return (
     <>
+      {/* NOTIICATIONS */}
+
       {/* Insights card */}
       <Card
         className="insights-card"
@@ -163,6 +243,7 @@ function InsightsCard({
           border: "1px solid",
           borderColor: "divider",
           backgroundColor: "#",
+          height: "623px",
         }}
       >
         {/* ERROR Notification Pop-Up */}
@@ -172,9 +253,10 @@ function InsightsCard({
           onClose={() => setError(false)} // set error back to false when closed
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           message={"Failed to send email. Please try again."}
+          sx={{ transform: "translateX(5px)" }}
         >
           <Alert
-            variant="outlined"
+            variant="filled"
             onClose={() => setError(false)}
             severity="error"
             sx={{ width: "100%" }}
@@ -190,9 +272,10 @@ function InsightsCard({
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           message={"Sending email..."}
           onClose={() => setIsSending(false)} // set sending back to false when closed
+          sx={{ transform: "translateX(5px)" }}
         >
           <Alert
-            variant="outlined"
+            variant="filled"
             onClose={() => setIsSending(false)}
             severity="info"
             sx={{ width: "100%" }}
@@ -208,9 +291,10 @@ function InsightsCard({
           onClose={() => setSent(false)} // set sent back to false when closed
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           message={"Email sent successfully!"}
+          sx={{ transform: "translateX(5px)" }}
         >
           <Alert
-            variant="outlined"
+            variant="filled"
             onClose={() => setSent(false)}
             severity="success"
             sx={{ width: "100%" }}
@@ -220,23 +304,101 @@ function InsightsCard({
         </Snackbar>
         {/* Card Header */}
         <Box className="card-header" sx={{ mb: 3 }}>
-          <CardHeader
-            avatar={<AttachEmail color="primary" />}
-            title={
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                AI Generated Follow-Up
-                {isGenerating && (
-                  <CircularProgress size={16} sx={{ color: "primary.main" }} />
-                )}
-              </Box>
-            }
-            subheader={
-              isGenerating
-                ? "AI is crafting your personalized email..."
-                : "Personalized email draft based on deal context and contact preferences"
-            }
-            sx={{ marginBottom: 1.4 }}
-          />
+          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+            <CardHeader
+              avatar={
+                method === "email" ? (
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
+                    alt="Gmail"
+                    style={{ width: 30, height: 23 }}
+                  />
+                ) : (
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png"
+                    alt="Slack"
+                    style={{ width: 30, height: 30 }}
+                  />
+                )
+              }
+              title={
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  {method === "email" ? (
+                    <Typography variant="body2">
+                      Gmail AI Generated Follow-Up
+                    </Typography>
+                  ) : (
+                    <Typography variant="body2">
+                      Slack AI Generated Follow-Up
+                    </Typography>
+                  )}
+                  {isGenerating && (
+                    <CircularProgress
+                      size={16}
+                      sx={{ color: "primary.main" }}
+                    />
+                  )}
+                </Box>
+              }
+              subheader={
+                isGenerating
+                  ? "AI is crafting your personalized message..."
+                  : method === "email"
+                  ? "Personalized email draft based on deal context and contact preferences"
+                  : "Personalized Slack message draft based on deal context and contact preferences"
+              }
+              sx={{ marginBottom: 1.4 }}
+            />
+            {/* Method Selection Button (Gmail / Slack Styles) */}
+            <Button
+              id="method-selection-button"
+              variant="outlined"
+              size="small"
+              sx={{ height: "38px", width: "100px", marginTop: "10px" }}
+              onClick={handleMenuSelection}
+              color="white"
+            >
+              <img
+                src={
+                  method === "email"
+                    ? "https://cdn.iconscout.com/icon/free/png-256/free-gmail-logo-icon-download-in-svg-png-gif-file-formats--new-google-logos-pack-icons-2476484.png?f=webp"
+                    : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png"
+                }
+                alt={method === "email" ? "Gmail" : "Slack"}
+                style={{ width: 18, height: 18, marginRight: 8 }}
+              />
+              {method === "email" ? "Gmail" : "Slack"}
+            </Button>
+            <Menu
+              anchorEl={document.getElementById("method-selection-button")}
+              anchorOrigin={{
+                vertical: "bottom",
+                // horizontal: "left",
+                horizontal: "left",
+              }}
+              open={displayMenu}
+              onClose={handleMenuClose}
+            >
+              {/* email item: set on click */}
+              <MenuItem onClick={() => handleMenuItemClick("email")}>
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-256/free-gmail-logo-icon-download-in-svg-png-gif-file-formats--new-google-logos-pack-icons-2476484.png?f=webp"
+                  alt="Gmail"
+                  style={{ width: 18, height: 18, marginRight: 8 }}
+                />
+                <Typography variant="body2"> Gmail </Typography>
+              </MenuItem>
+              {/* slack item: set on click */}
+              <MenuItem onClick={() => handleMenuItemClick("slack")}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png"
+                  alt="Slack"
+                  style={{ width: 18, height: 18, marginRight: 8 }}
+                />
+                <Typography variant="body2"> Slack </Typography>
+              </MenuItem>
+            </Menu>
+          </Box>
           <Chip
             label={isGenerating ? "Generating..." : "Smart Draft"}
             size="small"
@@ -254,39 +416,63 @@ function InsightsCard({
 
         <Box className="card-content" sx={{ mb: 3 }}>
           {/* Email Subject */}
-          <TextField
-            variant="outlined"
-            label="Email Subject"
-            value={emailSubject}
-            placeholder={isTyping ? "" : "Enter email subject..."}
-            fullWidth
-            onChange={handleEmailSubjectChange}
-            disabled={isTyping}
-            sx={{
-              marginBottom: 2.5,
-              width: "100%",
-              "& .MuiOutlinedInput-root": {
-                backgroundColor: "background.paper",
-                ...(isTyping && {
-                  "&::after": {
-                    content: '"|"',
-                    animation: "blink 1s infinite",
-                    marginLeft: "2px",
-                  },
-                }),
-              },
-            }}
-          />
+          {method === "email" && (
+            <TextField
+              variant="outlined"
+              label="Email Subject"
+              value={emailSubject}
+              placeholder={isTyping ? "" : "Enter email subject..."}
+              fullWidth
+              onChange={handleEmailSubjectChange}
+              disabled={isTyping}
+              sx={{
+                marginBottom: 2.5,
+                width: "100%",
+                "& .MuiOutlinedInput-root": {
+                  backgroundColor: "background.paper",
+                  ...(isTyping && {
+                    "&::after": {
+                      content: '"|"',
+                      animation: "blink 1s infinite",
+                      marginLeft: "2px",
+                    },
+                  }),
+                },
+              }}
+            />
+          )}
 
           {/* Email Body */}
+          {method === "email" && (
+            <TextField
+              label={editableEmailBody ? "Email Body" : "No email follow-ups currently..."}
+              multiline
+              rows={10}
+              variant="outlined"
+              value={editableEmailBody}
+              onChange={handleEmailBodyChange}
+              placeholder={isTyping ? "" : "No follow-ups currently..."}
+              disabled={isTyping}
+              sx={{
+                width: "100%",
+                "& .MuiOutlinedInput-root": {
+                  backgroundColor: "background.paper",
+                },
+              }}
+            />
+          )}
+        </Box>
+
+        {/* Slack Body */}
+        {method === "slack" && (
           <TextField
-            label="Email Description"
+            label="Enter Slack Message"
             multiline
             rows={10}
             variant="outlined"
-            value={editableEmailBody}
-            onChange={handleEmailBodyChange}
-            placeholder={isTyping ? "" : "Enter email content..."}
+            value={slackBody}
+            onChange={handleSlackBodyChange}
+            placeholder={isTyping ? "" : "Enter Slack message..."}
             disabled={isTyping}
             sx={{
               width: "100%",
@@ -294,8 +480,8 @@ function InsightsCard({
                 backgroundColor: "background.paper",
               },
             }}
-          />
-        </Box>
+          ></TextField>
+        )}
 
         {/* Footer with tone indicator and buttons */}
         <Box
@@ -307,6 +493,10 @@ function InsightsCard({
             pt: 2,
             borderTop: "1px solid",
             borderColor: "divider",
+            position: "absolute",
+            bottom: "20px",
+            left: "20px",
+            right: "20px",
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}></Box>
@@ -321,7 +511,9 @@ function InsightsCard({
             <Button
               variant="contained"
               size="small"
-              onClick={handleSendEmail}
+              onClick={
+                method === "email" ? handleSendEmail : handleSendSlackMessage
+              } // depending on the method, call the appropriate function
               disabled={isGenerating || isSending}
             >
               Send Follow Up
