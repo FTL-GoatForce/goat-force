@@ -20,12 +20,30 @@ import slackGif from "../../assets/slack.gif";
 import gmailGif from "../../assets/gmail.gif";
 import geminiGif from "../../assets/gemini.gif";
 import einsteinGif from "../../assets/einstein.gif";
+import socket from "../../web_socket/socket";
 
 const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   const navigate = useNavigate();
   const [loadingStates, setLoadingStates] = useState({});
   const [loadingIcons, setLoadingIcons] = useState({});
   const [transitionStates, setTransitionStates] = useState({});
+
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("WebSocket connected");
+    });
+    socket.on("JobStatusUpdate", (data) => {
+      console.log("JobStatusUpdate received:", data);
+      setGlobalStats((prev) => ({
+        ...prev,
+        [data.dealId]: data.status,
+      }));
+    });
+    return () => {
+      socket.off("connect");
+      socket.off("JobStatusUpdate");
+    };
+  }, []);
 
   function setClosedDeals() {
     // Logic to filter and set closed deals
@@ -35,20 +53,20 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   }
 
   // Immediate fetch on component mount --- comment out if going back to old version
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const res = await axios.get("http://localhost:3000/deal/stats");
-        const stats = Object.fromEntries(
-          res.data.map((d) => [d.id, d.job_status])
-        );
-        setGlobalStats(stats);
-      } catch (e) {
-        console.error("Error fetching global stats:", e);
-      }
-    };
-    fetchStats();
-  }, []);
+  // useEffect(() => {
+  //   const fetchStats = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:3000/deal/stats");
+  //       const stats = Object.fromEntries(
+  //         res.data.map((d) => [d.id, d.job_status])
+  //       );
+  //       setGlobalStats(stats);
+  //     } catch (e) {
+  //       console.error("Error fetching global stats:", e);
+  //     }
+  //   };
+  //   fetchStats();
+  // }, []);
 
   // Polling every 10 seconds to check for processing status
   // useEffect(() => {
@@ -85,13 +103,13 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
 
   async function refreshInsights(deal_id, slack_id, email) {
     // Start Comment out if going back to old version
-    await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
-      job_status: "processing",
-    });
-    const response = await axios.get(`http://localhost:3000/deal/stats`);
-    setGlobalStats(
-      Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
-    );
+    // await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
+    //   job_status: "processing",
+    // });
+    // const response = await axios.get(`http://localhost:3000/deal/stats`);
+    // setGlobalStats(
+    //   Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
+    // );
     // Finish commenting out
 
     // Set loading state for this specific deal
@@ -130,13 +148,13 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
       clearInterval(interval);
 
       // Start Comment out if going back to old version
-      await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
-        job_status: "idle",
-      });
-      const statsResponse = await axios.get(`http://localhost:3000/deal/stats`);
-      setGlobalStats(
-        Object.fromEntries(statsResponse.data.map((d) => [d.id, d.job_status]))
-      );
+      // await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
+      //   job_status: "idle",
+      // });
+      // const statsResponse = await axios.get(`http://localhost:3000/deal/stats`);
+      // setGlobalStats(
+      //   Object.fromEntries(statsResponse.data.map((d) => [d.id, d.job_status]))
+      // );
       // Finish commenting out
 
       // Clear loading states

@@ -5,7 +5,7 @@
     "id": "U094K124HS7",
     "name": "Bruce"
   },
-  "last_activity_timestamp": "2025-07-17T18:40:38Z",
+  "last_activity_timestamp": "2025-07-19T21:30:38.498Z",
   "deal_stage": "closed_lost",
   "deal_value_usd": 0,
   "expected_close_date": null,
@@ -26,7 +26,7 @@
     "Competitive_Position": "behind"
   },
   "ACTIVITY_ANALYSIS": {
-    "message_count": 10,
+    "message_count": 12,
     "prospect_response_time_sec": 0,
     "engagement_trend": "declining",
     "last_touch_channel": "slack",
@@ -34,12 +34,12 @@
   },
   "TIMELINE": [
     {
-      "event_date": "2025-07-17",
+      "event_date": "2025-07-19",
       "event_description": "The deal was called off by the prospect.",
       "event_type": "Deal Lost"
     },
     {
-      "event_date": "2025-07-06",
+      "event_date": "2025-07-09",
       "event_description": "A demo was provided to the prospect.",
       "event_type": "Demo Provided"
     },
@@ -51,10 +51,7 @@
   ],
   "AI_GENERATED_SUMMARY": "The sales rep, Bruce, conducted initial discovery with the prospect, David, regarding multi-org support. After providing a customized Loom demo, the prospect expressed initial positive feedback but indicated a long evaluation timeline and the need to loop in IT. Ultimately, the deal was lost as the prospect found the demo unimpressive and chose to proceed with a competitor.",
   "RECOMMENDATIONS": {
-    "Next_Steps": [
-      "Consider reaching out to the prospect for future opportunities.",
-      "Gather feedback on the demo to improve future presentations."
-    ],
+    "Next_Steps": ["Consider reaching out to the prospect for future opportunities.", "Gather feedback on the demo to improve future presentations."],
     "Escalation_Triggers": "If the prospect shows interest in re-engaging or provides feedback on the demo.",
     "Deal_Acceleration_Tactics": "Offer personalized demos or additional resources to address specific concerns raised by the prospect."
   },
@@ -83,20 +80,5 @@
       "communication_score": 80
     }
   ],
-  "TAGS": [
-    "pain_point",
-    "demo_request",
-    "demo_delivery",
-    "cautious_prospect",
-    "timeline_objection",
-    "technical_evaluation",
-    "competitor_evaluation",
-    "long_sales_cycle",
-    "deal_lost",
-    "negative_demo_feedback",
-    "competitor_won",
-    "professional_closure",
-    "late_response",
-    "follow_up_committed"
-  ]
+  "TAGS": ["pain_point", "demo_request", "demo_delivery", "cautious_prospect", "timeline_objection", "technical_evaluation", "competitor_evaluation", "long_sales_cycle", "deal_lost", "negative_demo_feedback", "competitor_won", "professional_closure", "late_response", "follow_up_committed"]
 }

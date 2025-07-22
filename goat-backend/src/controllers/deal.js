@@ -1,12 +1,16 @@
 // Controller Imports
 import dotenv from "dotenv";
 import { getLastUpdatedAt } from "../utils/getLastUpdatedAt.js";
+import { getSocketInstance } from "../web_socket/socket.js";
 import redis from "../utils/redis.js";
 import prisma from "../db/db.js";
 dotenv.config();
 const FASTAPI_URL = process.env.FASTAPI_URL;
 
 export const createDeal = async (req, res) => {
+  const io = getSocketInstance();
+  let dealId = null;
+  
   try {
     const {
       company_name,
@@ -29,7 +33,22 @@ export const createDeal = async (req, res) => {
         job_status: "processing",
       },
     });
-    const dealId = deal.id;
+    dealId = deal.id;
+
+    // Emit event to WebSocket clients | Deal is processing
+    try {
+      io.emit("JobStatusUpdate", {
+        dealId,
+        status: "processing",
+      });
+      console.log(
+        `Backend Emitted JobStatusUpdate for deal ${dealId} (processing)`
+      );
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
+    }
+
     const { prospect_name, email, slack_id, phone_number } = req.body;
     const participant = await prisma.participants.create({
       data: {
@@ -74,9 +93,46 @@ export const createDeal = async (req, res) => {
       where: { id: dealId },
       data: { job_status: "idle" },
     });
+
+    // Emit event to WebSocket clients that the Deal is idle
+    try {
+      io.emit("JobStatusUpdate", {
+        dealId,
+        status: "idle",
+      });
+      console.log(
+        `Backend Emitted JobStatusUpdate for deal ${dealId} (idle)`
+      );
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
+    }
+
     res.status(200).json({ deal, participant, einstein_response });
   } catch (error) {
     console.log("Error creating deal or participant", error);
+    
+    // Emit error status if dealId exists
+    if (dealId) {
+      try {
+        await prisma.deals.update({
+          where: { id: dealId },
+          data: { job_status: "error" },
+        });
+        
+        io.emit("JobStatusUpdate", {
+          dealId,
+          status: "error",
+          error: error.message,
+        });
+        console.log(
+          `Backend Emitted JobStatusUpdate for deal ${dealId} (error)`
+        );
+      } catch (socketError) {
+        console.error("WebSocket emission error:", socketError);
+      }
+    }
+    
     res.status(500).json({ error: error.message });
   }
 };
@@ -546,11 +602,14 @@ export const getAllDeals = async (req, res) => {
 };
 
 export const updateDeal = async (req, res) => {
+  const io = getSocketInstance();
+  let dealIdInt = null;
+  
   try {
     const { dealId, slack_id, email } = req.body;
 
     // Convert dealId to integer for database operations
-    const dealIdInt = parseInt(dealId);
+    dealIdInt = parseInt(dealId);
 
     if (isNaN(dealIdInt)) {
       throw new Error(`Invalid deal ID: ${dealId}`);
@@ -568,9 +627,23 @@ export const updateDeal = async (req, res) => {
     const participant_id = participant.id;
     // Set Deal to loading
     await prisma.deals.update({
-      where: { id: dealId },
+      where: { id: dealIdInt },
       data: { job_status: "processing" },
     });
+
+    // Send a socket update saying the deal is now processing
+    try {
+      io.emit("JobStatusUpdate", {
+        dealId: dealIdInt,
+        status: "processing",
+      });
+      console.log(
+        `Backend Emitted JobStatusUpdate for deal ${dealIdInt} (processing)`
+      );
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
+    }
 
     const run_pipeline = await fetch(`${FASTAPI_URL}/run`, {
       method: "POST",
@@ -601,9 +674,24 @@ export const updateDeal = async (req, res) => {
       email,
       einstein_data
     );
+
+    // Send a socket update saying the deal is now back to idle
+    try {
+      io.emit("JobStatusUpdate", {
+        dealId: dealIdInt,
+        status: "idle",
+      });
+      console.log(
+        `Backend Emitted JobStatusUpdate for deal ${dealIdInt} (idle)`
+      );
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
+    }
+    
     // Set Deal Status back to idle
     await prisma.deals.update({
-      where: { id: dealId },
+      where: { id: dealIdInt },
       data: { job_status: "idle" },
     });
     res.status(200).json({
@@ -612,6 +700,28 @@ export const updateDeal = async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating deal:", error);
+    
+    // Emit error status if dealIdInt exists
+    if (dealIdInt) {
+      try {
+        await prisma.deals.update({
+          where: { id: dealIdInt },
+          data: { job_status: "error" },
+        });
+        
+        io.emit("JobStatusUpdate", {
+          dealId: dealIdInt,
+          status: "error",
+          error: error.message,
+        });
+        console.log(
+          `Backend Emitted JobStatusUpdate for deal ${dealIdInt} (error)`
+        );
+      } catch (socketError) {
+        console.error("WebSocket emission error:", socketError);
+      }
+    }
+    
     res.status(500).json({ error: error.message });
   }
 };

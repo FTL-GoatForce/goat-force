@@ -1,0 +1,38 @@
+
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "skeptical", "pragmatic", "cost-sensitive"],
+      "communication_style": "direct",
+      "decision_making_style": "budget-driven",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raising objections", "negotiating", "setting requirements", "setting budget", "stalling"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, blunt, dismissive"
+    },
+    "objections_concerns": {
+      "objection_types": ["budget", "value", "competitor comparison", "timeline", "implementation complexity"],
+      "objection_frequency_severity": "very frequent and high severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high (quick replies to raise concerns), low (for complex solutions)",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/re-evaluation, stalled",
+      "budget_risk_indicators": "very high (explicit $90K cap, strong resistance to price)",
+      "timeline_risk_indicators": "high (no time for long rollout, wants out-of-the-box)",
+      "churn_risk_indicators": "high (mentioned other vendors, deal paused, contingent on leadership interest)"
+    },
+    "deal_insights": {
+      "key_objections": "price (too high, over $90K cap), perceived lack of immediate value/fit, desire for out-of-the-box solution, competition",
+      "decision_maker_status": "influencer/gatekeeper (ultimate decision rests with leadership)",
+      "urgency_level": "low (for complex solutions), low (deal paused)",
+      "competitive_position": "unfavorable (explicitly stated 'priciest' and considering other vendors)"
+    }
+  }

@@ -20,7 +20,7 @@
   "messages": [
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly \u2014 sounds like you&#39;re tackling some ambitious transformation goals. I&#39;d love to learn more about how your team currently",
+      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly \n\n\n sounds like you're tackling some ambitious transformation goals. I'd love to learn more about how your team currently",
       "timestamp": "2025-07-07T14:55:37-07:00",
       "sentiment": "positive",
       "tone": "professional, inquisitive",
@@ -30,7 +30,7 @@
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we&#39;re still early \u2014 mostly internal discussions and mapping out requirements. I",
+      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we're still early \n\n\n mostly internal discussions and mapping out requirements. I",
       "timestamp": "2025-07-07T15:01:12-07:00",
       "sentiment": "neutral",
       "tone": "professional, cautious",
@@ -42,7 +42,7 @@
     },
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Thanks, David \u2014 early is often the best time to get involved. Yes, we&#39;ve worked with distributed teams in logistics and supply chain \u2014 UPS, DHL, and others. I&#39;d be happy to tailor the",
+      "text": "Thanks, David \n\n\n early is often the best time to get involved. Yes, we've worked with distributed teams in logistics and supply chain \n\n\n UPS, DHL, and others. I'd be happy to tailor the",
       "timestamp": "2025-07-07T15:20:51-07:00",
       "sentiment": "positive",
       "tone": "professional, encouraging",
@@ -52,7 +52,7 @@
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Tuesday 11 am works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That&#39;s been a sticking point for us with",
+      "text": "Tuesday 11 am works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That's been a sticking point for us with",
       "timestamp": "2025-07-07T15:21:16-07:00",
       "sentiment": "positive",
       "tone": "direct, professional",
@@ -64,7 +64,7 @@
     },
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units \u2014 particularly helpful for teams like yours that manage both B2B and",
+      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units \n\n\n particularly helpful for teams like yours that manage both B2B and",
       "timestamp": "2025-07-07T15:21:42-07:00",
       "sentiment": "positive",
       "tone": "professional, efficient",
@@ -74,7 +74,7 @@
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Thanks Bruce \u2014 got the doc. Some good points in there. Let&#39;s cover ease of integration on the Slack. That&#39;s another area where we&#39;ve hit snags in the past. Looking forward to learning more.",
+      "text": "Thanks Bruce \n\n\n got the doc. Some good points in there. Let's cover ease of integration on the Slack. That's another area where we've hit snags in the past. Looking forward to learning more.",
       "timestamp": "2025-07-07T15:22:08-07:00",
       "sentiment": "positive",
       "tone": "professional, engaged, appreciative",
