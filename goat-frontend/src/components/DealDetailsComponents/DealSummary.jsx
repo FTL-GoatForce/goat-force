@@ -70,7 +70,8 @@ function DealSummary({
               >
                 Value
               </Typography>
-              <Typography variant="subtitle1" sx={{ color: "#49DE80" }}>
+              {/* if deal value > 100k, color is green, if from 50k to 100k, color is yellow, else color is red */}
+              <Typography variant="subtitle1"  sx={{ color: value > 100000 ? "success.main" : value > 50000 ? "warning.main" : "error.main" }}>
                 {value}
               </Typography>
             </Grid>
@@ -84,14 +85,15 @@ function DealSummary({
               >
                 Stage
               </Typography>
+              {/* if deal stage is "closed_lost" => error.main, if "closed_won" => success.main if "start" warning.main, if "proposal", warning.main */}
               <Chip
-                label={stage}
+                label={stage === "closed_lost" ? "Closed Lost" : stage === "closed_won" ? "Closed Won" : stage.charAt(0).toUpperCase() + stage.slice(1)}
                 size="small"
                 sx={{
-                  backgroundColor: "primary",
-                  fontWeight: "medium",
+                  backgroundColor: stage === "closed_lost" ? "error.main" : stage === "closed_won" ? "success.main" : "info.main",
+                  fontWeight: "bold",
                 }}
-              />{" "}
+              />
             </Grid>
             <Grid size={3}>
               <Typography
@@ -117,7 +119,8 @@ function DealSummary({
               >
                 Days Left
               </Typography>
-              <Typography variant="subtitle1" color="orange">
+              {/* if days left < 10 days => red, less than 30 < yellow, over 30, green */}
+              <Typography variant="subtitle1" sx={daysLeft < 10 ? {color: "error.main"} : daysLeft < 30 ? {color: "warning.main"} : {color: "success.main"}}>
                 {daysLeft} 
               </Typography>
             </Grid>

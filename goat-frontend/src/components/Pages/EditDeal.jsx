@@ -19,30 +19,6 @@ import {
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 
-// maybe in different files? => deal info, contact info, additional info
-const mockData = {
-  deal: {
-    deal_id: 12,
-    deal_name: "Big Deal",
-    client_company: "Tech Corp",
-    deal_stage: "Negotiation",
-    deal_value_usd: "$100,000",
-    deal_description: "Negotiating terms for a large software contract",
-    expected_close_date: "2024-12-31",
-  },
-
-  primary_contact: {
-    name: "John Doe",
-    email: "test@gmail.com",
-    slack: "@johndoe",
-    phone: "+1234567890",
-  },
-  additional_info: {
-    product: "Software License",
-    contract_term: "1 year",
-    tags: "high-value",
-  },
-};
 
 // style for modal pop-up component
 const style = {
@@ -59,26 +35,22 @@ const style = {
   padding: 4,
 };
 
-// edit deal page modal pop-up when edit button is clicked
-function EditDeal({ deal_id }) {
-  // TODO: could fetch deal data using deal_id, or pass it down from parent component once 'edit' is clicked
-  // the modal should already be pre-populated with the deal data
+// selected deal passed in already
+function EditDeal({ deal }) {
 
   // single state to hold all form data
   const [formData, setFormData] = useState({
-    companyName: mockData.deal.client_company,
-    dealName: mockData.deal.deal_name,
-    dealValue: mockData.deal.deal_value_usd,
-    dealStage: mockData.deal.deal_stage,
-    dealDescription: mockData.deal.deal_description,
-    contactName: mockData.primary_contact.name,
-    contactEmail: mockData.primary_contact.email,
-    contactSlack: mockData.primary_contact.slack,
-    contactPhone: mockData.primary_contact.phone,
-    product: mockData.additional_info.product,
-    contractTerm: mockData.additional_info.contract_term,
-    tags: mockData.additional_info.tags,
-    closedDate: mockData.deal.expected_close_date,
+    company_name: deal.deal.company_name || "",
+    deal_name: deal.deal.deal_name || "",
+    deal_value: deal.deal.deal_value || "",
+    deal_description: deal.deal.deal_description || "",
+    service_category: deal.deal.service_category || "",
+    contract_term_length: deal.deal.contract_term_length || "",
+    expected_close_date: deal.deal.expected_close_date || "",
+    prospect_name: deal.participants[0].prospect_name || "",
+    email: deal.participants[0].email || "",
+    slack_id: deal.participants[0].slack_id || "",
+    phone_number: deal.participants[0].phone_number || "", // <-- in this format 831-512-2453
   });
 
   // generic handler for all form fields
@@ -98,6 +70,18 @@ function EditDeal({ deal_id }) {
   const handleClose = () => {
     setOpenModal(false);
   };
+
+  // update deal logic
+  const handleUpdateDeal = async () => {
+
+    // 1. TODO: Axios PUT Request to update the deal
+    console.log("Deal updated with data:", formData);
+    //     await axios.put(`${baseServer}update/${deal.id}`, formData);
+
+
+    // 2. Close the modal after updating
+    handleClose();
+  }
 
   return (
     <>
@@ -184,9 +168,9 @@ function EditDeal({ deal_id }) {
                         Company Name
                       </Typography>
                       <TextField
-                        value={formData.companyName}
+                        value={formData.company_name}
                         onChange={(e) =>
-                          handleInputChange("companyName", e.target.value)
+                          handleInputChange("company_name", e.target.value)
                         }
                         variant="outlined"
                         size="small"
@@ -201,9 +185,9 @@ function EditDeal({ deal_id }) {
                         Deal Name
                       </Typography>
                       <TextField
-                        value={formData.dealName}
+                        value={formData.deal_name}
                         onChange={(e) =>
-                          handleInputChange("dealName", e.target.value)
+                          handleInputChange("deal_name", e.target.value)
                         }
                         variant="outlined"
                         size="small"
@@ -221,9 +205,9 @@ function EditDeal({ deal_id }) {
                         Value
                       </Typography>
                       <TextField
-                        value={formData.dealValue}
+                        value={formData.deal_value}
                         onChange={(e) =>
-                          handleInputChange("dealValue", e.target.value)
+                          handleInputChange("deal_value", e.target.value)
                         }
                         variant="outlined"
                         size="small"
@@ -237,11 +221,12 @@ function EditDeal({ deal_id }) {
                       >
                         Stage
                       </Typography>
+                      {/* TODO: no deal stage */}
                       <TextField
-                        value={formData.dealStage}
-                        onChange={(e) =>
-                          handleInputChange("dealStage", e.target.value)
-                        }
+                        value={""}
+                        // onChange={(e) =>
+                        //   handleInputChange("deal_stage", e.target.value)
+                        // }
                         variant="outlined"
                         size="small"
                       />
@@ -257,9 +242,9 @@ function EditDeal({ deal_id }) {
                       Description
                     </Typography>
                     <TextField
-                      value={formData.dealDescription}
+                      value={formData.deal_description}
                       onChange={(e) =>
-                        handleInputChange("dealDescription", e.target.value)
+                        handleInputChange("deal_description", e.target.value)
                       }
                       multiline
                       fullWidth
@@ -306,9 +291,9 @@ function EditDeal({ deal_id }) {
                       Contact Name
                     </Typography>
                     <TextField
-                      value={formData.contactName}
+                      value={formData.prospect_name}
                       onChange={(e) =>
-                        handleInputChange("contactName", e.target.value)
+                        handleInputChange("prospect_name", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -323,9 +308,9 @@ function EditDeal({ deal_id }) {
                       Contact Email
                     </Typography>
                     <TextField
-                      value={formData.contactEmail}
+                      value={formData.email}
                       onChange={(e) =>
-                        handleInputChange("contactEmail", e.target.value)
+                        handleInputChange("email", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -340,9 +325,9 @@ function EditDeal({ deal_id }) {
                       Contact Slack
                     </Typography>
                     <TextField
-                      value={formData.contactSlack}
+                      value={formData.slack_id}
                       onChange={(e) =>
-                        handleInputChange("contactSlack", e.target.value)
+                        handleInputChange("slack_id", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -358,9 +343,9 @@ function EditDeal({ deal_id }) {
                       Contact Number
                     </Typography>
                     <TextField
-                      value={formData.contactPhone}
+                      value={formData.phone_number}
                       onChange={(e) =>
-                        handleInputChange("contactPhone", e.target.value)
+                        handleInputChange("phone_number", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -408,10 +393,11 @@ function EditDeal({ deal_id }) {
                       Product/Service
                     </Typography>
                     <TextField
-                      value={formData.product}
-                      onChange={(e) =>
-                        handleInputChange("product", e.target.value)
-                      }
+                    // TODO: no product/service
+                      value={""}
+                      // onChange={(e) =>
+                      //   handleInputChange("product", e.target.value)
+                      // }
                       variant="outlined"
                       size="small"
                     />
@@ -425,9 +411,9 @@ function EditDeal({ deal_id }) {
                       Contract Term
                     </Typography>
                     <TextField
-                      value={formData.contractTerm}
+                      value={formData.contract_term_length}
                       onChange={(e) =>
-                        handleInputChange("contractTerm", e.target.value)
+                        handleInputChange("contract_term_length", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -442,10 +428,11 @@ function EditDeal({ deal_id }) {
                       Tag(s)
                     </Typography>
                     <TextField
-                      value={formData.tags}
-                      onChange={(e) =>
-                        handleInputChange("tags", e.target.value)
-                      }
+                    // TODO: no tags
+                      value={""}
+                      // onChange={(e) =>
+                      //   handleInputChange("tags", e.target.value)
+                      // }
                       variant="outlined"
                       size="small"
                     />
@@ -459,9 +446,9 @@ function EditDeal({ deal_id }) {
                       EST Closed Date
                     </Typography>
                     <TextField
-                      value={formData.closedDate}
+                      value={formData.expected_close_date}
                       onChange={(e) =>
-                        handleInputChange("closedDate", e.target.value)
+                        handleInputChange("expected_close_date", e.target.value)
                       }
                       variant="outlined"
                       size="small"
@@ -474,7 +461,7 @@ function EditDeal({ deal_id }) {
           <Box>
             <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
               {/* TODO: actually update deal once complete */}
-              <Button size="small" variant="contained">
+              <Button size="small" variant="contained" onClick={handleUpdateDeal}>
                 {" "}
                 Update Deal{" "}
               </Button>

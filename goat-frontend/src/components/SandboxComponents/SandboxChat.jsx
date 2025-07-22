@@ -52,7 +52,6 @@ function SandboxChat({ selectedDeal, deals }) {
     }
   };
 
-  // TODO: pass to parent sandbox to reset chat once new selected deal is chosen
   const handleChatReset = () => {
     setMessages([]); // clear messages
     setPrompt(""); // clear input field
