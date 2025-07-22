@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Box, Button, Typography, Chip, TextField } from "@mui/material";
 import CRMChatbotTextEntry from "../CRMComponents/CRMChatbotTextEntry";
 import { useState } from "react";
@@ -6,6 +6,7 @@ import CRMAiEntry from "../CRMComponents/CRMAiEntry";
 import { m } from "motion/react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import ShinyText from "../ReusableComponents/Shiny";
 
 function SandboxChat({ selectedDeal, deals }) {
   const [prompt, setPrompt] = useState(""); // holds the user's input on the chat box
@@ -58,6 +59,11 @@ function SandboxChat({ selectedDeal, deals }) {
     setError(false); // reset error state
   };
 
+  // selectedDeal is updated, reset chat
+  useEffect(() => {
+    handleChatReset();
+  }, [selectedDeal]);
+
   return (
     <Box
       marginTop={2}
@@ -77,6 +83,16 @@ function SandboxChat({ selectedDeal, deals }) {
           overflow={"auto"}
           maxHeight={"900px"}
         >
+          {/* Chat Header */}
+          <Box>
+            <CRMAiEntry
+              sender={"Ai"}
+              context={
+                `Hi, I am ${selectedDeal.participants[0].prospect_name}. Practice preparing for a call with me!`
+              }
+            />
+          </Box>
+
           {/* Displaying the messages object: {context: prompt (user input), sender: "User"} */}
           {messages.map((message, index) => {
             if (message.sender === "User") {

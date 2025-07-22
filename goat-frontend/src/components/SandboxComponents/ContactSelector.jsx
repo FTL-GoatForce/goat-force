@@ -4,7 +4,7 @@ import AttachMoney from "@mui/icons-material/AttachMoney";
 import { useState, useEffect } from "react";
 
 function ContactSelector({ deals, onDealClick, selectedDeal }) {
-  const [filteredDeals, setFilteredDeals] = useState(deals); // state to hold filtered deals
+  const [filteredDeals, setFilteredDeals] = useState(deals); // state to hold filtered deals, will be updated on search
   const [searchTerm, setSearchTerm] = useState(""); // state to hold search input
   const [isSearching, setIsSearching] = useState(false); // state to track if searching is active
 
