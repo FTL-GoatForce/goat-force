@@ -1,10 +1,76 @@
 import React from "react";
-import { Box, Typography, Paper } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { LineChart } from "@mui/x-charts/LineChart";
+import {
+  Paper,
+  Box,
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Typography,
+  Chip,
+  Button,
+} from "@mui/material";
+import AutoAwesomeTwoToneIcon from "@mui/icons-material/AutoAwesomeTwoTone";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useState } from "react";
 
-function CRMGraphs() {
+function CRMGraphs({ deals }) {
+  const [insightNumber, setInsightNumber] = useState(0);
+  function handleRefresh() {
+    setInsightNumber((prev) => (prev + 1) % 3);
+  }
+  if (!deals) {
+    return (
+      <Box
+        sx={{
+          padding: "24px",
+          mb: 5,
+          backgroundColor: "background.paper",
+          border: "1px solid",
+          borderColor: "divider",
+          boxShadow: 5,
+          borderRadius: 2,
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        {/* <Box> */}
+        <Skeleton
+          height={300}
+          width={"50%"}
+          style={{ marginBottom: 12 }}
+          baseColor={"#020617"}
+          highlightColor={"#06b6d4"}
+        />
+        {/* </Box> */}
+        <Box>
+          <Skeleton
+            height={300}
+            width={"50%"}
+            style={{ marginBottom: 12 }}
+            baseColor={"#020617"}
+            highlightColor="#06b6d4"
+          />
+        </Box>
+      </Box>
+    );
+  }
+  // 💬 Objections Count Line Chart Data
+  const objectionData = deals.map((deal) => ({
+    label: deal.deal.deal_name,
+    value: deal.dealInsights?.[0]?.key_objections?.length || 0,
+  }));
+
+  const avgObjectionCount = Math.round(
+    objectionData.reduce((acc, obj) => acc + obj.value, 0) /
+      objectionData.length
+  );
   return (
     <>
       {/* Graphs Container, holds both graphs */}
@@ -17,69 +83,7 @@ function CRMGraphs() {
           gap: "16px",
         }}
       >
-        {/* 1. Sales Overview Pie Chart */}
-        <Box
-          sx={{
-            padding: 2,
-            boxShadow: 5,
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: "divider",
-            backgroundColor: "background.paper",
-            flex: 1,
-          }}
-        >
-          {/* Container for content */}
-          <Box display="flex" flexDirection="row" height="100%">
-            {/* Card Header */}
-            <Box ml={1}>
-              <Typography
-                variant="h6"
-                sx={{ fontSize: 18, color: "text.primary", fontWeight: "bold" }}
-              >
-                Total Sales
-              </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ color: "text.secondary", fontSize: "12px" }}
-              >
-                Accumulated Earnings
-              </Typography>
-              <Typography
-                variant="h4"
-                sx={{ color: "success.main", marginTop: 2, fontWeight: "bold" }}
-              >
-                $125,000
-              </Typography>
-            </Box>
-            {/* Pie Chart */}
-            <Box flex={1} display="flex" justifyContent="center">
-              <PieChart
-                colors={["#f87171", "#576CFF", "#06b6d4"]} // Use palette
-                series={[
-                  {
-                    // TODO: Will dynamically generate pie chart data from our database
-                    // data: salesData.map((item, index) => ({ id: index, value: item.value, label: item.label })),
-                    data: [
-                      { id: 0, value: 100000, label: "Apple" },
-                      { id: 1, value: 15000, label: "Nike" },
-                      { id: 2, value: 20000, label: "Fedex" },
-                    ],
-                    innerRadius: 50,
-                    outerRadius: 110,
-                    paddingAngle: 3,
-                    cornerRadius: 8,
-                    arcLabel: (item) => `$${(item.value / 1000).toFixed(0)}k`, // Format as money
-                  },
-                ]}
-                width={300}
-                height={300}
-              />
-            </Box>
-          </Box>
-        </Box>
-
-        {/* 2. Sales Trend Line Chart */}
+        {/* Objection Bar Chart */}
         <Box
           sx={{
             padding: 2,
@@ -92,81 +96,191 @@ function CRMGraphs() {
           }}
         >
           <Box display="flex" flexDirection="column" height="100%">
-            {/* Chart Header */}
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"space-between"}
-            >
-              <Box mb={1} display={"flex"} flexDirection="column">
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontSize: 18,
-                    color: "text.primary",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Sales Trend
-                </Typography>
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: "text.secondary", fontSize: "12px" }}
-                >
-                  Monthly Performance
-                </Typography>
-              </Box>
-              {/* Monthly % (sales curr month / prev month * 100) */}
+            <Box ml={1}>
               <Typography
-                fontSize={17}
-                fontWeight={"bold"}
-                color="success.main"
+                variant="h6"
+                sx={{ fontSize: 18, color: "text.primary", fontWeight: "bold" }}
               >
-                {" "}
-                +15%{" "}
+                Objection Trend
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                sx={{ color: "text.secondary", fontSize: "12px" }}
+              >
+                Number of Key Objections per Deal
+              </Typography>
+              <Typography
+                variant="h2"
+                sx={{
+                  color: "#44c7efcc",
+                  marginTop: 2,
+                  fontSize: "1.2rem",
+                }}
+              >
+                Average Objections: {avgObjectionCount}
               </Typography>
             </Box>
 
-            {/* Line Chart */}
-            <Box flex={1} display="flex" alignItems="center">
-              <LineChart
+            {/* Bar Chart */}
+            <Box
+              flex={1}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <BarChart
                 xAxis={[
                   {
-                    data: [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "August",
-                    ],
-                    scaleType: "point",
-                  },
-                ]}
-                yAxis={[
-                  {
-                    valueFormatter: (value) => `$${value / 1000}k`,
+                    scaleType: "band",
+                    data: objectionData.map((d) => d.label),
+                    categoryGapRatio: 0.4,
                   },
                 ]}
                 series={[
                   {
-                    data: [
-                      100000, 170000, 150000, 130000, 170000, 150000, 220000,
-                      250000,
-                    ],
-                    area: true,
-                    color: "#08A4C3",
-                    showMark: false,
+                    data: objectionData.map((d) => d.value),
+                    label: "Objections",
+                    color: "#44c7efcc",
                   },
                 ]}
                 width={500}
-                height={220}
-                margin={{ left: 40, right: 20, top: 20, bottom: 40 }}
+                height={290}
+                grid={{ vertical: true, horizontal: true }}
               />
             </Box>
           </Box>
+        </Box>
+
+        {/* Daily Tasks*/}
+        <Box
+          sx={{
+            boxShadow: 5,
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: "divider",
+            backgroundColor: "background.paper",
+            flex: 1,
+          }}
+        >
+          <TableContainer
+            sx={{
+              // border: "1px solid",
+              // borderColor: "divider",
+              borderRadius: 2,
+              "&::-webkit-scrollbar": {
+                display: "none", // Chrome, Safari, Edge
+              },
+              overflowY: "scroll", // Enable vertical scrolling
+            }}
+          >
+            <Table sx={{ minWidth: 600 }} aria-label="simple table">
+              {/* Add your table rows and cells here */}
+              <TableHead>
+                <TableRow>
+                  <TableCell
+                    sx={{
+                      borderBottom: "none",
+                      fontWeight: "bold",
+                      fontSize: "1.1rem",
+                      color: "text.main",
+                      p: 0.5,
+                      pt: 2.3,
+                      pl: 2,
+                      m: 0,
+                    }}
+                  >
+                    Daily Tasks{" "}
+                    <AutoAwesomeTwoToneIcon
+                      sx={{ verticalAlign: "middle", color: "gradient.main" }}
+                    />
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      borderBottom: "none",
+                      align: "right",
+                      width: "100px",
+                      p: 0.5,
+                      pt: 1.5,
+                    }}
+                  >
+                    <Button
+                      sx={{ position: "relative" }}
+                      onClick={handleRefresh}
+                      variant="contained"
+                    >
+                      Refresh
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody sx={{ borderColor: "divider" }}>
+                {deals.map((deal) => {
+                  return (
+                    <TableRow key={deal.deal.id}>
+                      <TableCell
+                        sx={{
+                          height: "30px",
+                          //   borderBottom: "none",
+                          borderColor: "divider",
+                          color: "text.primary",
+                        }}
+                      >
+                        <Box sx={{ display: "flex", flexDirection: "row" }}>
+                          <Typography
+                            sx={{ fontSize: ".9rem", fontWeight: "bold" }}
+                          >
+                            {deal.deal.deal_name}{" "}
+                          </Typography>
+                          <Chip
+                            // if deal value > 100k, color is green, if from 50k to 100k, color is yellow, else color is red
+                            label={
+                              parseInt(deal.risks[0].deal_risk_score) <= 35
+                                ? "Low Risk"
+                                : parseInt(deal.risks[0].deal_risk_score) <= 65
+                                ? "Medium Risk"
+                                : "High Risk"
+                            }
+                            size="small"
+                            sx={{
+                              ml: 1,
+                              backgroundColor:
+                                parseInt(deal.risks[0].deal_risk_score) <= 35
+                                  ? "rgba(76, 175, 80, 0.1)"
+                                  : parseInt(deal.risks[0].deal_risk_score) <=
+                                    65
+                                  ? "rgba(255, 152, 0, 0.1)"
+                                  : "rgba(211, 47, 47, 0.1)",
+                              color:
+                                parseInt(deal.risks[0].deal_risk_score) <= 35
+                                  ? "success.main"
+                                  : parseInt(deal.risks[0].deal_risk_score) <=
+                                    65
+                                  ? "warning.main"
+                                  : "error.main",
+                              fontWeight: "medium",
+                              marginRight: 2,
+                              border:
+                                parseInt(deal.risks[0].deal_risk_score) <= 35
+                                  ? "1px solid rgba(76, 175, 80, 0.2)"
+                                  : parseInt(deal.risks[0].deal_risk_score) <=
+                                    65
+                                  ? "1px solid rgba(255, 152, 0, 0.2)"
+                                  : "1px solid rgba(211, 47, 47, 0.2)",
+                            }}
+                          />
+                        </Box>
+                        <Typography color="text.secondary">
+                          {deal.aiRecommendation[0].next_steps[insightNumber]
+                            ? deal.aiRecommendation[0].next_steps[insightNumber]
+                            : "No Recommendation"}
+                        </Typography>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Box>
       </Box>
     </>

@@ -25,7 +25,6 @@ const Dashboard = () => {
   const [pipeline, setPipeline] = useState(null);
   const [dealsAtRisk, setDealAtRisk] = useState(null);
   const [avgValue, setAvgValue] = useState(null);
-  const [refresh, setRefresh] = useState(null);
   const [cardData, setCardData] = useState({
     pipeline: null,
     totalDeals: null,
@@ -46,23 +45,6 @@ const Dashboard = () => {
     }
     getAllDeals();
   }, []);
-
-  useEffect(() => {
-    async function getAllDeals() {
-      try {
-        const response = await axios.get("http://localhost:3000/deal/all");
-        setDeals(response.data.deals);
-        setTotalDeals(response.data.totalDeals);
-        // Reset refresh state after fetching data
-        if (refresh) {
-          setRefresh(false);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getAllDeals();
-  }, [refresh]);
 
   useEffect(() => {
     generateCardData();
@@ -120,7 +102,7 @@ const Dashboard = () => {
               maxWidth: "1280px", // Apply max-width to content area
               padding: "24px", // Apply padding to content area
               margin: "0 auto", // Center the content horizontally within its column
-              marginTop: "32px", // Spacing from the CRMHeader
+              marginTop: "10px", // Spacing from the CRMHeader
             }}
           >
             <CRMGraphs deals={deals} /> {/* The graphs component */}
@@ -135,8 +117,6 @@ const Dashboard = () => {
               deals={deals}
               globalStats={globalStats}
               setGlobalStats={setGlobalStats}
-              refresh={refresh}
-              setRefresh={setRefresh}
             />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>
