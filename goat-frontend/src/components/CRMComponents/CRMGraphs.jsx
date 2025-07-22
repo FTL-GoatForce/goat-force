@@ -241,46 +241,65 @@ function CRMGraphs({ deals }) {
                           >
                             {deal.deal.deal_name}{" "}
                           </Typography>
-                          <Chip
-                            // if deal value > 100k, color is green, if from 50k to 100k, color is yellow, else color is red
-                            label={
-                              parseInt(deal.risks[0].deal_risk_score) <= 35
-                                ? "Low Risk"
-                                : parseInt(deal.risks[0].deal_risk_score) <= 65
-                                ? "Medium Risk"
-                                : "High Risk"
-                            }
-                            size="small"
-                            sx={{
-                              ml: 1,
-                              backgroundColor:
+                          {deal.risks && deal.risks.length > 0 ? (
+                            <Chip
+                              label={
                                 parseInt(deal.risks[0].deal_risk_score) <= 35
-                                  ? "rgba(76, 175, 80, 0.1)"
+                                  ? "Low Risk"
                                   : parseInt(deal.risks[0].deal_risk_score) <=
                                     65
-                                  ? "rgba(255, 152, 0, 0.1)"
-                                  : "rgba(211, 47, 47, 0.1)",
-                              color:
-                                parseInt(deal.risks[0].deal_risk_score) <= 35
-                                  ? "success.main"
-                                  : parseInt(deal.risks[0].deal_risk_score) <=
-                                    65
-                                  ? "warning.main"
-                                  : "error.main",
-                              fontWeight: "medium",
-                              marginRight: 2,
-                              border:
-                                parseInt(deal.risks[0].deal_risk_score) <= 35
-                                  ? "1px solid rgba(76, 175, 80, 0.2)"
-                                  : parseInt(deal.risks[0].deal_risk_score) <=
-                                    65
-                                  ? "1px solid rgba(255, 152, 0, 0.2)"
-                                  : "1px solid rgba(211, 47, 47, 0.2)",
-                            }}
-                          />
+                                  ? "Medium Risk"
+                                  : "High Risk"
+                              }
+                              size="small"
+                              sx={{
+                                ml: 1,
+                                backgroundColor:
+                                  parseInt(deal.risks[0].deal_risk_score) <= 35
+                                    ? "rgba(76, 175, 80, 0.1)"
+                                    : parseInt(deal.risks[0].deal_risk_score) <=
+                                      65
+                                    ? "rgba(255, 152, 0, 0.1)"
+                                    : "rgba(211, 47, 47, 0.1)",
+                                color:
+                                  parseInt(deal.risks[0].deal_risk_score) <= 35
+                                    ? "success.main"
+                                    : parseInt(deal.risks[0].deal_risk_score) <=
+                                      65
+                                    ? "warning.main"
+                                    : "error.main",
+                                fontWeight: "medium",
+                                marginRight: 2,
+                                border:
+                                  parseInt(deal.risks[0].deal_risk_score) <= 35
+                                    ? "1px solid rgba(76, 175, 80, 0.2)"
+                                    : parseInt(deal.risks[0].deal_risk_score) <=
+                                      65
+                                    ? "1px solid rgba(255, 152, 0, 0.2)"
+                                    : "1px solid rgba(211, 47, 47, 0.2)",
+                              }}
+                            />
+                          ) : (
+                            <Chip
+                              label="No Risk Score"
+                              size="small"
+                              sx={{
+                                ml: 1,
+                                backgroundColor: "grey.100",
+                                color: "grey.700",
+                                fontWeight: "medium",
+                                marginRight: 2,
+                                border: "1px solid grey",
+                              }}
+                            />
+                          )}
                         </Box>
                         <Typography color="text.secondary">
-                          {deal.aiRecommendation[0].next_steps[insightNumber]
+                          {deal.aiRecommendation &&
+                          deal.aiRecommendation.length > 0 &&
+                          deal.aiRecommendation[0].next_steps &&
+                          deal.aiRecommendation[0].next_steps.length >
+                            insightNumber
                             ? deal.aiRecommendation[0].next_steps[insightNumber]
                             : "No Recommendation"}
                         </Typography>

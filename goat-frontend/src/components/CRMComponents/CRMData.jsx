@@ -5,7 +5,6 @@ import {
   TextField,
   Button,
   Typography,
-  CircularProgress,
   IconButton,
   Tooltip,
 } from "@mui/material";
@@ -16,16 +15,53 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Info, Refresh } from "@mui/icons-material";
 import axios from "axios";
-import slackGif from "../../assets/slack.gif";
-import gmailGif from "../../assets/gmail.gif";
-import geminiGif from "../../assets/gemini.gif";
-import einsteinGif from "../../assets/einstein.gif";
+import socket from "../../web_socket/socket";
+import DealLoading from "../ReusableComponents/DealLoading";
 
 const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   const navigate = useNavigate();
-  const [loadingStates, setLoadingStates] = useState({});
-  const [loadingIcons, setLoadingIcons] = useState({});
-  const [transitionStates, setTransitionStates] = useState({});
+
+  useEffect(() => {
+    // Fetch initial job status data
+    axios
+      .get("http://localhost:3000/deal/stats")
+      .then((response) => {
+        const stats = Object.fromEntries(
+          response.data.map((d) => [d.id, d.job_status])
+        );
+        setGlobalStats(stats);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch initial stats:", error);
+      });
+
+    // Connect WebSocket if not already connected
+    if (!socket.connected) {
+      socket.connect();
+    }
+
+    // Handle a JobStatusUpdate emit from websocket
+    const handleJobStatusUpdate = (data) => {
+      console.log("JobStatusUpdate received:", data);
+      setGlobalStats((prev) => ({
+        ...prev,
+        [data.dealId]: data.status,
+      }));
+    };
+    // event listener waiting for socket to be live
+    socket.on("connect", () => {
+      console.log("WebSocket connected");
+    });
+
+    // event listener waiting for socket to emit JobStatusUpdate
+    socket.on("JobStatusUpdate", handleJobStatusUpdate);
+
+    //  When we naviagte off we're removing socket event listeners
+    return () => {
+      socket.off("connect");
+      socket.off("JobStatusUpdate", handleJobStatusUpdate);
+    };
+  }, []);
 
   function setClosedDeals() {
     // Logic to filter and set closed deals
@@ -34,87 +70,7 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
     // Logic to filter and set open deals
   }
 
-  // Immediate fetch on component mount --- comment out if going back to old version
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const res = await axios.get("http://localhost:3000/deal/stats");
-        const stats = Object.fromEntries(
-          res.data.map((d) => [d.id, d.job_status])
-        );
-        setGlobalStats(stats);
-      } catch (e) {
-        console.error("Error fetching global stats:", e);
-      }
-    };
-    fetchStats();
-  }, []);
-
-  // Polling every 10 seconds to check for processing status
-  // useEffect(() => {
-  //   let interval = null;
-
-  //   const fetchStats = async () => {
-  //     const res = await axios.get("http://localhost:3000/deal/stats");
-  //     const stats = Object.fromEntries(
-  //       res.data.map((d) => [d.id, d.job_status])
-  //     );
-
-  //     setGlobalStats(stats);
-
-  //     const anyProcessing = Object.values(stats).includes("processing");
-  //     if (!anyProcessing && interval) {
-  //       clearInterval(interval);
-  //     }
-  //   };
-
-  //   interval = setInterval(fetchStats, 10000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [globalStats]);
-
-  // GIFs for rotating loading animation
-  const loadingSequence = [
-    { name: "Slack", gif: slackGif, color: "#4A154B" },
-    { name: "Gmail", gif: gmailGif, color: "#EA4335" },
-    { name: "Gemini", gif: geminiGif, color: "#4285F4" },
-    { name: "Einstein", gif: einsteinGif, color: "#FF6B35" },
-  ];
-
   async function refreshInsights(deal_id, slack_id, email) {
-    // Start Comment out if going back to old version
-    await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
-      job_status: "processing",
-    });
-    const response = await axios.get(`http://localhost:3000/deal/stats`);
-    setGlobalStats(
-      Object.fromEntries(response.data.map((d) => [d.id, d.job_status]))
-    );
-    // Finish commenting out
-
-    // Set loading state for this specific deal
-    setLoadingStates((prev) => ({ ...prev, [deal_id]: true }));
-    setLoadingIcons((prev) => ({ ...prev, [deal_id]: 0 })); // Start with first icon
-    setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
-
-    // Start rotating loading animation
-    const interval = setInterval(() => {
-      setTransitionStates((prev) => ({ ...prev, [deal_id]: true }));
-
-      // After transition completes, switch to next GIF
-      setTimeout(() => {
-        setLoadingIcons((prev) => {
-          const currentIndex = prev[deal_id] || 0;
-          const nextIndex = (currentIndex + 1) % loadingSequence.length;
-          return { ...prev, [deal_id]: nextIndex };
-        });
-        // Reset transition state
-        setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
-      }, 800); // Wait for transition to complete
-    }, 5000); // Rotate every 5 seconds
-
     try {
       console.log(deal_id, slack_id, email);
       const response = await axios.put(`http://localhost:3000/deal/update`, {
@@ -125,24 +81,6 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
       console.log("Insights update response:", response);
     } catch (error) {
       console.error("Error refreshing insights:", error);
-    } finally {
-      // Clear loading state and stop animation
-      clearInterval(interval);
-
-      // Start Comment out if going back to old version
-      await axios.put(`http://localhost:3000/deal/jobUpdate/${deal_id}`, {
-        job_status: "idle",
-      });
-      const statsResponse = await axios.get(`http://localhost:3000/deal/stats`);
-      setGlobalStats(
-        Object.fromEntries(statsResponse.data.map((d) => [d.id, d.job_status]))
-      );
-      // Finish commenting out
-
-      // Clear loading states
-      setLoadingStates((prev) => ({ ...prev, [deal_id]: false }));
-      setLoadingIcons((prev) => ({ ...prev, [deal_id]: 0 }));
-      setTransitionStates((prev) => ({ ...prev, [deal_id]: false }));
     }
   }
 
@@ -277,48 +215,7 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
         {/* Table Rows - Example Data */}
         {deals.map((currentDeal, index) =>
           (globalStats[currentDeal.deal.id] ?? "idle") !== "idle" ? (
-            // Loading state - show centered loading with gif
-            <Box
-              key={index}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingY: "8px",
-                borderBottom: "1px solid",
-                borderColor: "divider",
-                minHeight: "50px",
-              }}
-            >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Typography
-                  variant="h6"
-                  color="text.primary"
-                  sx={{ fontSize: "1.2rem", fontWeight: "bold" }}
-                >
-                  Gathering latest insights on {currentDeal.deal.deal_name}...
-                </Typography>
-                <img
-                  src={
-                    loadingSequence[loadingIcons[currentDeal.deal.id] || 0]
-                      ?.gif || slackGif
-                  }
-                  alt="Loading"
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    borderRadius: "8px",
-                    transition: transitionStates[currentDeal.deal.id]
-                      ? "all 0.8s ease-in-out"
-                      : "all 0.3s ease",
-                    transform: transitionStates[currentDeal.deal.id]
-                      ? `rotate(720deg) scale(0.8)`
-                      : `rotate(0deg) scale(1)`,
-                    opacity: transitionStates[currentDeal.deal.id] ? 0 : 1,
-                  }}
-                />
-              </Box>
-            </Box>
+            <DealLoading dealName={currentDeal.deal.deal_name} />
           ) : (
             // Normal row when not loading
             <Box

@@ -15,11 +15,6 @@
       "id": "U094K124HS7",
       "name": "Bruce",
       "role": "rep"
-    },
-    {
-      "id": "U094SLLCY4C",
-      "name": "David",
-      "role": "prospect"
     }
   ],
   "messages": [
@@ -41,7 +36,7 @@
       "tone": "clarifying",
       "objections": [],
       "intent": "qualify_needs",
-      "action_required": false
+      "action_required": true
     },
     {
       "from": "David",
@@ -49,8 +44,11 @@
       "timestamp": "2025-07-09T14:42:19.589Z",
       "sentiment": "negative",
       "tone": "candid",
-      "objections": ["siloed solution concern"],
-      "intent": "state problem",
+      "objections": [
+        "siloed solution concern",
+        "legacy tools problem"
+      ],
+      "intent": "state_problem",
       "action_required": false
     },
     {
@@ -60,7 +58,7 @@
       "sentiment": "positive",
       "tone": "proactive",
       "objections": [],
-      "intent": "propose solution",
+      "intent": "propose_solution",
       "action_required": true
     },
     {
@@ -69,8 +67,11 @@
       "timestamp": "2025-07-09T14:42:32.500Z",
       "sentiment": "neutral",
       "tone": "cautious",
-      "objections": ["not ready for full pitch", "evaluating other options"],
-      "intent": "qualify request",
+      "objections": [
+        "not ready for full pitch",
+        "evaluating other options"
+      ],
+      "intent": "qualify_request",
       "action_required": true
     },
     {
@@ -80,7 +81,7 @@
       "sentiment": "positive",
       "tone": "agreeable",
       "objections": [],
-      "intent": "provide solution",
+      "intent": "provide_solution",
       "action_required": true
     },
     {
@@ -89,8 +90,11 @@
       "timestamp": "2025-07-09T14:42:44.848Z",
       "sentiment": "neutral",
       "tone": "informative",
-      "objections": ["long evaluation timeline", "technical validation needed"],
-      "intent": "provide update",
+      "objections": [
+        "long evaluation timeline",
+        "technical validation needed"
+      ],
+      "intent": "provide_update",
       "action_required": true
     },
     {
@@ -100,7 +104,7 @@
       "sentiment": "neutral",
       "tone": "patient",
       "objections": [],
-      "intent": "maintain engagement",
+      "intent": "maintain_engagement",
       "action_required": false
     },
     {
@@ -110,7 +114,7 @@
       "sentiment": "positive",
       "tone": "appreciative",
       "objections": [],
-      "intent": "build rapport",
+      "intent": "build_rapport",
       "action_required": false
     },
     {
@@ -129,7 +133,10 @@
       "timestamp": "2025-07-19T20:15:00.915Z",
       "sentiment": "negative",
       "tone": "direct",
-      "objections": ["internal_decision", "product_feature"],
+      "objections": [
+        "internal_decision",
+        "product_feature"
+      ],
       "intent": "reject",
       "action_required": true
     },
@@ -144,26 +151,30 @@
       "action_required": false
     }
   ],
-  "summary": "The conversation began with the prospect, David, outlining complex multi-regional needs and a desire to avoid siloed solutions. The sales rep, Bruce, provided a loom demo, which David initially found solid, indicating an August timeline for vendor evaluation. However, after a significant period of inactivity, David informed Bruce that the deal was lost because an internal stakeholder deemed the demo unimpressive, and they decided to proceed with a competitor.",
+  "summary": "The conversation began with the prospect, David, outlining complex multi-regional needs and pain points with legacy tools and siloed solutions. The sales rep, Bruce, provided a loom demo, which David initially found solid, while noting they are evaluating vendors through August and require IT's technical validation. Bruce maintained a patient approach, offering to stay engaged. However, after a significant period of inactivity, David informed Bruce that the deal was lost because an internal IT stakeholder (Priya) deemed the demo unimpressive, leading them to proceed with a competitor.",
   "last_activity": "2025-07-19T21:30:38.498Z",
   "engagement_metrics": {
     "message_count": 12,
-    "rep_response_time_sec": 155963.339,
-    "objections_raised": 4,
+    "rep_response_time_sec": 128917.949,
+    "objections_raised": 8,
     "followups_committed": 2
   },
   "tags": [
-    "unified_reporting",
     "multi_region_support",
+    "unified_reporting",
     "data_silos",
+    "legacy_systems",
     "loom_demo",
-    "early_stage_evaluation",
-    "timeline_delay",
-    "no_pressure_approach",
-    "long_response_time",
+    "vendor_evaluation",
+    "long_sales_cycle",
+    "technical_objection",
+    "internal_stakeholder_influence",
     "deal_lost",
-    "internal_rejection",
-    "product_objection",
-    "competitor_lost"
+    "competitor_lost",
+    "poor_demo_feedback",
+    "long_response_time",
+    "no_pressure_approach",
+    "negative_sentiment_at_closure",
+    "unimpressed_stakeholder"
   ]
 }

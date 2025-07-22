@@ -1,0 +1,38 @@
+
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "price-sensitive", "pragmatic", "skeptical", "decisive", "results-oriented"],
+      "communication_style": "direct",
+      "decision_making_style": "pragmatic",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set limit", "stall"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "competitor comparison", "timeline", "budget"],
+      "objection_frequency_severity": "very frequent and high severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "high",
+      "timeline_risk_indicators": "high",
+      "churn_risk_indicators": "high"
+    },
+    "deal_insights": {
+      "key_objections": "price, perceived value, immediate implementation requirement",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "weak"
+    }
+  }
