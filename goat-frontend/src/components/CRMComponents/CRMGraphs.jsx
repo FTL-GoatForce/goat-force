@@ -25,36 +25,46 @@ function CRMGraphs({ deals }) {
   function handleRefresh() {
     setInsightNumber((prev) => (prev + 1) % 3);
   }
-  if (!deals) {
+  if (!deals || deals.length === 0) {
     return (
-      <Box
-        sx={{
-          padding: "24px",
-          mb: 5,
-          backgroundColor: "background.paper",
-          border: "1px solid",
-          borderColor: "divider",
-          boxShadow: 5,
-          borderRadius: 2,
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        {/* <Box> */}
-        <Skeleton
-          height={300}
-          width={"50%"}
-          style={{ marginBottom: 12 }}
-          baseColor={"#020617"}
-          highlightColor={"#06b6d4"}
-        />
-        {/* </Box> */}
-        <Box>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box
+          sx={{
+            padding: "24px",
+            mb: 5,
+            backgroundColor: "background.paper",
+            border: "1px solid",
+            borderColor: "divider",
+            boxShadow: 5,
+            width: "50%",
+            borderRadius: 2,
+          }}
+        >
           <Skeleton
+            variant="rectangular"
             height={300}
-            width={"50%"}
-            style={{ marginBottom: 12 }}
-            baseColor={"#020617"}
+            width="100%"
+            baseColor="#020617"
+            highlightColor="#06b6d4"
+          />
+        </Box>
+        <Box
+          sx={{
+            padding: "24px",
+            mb: 5,
+            backgroundColor: "background.paper",
+            border: "1px solid",
+            borderColor: "divider",
+            boxShadow: 5,
+            borderRadius: 2,
+            width: "50%",
+          }}
+        >
+          <Skeleton
+            variant="rectangular"
+            height={300}
+            width="100%"
+            baseColor="#020617"
             highlightColor="#06b6d4"
           />
         </Box>

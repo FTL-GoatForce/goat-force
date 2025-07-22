@@ -5,7 +5,6 @@ import { ArrowBack } from "@mui/icons-material";
 
 function DealDetailsHeader({ deal_name, risk_score }) {
   const navigate = useNavigate();
-  console.log(risk_score);
 
   return (
     <>
@@ -50,10 +49,10 @@ function DealDetailsHeader({ deal_name, risk_score }) {
             sx={{
               backgroundColor:
                 parseInt(risk_score) <= 35
-                  ? "rgba(76, 175, 80, 0.1)" 
+                  ? "rgba(76, 175, 80, 0.1)"
                   : parseInt(risk_score) <= 65
-                  ? "rgba(255, 152, 0, 0.1)" 
-                  : "rgba(211, 47, 47, 0.1)", 
+                  ? "rgba(255, 152, 0, 0.1)"
+                  : "rgba(211, 47, 47, 0.1)",
               color:
                 parseInt(risk_score) <= 35
                   ? "success.main"
@@ -64,10 +63,10 @@ function DealDetailsHeader({ deal_name, risk_score }) {
               marginRight: 2,
               border:
                 parseInt(risk_score) <= 35
-                  ? "1px solid rgba(76, 175, 80, 0.2)" 
+                  ? "1px solid rgba(76, 175, 80, 0.2)"
                   : parseInt(risk_score) <= 65
-                  ? "1px solid rgba(255, 152, 0, 0.2)" 
-                  : "1px solid rgba(211, 47, 47, 0.2)", 
+                  ? "1px solid rgba(255, 152, 0, 0.2)"
+                  : "1px solid rgba(211, 47, 47, 0.2)",
             }}
           />
         </div>

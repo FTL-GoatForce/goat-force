@@ -185,7 +185,6 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Overview");
                 setActiveItem("Overview");
                 navigate("/dashboard"); // navigate to the overview page
               }}
@@ -231,7 +230,6 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Sandbox");
                 setActiveItem("Sandbox");
                 navigate("/sandbox"); // navigate to the sandbox page
               }}
@@ -277,7 +275,6 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Deals");
                 setActiveItem("Deals");
               }}
             >
@@ -322,7 +319,6 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Contacts");
                 setActiveItem("Contacts");
               }}
             >
@@ -377,7 +373,6 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                console.log("Navigate to Settings");
                 setActiveItem("Settings");
               }}
             >
