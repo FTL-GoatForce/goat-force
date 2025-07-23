@@ -7,12 +7,17 @@ import { m } from "motion/react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import ShinyText from "../ReusableComponents/Shiny";
+import axios from "axios";
 
 function SandboxChat({ selectedDeal, deals }) {
+  const SandboxServer = import.meta.env.VITE_SANDBOX_MODE;
   const [prompt, setPrompt] = useState(""); // holds the user's input on the chat box
   const [messages, setMessages] = useState([]); // holds the chat messages
   const [error, setError] = useState(false); // holds any error messages
   const [loading, setLoading] = useState(false); // loading state for the AI response
+  const [participant, setParticipant] = useState(
+    selectedDeal.participants[0].prospect_name || "Emily Johnson"
+  );
 
   // display user message / ai response
   const handleSend = async () => {
@@ -29,10 +34,13 @@ function SandboxChat({ selectedDeal, deals }) {
 
     try {
       setLoading(true);
-      // AI API call to get the response
-      // const aiResponse = await axios.post()
-      const aiResponse =
-        "This is a mock AI response based on the prompt: " + currentPrompt; // Mock response for demonstration
+      const response = await axios.post(SandboxServer, {
+        message: prompt,
+        participant: participant || "Emily Johnson",
+        chatHistory: [],
+      });
+
+      const aiResponse = response.data.response;
 
       // use updatedMessages array instead of the old messages state (async state update)
       setMessages([...updatedMessages, { context: aiResponse, sender: "Ai" }]);
@@ -56,6 +64,9 @@ function SandboxChat({ selectedDeal, deals }) {
     setMessages([]); // clear messages
     setPrompt(""); // clear input field
     setError(false); // reset error state
+    setParticipant(selectedDeal.participants[0].prospect_name);
+    console.log(participant);
+    console.log(selectedDeal.participants[0].prospect_name);
   };
 
   // selectedDeal is updated, reset chat
@@ -86,9 +97,7 @@ function SandboxChat({ selectedDeal, deals }) {
           <Box>
             <CRMAiEntry
               sender={"Ai"}
-              context={
-                `Hi, I am ${selectedDeal.participants[0].prospect_name}. Practice preparing for a call with me!`
-              }
+              context={`Hi, I am ${selectedDeal.participants[0].prospect_name}. Practice preparing for a call with me!`}
             />
           </Box>
 
