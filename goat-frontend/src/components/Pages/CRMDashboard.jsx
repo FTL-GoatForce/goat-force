@@ -56,6 +56,7 @@ const Dashboard = () => {
     // connect to socket
     if (!socket.connected) {
       socket.connect();
+      console.log("socket connect to dash");
     }
     const handleDealUpdate = (data) => {
       console.log("Updated Deal fields received from frontend");

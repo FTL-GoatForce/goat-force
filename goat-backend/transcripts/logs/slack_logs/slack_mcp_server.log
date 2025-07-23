@@ -1176,3 +1176,36 @@ Structured Response: {
   "tags": ["no_data_available", "channel_empty_or_unsupported"]
 }
 --------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {"thread_id": "D096QPA7FV4", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_available", "channel_empty_or_unsupported"]}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {"thread_id": "D096QPA7FV4", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_available", "channel_empty_or_unsupported"]}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "D096QPA7FV4",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_available",
+    "channel_empty_or_unsupported"
+  ]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {"thread_id": "D096QPA7FV4", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_available", "channel_empty_or_unsupported"]}
+--------------------------------
