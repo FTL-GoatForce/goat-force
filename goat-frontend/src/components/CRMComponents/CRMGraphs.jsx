@@ -217,10 +217,11 @@ function CRMGraphs({ deals }) {
                     <Button
                       sx={{
                         position: "relative",
-                        background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
+                        background:
+                          "linear-gradient(135deg, #3ae4edff, #2886d9ff)",
                         "&:hover": {
                           background:
-                            "linear-gradient(135deg, #7c3aed, #6d28d9)",
+                            "linear-gradient(135deg, #0e3975ff, #252e7bff)",
                         },
                       }}
                       onClick={handleRefresh}

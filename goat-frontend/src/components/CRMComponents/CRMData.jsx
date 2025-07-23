@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Paper,
   Box,
@@ -20,7 +19,6 @@ import DealLoading from "../ReusableComponents/DealLoading";
 
 const CRMData = ({ deals, globalStats, setGlobalStats }) => {
   const navigate = useNavigate();
-
   useEffect(() => {
     // Fetch initial job status data
     axios
