@@ -232,7 +232,10 @@ const CRMData = ({
         {/* Table Rows - Example Data */}
         {deals.map((currentDeal, index) =>
           (globalStats[currentDeal.deal.id] ?? "idle") !== "idle" ? (
-            <DealLoading dealName={currentDeal.deal.deal_name} />
+            <DealLoading
+              dealName={currentDeal.deal.deal_name}
+              key={currentDeal.deal.id}
+            />
           ) : (
             // Normal row when not loading
             <Box

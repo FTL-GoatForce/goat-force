@@ -17,6 +17,9 @@ import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import Sandbox from "./Sandbox";
 import axios from "axios";
+import socket from "../../web_socket/socket";
+import { Sledding } from "@mui/icons-material";
+import { connect } from "socket.io-client";
 
 const Dashboard = () => {
   const [originalDeals, setOriginalDeals] = useState(null);
@@ -47,6 +50,34 @@ const Dashboard = () => {
       }
     }
     getAllDeals();
+  }, []);
+  //  Hearing for new deal updates
+  useEffect(() => {
+    // connect to socket
+    if (!socket.connected) {
+      socket.connect();
+    }
+    const handleDealUpdate = (data) => {
+      console.log("Updated Deal fields received from frontend");
+      // update our deals to show this new deal
+      setDeals((prev) =>
+        prev.map((deal) => (deal.deal.id == data.dealId ? data.deal : deal))
+      );
+      // update our og deals to show this in case user filters after
+      setOriginalDeals((prev) =>
+        prev.map((deal) => (deal.deal.id == data.dealId ? data.deal : deal))
+      );
+    };
+
+    socket.on("connect", () => console.log("WebSocket Connected to dashboard"));
+
+    socket.on("NewDealUpdate", handleDealUpdate);
+
+    // when we navigate off close our socket ports
+    return () => {
+      socket.off("connect");
+      socket.off("NewDealUpdate", handleDealUpdate);
+    };
   }, []);
   useEffect(() => {
     generateCardData();
