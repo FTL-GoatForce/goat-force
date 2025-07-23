@@ -34,32 +34,7 @@ const Dashboard = () => {
   });
   const [globalStats, setGlobalStats] = useState({});
   const [filter, setFilter] = useState(null);
-
-  function handleFilterChange(newFilter) {
-    setFilter(newFilter);
-    console.log(newFilter);
-  }
-  useEffect(() => {
-    if (filter == null || "") {
-      console.log(originalDeals);
-      setDeals(originalDeals);
-    }
-    if (filter == "open") {
-      const openDeals = deals.filter(
-        (deal) => !deal.deal.stage.includes("closed")
-      );
-      console.log(openDeals);
-      setDeals(openDeals);
-    }
-    if (filter == "closed") {
-      const closedDeals = deals.filter((deal) =>
-        deal.deal.stage.includes("closed")
-      );
-      if (closedDeals.length <= 0) return;
-      setDeals(closedDeals);
-    }
-  }, [filter]);
-
+  const [input, setInput] = useState(null);
   useEffect(() => {
     async function getAllDeals() {
       try {
@@ -73,7 +48,6 @@ const Dashboard = () => {
     }
     getAllDeals();
   }, []);
-
   useEffect(() => {
     generateCardData();
   }, [deals]);
@@ -89,7 +63,7 @@ const Dashboard = () => {
       }
     });
     // Setting AVG deal Value
-    setPipeline(cost.toFixed(2));
+    setPipeline(cost);
     if (Array.isArray(deals) && deals.length > 0 && cost !== undefined) {
       setAvgValue((cost / deals.length).toFixed(2));
     } else {
@@ -99,6 +73,43 @@ const Dashboard = () => {
   }
   function handleExit() {
     setChatOpen((prev) => !prev);
+  }
+
+  function handleFilterChange(newFilter) {
+    const filter = newFilter;
+    setFilter(newFilter);
+
+    if (filter == null || "") {
+      console.log(originalDeals);
+      setDeals(originalDeals);
+    }
+    if (filter == "open") {
+      const openDeals = originalDeals.filter(
+        (deal) => !deal.deal.stage.includes("closed")
+      );
+      console.log(openDeals);
+      setDeals(openDeals);
+    }
+    if (filter == "closed") {
+      const closedDeals = originalDeals.filter((deal) =>
+        deal.deal.stage.includes("closed")
+      );
+      if (closedDeals.length <= 0) return;
+      setDeals(closedDeals);
+    }
+  }
+
+  function handleInputChange(newInput) {
+    setInput(newInput);
+
+    if (newInput != null && newInput != "") {
+      const filteredSearch = originalDeals.filter((deal) =>
+        deal.deal.deal_name.toLowerCase().includes(newInput.toLowerCase())
+      );
+      setDeals(filteredSearch);
+    } else {
+      setDeals(originalDeals);
+    }
   }
 
   return (
@@ -136,7 +147,7 @@ const Dashboard = () => {
             <CRMGraphs deals={deals} /> {/* The graphs component */}
             <CRMCards
               dealsAtRisk={dealsAtRisk}
-              totalDeals={totalDeals}
+              totalDeals={deals ? deals.length : totalDeals}
               totalCost={pipeline}
               avgValue={avgValue}
             />{" "}
@@ -146,6 +157,7 @@ const Dashboard = () => {
               globalStats={globalStats}
               setGlobalStats={setGlobalStats}
               handleFilterChange={handleFilterChange}
+              handleInputChange={handleInputChange}
             />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>

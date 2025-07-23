@@ -22,8 +22,10 @@ const CRMData = ({
   globalStats,
   setGlobalStats,
   handleFilterChange,
+  handleInputChange,
 }) => {
   const navigate = useNavigate();
+  const [text, setText] = useState("");
   useEffect(() => {
     // Fetch initial job status data
     axios
@@ -77,6 +79,10 @@ const CRMData = ({
   function setAllDeals() {
     // Logic to reset filter
     handleFilterChange(null);
+  }
+  function handleChange(e) {
+    setText(e.target.value);
+    handleInputChange(e.target.value);
   }
 
   async function refreshInsights(deal_id, slack_id, email) {
@@ -165,6 +171,8 @@ const CRMData = ({
             placeholder="Search deals..."
             size="small"
             sx={{ width: "33.333%" }}
+            value={text}
+            onInput={(e) => handleChange(e)}
           />
           {/* Box holding buttons */}
           <Box
