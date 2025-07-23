@@ -17,8 +17,12 @@ import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import Sandbox from "./Sandbox";
 import axios from "axios";
+import socket from "../../web_socket/socket";
+import { Sledding } from "@mui/icons-material";
+import { connect } from "socket.io-client";
 
 const Dashboard = () => {
+  const [originalDeals, setOriginalDeals] = useState(null);
   const [deals, setDeals] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [totalDeals, setTotalDeals] = useState(null);
@@ -32,12 +36,14 @@ const Dashboard = () => {
     avgValue: null,
   });
   const [globalStats, setGlobalStats] = useState({});
-
+  const [filter, setFilter] = useState(null);
+  const [input, setInput] = useState(null);
   useEffect(() => {
     async function getAllDeals() {
       try {
         const response = await axios.get("http://localhost:3000/deal/all");
         setDeals(response.data.deals);
+        setOriginalDeals(response.data.deals);
         setTotalDeals(response.data.totalDeals);
       } catch (error) {
         console.log(error);
@@ -45,7 +51,34 @@ const Dashboard = () => {
     }
     getAllDeals();
   }, []);
+  //  Hearing for new deal updates
+  useEffect(() => {
+    // connect to socket
+    if (!socket.connected) {
+      socket.connect();
+    }
+    const handleDealUpdate = (data) => {
+      console.log("Updated Deal fields received from frontend");
+      // update our deals to show this new deal
+      setDeals((prev) =>
+        prev.map((deal) => (deal.deal.id == data.dealId ? data.deal : deal))
+      );
+      // update our og deals to show this in case user filters after
+      setOriginalDeals((prev) =>
+        prev.map((deal) => (deal.deal.id == data.dealId ? data.deal : deal))
+      );
+    };
 
+    socket.on("connect", () => console.log("WebSocket Connected to dashboard"));
+
+    socket.on("NewDealUpdate", handleDealUpdate);
+
+    // when we navigate off close our socket ports
+    return () => {
+      socket.off("connect");
+      socket.off("NewDealUpdate", handleDealUpdate);
+    };
+  }, []);
   useEffect(() => {
     generateCardData();
   }, [deals]);
@@ -63,7 +96,7 @@ const Dashboard = () => {
     // Setting AVG deal Value
     setPipeline(cost);
     if (Array.isArray(deals) && deals.length > 0 && cost !== undefined) {
-      setAvgValue(cost / deals.length);
+      setAvgValue((cost / deals.length).toFixed(2));
     } else {
       setAvgValue(null); // or setAvgValue("N/A")
     }
@@ -71,6 +104,41 @@ const Dashboard = () => {
   }
   function handleExit() {
     setChatOpen((prev) => !prev);
+  }
+
+  function handleFilterChange(newFilter) {
+    const filter = newFilter;
+    setFilter(newFilter);
+
+    if (filter == null || "") {
+      setDeals(originalDeals);
+    }
+    if (filter == "open") {
+      const openDeals = originalDeals.filter(
+        (deal) => !deal.deal.stage.includes("closed")
+      );
+      setDeals(openDeals);
+    }
+    if (filter == "closed") {
+      const closedDeals = originalDeals.filter((deal) =>
+        deal.deal.stage.includes("closed")
+      );
+      if (closedDeals.length <= 0) return;
+      setDeals(closedDeals);
+    }
+  }
+
+  function handleInputChange(newInput) {
+    setInput(newInput);
+
+    if (newInput != null && newInput != "") {
+      const filteredSearch = originalDeals.filter((deal) =>
+        deal.deal.deal_name.toLowerCase().includes(newInput.toLowerCase())
+      );
+      setDeals(filteredSearch);
+    } else {
+      setDeals(originalDeals);
+    }
   }
 
   return (
@@ -108,7 +176,7 @@ const Dashboard = () => {
             <CRMGraphs deals={deals} /> {/* The graphs component */}
             <CRMCards
               dealsAtRisk={dealsAtRisk}
-              totalDeals={totalDeals}
+              totalDeals={deals ? deals.length : totalDeals}
               totalCost={pipeline}
               avgValue={avgValue}
             />{" "}
@@ -117,6 +185,8 @@ const Dashboard = () => {
               deals={deals}
               globalStats={globalStats}
               setGlobalStats={setGlobalStats}
+              handleFilterChange={handleFilterChange}
+              handleInputChange={handleInputChange}
             />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>

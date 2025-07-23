@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-// Create socket connection with better configuration
+// Create socket connection configuration
 const socket = io("http://localhost:3000", {
   autoConnect: true,
   reconnection: true,

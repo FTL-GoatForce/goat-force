@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Paper,
   Box,
@@ -18,9 +17,15 @@ import axios from "axios";
 import socket from "../../web_socket/socket";
 import DealLoading from "../ReusableComponents/DealLoading";
 
-const CRMData = ({ deals, globalStats, setGlobalStats }) => {
+const CRMData = ({
+  deals,
+  globalStats,
+  setGlobalStats,
+  handleFilterChange,
+  handleInputChange,
+}) => {
   const navigate = useNavigate();
-
+  const [text, setText] = useState("");
   useEffect(() => {
     // Fetch initial job status data
     axios
@@ -65,9 +70,19 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
 
   function setClosedDeals() {
     // Logic to filter and set closed deals
+    handleFilterChange("closed");
   }
   function setOpenDeals() {
     // Logic to filter and set open deals
+    handleFilterChange("open");
+  }
+  function setAllDeals() {
+    // Logic to reset filter
+    handleFilterChange(null);
+  }
+  function handleChange(e) {
+    setText(e.target.value);
+    handleInputChange(e.target.value);
   }
 
   async function refreshInsights(deal_id, slack_id, email) {
@@ -156,6 +171,8 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
             placeholder="Search deals..."
             size="small"
             sx={{ width: "33.333%" }}
+            value={text}
+            onInput={(e) => handleChange(e)}
           />
           {/* Box holding buttons */}
           <Box
@@ -164,7 +181,7 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
               gap: "8px",
             }}
           >
-            <Button variant="outlined" color="primary">
+            <Button variant="outlined" color="primary" onClick={setAllDeals}>
               All Deals
             </Button>
             <Button variant="outlined" color="primary" onClick={setOpenDeals}>
@@ -215,7 +232,10 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
         {/* Table Rows - Example Data */}
         {deals.map((currentDeal, index) =>
           (globalStats[currentDeal.deal.id] ?? "idle") !== "idle" ? (
-            <DealLoading dealName={currentDeal.deal.deal_name} />
+            <DealLoading
+              dealName={currentDeal.deal.deal_name}
+              key={currentDeal.deal.id}
+            />
           ) : (
             // Normal row when not loading
             <Box

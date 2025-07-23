@@ -30,9 +30,9 @@ const CRMCard = ({ dealsAtRisk, totalDeals, totalCost, avgValue }) => {
         <Typography variant="body2" color="text.secondary">
           Total Pipeline
         </Typography>
-        {totalCost != 0 ? (
+        {totalDeals ? (
           <Typography variant="h5" color="text.primary" fontWeight={"bold"}>
-            ${parseInt(totalCost)}{" "}
+            ${parseFloat(totalCost).toFixed(2)}{" "}
           </Typography>
         ) : (
           <Loading />
