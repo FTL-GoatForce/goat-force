@@ -2,37 +2,37 @@
   {
     "prospect_name": "Emily Johnson",
     "personality_communication_profile": {
-      "personality_traits": ["direct", "assertive", "price-sensitive", "pragmatic", "skeptical", "decisive", "results-oriented"],
-      "communication_style": "direct",
-      "decision_making_style": "pragmatic",
-      "objection_style": "direct",
-      "role_in_deal": "influencer"
+      "personality_traits": ["assertive", "demanding", "skeptical", "price-sensitive", "cautious"],
+      "communication_style": "direct and firm, often confrontational",
+      "decision_making_style": "cautious, value-driven, seeks immediate and complete solutions",
+      "objection_style": "direct and firm, raises objections explicitly and repeatedly",
+      "role_in_deal": "influencer or key stakeholder, not the ultimate decision-maker"
     },
     "intent_sentiment": {
-      "intent_signals": ["raise objection", "negotiate", "set limit", "stall"],
-      "overall_sentiment": "negative",
-      "tone_patterns": "direct"
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "set hard limit", "stall", "disengage"],
+      "overall_sentiment": "negative and skeptical toward the proposal",
+      "tone_patterns": "direct, firm, demanding, skeptical, and ultimately disengaging"
     },
     "objections_concerns": {
-      "objection_types": ["pricing", "value", "competitor comparison", "timeline", "budget"],
-      "objection_frequency_severity": "very frequent and high severity"
+      "objection_types": ["pricing", "value", "need", "competition", "timeline", "implementation complexity", "budget"],
+      "objection_frequency_severity": "very frequent and high severity, leading to a stalled deal"
     },
     "communication_behavior": {
-      "response_time": "fast",
-      "engagement_level": "high",
-      "message_complexity": "short replies",
+      "response_time": "consistent initially, then stalled at disengagement",
+      "engagement_level": "initially high with frequent objections, then low due to disengagement",
+      "message_complexity": "direct and concise, focused on specific demands and objections",
       "preferred_channel": "email"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "negotiation",
-      "budget_risk_indicators": "high",
-      "timeline_risk_indicators": "high",
-      "churn_risk_indicators": "high"
+      "deal_stage_signals": "negotiation/proposal, currently stalled",
+      "budget_risk_indicators": "high, explicit strict budget limitations (under $90K) and repeated pricing pushback",
+      "timeline_risk_indicators": "high, demand for immediate out-of-the-box functionality and rejection of phased rollouts",
+      "churn_risk_indicators": "high, active disengagement and stated condition for re-engagement based on leadership interest"
     },
     "deal_insights": {
-      "key_objections": "price, perceived value, immediate implementation requirement",
-      "decision_maker_status": "influencer",
-      "urgency_level": "low",
-      "competitive_position": "weak"
+      "key_objections": "high pricing, insufficient perceived value, strict budget ($90K cap), competitive comparison, and demand for immediate, complex implementation without phased rollouts",
+      "decision_maker_status": "influencer or key stakeholder, not the final decision-maker",
+      "urgency_level": "initially urgent for immediate functionality, but currently low due to deal stall",
+      "competitive_position": "prospect is actively comparing to competitors, indicating a competitive sales environment"
     }
   }

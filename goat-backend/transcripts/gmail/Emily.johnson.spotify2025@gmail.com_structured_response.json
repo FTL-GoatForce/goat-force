@@ -20,9 +20,6 @@
   "messages": [
     {
       "from": "Bruce Wayne",
-      "text": "Hi Emily, I wanted to follow up on the proposal we sent last week regarding Marketing Cloud Lite. Let me know if you had a chance to review it \u2014 happy to hop on a call to walk through the details. Best",
-      "timestamp": "2025-07-07T15:41:53-07:00",
-      "sentiment": "neutral",
       "tone": "professional",
       "objections": [],
       "intent": "follow-up",
@@ -30,9 +27,6 @@
     },
     {
       "from": "Emily Johnson",
-      "text": "Hi Bruce, I saw it. The price seems high for what you&#39;re offering. Not convinced it&#39;s what we need right now. \u2013 Emily",
-      "timestamp": "2025-07-07T15:44:06-07:00",
-      "sentiment": "negative",
       "tone": "direct",
       "objections": [
         "pricing",
@@ -44,94 +38,71 @@
     },
     {
       "from": "Bruce Wayne",
-      "text": "Thanks for the quick reply. Totally understand \u2014 would it help if I sent over a breakdown of how each feature maps to your current challenges? Let me know what&#39;s most important to your team and we",
-      "timestamp": "2025-07-07T15:44:52-07:00",
-      "sentiment": "neutral",
-      "tone": "empathetic",
+      "tone": "understanding",
       "objections": [],
       "intent": "clarify needs",
       "action_required": true
     },
     {
       "from": "Emily Johnson",
-      "text": "Honestly, we&#39;re looking at other vendors too. Yours is the priciest. If there&#39;s no room to come down, we probably won&#39;t proceed. \u2013 Emily On Mon, Jul 7, 2025 at 3:45 PM Bruce Wayne &lt;bruce",
-      "timestamp": "2025-07-07T15:45:29-07:00",
-      "sentiment": "negative",
       "tone": "firm",
       "objections": [
         "pricing",
-        "competitor comparison"
+        "competition"
       ],
       "intent": "negotiate",
       "action_required": true
     },
     {
       "from": "Bruce Wayne",
-      "text": "Appreciate the honesty. There may be flexibility if we can structure a phased rollout. Would you be open to that? Also happy to compare features head-to-head if you&#39;d like. Best, Bruce On Mon, Jul",
-      "timestamp": "2025-07-07T15:46:02-07:00",
-      "sentiment": "neutral",
       "tone": "collaborative",
       "objections": [],
-      "intent": "negotiate",
+      "intent": "offer solutions",
       "action_required": true
     },
     {
       "from": "Emily Johnson",
-      "text": "We don&#39;t have time for a long rollout. Either it works out-of-the-box or we&#39;re not interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:46 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote:",
-      "timestamp": "2025-07-07T15:46:26-07:00",
-      "sentiment": "negative",
-      "tone": "blunt",
+      "tone": "demanding",
       "objections": [
         "timeline",
         "implementation complexity"
       ],
-      "intent": "reject proposal",
+      "intent": "set conditions",
       "action_required": true
     },
     {
       "from": "Bruce Wayne",
-      "text": "Got it. I&#39;ll revise the proposal with a focus on rapid deployment and get back to you by end of day. Let me know if there&#39;s anything else I should consider. \u2013 Bruce",
-      "timestamp": "2025-07-07T15:47:01-07:00",
-      "sentiment": "neutral",
-      "tone": "responsive",
+      "tone": "committed",
       "objections": [],
-      "intent": "commit to follow-up",
+      "intent": "commit to action",
       "action_required": true
     },
     {
       "from": "Emily Johnson",
-      "text": "Send whatever you want, but just FYI \u2014 legal won&#39;t even look at it unless it&#39;s under $90K. \u2013 Emily On Mon, Jul 7, 2025 at 3:47 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote: Got",
-      "timestamp": "2025-07-07T15:47:35-07:00",
-      "sentiment": "negative",
-      "tone": "blunt",
+      "tone": "skeptical",
       "objections": [
-        "budget"
+        "budget",
+        "pricing"
       ],
-      "intent": "set limit",
+      "intent": "set hard limit",
       "action_required": true
     },
     {
       "from": "Bruce Wayne",
-      "text": "Understood. I&#39;ll aim to get it as close as possible to that number and outline tradeoffs clearly. Appreciate your patience, Emily. Best, Bruce On Mon, Jul 7, 2025 at 3:47 PM Emily Johnson &lt;emily",
-      "timestamp": "2025-07-07T15:47:58-07:00",
-      "sentiment": "neutral",
-      "tone": "professional",
+      "tone": "understanding",
       "objections": [],
-      "intent": "acknowledge",
+      "intent": "commit to action",
       "action_required": true
     },
     {
       "from": "Emily Johnson",
-      "text": "Let&#39;s just pause for now. I&#39;ll circle back if leadership is still interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:48 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote: Understood. I'",
-      "timestamp": "2025-07-07T15:48:29-07:00",
-      "sentiment": "negative",
-      "tone": "decisive",
+      "tone": "disengaging",
       "objections": [],
       "intent": "stall",
       "action_required": false
     }
   ],
-  "summary": "The sales representative, Bruce Wayne, followed up on a proposal for Marketing Cloud Lite. The prospect, Emily Johnson, consistently raised objections regarding high pricing, competitive comparisons, a strict budget limit of $90K, and the demand for immediate, out-of-the-box functionality. Despite Bruce's efforts to address these concerns by offering proposal revisions for rapid deployment and price adjustments, Emily ultimately decided to pause the discussion, indicating she would only re-engage if her leadership expressed renewed interest.",
+  "summary": "The sales representative, Bruce Wayne, initiated a follow-up on a Marketing Cloud Lite proposal. The prospect, Emily Johnson, consistently expressed strong objections regarding high pricing, value, comparisons to competitors, strict budget limitations (under $90K), and a demand for immediate, out-of-the-box functionality, rejecting options for phased rollouts. Despite Bruce's responsive attempts to address these concerns by offering detailed breakdowns, pricing flexibility, and committing to a rapid deployment proposal revision, Emily ultimately decided to pause the discussion, stating she would only re-engage if her leadership remained interested. The deal is currently stalled due to unaddressed pricing/budget and timeline objections.",
   "last_activity": "2025-07-07T15:48:29-07:00",
   "engagement_metrics": {
     "message_count": 10,
@@ -145,7 +116,7 @@
     "timeline_objection",
     "competitor_comparison",
     "proposal_revision",
-    "deal_paused",
+    "deal_stalled",
     "disengagement"
   ]
 }

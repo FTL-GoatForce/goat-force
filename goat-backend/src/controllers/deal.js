@@ -106,11 +106,20 @@ export const createDeal = async (req, res) => {
       // Continue processing even if WebSocket fails
     }
 
-    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to refetch a certain deal
-    // io.emit("NewDeal", {
-    //   newDeals: true,
-    // });
-    //
+    // fetch that full deal
+
+    const updatedDealDetails = await getDealDetailsRaw(dealId);
+
+    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to update a certain deal
+    try {
+      io.emit("NewDealUpdate", {
+        deal: updatedDealDetails,
+        dealId,
+      });
+      console.log(`Backend Emitted NewDealUpdate for deal ${dealId}`);
+    } catch (socketError) {
+      console.log(socketError);
+    }
 
     res.status(200).json({ deal, participant, einstein_response });
   } catch (error) {
@@ -679,16 +688,26 @@ export const updateDeal = async (req, res) => {
       where: { id: dealIdInt },
       data: { job_status: "idle" },
     });
+
+    // grab that full new deal
+    const updatedDealDetails = await getDealDetailsRaw(dealIdInt);
+    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to update a certain deal
+    // Emit event to WebSocket clients that the Deal is idle
+    try {
+      io.emit("NewDealUpdate", {
+        deal: updatedDealDetails,
+        dealId: dealIdInt,
+      });
+      console.log(`Backend Emitted NewDealUpdate for deal ${dealIdInt}`);
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
+    }
+
     res.status(200).json({
       message: "Deal updated successfully",
       einstein_response,
     });
-
-    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to refetch a certain deal
-    // io.emit("NewDeal", {
-    //   newDeals: true,
-    // });
-    //
   } catch (error) {
     console.error("Error updating deal:", error);
 
@@ -725,4 +744,59 @@ export const getAllJobs = async (req, res) => {
     console.error("error in getAllJobs:", e);
     res.status(500).json({ error: e.message });
   }
+};
+
+export const getDealDetailsRaw = async (id) => {
+  const response = {};
+
+  const deal = await prisma.deals.findUnique({ where: { id: parseInt(id) } });
+  response.deal = deal;
+
+  const participants = await prisma.participants.findMany({
+    where: { deal_id: id },
+  });
+  response.participants = participants;
+  const participant_id = participants[0]?.id;
+
+  const risks = await prisma.risks.findMany({ where: { deal_id: id } });
+  response.risks = risks;
+
+  const activityMetrics = await prisma.activityMetrics.findMany({
+    where: { deal_id: id },
+  });
+  response.activityMetrics = activityMetrics;
+
+  response.aiRecommendation = await prisma.aiRecommendation.findMany({
+    where: { deal_id: id },
+  });
+  response.followUps = await prisma.followUp.findMany({
+    where: { deal_id: id },
+  });
+  response.tags = await prisma.tags.findMany({ where: { deal_id: id } });
+  response.conversationHistory = await prisma.conversationHistory.findMany({
+    where: { deal_id: id },
+  });
+  response.dealInsights = await prisma.dealInsights.findMany({
+    where: { deal_id: id },
+  });
+
+  if (risks.length > 0) {
+    response.riskExplanation = await prisma.riskExplanation.findMany({
+      where: { risk_id: risks[0].id },
+    });
+  }
+
+  if (participant_id) {
+    response.personality = await prisma.personality.findMany({
+      where: { participant_id },
+    });
+  }
+
+  if (activityMetrics.length > 0) {
+    response.timeline = await prisma.timeline.findMany({
+      where: { activity_metrics_id: activityMetrics[0].id },
+    });
+  }
+
+  return response;
 };

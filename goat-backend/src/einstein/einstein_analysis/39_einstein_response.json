@@ -1,0 +1,94 @@
+{
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "active",
+  "deal_value_usd": 90000,
+  "expected_close_date": "",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 75,
+    "Churn_Risk": 85,
+    "Timeline_Risk": 70,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is at high risk due to strong objections regarding pricing and budget constraints, leading to stalled communication.",
+    "churn_risk_explanation": "The prospect has expressed significant budget limitations and competitive comparisons, indicating a high likelihood of switching to alternatives.",
+    "timeline_risk_explanation": "The prospect has set strict conditions and timelines that could hinder timely closure.",
+    "budget_risk_explanation": "The budget constraints are severe, with a firm limit of $90K, posing a high risk to the deal."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last interaction involved the prospect raising multiple objections about pricing and budget, leading to a disengagement."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised strong objections regarding pricing and budget, leading to a pause in discussions.",
+        "event_type": "Objection Raised"
+      },
+      {
+        "event_date": "2025-07-01",
+        "event_description": "Sales rep followed up on the proposal and offered solutions to address objections.",
+        "event_type": "Follow-Up"
+      },
+      {
+        "event_date": "2025-08-01",
+        "event_description": "Plan to re-engage if leadership interest remains, pending prospect's decision.",
+        "event_type": "Future Engagement"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal is currently active but at high risk due to significant objections from the prospect regarding pricing and budget constraints. Emily Johnson, the prospect, has expressed a firm budget limit and is skeptical about the value proposition. The discussions are stalled, with a possibility of re-engagement depending on leadership interest.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Revise proposal to align with budget constraints", "Offer a more competitive pricing structure", "Schedule a follow-up to discuss leadership interest"],
+    "Escalation_Triggers": "If no engagement occurs within the next month, consider escalating to a senior executive.",
+    "Deal_Acceleration_Tactics": "Provide additional value through case studies or testimonials to reinforce the product's worth."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI hope this message finds you well. I wanted to follow up regarding our recent discussions on the Marketing Cloud Lite proposal. I understand there are concerns regarding pricing and the value we can provide. I'm committed to finding a solution that meets your budget and timeline needs. \n\nCould we schedule a time to discuss this further? \n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in on our proposal. Let me know if you have any further thoughts or if we can set up a time to discuss."
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 70
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "decision_maker",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "budget_constraint", "timeline_objection", "competitor_comparison", "proposal_revision", "deal_stalled", "disengagement"]
+}
