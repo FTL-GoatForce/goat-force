@@ -80,14 +80,12 @@ const Dashboard = () => {
     setFilter(newFilter);
 
     if (filter == null || "") {
-      console.log(originalDeals);
       setDeals(originalDeals);
     }
     if (filter == "open") {
       const openDeals = originalDeals.filter(
         (deal) => !deal.deal.stage.includes("closed")
       );
-      console.log(openDeals);
       setDeals(openDeals);
     }
     if (filter == "closed") {
