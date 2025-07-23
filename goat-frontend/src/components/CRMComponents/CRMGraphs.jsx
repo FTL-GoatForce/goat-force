@@ -22,6 +22,7 @@ import { useState } from "react";
 
 function CRMGraphs({ deals }) {
   const [insightNumber, setInsightNumber] = useState(0);
+  const [hoveredDeal, setHoveredDeal] = useState(null);
   function handleRefresh() {
     setInsightNumber((prev) => (prev + 1) % 3);
   }
@@ -180,7 +181,7 @@ function CRMGraphs({ deals }) {
               "&::-webkit-scrollbar": {
                 display: "none", // Chrome, Safari, Edge
               },
-              overflowY: "scroll", // Enable vertical scrolling
+              overflowY: "clip", // Enable vertical scrolling
             }}
           >
             <Table sx={{ minWidth: 600 }} aria-label="simple table">
@@ -214,7 +215,14 @@ function CRMGraphs({ deals }) {
                     }}
                   >
                     <Button
-                      sx={{ position: "relative" }}
+                      sx={{
+                        position: "relative",
+                        background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
+                        "&:hover": {
+                          background:
+                            "linear-gradient(135deg, #7c3aed, #6d28d9)",
+                        },
+                      }}
                       onClick={handleRefresh}
                       variant="contained"
                     >
@@ -223,10 +231,21 @@ function CRMGraphs({ deals }) {
                   </TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody sx={{ borderColor: "divider" }}>
-                {deals.map((deal) => {
+              <TableBody sx={{ borderColor: "divider", overflowY: "scroll" }}>
+                {deals.map((deal, index) => {
                   return (
-                    <TableRow key={deal.deal.id}>
+                    <TableRow
+                      key={deal.deal.id}
+                      onMouseEnter={() => setHoveredDeal(deal.deal.id)}
+                      onMouseLeave={() => setHoveredDeal(null)}
+                      sx={{
+                        borderBottom: "1px solid rgba(82, 227, 246, 0.07)",
+                        backgroundColor:
+                          hoveredDeal === deal.deal.id
+                            ? "rgba(92, 208, 246, 0.1)"
+                            : "transparent",
+                      }}
+                    >
                       <TableCell
                         sx={{
                           height: "30px",
