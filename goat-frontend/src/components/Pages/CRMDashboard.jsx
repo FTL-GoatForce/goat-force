@@ -19,6 +19,7 @@ import Sandbox from "./Sandbox";
 import axios from "axios";
 
 const Dashboard = () => {
+  const [originalDeals, setOriginalDeals] = useState(null);
   const [deals, setDeals] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [totalDeals, setTotalDeals] = useState(null);
@@ -32,12 +33,39 @@ const Dashboard = () => {
     avgValue: null,
   });
   const [globalStats, setGlobalStats] = useState({});
+  const [filter, setFilter] = useState(null);
+
+  function handleFilterChange(newFilter) {
+    setFilter(newFilter);
+    console.log(newFilter);
+  }
+  useEffect(() => {
+    if (filter == null || "") {
+      console.log(originalDeals);
+      setDeals(originalDeals);
+    }
+    if (filter == "open") {
+      const openDeals = deals.filter(
+        (deal) => !deal.deal.stage.includes("closed")
+      );
+      console.log(openDeals);
+      setDeals(openDeals);
+    }
+    if (filter == "closed") {
+      const closedDeals = deals.filter((deal) =>
+        deal.deal.stage.includes("closed")
+      );
+      if (closedDeals.length <= 0) return;
+      setDeals(closedDeals);
+    }
+  }, [filter]);
 
   useEffect(() => {
     async function getAllDeals() {
       try {
         const response = await axios.get("http://localhost:3000/deal/all");
         setDeals(response.data.deals);
+        setOriginalDeals(response.data.deals);
         setTotalDeals(response.data.totalDeals);
       } catch (error) {
         console.log(error);
@@ -61,9 +89,9 @@ const Dashboard = () => {
       }
     });
     // Setting AVG deal Value
-    setPipeline(cost);
+    setPipeline(cost.toFixed(2));
     if (Array.isArray(deals) && deals.length > 0 && cost !== undefined) {
-      setAvgValue(cost / deals.length);
+      setAvgValue((cost / deals.length).toFixed(2));
     } else {
       setAvgValue(null); // or setAvgValue("N/A")
     }
@@ -117,6 +145,7 @@ const Dashboard = () => {
               deals={deals}
               globalStats={globalStats}
               setGlobalStats={setGlobalStats}
+              handleFilterChange={handleFilterChange}
             />{" "}
             {/* The data table component passing in our huge array of deals */}
           </Box>

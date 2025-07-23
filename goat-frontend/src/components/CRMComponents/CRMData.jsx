@@ -17,7 +17,12 @@ import axios from "axios";
 import socket from "../../web_socket/socket";
 import DealLoading from "../ReusableComponents/DealLoading";
 
-const CRMData = ({ deals, globalStats, setGlobalStats }) => {
+const CRMData = ({
+  deals,
+  globalStats,
+  setGlobalStats,
+  handleFilterChange,
+}) => {
   const navigate = useNavigate();
   useEffect(() => {
     // Fetch initial job status data
@@ -63,9 +68,15 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
 
   function setClosedDeals() {
     // Logic to filter and set closed deals
+    handleFilterChange("closed");
   }
   function setOpenDeals() {
     // Logic to filter and set open deals
+    handleFilterChange("open");
+  }
+  function setAllDeals() {
+    // Logic to reset filter
+    handleFilterChange(null);
   }
 
   async function refreshInsights(deal_id, slack_id, email) {
@@ -162,7 +173,7 @@ const CRMData = ({ deals, globalStats, setGlobalStats }) => {
               gap: "8px",
             }}
           >
-            <Button variant="outlined" color="primary">
+            <Button variant="outlined" color="primary" onClick={setAllDeals}>
               All Deals
             </Button>
             <Button variant="outlined" color="primary" onClick={setOpenDeals}>
