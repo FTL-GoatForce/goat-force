@@ -4,6 +4,7 @@ import { getLastUpdatedAt } from "../utils/getLastUpdatedAt.js";
 import { getSocketInstance } from "../web_socket/socket.js";
 import redis from "../utils/redis.js";
 import prisma from "../db/db.js";
+import socket from "../../../goat-frontend/src/web_socket/socket.js";
 dotenv.config();
 const FASTAPI_URL = process.env.FASTAPI_URL;
 
@@ -746,8 +747,8 @@ export const getAllJobs = async (req, res) => {
   }
 };
 
-
 export const updateDealDetails = async (req, res) => {
+  const io = getSocketInstance();
   try {
     // fetch dealId from URL params (not request body)
     const { id } = req.params;
@@ -768,9 +769,9 @@ export const updateDealDetails = async (req, res) => {
 
     // convert deal_value to float
     const dealValueFloat = parseFloat(deal_value) || 0;
-    
+
     // convert dealId to integer for database operations
-    const dealIdInt = parseInt(id); 
+    const dealIdInt = parseInt(id);
     console.log("Updating deal with ID:", dealIdInt);
 
     if (isNaN(dealIdInt)) {
@@ -779,11 +780,13 @@ export const updateDealDetails = async (req, res) => {
 
     // check if deal exists
     const existingDeal = await prisma.deals.findUnique({
-      where: { id: dealIdInt }
+      where: { id: dealIdInt },
     });
 
     if (!existingDeal) {
-      return res.status(404).json({ error: `Deal with ID ${dealIdInt} not found` });
+      return res
+        .status(404)
+        .json({ error: `Deal with ID ${dealIdInt} not found` });
     }
 
     // Update the deal details in the database (deal model)
@@ -803,15 +806,15 @@ export const updateDealDetails = async (req, res) => {
     // find / update participant details in the database (participants model)
     // find first participant
     const participant = await prisma.participants.findFirst({
-      where: { deal_id: dealIdInt }
+      where: { deal_id: dealIdInt },
     });
 
     let updatedParticipant = null;
-    
+
     // if does not exist, return error
     if (participant) {
       updatedParticipant = await prisma.participants.update({
-        where: { id: participant.id }, 
+        where: { id: participant.id },
         data: {
           prospect_name,
           email,
@@ -819,18 +822,33 @@ export const updateDealDetails = async (req, res) => {
           phone_number,
         },
       });
-
     } else {
-      return res.status(404).json({ error: `No participant found for deal ${dealIdInt}` });
+      return res
+        .status(404)
+        .json({ error: `No participant found for deal ${dealIdInt}` });
+    }
+
+    // grab that full new deal
+    const updatedDealDetails = await getDealDetailsRaw(dealIdInt);
+    // So that the frontend refreshed I'm sending another socket emit that tells the Client we need to update a certain deal
+    // Emit event to WebSocket clients that the Deal is idle
+    try {
+      io.emit("NewDealUpdate", {
+        deal: updatedDealDetails,
+        dealId: dealIdInt,
+      });
+      console.log(`Backend Emitted NewDealUpdate for deal ${dealIdInt}`);
+    } catch (socketError) {
+      console.error("WebSocket emission error:", socketError);
+      // Continue processing even if WebSocket fails
     }
 
     // Return both updated records
     res.status(200).json({
       message: "Deal details updated successfully",
       deal: updatedDeal,
-      participant: updatedParticipant
+      participant: updatedParticipant,
     });
-
   } catch (error) {
     console.error("Error updating deal details:", error);
     res.status(500).json({ error: error.message });
