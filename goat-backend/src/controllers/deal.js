@@ -746,6 +746,97 @@ export const getAllJobs = async (req, res) => {
   }
 };
 
+
+export const updateDealDetails = async (req, res) => {
+  try {
+    // fetch dealId from URL params (not request body)
+    const { id } = req.params;
+
+    const {
+      company_name,
+      deal_name,
+      deal_description,
+      deal_value,
+      stage,
+      contract_term_length,
+      expected_close_date,
+      prospect_name,
+      email,
+      slack_id,
+      phone_number,
+    } = req.body;
+
+    // convert deal_value to float
+    const dealValueFloat = parseFloat(deal_value) || 0;
+    
+    // convert dealId to integer for database operations
+    const dealIdInt = parseInt(id); 
+    console.log("Updating deal with ID:", dealIdInt);
+
+    if (isNaN(dealIdInt)) {
+      return res.status(400).json({ error: `Invalid deal ID: ${id}` });
+    }
+
+    // check if deal exists
+    const existingDeal = await prisma.deals.findUnique({
+      where: { id: dealIdInt }
+    });
+
+    if (!existingDeal) {
+      return res.status(404).json({ error: `Deal with ID ${dealIdInt} not found` });
+    }
+
+    // Update the deal details in the database (deal model)
+    const updatedDeal = await prisma.deals.update({
+      where: { id: dealIdInt },
+      data: {
+        company_name,
+        deal_name,
+        deal_description,
+        deal_value: dealValueFloat,
+        stage,
+        contract_term_length,
+        expected_close_date,
+      },
+    });
+
+    // find / update participant details in the database (participants model)
+    // find first participant
+    const participant = await prisma.participants.findFirst({
+      where: { deal_id: dealIdInt }
+    });
+
+    let updatedParticipant = null;
+    
+    // if does not exist, return error
+    if (participant) {
+      updatedParticipant = await prisma.participants.update({
+        where: { id: participant.id }, 
+        data: {
+          prospect_name,
+          email,
+          slack_id,
+          phone_number,
+        },
+      });
+
+    } else {
+      return res.status(404).json({ error: `No participant found for deal ${dealIdInt}` });
+    }
+
+    // Return both updated records
+    res.status(200).json({
+      message: "Deal details updated successfully",
+      deal: updatedDeal,
+      participant: updatedParticipant
+    });
+
+  } catch (error) {
+    console.error("Error updating deal details:", error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
 export const getDealDetailsRaw = async (id) => {
   const response = {};
 

@@ -9,6 +9,7 @@ import {
   updateDeal,
   updateJob,
   getAllJobs,
+  updateDealDetails,
 } from "../controllers/deal.js";
 
 import prisma from "../db/db.js";
@@ -28,5 +29,6 @@ router.get("/stats", getAllJobs);
 router.get("/:id", getDealDetails);
 router.put("/update", updateDeal);
 router.put("/jobUpdate/:id", updateJob);
+router.put("/updateDetails/:id", updateDealDetails);
 
 export default router;
