@@ -39,6 +39,11 @@ class MessageRequest (BaseModel):
     message: str
     chatHistory: list = []
 
+# ------------- Data Checking  | Only accept a POST with JSON that has a message key of type string
+class SandboxMessageRequest (BaseModel):
+    message: str
+    participant: str
+    chatHistory: list = []
 
 # -------------- FastAPI Endpoint that recieves a post with a string
 @app.post('/api/message')
@@ -57,6 +62,24 @@ async def receieve_message(request: MessageRequest):
             "success":False,
             "response": f"Error: {str(e)}"
         }
+
+# -------------- FastAPI Endpoint that recieves a post with a string
+@app.post('/api/sandbox')
+async def receive_sandbox_message(request : SandboxMessageRequest):
+    try:
+        # Recieve Sandbox message then run our mcp server
+        print(f"Message Recieved: {request.message}")
+        result = await runSandbox(request)
+        return{
+            'success':True,
+            'response':result
+        }
+    except Exception as e:
+        return{
+            'sucess':False,
+            'response': f"Error:{str(e)}"
+        }
+
 
 
 # ------------ Once a message is recieved to the API Endpoint - Run MCP Server and create an API Request - Then Return the Gemini Response
@@ -108,7 +131,53 @@ async def run(message: MessageRequest, chatHistory: list):
             
 
     # Going to need a different post route and new mcp tool for SANDBOX mode, will give access to a contacts personality data and etc,
-    
+async def runSandbox(message: SandboxMessageRequest):
+        async with stdio_client(server_params) as (read, write):    # launches our MCP server 
+            async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
+                try:
+                    # ----------- Starting our session giving gemini access to tools 
+                    await session.initialize()  
+                    response = await gemini_client.aio.models.generate_content(
+                        model = "gemini-2.5-flash",
+                        contents = f""" 
+                 You are GoatForce SANDBOX MODE, an expert assistant designed to simulate {message.participant}, allowing Sales Reps to practice conversations with a point of contact in a realistic, data-driven environment.
+
+                    You have access to two tools to assist in this simulation:
+                    1. get_deals() — Retrieves a list of all deals with basic information (ID, name, company, stage, status, amount, etc.).
+                    2. get_deal_details(deal_id) — Given a deal ID, returns detailed metrics, participants, risk scores, activities, follow-ups, tags, and more.
+
+                    Always follow this process before responding:
+                    1. Call get_deals() to gather the full list of deals.
+                    2. Identify the relevant deal(s) based on the user’s query.
+                    3. Use get_deal_details(deal_id) on those specific deals to extract deeper insights.
+
+                    Your goals in SANDBOX MODE:
+                    1. Respond accurately to questions about deal performance, progress, risks, and sales dynamics.
+                    2. Compare or analyze deals based on filters like stage, risk level, or rep activity.
+                    3. Spot trends or raise concerns from available data.
+                    4. Offer useful, data-backed recommendations.
+
+                    Only use the information retrieved through the tools. Do not speculate. If required data is missing, clearly explain what is needed.
+
+                    The user's query is: {message.message}
+                    The chat history is: {message.chatHistory}
+
+                    Respond in markdown format, 100–200 words. Avoid bullet points; instead, write in concise, informative full sentences with natural line breaks.
+                    """,
+                    # Giving gemini access to tools 
+                    config=types.GenerateContentConfig(
+                            tools=[session]
+                        )
+                    )
+
+                    return (response.text)
+            
+                except Exception as e:
+                    return {
+                        "success":False,
+                        "message":f"Error: {str(e)}",
+                        "status": "error"
+                    }
 #  Calling this in python auto starts the API Server 
 if __name__ == "__main__":
     print("Starting FastAPI Server")
