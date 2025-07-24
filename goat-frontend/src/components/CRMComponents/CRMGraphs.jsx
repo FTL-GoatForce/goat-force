@@ -14,8 +14,13 @@ import {
   Typography,
   Chip,
   Button,
+  Tooltip,
+  IconButton,
+  LinearProgress,
 } from "@mui/material";
 import AutoAwesomeTwoToneIcon from "@mui/icons-material/AutoAwesomeTwoTone";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useState } from "react";
@@ -23,9 +28,30 @@ import { useState } from "react";
 function CRMGraphs({ deals }) {
   const [insightNumber, setInsightNumber] = useState(0);
   const [hoveredDeal, setHoveredDeal] = useState(null);
+  const [completedTasks, setCompletedTasks] = useState(new Set());
+
   function handleRefresh() {
     setInsightNumber((prev) => (prev + 1) % 3);
+    setCompletedTasks(new Set()); // Reset completed tasks
   }
+
+  function toggleTaskCompletion(dealId) {
+    setCompletedTasks((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(dealId)) {
+        newSet.delete(dealId);
+      } else {
+        newSet.add(dealId);
+      }
+      return newSet;
+    });
+  }
+
+  // Calculate completion percentage
+  const totalTasks = deals ? deals.length : 0;
+  const completedTasksCount = completedTasks.size;
+  const completionPercentage =
+    totalTasks > 0 ? Math.round((completedTasksCount / totalTasks) * 100) : 0;
   if (!deals || deals.length === 0) {
     return (
       <Box sx={{ display: "flex", flexDirection: "row" }}>
@@ -198,37 +224,82 @@ function CRMGraphs({ deals }) {
                       pt: 2.3,
                       pl: 2,
                       m: 0,
+                      position: "relative",
                     }}
                   >
-                    Daily Tasks{" "}
-                    <AutoAwesomeTwoToneIcon
-                      sx={{ verticalAlign: "middle", color: "gradient.main" }}
-                    />
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      borderBottom: "none",
-                      align: "right",
-                      width: "100px",
-                      p: 0.5,
-                      pt: 1.5,
-                    }}
-                  >
-                    <Button
-                      sx={{
-                        position: "relative",
-                        background:
-                          "linear-gradient(135deg, #3ae4edff, #2886d9ff)",
-                        "&:hover": {
-                          background:
-                            "linear-gradient(135deg, #0e3975ff, #252e7bff)",
-                        },
-                      }}
-                      onClick={handleRefresh}
-                      variant="contained"
+                    <Box
+                      sx={{ display: "flex", flexDirection: "column", gap: 1 }}
                     >
-                      Refresh
-                    </Button>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                        >
+                          Daily Tasks{" "}
+                          <AutoAwesomeTwoToneIcon
+                            sx={{
+                              verticalAlign: "middle",
+                              color: "gradient.main",
+                            }}
+                          />
+                        </Box>
+                        <Tooltip title="Refresh the data">
+                          <Button
+                            sx={{
+                              position: "relative",
+                              background:
+                                "linear-gradient(135deg, #3ae4edff, #2886d9ff)",
+                              "&:hover": {
+                                transform: "scale(1.05)",
+                                transition: "transform 0.2s",
+                                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                                // Add a hover effect
+                                background:
+                                  "linear-gradient(135deg, #0e3975ff, #252e7bff)",
+                              },
+                              minWidth: "auto",
+                              px: 2,
+                              py: 0.5,
+                            }}
+                            onClick={handleRefresh}
+                            variant="contained"
+                            size="small"
+                          >
+                            Refresh
+                          </Button>
+                        </Tooltip>
+                      </Box>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                      >
+                        <Typography
+                          variant="caption"
+                          sx={{ color: "text.secondary", fontSize: "0.75rem" }}
+                        >
+                          Progress: {completionPercentage}% (
+                          {completedTasksCount}/{totalTasks})
+                        </Typography>
+                        <LinearProgress
+                          variant="determinate"
+                          value={completionPercentage}
+                          sx={{
+                            width: "120px",
+                            height: "6px",
+                            borderRadius: "3px",
+                            backgroundColor: "rgba(82, 227, 246, 0.1)",
+                            "& .MuiLinearProgress-bar": {
+                              backgroundColor: "#44c7efcc",
+                            },
+                          }}
+                        />
+                      </Box>
+                    </Box>
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -244,7 +315,11 @@ function CRMGraphs({ deals }) {
                         backgroundColor:
                           hoveredDeal === deal.deal.id
                             ? "rgba(92, 208, 246, 0.1)"
+                            : completedTasks.has(deal.deal.id)
+                            ? "rgba(128, 128, 128, 0.2)"
                             : "transparent",
+                        opacity: completedTasks.has(deal.deal.id) ? 0.6 : 1,
+                        transition: "all 0.3s ease",
                       }}
                     >
                       <TableCell
@@ -255,74 +330,138 @@ function CRMGraphs({ deals }) {
                           color: "text.primary",
                         }}
                       >
-                        <Box sx={{ display: "flex", flexDirection: "row" }}>
-                          <Typography
-                            sx={{ fontSize: ".9rem", fontWeight: "bold" }}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Box sx={{ flex: 1 }}>
+                            <Box sx={{ display: "flex", flexDirection: "row" }}>
+                              <Typography
+                                sx={{
+                                  fontSize: ".9rem",
+                                  fontWeight: "bold",
+                                  textDecoration: completedTasks.has(
+                                    deal.deal.id
+                                  )
+                                    ? "line-through"
+                                    : "none",
+                                }}
+                              >
+                                {deal.deal.deal_name}{" "}
+                              </Typography>
+                              {deal.risks && deal.risks.length > 0 ? (
+                                <Chip
+                                  label={
+                                    parseInt(deal.risks[0].deal_risk_score) <=
+                                    35
+                                      ? "Low Risk"
+                                      : parseInt(
+                                          deal.risks[0].deal_risk_score
+                                        ) <= 65
+                                      ? "Medium Risk"
+                                      : "High Risk"
+                                  }
+                                  size="small"
+                                  sx={{
+                                    ml: 1,
+                                    backgroundColor:
+                                      parseInt(deal.risks[0].deal_risk_score) <=
+                                      35
+                                        ? "rgba(76, 175, 80, 0.1)"
+                                        : parseInt(
+                                            deal.risks[0].deal_risk_score
+                                          ) <= 65
+                                        ? "rgba(255, 152, 0, 0.1)"
+                                        : "rgba(211, 47, 47, 0.1)",
+                                    color:
+                                      parseInt(deal.risks[0].deal_risk_score) <=
+                                      35
+                                        ? "success.main"
+                                        : parseInt(
+                                            deal.risks[0].deal_risk_score
+                                          ) <= 65
+                                        ? "warning.main"
+                                        : "error.main",
+                                    fontWeight: "medium",
+                                    marginRight: 2,
+                                    border:
+                                      parseInt(deal.risks[0].deal_risk_score) <=
+                                      35
+                                        ? "1px solid rgba(76, 175, 80, 0.2)"
+                                        : parseInt(
+                                            deal.risks[0].deal_risk_score
+                                          ) <= 65
+                                        ? "1px solid rgba(255, 152, 0, 0.2)"
+                                        : "1px solid rgba(211, 47, 47, 0.2)",
+                                  }}
+                                />
+                              ) : (
+                                <Chip
+                                  label="No Risk Score"
+                                  size="small"
+                                  sx={{
+                                    ml: 1,
+                                    backgroundColor: "grey.100",
+                                    color: "grey.700",
+                                    fontWeight: "medium",
+                                    marginRight: 2,
+                                    border: "1px solid grey",
+                                  }}
+                                />
+                              )}
+                            </Box>
+                            <Typography
+                              color="text.secondary"
+                              sx={{
+                                textDecoration: completedTasks.has(deal.deal.id)
+                                  ? "line-through"
+                                  : "none",
+                              }}
+                            >
+                              {deal.aiRecommendation &&
+                              deal.aiRecommendation.length > 0 &&
+                              deal.aiRecommendation[0].next_steps &&
+                              deal.aiRecommendation[0].next_steps.length >
+                                insightNumber
+                                ? deal.aiRecommendation[0].next_steps[
+                                    insightNumber
+                                  ]
+                                : "No Recommendation"}
+                            </Typography>
+                          </Box>
+                          <Tooltip
+                            title={
+                              completedTasks.has(deal.deal.id)
+                                ? "Mark as incomplete"
+                                : "Mark as complete"
+                            }
                           >
-                            {deal.deal.deal_name}{" "}
-                          </Typography>
-                          {deal.risks && deal.risks.length > 0 ? (
-                            <Chip
-                              label={
-                                parseInt(deal.risks[0].deal_risk_score) <= 35
-                                  ? "Low Risk"
-                                  : parseInt(deal.risks[0].deal_risk_score) <=
-                                    65
-                                  ? "Medium Risk"
-                                  : "High Risk"
-                              }
+                            <IconButton
                               size="small"
+                              onClick={() => toggleTaskCompletion(deal.deal.id)}
                               sx={{
-                                ml: 1,
-                                backgroundColor:
-                                  parseInt(deal.risks[0].deal_risk_score) <= 35
-                                    ? "rgba(76, 175, 80, 0.1)"
-                                    : parseInt(deal.risks[0].deal_risk_score) <=
-                                      65
-                                    ? "rgba(255, 152, 0, 0.1)"
-                                    : "rgba(211, 47, 47, 0.1)",
-                                color:
-                                  parseInt(deal.risks[0].deal_risk_score) <= 35
-                                    ? "success.main"
-                                    : parseInt(deal.risks[0].deal_risk_score) <=
-                                      65
-                                    ? "warning.main"
-                                    : "error.main",
-                                fontWeight: "medium",
-                                marginRight: 2,
-                                border:
-                                  parseInt(deal.risks[0].deal_risk_score) <= 35
-                                    ? "1px solid rgba(76, 175, 80, 0.2)"
-                                    : parseInt(deal.risks[0].deal_risk_score) <=
-                                      65
-                                    ? "1px solid rgba(255, 152, 0, 0.2)"
-                                    : "1px solid rgba(211, 47, 47, 0.2)",
+                                color: completedTasks.has(deal.deal.id)
+                                  ? "#44c7efcc"
+                                  : "text.secondary",
+                                "&:hover": {
+                                  color: "#44c7efcc",
+                                  transform: "scale(1.1)",
+                                },
+                                transition: "all 0.2s ease",
                               }}
-                            />
-                          ) : (
-                            <Chip
-                              label="No Risk Score"
-                              size="small"
-                              sx={{
-                                ml: 1,
-                                backgroundColor: "grey.100",
-                                color: "grey.700",
-                                fontWeight: "medium",
-                                marginRight: 2,
-                                border: "1px solid grey",
-                              }}
-                            />
-                          )}
+                            >
+                              {completedTasks.has(deal.deal.id) ? (
+                                <CheckCircleIcon />
+                              ) : (
+                                <CheckCircleOutlineIcon />
+                              )}
+                            </IconButton>
+                          </Tooltip>
                         </Box>
-                        <Typography color="text.secondary">
-                          {deal.aiRecommendation &&
-                          deal.aiRecommendation.length > 0 &&
-                          deal.aiRecommendation[0].next_steps &&
-                          deal.aiRecommendation[0].next_steps.length >
-                            insightNumber
-                            ? deal.aiRecommendation[0].next_steps[insightNumber]
-                            : "No Recommendation"}
-                        </Typography>
                       </TableCell>
                     </TableRow>
                   );

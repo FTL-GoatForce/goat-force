@@ -6,44 +6,72 @@ import CRMAiEntry from "../CRMComponents/CRMAiEntry";
 import { m } from "motion/react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import ShinyText from "../ReusableComponents/Shiny";
+import LoadingThreeDotsPulse from "../CRMComponents/LoadingThreeDotsPulse";
 import axios from "axios";
 
 function SandboxChat({ selectedDeal, deals }) {
   const SandboxServer = import.meta.env.VITE_SANDBOX_MODE;
   const [prompt, setPrompt] = useState(""); // holds the user's input on the chat box
   const [messages, setMessages] = useState([]); // holds the chat messages
-  const [error, setError] = useState(false); // holds any error messages
-  const [loading, setLoading] = useState(false); // loading state for the AI response
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [streamingText, setStreamingText] = useState("");
+  const [currentDealName, setCurrentDealName] = useState(
+    selectedDeal.deal.deal_name
+  );
   const [participant, setParticipant] = useState(
     selectedDeal.participants[0].prospect_name || "Emily Johnson"
   );
+  const messageRef = useRef(null);
+  const listRef = useRef(null);
+  // scroll to the bottom of the chat when a new message is added
+  useEffect(() => {
+    setTimeout(() => {
+      if (listRef.current) {
+        listRef.current.scrollTop = listRef.current.scrollHeight;
+      }
+      messageRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }, [messages, streamingText]);
 
   // display user message / ai response
   const handleSend = async () => {
     // USER INPUT VALIDATION / SENDING
-    if (!prompt.trim()) return; // do not send empty messages
+    if (!prompt.trim()) return;
 
     // create a new message object from user and append to messages array
     const newMessage = { context: prompt, sender: "User" };
-    const updatedMessages = [...messages, newMessage]; // Create updated array first
+    const updatedMessages = [...messages, newMessage];
     setMessages(updatedMessages);
 
-    const currentPrompt = prompt; // Store current prompt before clearing
-    setPrompt(""); // clear the input field
+    const currentPrompt = prompt;
+    setPrompt("");
 
     try {
       setLoading(true);
       const response = await axios.post(SandboxServer, {
         message: prompt,
-        participant: participant || "Emily Johnson",
-        chatHistory: [],
+        participant: participant,
+        chatHistory: messages,
+        deal_name: currentDealName,
+        deal_id: parseInt(selectedDeal.deal.id),
       });
 
       const aiResponse = response.data.response;
-
-      // use updatedMessages array instead of the old messages state (async state update)
+      let currentText = "";
+      for (let i = 0; i < aiResponse.length; i++) {
+        currentText += aiResponse[i];
+        setStreamingText(currentText);
+        await new Promise((resolve) => setTimeout(resolve, 10));
+        // Add extra delay for punctuation marks to create more natural pauses
+        if ([".", "!", "?", "\n"].includes(aiResponse[i])) {
+          await new Promise((resolve) => setTimeout(resolve, 200));
+        } else if ([",", ";", ":"].includes(aiResponse[i])) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+      }
       setMessages([...updatedMessages, { context: aiResponse, sender: "Ai" }]);
+      setStreamingText("");
     } catch (err) {
       console.error("Error fetching AI response:", err);
       setError(true); // set error state if API call fails
@@ -65,6 +93,7 @@ function SandboxChat({ selectedDeal, deals }) {
     setPrompt(""); // clear input field
     setError(false); // reset error state
     setParticipant(selectedDeal.participants[0].prospect_name);
+    setCurrentDealName(selectedDeal.deal.deal_name); // reset selected deal
     console.log(participant);
     console.log(selectedDeal.participants[0].prospect_name);
   };
@@ -83,7 +112,8 @@ function SandboxChat({ selectedDeal, deals }) {
       flexDirection="column"
     >
       {/* Message Box*/}
-      <Box border={1} height={"85%"} borderColor="divider">
+      <Box border={1} height={"85%"} borderColor="divider" maxWidth={"100%"}>
+        {/* Chat Header */}
         <Box
           display={"flex"}
           flexDirection={"column"}
@@ -92,6 +122,7 @@ function SandboxChat({ selectedDeal, deals }) {
           height={"100%"}
           overflow={"auto"}
           maxHeight={"900px"}
+          ref={listRef}
         >
           {/* Chat Header */}
           <Box>
@@ -121,14 +152,23 @@ function SandboxChat({ selectedDeal, deals }) {
               );
             }
           })}
+          {streamingText && <CRMAiEntry sender="Ai" context={streamingText} />}
           {/* Display loading indicator while AI is responding */}
-          {loading && <CRMAiEntry sender="Ai" context="Thinking..." />}
+          {loading && !streamingText && (
+            <LoadingThreeDotsPulse style={{ mt: 2 }} />
+          )}
+          <div ref={messageRef}></div>
         </Box>
       </Box>
       {/* Chat Box*/}
       <Box height={"15%"}>
         {/* Chat box components container => row */}
-        <Box display={"flex"} flexDirection={"row"} gap={1} padding={2}>
+        <Box
+          display={"flex"}
+          flexDirection={"row"}
+          gap={1}
+          sx={{ paddingTop: 1 }}
+        >
           <TextField
             variant="outlined"
             placeholder="Type your response..."
