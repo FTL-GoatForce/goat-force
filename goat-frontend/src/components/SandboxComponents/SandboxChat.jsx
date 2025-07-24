@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import LoadingThreeDotsPulse from "../CRMComponents/LoadingThreeDotsPulse";
 import axios from "axios";
+import { Send } from "@mui/icons-material";
 
 function SandboxChat({ selectedDeal, deals }) {
   const SandboxServer = import.meta.env.VITE_SANDBOX_MODE;
@@ -191,9 +192,10 @@ function SandboxChat({ selectedDeal, deals }) {
             onClick={handleSend}
             disabled={loading}
           >
-            <span style={{ color: "white", fontWeight: "bold" }}>
+            {/* <span style={{ color: "white", fontWeight: "bold" }}>
               {loading ? "Sending..." : "Send"}
-            </span>
+            </span> */}
+            <Send sx={{ color: "#fdfdfdff", borderRadius: 2 }} />
           </Button>
         </Box>
       </Box>
