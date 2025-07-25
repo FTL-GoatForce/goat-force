@@ -375,7 +375,7 @@ function SandboxChat({ selectedDeal, deals }) {
               minHeight: "fit-content",
             }}
           >
-            <Box width={"100%"} sx={{ position: "absolute", top: 70, left: 0 }}>
+            {/* <Box width={"100%"} sx={{ position: "absolute", top: 70, left: 0 }}>
               <Curved
                 marqueeText="Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦"
                 speed={3}
@@ -383,10 +383,12 @@ function SandboxChat({ selectedDeal, deals }) {
                 interactive={false}
                 direction="right"
               />
-            </Box>
-
+            </Box> */}
+            <Typography sx={{ color: "text.secondary" }}>
+              Generating report in progress, please wait...
+            </Typography>
             <CircularProgress />
-            <Box
+            {/* <Box
               width={"100%"}
               sx={{ position: "absolute", bottom: 30, left: 0 }}
             >
@@ -397,7 +399,7 @@ function SandboxChat({ selectedDeal, deals }) {
                 interactive={false}
                 direction="left"
               />
-            </Box>
+            </Box> */}
           </Box>
         ) : (
           <Box
