@@ -443,7 +443,12 @@ function SandboxChat({ selectedDeal, deals }) {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: report.score >= 70 ? "success.main" : "error.main",
+                      color:
+                        report.score >= 75
+                          ? "success.main"
+                          : report.score >= 50
+                          ? "warning.main"
+                          : "error.main",
                     }}
                     gutterBottom
                   >

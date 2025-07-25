@@ -38,9 +38,15 @@ const CRMAiEntry = ({ sender, context }) => {
     >
       <Avatar sx={{ mt: "2px", height: 24, width: 24, mr: 1 }} src={logo} />
       <Typography
-        sx={{ color: "text.primary", fontSize: ".9rem", lineHeight: 1.4 }}
+        sx={{
+          color: "text.primary",
+          fontSize: ".9rem",
+          lineHeight: 1.4,
+          mt: 1,
+          mb: 1,
+        }}
       >
-        <Markdown>{context}</Markdown>
+        {context}
       </Typography>
     </ListItem>
   );
