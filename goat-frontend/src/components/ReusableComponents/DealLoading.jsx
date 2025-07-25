@@ -14,10 +14,15 @@ const loadingSequence = [
 
 const DealLoading = ({ dealName }) => {
   const [index, setIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % loadingSequence.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % loadingSequence.length);
+        setIsTransitioning(false);
+      }, 300); // Wait for spin out animation
     }, 5000); // Change every 5 seconds
 
     return () => clearInterval(interval);
@@ -47,7 +52,9 @@ const DealLoading = ({ dealName }) => {
             width: "60px",
             height: "60px",
             borderRadius: "8px",
-            transition: "opacity 0.4s ease-in-out",
+            transition: "all 0.3s ease-in-out",
+            transform: isTransitioning ? "rotate(360deg) scale(0.8)" : "rotate(0deg) scale(1)",
+            opacity: isTransitioning ? 0.3 : 1,
           }}
         />
       </Box>
