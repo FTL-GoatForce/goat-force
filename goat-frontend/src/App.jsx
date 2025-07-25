@@ -9,6 +9,8 @@ import DealDetails from "./components/Pages/DealDetails";
 import AuthPage from "./components/Pages/AuthPage";
 import Sandbox from "./components/Pages/Sandbox";
 import Onboarding from "./components/Pages/Onboarding";
+import Settings from "./components/Pages/Settings";
+
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -121,6 +123,7 @@ function App() {
             <Route path="/details/:id" element={<DealDetails />} />
             <Route path="/sandbox" element={<Sandbox />} />
             <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

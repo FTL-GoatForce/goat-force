@@ -4,7 +4,7 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { Menu } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
 
 import {
   Box,
@@ -374,6 +374,7 @@ const SideBar = () => {
               }}
               onClick={() => {
                 setActiveItem("Settings");
+                navigate("/settings"); // navigate to the settings page
               }}
             >
               <ListItemIcon
