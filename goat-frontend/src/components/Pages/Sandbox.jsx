@@ -8,7 +8,7 @@ import Header from "../ReusableComponents/Header";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SandboxChat from "../SandboxComponents/SandboxChat";
@@ -23,31 +23,29 @@ function Sandbox() {
   useEffect(() => {
     async function getAllDeals() {
       try {
-        const response = await axios.get("http://localhost:3000/deal/all")
-        setDeals(response.data.deals)
+        const response = await axios.get("http://localhost:3000/deal/all");
+        setDeals(response.data.deals);
 
         // set the first deal as selected when deals are loaded
         if (response.data.deals && response.data.deals.length > 0) {
           setSelectedDeal(response.data.deals[0]);
         }
         // end the loading when data is fetched
-        setLoading(false)
-
+        setLoading(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
         setLoading(false);
       }
     }
 
     getAllDeals();
-  }, [])
+  }, []);
 
   // set selected deal filter array by id on click
   const handleDealClick = (dealId) => {
     const deal = deals.find((d) => d.deal.id === dealId);
     setSelectedDeal(deal);
   };
-
 
   // LOADING STATE - matching the layout structure
   if (loading) {
@@ -168,7 +166,7 @@ function Sandbox() {
         <Box
           sx={{
             display: "flex",
-            flexGrow: 1, // Allow this column to take up remaining horizontal space
+            width: "100%",
             gap: 2,
             flexDirection: "column",
             backgroundColor: "background.default",
@@ -188,7 +186,11 @@ function Sandbox() {
                 <Button
                   variant="text"
                   startIcon={<ArrowBack />}
-                  sx={{ color: "text.secondary", marginLeft: "20px", marginTop: "20px"}}
+                  sx={{
+                    color: "text.secondary",
+                    marginLeft: "20px",
+                    marginTop: "20px",
+                  }}
                   onClick={() => navigate("/dashboard")}
                 >
                   Back to Dashboard
@@ -202,8 +204,7 @@ function Sandbox() {
                   Sandbox Mode
                 </Typography>
               </div>
-              <div>
-              </div>
+              <div></div>
             </Box>
           </Box>
           {/* Cards Content of Page */}
@@ -234,16 +235,10 @@ function Sandbox() {
                 selectedDeal={selectedDeal}
               />
               {/* Card #2: Contact Profile */}
-              <ContactProfile
-                selectedDeal={selectedDeal}
-                deals={deals}
-              />
+              <ContactProfile selectedDeal={selectedDeal} deals={deals} />
             </Box>
             {/* Middle card */}
-            <SandboxChat
-              selectedDeal={selectedDeal}
-              deals={deals}
-            />
+            <SandboxChat selectedDeal={selectedDeal} deals={deals} />
           </Box>
         </Box>
       </Box>
