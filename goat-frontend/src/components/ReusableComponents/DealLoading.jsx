@@ -19,12 +19,10 @@ const DealLoading = ({ dealName }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
-
-      // After fade out, change the index
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % loadingSequence.length);
         setIsTransitioning(false);
-      }, 200); // Half of transition duration
+      }, 300); // Wait for spin out animation
     }, 5000); // Change every 5 seconds
 
     return () => clearInterval(interval);
@@ -54,7 +52,11 @@ const DealLoading = ({ dealName }) => {
             width: "60px",
             height: "60px",
             borderRadius: "8px",
-            overflow: "hidden",
+            transition: "all 0.3s ease-in-out",
+            transform: isTransitioning
+              ? "rotate(360deg) scale(0.8)"
+              : "rotate(0deg) scale(1)",
+            opacity: isTransitioning ? 0.3 : 1,
           }}
         >
           <img
