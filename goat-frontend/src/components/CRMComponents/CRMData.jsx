@@ -233,7 +233,7 @@ const CRMData = ({
           <Typography variant="body2" color="text.secondary">
             Last Activity
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" sx={{ ml: 4 }}>
             Actions
           </Typography>
         </Box>
