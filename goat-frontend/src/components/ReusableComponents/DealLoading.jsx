@@ -58,37 +58,7 @@ const DealLoading = ({ dealName }) => {
               : "rotate(0deg) scale(1)",
             opacity: isTransitioning ? 0.3 : 1,
           }}
-        >
-          <img
-            src={currentGif}
-            alt={`${currentName} Loading`}
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "8px",
-              opacity: isTransitioning ? 0 : 1,
-              transform: isTransitioning ? "scale(0.9)" : "scale(1)",
-              transition:
-                "opacity 0.4s ease-in-out, transform 0.4s ease-in-out",
-            }}
-          />
-          {/* Optional: Add a subtle glow effect around the image */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              borderRadius: "8px",
-              boxShadow: isTransitioning
-                ? "0 0 20px rgba(68, 199, 239, 0.6)"
-                : "0 0 10px rgba(68, 199, 239, 0.3)",
-              transition: "box-shadow 0.4s ease-in-out",
-              pointerEvents: "none",
-            }}
-          />
-        </Box>
+        />
       </Box>
     </Box>
   );
