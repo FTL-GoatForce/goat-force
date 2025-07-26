@@ -52,6 +52,112 @@ const Transcripts = () => {
         }}
       >
         <SideBar />
+        {/* Skeleton Page Content */}
+        <Box
+          sx={{
+            ml: 2,
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            padding: 2,
+            overflowX: "hidden",
+          }}
+        >
+          {/* Header Skeleton */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <Skeleton
+              width={160}
+              height={40}
+              baseColor="#020617"
+              highlightColor="#06B6D4"
+            />
+            <Skeleton
+              width={140}
+              height={40}
+              baseColor="#020617"
+              highlightColor="#06B6D4"
+            />
+          </Box>
+
+          {/* Page Title Skeleton */}
+          <Skeleton
+            width={220}
+            height={35}
+            style={{ marginLeft: "20px", marginBottom: "20px" }}
+            baseColor="#020617"
+            highlightColor="#06B6D4"
+          />
+
+          {/* Content Skeleton Row */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 2,
+              height: "100%",
+              width: "100%",
+            }}
+          >
+            {/* Left Card (Selector) */}
+            <Box
+              width={"33%"}
+              padding={2}
+              display={"flex"}
+              flexDirection="column"
+              maxWidth={"425px"}
+              gap={2}
+            >
+              {[...Array(5)].map((_, i) => (
+                <Skeleton
+                  key={i}
+                  height={80}
+                  baseColor="#020617"
+                  highlightColor="#06B6D4"
+                />
+              ))}
+            </Box>
+
+            {/* Main Content */}
+            <Box
+              width={"100%"}
+              padding={2}
+              display={"flex"}
+              flexDirection="column"
+              gap={2}
+            >
+              <Skeleton
+                height={40}
+                width="60%"
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+              />
+              <Skeleton
+                height={200}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+              />
+              <Skeleton
+                height={40}
+                width="40%"
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+              />
+              <Skeleton
+                count={3}
+                height={100}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+              />
+            </Box>
+          </Box>
+        </Box>
       </Box>
     );
   }
