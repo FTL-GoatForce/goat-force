@@ -165,6 +165,7 @@ function Sandbox() {
         {/* page content */}
         <Box
           sx={{
+            ml: 2, // added some margin here
             display: "flex",
             width: "100%",
             gap: 2,
