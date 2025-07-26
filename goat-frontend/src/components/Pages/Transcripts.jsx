@@ -21,10 +21,8 @@ const Transcripts = () => {
         const response = await axios.get("http://localhost:3000/deal/all");
         setDeals(response.data.deals);
 
-        // set the first deal as selected when deals are loaded
-        if (response.data.deals && response.data.deals.length > 0) {
-          setSelectedDeal(response.data.deals[0]);
-        }
+        setSelectedDeal(response.data.deals[0]);
+
         // end the loading when data is fetched
         setLoading(false);
       } catch (error) {
@@ -74,6 +72,7 @@ const Transcripts = () => {
         {/* page content */}
         <Box
           sx={{
+            ml: 2,
             display: "flex",
             flexDirection: "column", // Arrange header, cards, and data in a column
             flexGrow: 1, // Allow this column to take up remaining horizontal space
@@ -153,7 +152,7 @@ const Transcripts = () => {
               height={"95%"}
               overflow={"auto"}
             >
-              <MainContent></MainContent>
+              <MainContent deals={deals} selectedDeal={selectedDeal} />
             </Box>
           </Box>
         </Box>
