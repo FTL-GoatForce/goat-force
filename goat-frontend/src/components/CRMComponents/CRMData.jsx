@@ -181,15 +181,25 @@ const CRMData = ({
               gap: "8px",
             }}
           >
-            <Button variant="outlined" color="primary" onClick={setAllDeals}>
-              All Deals
-            </Button>
-            <Button variant="outlined" color="primary" onClick={setOpenDeals}>
-              Open
-            </Button>
-            <Button variant="outlined" color="primary" onClick={setClosedDeals}>
-              Closed
-            </Button>
+            <Tooltip title="View all deals">
+              <Button variant="outlined" color="primary" onClick={setAllDeals}>
+                All Deals
+              </Button>
+            </Tooltip>
+            <Tooltip title="View open deals">
+              <Button variant="outlined" color="primary" onClick={setOpenDeals}>
+                Open
+              </Button>
+            </Tooltip>
+            <Tooltip title="View closed deals">
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={setClosedDeals}
+              >
+                Closed
+              </Button>
+            </Tooltip>
           </Box>
         </Box>
         {/* Box holding search field and filter buttons END */}
@@ -223,7 +233,7 @@ const CRMData = ({
           <Typography variant="body2" color="text.secondary">
             Last Activity
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" sx={{ ml: 4 }}>
             Actions
           </Typography>
         </Box>
@@ -249,13 +259,37 @@ const CRMData = ({
                 borderColor: "divider",
               }}
             >
-              <Typography variant="body1" color="text.primary">
+              <Typography
+                variant="body1"
+                color="text.primary"
+                sx={{
+                  color: currentDeal.deal.stage.includes("closed")
+                    ? "text.secondary"
+                    : "text.primary",
+                }}
+              >
                 {currentDeal.deal.deal_name}
               </Typography>
-              <Typography variant="body1" color="text.primary">
+              <Typography
+                variant="body1"
+                color="text.primary"
+                sx={{
+                  color: currentDeal.deal.stage.includes("closed")
+                    ? "text.secondary"
+                    : "text.primary",
+                }}
+              >
                 {currentDeal.deal.company_name}
               </Typography>
-              <Typography variant="body1" color="text.primary">
+              <Typography
+                variant="body1"
+                color="text.primary"
+                sx={{
+                  color: currentDeal.deal.stage.includes("closed")
+                    ? "text.secondary"
+                    : "text.primary",
+                }}
+              >
                 {currentDeal.deal.stage
                   ? currentDeal.deal.stage.charAt(0).toUpperCase() +
                     currentDeal.deal.stage.slice(1).replace("_", " ")

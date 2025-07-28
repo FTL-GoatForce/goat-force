@@ -8,7 +8,7 @@ import Header from "../ReusableComponents/Header";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SandboxChat from "../SandboxComponents/SandboxChat";
@@ -23,31 +23,29 @@ function Sandbox() {
   useEffect(() => {
     async function getAllDeals() {
       try {
-        const response = await axios.get("http://localhost:3000/deal/all")
-        setDeals(response.data.deals)
+        const response = await axios.get("http://localhost:3000/deal/all");
+        setDeals(response.data.deals);
 
         // set the first deal as selected when deals are loaded
         if (response.data.deals && response.data.deals.length > 0) {
           setSelectedDeal(response.data.deals[0]);
         }
         // end the loading when data is fetched
-        setLoading(false)
-
+        setLoading(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
         setLoading(false);
       }
     }
 
     getAllDeals();
-  }, [])
+  }, []);
 
   // set selected deal filter array by id on click
   const handleDealClick = (dealId) => {
     const deal = deals.find((d) => d.deal.id === dealId);
     setSelectedDeal(deal);
   };
-
 
   // LOADING STATE - matching the layout structure
   if (loading) {
@@ -62,87 +60,108 @@ function Sandbox() {
         }}
       >
         <SideBar />
+        {/* Skeleton Page Content */}
         <Box
           sx={{
+            ml: 2,
             display: "flex",
-            flexGrow: 1,
-            gap: 2,
             flexDirection: "column",
-            backgroundColor: "background.default",
+            flexGrow: 1,
+            padding: 2,
+            overflowX: "hidden",
           }}
         >
           {/* Header Skeleton */}
-          <Box sx={{ padding: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
             <Skeleton
+              width={160}
               height={40}
-              width="30%"
               baseColor="#020617"
               highlightColor="#06B6D4"
-              style={{ marginBottom: "10px" }}
             />
             <Skeleton
-              height={35}
-              width="25%"
+              width={140}
+              height={40}
               baseColor="#020617"
               highlightColor="#06B6D4"
             />
           </Box>
 
-          {/* Cards Content Skeleton */}
+          {/* Page Title Skeleton */}
+          <Skeleton
+            width={220}
+            height={35}
+            style={{ marginLeft: "20px", marginBottom: "20px" }}
+            baseColor="#020617"
+            highlightColor="#06B6D4"
+          />
+
+          {/* Content Skeleton Row */}
           <Box
             sx={{
               display: "flex",
               flexDirection: "row",
-              width: "100%",
+              gap: 2,
               height: "100%",
+              width: "100%",
             }}
           >
-            {/* Left Cards (33% width) */}
+            {/* Left Card (Selector) */}
             <Box
               width={"33%"}
               padding={2}
               display={"flex"}
               flexDirection="column"
+              maxWidth={"425px"}
               gap={2}
             >
-              {/* Contact Selector Card Skeleton */}
-              <Skeleton
-                height={300}
-                baseColor="#020617"
-                highlightColor="#06B6D4"
-                style={{ borderRadius: 8 }}
-              />
-              {/* Contact Profile Card Skeleton */}
-              <Skeleton
-                height={250}
-                baseColor="#020617"
-                highlightColor="#06B6D4"
-                style={{ borderRadius: 8 }}
-              />
+              {[...Array(5)].map((_, i) => (
+                <Skeleton
+                  key={i}
+                  height={80}
+                  baseColor="#020617"
+                  highlightColor="#06B6D4"
+                />
+              ))}
             </Box>
 
-            {/* Middle Card (67% width) */}
+            {/* Main Content */}
             <Box
-              marginTop={2}
               width={"100%"}
-              backgroundColor="background.default"
+              padding={2}
               display={"flex"}
               flexDirection="column"
-              sx={{ paddingRight: 2 }}
+              gap={2}
             >
-              {/* Message Box Skeleton */}
               <Skeleton
-                height="85%"
+                height={40}
+                width="60%"
                 baseColor="#020617"
                 highlightColor="#06B6D4"
-                style={{ borderRadius: 8, marginBottom: "16px" }}
               />
-              {/* Chat Box Skeleton */}
               <Skeleton
-                height="15%"
+                height={200}
                 baseColor="#020617"
                 highlightColor="#06B6D4"
-                style={{ borderRadius: 8 }}
+              />
+              <Skeleton
+                height={40}
+                width="40%"
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+              />
+              <Skeleton
+                count={3}
+                height={100}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
               />
             </Box>
           </Box>
@@ -167,8 +186,9 @@ function Sandbox() {
         {/* page content */}
         <Box
           sx={{
+            ml: 2, // added some margin here
             display: "flex",
-            flexGrow: 1, // Allow this column to take up remaining horizontal space
+            width: "100%",
             gap: 2,
             flexDirection: "column",
             backgroundColor: "background.default",
@@ -188,7 +208,11 @@ function Sandbox() {
                 <Button
                   variant="text"
                   startIcon={<ArrowBack />}
-                  sx={{ color: "text.secondary", marginLeft: "20px", marginTop: "20px"}}
+                  sx={{
+                    color: "text.secondary",
+                    marginLeft: "20px",
+                    marginTop: "20px",
+                  }}
                   onClick={() => navigate("/dashboard")}
                 >
                   Back to Dashboard
@@ -202,8 +226,7 @@ function Sandbox() {
                   Sandbox Mode
                 </Typography>
               </div>
-              <div>
-              </div>
+              <div></div>
             </Box>
           </Box>
           {/* Cards Content of Page */}
@@ -234,16 +257,10 @@ function Sandbox() {
                 selectedDeal={selectedDeal}
               />
               {/* Card #2: Contact Profile */}
-              <ContactProfile
-                selectedDeal={selectedDeal}
-                deals={deals}
-              />
+              <ContactProfile selectedDeal={selectedDeal} deals={deals} />
             </Box>
             {/* Middle card */}
-            <SandboxChat
-              selectedDeal={selectedDeal}
-              deals={deals}
-            />
+            <SandboxChat selectedDeal={selectedDeal} deals={deals} />
           </Box>
         </Box>
       </Box>

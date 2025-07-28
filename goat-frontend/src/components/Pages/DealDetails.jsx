@@ -18,8 +18,6 @@ function DealDetails() {
   const [loading, setLoading] = useState(true);
   const [followUpData, setFollowUpData] = useState(null); // useState to store latest follow-up data, will change when update button is clicked and re-rendered
 
-
-
   // fetch deal data based on the ID from the URL
   useEffect(() => {
     async function fetchDeal() {
@@ -176,7 +174,6 @@ function DealDetails() {
     .filter((followUp) => followUp.communication_type === "Slack")
     .reverse()[0];
 
-
   return (
     <>
       {/* page-container */}
@@ -210,6 +207,7 @@ function DealDetails() {
             <Box
               className="deal-details-left-cards"
               sx={{
+                ml: 2, // added some margin here on the left side
                 display: "flex",
                 flexDirection: "column",
                 gap: 3,
@@ -218,7 +216,7 @@ function DealDetails() {
               }}
             >
               <DealSummary
-              // all these values are fetched once id is clicked so up to date
+                // all these values are fetched once id is clicked so up to date
                 dealSummary={deal.conversationHistory[0].deal_summary}
                 value={deal.deal.deal_value}
                 stage={deal.deal.stage}

@@ -33,8 +33,8 @@ const SideBar = () => {
         return "Overview";
       case "/sandbox":
         return "Sandbox";
-      case "/deals":
-        return "Deals";
+      case "/transcripts":
+        return "Transcripts";
       case "/contacts":
         return "Contacts";
       case "/settings":
@@ -264,7 +264,7 @@ const SideBar = () => {
                     color: "white", // change text color on hover
                   },
                 },
-                ...(activeItem === "Deals" && {
+                ...(activeItem === "Transcripts" && {
                   backgroundColor: "primary.dark", // change background color if active
                   "& .MuiListItemIcon-root": {
                     color: "white", // change icon color if active
@@ -275,7 +275,8 @@ const SideBar = () => {
                 }),
               }}
               onClick={() => {
-                setActiveItem("Deals");
+                setActiveItem("Transcripts");
+                navigate("/transcripts"); // navigate to the transcripts page
               }}
             >
               {" "}
@@ -289,7 +290,7 @@ const SideBar = () => {
                 <AttachMoney fontSize="small" />
               </ListItemIcon>
               {open && (
-                <ListItemText primary="Deals" sx={{ color: "#A6ACB9" }} />
+                <ListItemText primary="Transcripts" sx={{ color: "#A6ACB9" }} />
               )}
             </ListItemButton>
           </ListItem>

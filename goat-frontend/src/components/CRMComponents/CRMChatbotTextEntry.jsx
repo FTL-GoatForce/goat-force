@@ -42,16 +42,25 @@ const CRMChatbotTextEntry = ({ sender, context }) => {
     >
       <Avatar
         sx={{
-          mb: 0,
           bgcolor: "secondary.main",
-          width: 23,
-          height: 23,
+          mt: "2px",
+          height: 24,
+          width: 24,
           mr: 1,
+          mb: 1,
         }}
       >
         <PersonIcon />
       </Avatar>
-      <Typography sx={{ color: "text.primary", fontSize: "0.9rem" }}>
+      <Typography
+        sx={{
+          color: "text.primary",
+          fontSize: "0.9rem",
+          lineHeight: 1.4,
+          mt: 1,
+          mb: 1,
+        }}
+      >
         {context}
       </Typography>
     </ListItem>
