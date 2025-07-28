@@ -256,7 +256,6 @@ const Transcripts = () => {
               flexDirection="column"
               gap={2}
               height={"95%"}
-              overflow={"auto"}
             >
               <MainContent deals={deals} selectedDeal={selectedDeal} />
             </Box>

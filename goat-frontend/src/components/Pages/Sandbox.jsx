@@ -248,6 +248,7 @@ function Sandbox() {
               minHeight={"80%"}
               maxHeight={"95%"}
               overflow={"auto"}
+              sx={{ "::-webkit-scrollbar": { width: 0 } }}
               gap={2}
             >
               {/* Card #1: Contact Selector */}

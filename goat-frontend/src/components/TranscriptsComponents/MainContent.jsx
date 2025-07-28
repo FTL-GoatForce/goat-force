@@ -122,7 +122,13 @@ const MainContent = ({ deals, selectedDeal }) => {
 
           {/* Start Dynamically rendering cards  */}
           {channel == "Gmail" ? (
-            <Box sx={{ overflow: "scroll" }}>
+            <Box
+              sx={{
+                overflowY: "auto",
+                height: "85%",
+                "::-webkit-scrollbar": { width: 0 },
+              }}
+            >
               {gmailHistory.map((currentMessage) => {
                 return (
                   <Box sx={{ mt: 2, mb: 2 }}>
@@ -134,7 +140,7 @@ const MainContent = ({ deals, selectedDeal }) => {
                         borderRadius: 2,
                         border: "1px solid",
                         borderColor: "divider",
-                        minHeight: 150,
+                        minHeight: 140,
                         maxHeight: "fit-content",
                       }}
                     >
@@ -218,7 +224,13 @@ const MainContent = ({ deals, selectedDeal }) => {
               })}
             </Box>
           ) : (
-            <Box overflow="scroll">
+            <Box
+              sx={{
+                overflowY: "auto",
+                height: "80%",
+                "::-webkit-scrollbar": { width: 0 },
+              }}
+            >
               {slackHistory.length == 0 && (
                 <Typography sx={{ color: "text.primary", textAlign: "center" }}>
                   No Messages Available
