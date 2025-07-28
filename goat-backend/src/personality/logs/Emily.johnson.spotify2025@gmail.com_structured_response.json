@@ -1,0 +1,149 @@
+{
+  "thread_id": "MarketingCloudLite_Proposal_Review",
+  "channel": {
+    "id": "gmail",
+    "name": "Gmail",
+    "type": "email"
+  },
+  "participants": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
+      "text": "Hi Emily, I wanted to follow up on the proposal we sent last week regarding Marketing Cloud Lite. Let me know if you had a chance to review it \u2014 happy to hop on a call to walk through the details. Best",
+      "timestamp": "2025-07-07T15:41:53-07:00",
+      "sentiment": "neutral",
+      "tone": "professional",
+      "objections": [],
+      "intent": "follow-up",
+      "action_required": true
+    },
+    {
+      "from": "Emily Johnson <emily.johnson.spotify2025@gmail.com>",
+      "text": "Hi Bruce, I saw it. The price seems high for what you're offering. Not convinced it's what we need right now. \u2013 Emily",
+      "timestamp": "2025-07-07T15:44:06-07:00",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": [
+        "pricing",
+        "value/fit"
+      ],
+      "intent": "raise objection",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
+      "text": "Thanks for the quick reply. Totally understand \u2014 would it help if I sent over a breakdown of how each feature maps to your current challenges? Let me know what's most important to your team and we",
+      "timestamp": "2025-07-07T15:44:52-07:00",
+      "sentiment": "neutral",
+      "tone": "responsive",
+      "objections": [],
+      "intent": "overcome objection",
+      "action_required": true
+    },
+    {
+      "from": "Emily Johnson <emily.johnson.spotify2025@gmail.com>",
+      "text": "Honestly, we're looking at other vendors too. Yours is the priciest. If there's no room to come down, we probably won't proceed. \u2013 Emily On Mon, Jul 7, 2025 at 3:45 PM Bruce Wayne &lt;bruce",
+      "timestamp": "2025-07-07T15:45:29-07:00",
+      "sentiment": "negative",
+      "tone": "firm",
+      "objections": [
+        "pricing",
+        "budget"
+      ],
+      "intent": "negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
+      "text": "Appreciate the honesty. There may be flexibility if we can structure a phased rollout. Would you be open to that? Also happy to compare features head-to-head if you'd like. Best, Bruce On Mon, Jul",
+      "timestamp": "2025-07-07T15:46:02-07:00",
+      "sentiment": "neutral",
+      "tone": "flexible",
+      "objections": [],
+      "intent": "propose alternative",
+      "action_required": true
+    },
+    {
+      "from": "Emily Johnson <emily.johnson.spotify2025@gmail.com>",
+      "text": "We don't have time for a long rollout. Either it works out-of-the-box or we're not interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:46 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote:",
+      "timestamp": "2025-07-07T15:46:26-07:00",
+      "sentiment": "negative",
+      "tone": "impatient",
+      "objections": [
+        "timeline"
+      ],
+      "intent": "raise objection",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
+      "text": "Got it. I'll revise the proposal with a focus on rapid deployment and get back to you by end of day. Let me know if there's anything else I should consider. \u2013 Bruce",
+      "timestamp": "2025-07-07T15:47:01-07:00",
+      "sentiment": "neutral",
+      "tone": "responsive",
+      "objections": [],
+      "intent": "commit to action",
+      "action_required": true
+    },
+    {
+      "from": "Emily Johnson <emily.johnson.spotify2025@gmail.com>",
+      "text": "Send whatever you want, but just FYI \u2014 legal won't even look at it unless it's under $90K. \u2013 Emily On Mon, Jul 7, 2025 at 3:47 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote: Got",
+      "timestamp": "2025-07-07T15:47:35-07:00",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": [
+        "budget"
+      ],
+      "intent": "set condition",
+      "action_required": true
+    },
+    {
+      "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
+      "text": "Understood. I'll aim to get it as close as possible to that number and outline tradeoffs clearly. Appreciate your patience, Emily. Best, Bruce On Mon, Jul 7, 2025 at 3:47 PM Emily Johnson &lt;emily",
+      "timestamp": "2025-07-07T15:47:58-07:00",
+      "sentiment": "neutral",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "commit to action",
+      "action_required": true
+    },
+    {
+      "from": "Emily Johnson <emily.johnson.spotify2025@gmail.com>",
+      "text": "Let's just pause for now. I'll circle back if leadership is still interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:48 PM Bruce Wayne &lt;bruce.wayne.goatforce@gmail.com&gt; wrote: Understood. I'",
+      "timestamp": "2025-07-07T15:48:29-07:00",
+      "sentiment": "negative",
+      "tone": "stalling",
+      "objections": [],
+      "intent": "stall",
+      "action_required": false
+    }
+  ],
+  "summary": "The prospect, Emily Johnson, raised multiple objections regarding the proposal's high price, perceived lack of value, and strict budget and timeline constraints. Despite the sales rep, Bruce Wayne, attempting to address these by offering revised terms and committing to a rapid-deployment proposal under a specified budget, Emily decided to pause the discussion, stating she would circle back if leadership maintains interest.",
+  "last_activity": "2025-07-07T15:48:29-07:00",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 34.25,
+    "objections_raised": 4,
+    "followups_committed": 2
+  },
+  "tags": [
+    "pricing_objection",
+    "value_objection",
+    "budget_objection",
+    "timeline_objection",
+    "deal_stalled",
+    "proposal_revision_required",
+    "urgent_response_chain"
+  ]
+}

@@ -1,0 +1,697 @@
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Scheduled follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Revise the proposal to meet budget constraints", "Schedule a follow-up meeting to discuss the revised proposal", "Prepare to address objections regarding implementation complexity"],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "budget_constraint", "timeline_objection", "competitor_comparison", "proposal_revision", "deal_stalled", "disengagement"]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+  "TAGS": [
+    "pricing_objection",
+    "budget_constraint",
+    "timeline_objection",
+    "competitor_comparison",
+    "proposal_revision",
+    "deal_stalled",
+    "disengagement"
+  ]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": [
+    "pricing_objection",
+    "budget_constraint",
+    "timeline_objection",
+    "competitor_comparison",
+    "proposal_revision",
+    "deal_stalled",
+    "disengagement"
+  ]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+  "TAGS": [
+    "pricing_objection",
+    "budget_constraint",
+    "timeline_objection",
+    "competitor_comparison",
+    "proposal_revision",
+    "deal_stalled",
+    "disengagement"
+  ]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+  "TAGS": [
+    "pricing_objection",
+    "budget_constraint",
+    "timeline_objection",
+    "competitor_comparison",
+    "proposal_revision",
+    "deal_stalled",
+    "disengagement"
+  ]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+  "TAGS": [
+    "pricing_objection",
+    "budget_constraint",
+    "timeline_objection",
+    "competitor_comparison",
+    "proposal_revision",
+    "deal_stalled",
+    "disengagement"
+  ]
+}
+--------------------------------
+Deal ID: 40
+Response: {
+  "deal_id": "marketing-cloud-lite-proposal-review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "negotiation",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 85,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is experiencing significant objections related to pricing and budget constraints, with the prospect setting a strict budget limit.",
+    "churn_risk_explanation": "High likelihood of switching to competitors due to dissatisfaction with pricing and perceived value.",
+    "timeline_risk_explanation": "Concerns about implementation complexity and timeline have been raised, indicating potential delays.",
+    "budget_risk_explanation": "The prospect has expressed firm budget limitations, increasing the risk of budget-related issues."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value", "need", "competition", "timeline", "implementation complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect raising multiple objections regarding pricing and implementation."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised concerns about pricing and budget limitations.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep offered solutions to address objections and committed to revising the proposal.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-14",
+        "event_description": "Follow-up to discuss revised proposal and address ongoing concerns.",
+        "event_type": "Follow-Up"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal is currently in a negotiation stage with significant objections from the prospect regarding pricing and implementation timelines. The prospect has set a strict budget limit and has indicated a willingness to pause discussions until their leadership shows further interest. The engagement trend is declining, and the deal is at high risk due to unresolved objections and budget constraints.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Revise the proposal to meet budget constraints",
+      "Schedule a follow-up meeting to discuss the revised proposal",
+      "Prepare to address objections regarding implementation complexity"
+    ],
+    "Escalation_Triggers": "If the prospect does not respond within a week after the follow-up proposal is sent.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional value-add services to incentivize the prospect."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand that pricing and implementation timelines are critical concerns for you. We are committed to addressing these issues and would love to schedule a time to discuss a revised proposal that aligns with your budget and needs.\n\nPlease let me know your availability for a follow-up meeting.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you have any updates on the proposal discussions. Let me know if you'd like to set up a time to talk!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+  "TAGS": ["pricing_objection", "budget_constraint", "timeline_objection", "competition_mention", "proposal_revision", "deal_stalled", "disengagement", "value_proposition_challenge"]
+}
+--------------------------------

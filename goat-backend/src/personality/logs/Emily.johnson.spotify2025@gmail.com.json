@@ -1,0 +1,38 @@
+
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "firm", "skeptical", "impatient", "pragmatic", "cautious"],
+      "communication_style": "direct",
+      "decision_making_style": "price-sensitive",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "raising objection", "negotiating", "setting condition", "stalling"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, impatient"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value/fit", "timeline", "budget"],
+      "objection_frequency_severity": "high frequency and high severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, stalled",
+      "budget_risk_indicators": "high",
+      "timeline_risk_indicators": "high",
+      "churn_risk_indicators": "high"
+    },
+    "deal_insights": {
+      "key_objections": "price (must be under $90K), perceived lack of value, and inability to support a lengthy rollout (needs out-of-the-box solution)",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "currently seen as the priciest among other evaluated vendors"
+    }
+  }

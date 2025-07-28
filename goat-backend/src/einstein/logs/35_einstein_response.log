@@ -1,0 +1,96 @@
+Deal ID: 35
+Response: {
+  "deal_id": "MarketingCloudLite_Proposal_Review",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "proposal",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 70,
+    "Churn_Risk": 80,
+    "Timeline_Risk": 60,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The prospect has raised significant objections regarding pricing and budget constraints, indicating high risk.",
+    "churn_risk_explanation": "The prospect is considering other vendors and has expressed dissatisfaction with pricing, suggesting a high likelihood of switching.",
+    "timeline_risk_explanation": "The prospect has indicated urgency for a solution that works immediately, creating pressure on the timeline.",
+    "budget_risk_explanation": "The prospect's legal department will not review proposals over $90K, highlighting a critical budget constraint."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value/fit", "budget", "timeline"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "high",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "stable",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last communication involved the prospect expressing their budget constraints and pausing the discussion."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "The prospect raised objections regarding pricing and budget constraints.",
+        "event_type": "Objection Raised"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "The rep committed to revising the proposal to meet budget constraints.",
+        "event_type": "Proposal Revision"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "The prospect decided to pause discussions and will circle back if there is continued interest.",
+        "event_type": "Deal Stalled"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The prospect, Emily Johnson, raised multiple objections regarding the proposal's high price and strict budget constraints. Despite Bruce Wayne's attempts to address these concerns by offering a revised proposal, Emily decided to pause the discussion, stating she would circle back if leadership maintains interest.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Revise the proposal to align with budget constraints", "Follow up with the prospect in a week", "Prepare a competitive analysis to address objections"],
+    "Escalation_Triggers": "If no response within one week, escalate to upper management for further negotiation.",
+    "Deal_Acceleration_Tactics": "Offer a phased rollout or discount to meet budget constraints."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Revised Proposal for Marketing Cloud Lite",
+        "body": "Hi Emily,\n\nThank you for your feedback on our proposal. I understand the budget constraints and will revise the proposal to meet the $90K threshold. I’ll outline the trade-offs clearly and send it over by the end of the day.\n\nIf you have any additional concerns or priorities, please let me know.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, I'm working on revising the proposal to fit within your budget. I'll have it ready for you by the end of the day."
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 50
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "value_objection", "budget_objection", "timeline_objection", "deal_stalled", "proposal_revision_required", "urgent_response_chain"]
+}
+--------------------------------

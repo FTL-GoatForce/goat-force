@@ -1,0 +1,491 @@
+Deal ID: 34
+Response: {
+  "deal_id": "fedex_crm_thread_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 40,
+    "Churn_Risk": 30,
+    "Timeline_Risk": 20,
+    "Budget_Risk": 10,
+    "deal_risk_explanation": "The deal shows some engagement but has raised multiple objections that need addressing.",
+    "churn_risk_explanation": "The prospect has expressed interest but may consider alternatives if concerns are not resolved.",
+    "timeline_risk_explanation": "The timeline appears stable with a meeting scheduled for further discussion.",
+    "budget_risk_explanation": "No budget concerns have been raised at this stage."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["early_stage", "technical_fit", "multiple_business_units_handling", "integration_complexity"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 602.5,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Last communication involved addressing integration concerns and scheduling a follow-up meeting."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "A meeting has been scheduled for Tuesday at 11 am to discuss CRM solutions.",
+      "event_type": "Meeting Scheduled"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Bruce shared a document addressing multi-unit support for FedEx's CRM needs.",
+      "event_type": "Document Shared"
+    },
+    {
+      "event_date": "2025-07-01",
+      "event_description": "Initial contact was made by Bruce to David to discuss CRM solutions.",
+      "event_type": "Initial Outreach"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "Bruce Wayne initiated contact with David Gonzalez from FedEx to discuss CRM solutions for their supply chain. David expressed interest but highlighted they are in early evaluation and raised specific concerns regarding handling multiple business units and ease of integration. A meeting has been scheduled for Tuesday at 11 am, and Bruce provided a document addressing multi-unit support, preparing for further discussion on integration.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Prepare for the upcoming meeting with detailed answers to technical concerns.", "Follow up with David after the meeting to address any further questions."],
+    "Escalation_Triggers": "If David does not respond within 48 hours post-meeting, consider escalating to a higher-level contact.",
+    "Deal_Acceleration_Tactics": "Offer a demo to showcase the integration capabilities of the CRM."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Our Upcoming Meeting",
+        "body": "Hi David,\n\nI just wanted to confirm our meeting on Tuesday at 11 am. I have also shared the document addressing multi-unit support. Please let me know if you have any additional questions before our discussion.\n\nLooking forward to it!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just checking in to confirm our meeting on Tuesday at 11 am. Let me know if you need anything before then!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "neutral",
+      "communication_score": 70
+    }
+  ],
+
+  "TAGS": ["initial_outreach", "discovery", "meeting_scheduled", "technical_objection", "integration_concern", "multiple_business_units_concern", "early_stage_discussion", "document_shared", "action_required_for_next_meeting"]
+}
+--------------------------------
+Deal ID: 34
+Response: {
+  "deal_id": "fedex_crm_thread_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-23T14:39:55.527Z",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 95,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 10,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal was concluded as the prospect indicated disinterest, resulting in a high risk score.",
+    "churn_risk_explanation": "The prospect has explicitly stated a lack of interest, indicating a high likelihood of considering alternatives.",
+    "timeline_risk_explanation": "The timeline is stable as the deal has concluded.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["stakeholder disinterest", "deal lost"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 193469.7782525,
+    "engagement_trend": "declining",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-23",
+      "event_description": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Bruce shared a Loom demo tailored for multi-region support.",
+      "event_type": "Demo Provided"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "A meeting was discussed to evaluate CRM options.",
+      "event_type": "Meeting Discussion"
+    }
+  ],
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce, engaged with the prospect, David, to understand their need for multi-region support and challenges with siloed legacy systems. Bruce provided a brief Loom demo, which David found solid, indicating they were in an early evaluation phase and appreciated the no-pressure approach. However, David later informed Bruce that an internal stakeholder was no longer interested, leading to the conclusion that the deal would not proceed.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Analyze feedback from the prospect to improve future pitches.", "Consider reaching out to other stakeholders within FedEx."],
+    "Escalation_Triggers": "If David does not respond to follow-ups within a week, consider escalating to a higher-level contact.",
+    "Deal_Acceleration_Tactics": "Revisit the prospect in the future as their needs may change."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Thank You for Your Time",
+        "body": "Hi David,\n\nThank you for the discussions we've had regarding the CRM solutions. I understand that the timing isn't right at the moment, but I appreciate your transparency. If circumstances change or if you need any assistance in the future, please don't hesitate to reach out.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just wanted to say thank you for our discussions. If there's anything you need in the future, feel free to reach out!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 70
+    }
+  ],
+  "TAGS": ["stakeholder_disinterest", "deal_lost", "demo_provided", "no_pressure_vibe", "evaluation_phase"]
+}
+--------------------------------
+Deal ID: 34
+Response: {
+  "deal_id": "fedex_crm_thread_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-23T14:39:55.527Z",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 95,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 10,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal was concluded as the prospect indicated disinterest, resulting in a high risk score.",
+    "churn_risk_explanation": "The prospect has explicitly stated a lack of interest, indicating a high likelihood of considering alternatives.",
+    "timeline_risk_explanation": "The timeline is stable as the deal has concluded.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": [
+      "stakeholder disinterest",
+      "deal lost"
+    ],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 193469.7782525,
+    "engagement_trend": "declining",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-23",
+      "event_description": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Bruce shared a Loom demo tailored for multi-region support.",
+      "event_type": "Demo Provided"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "A meeting was discussed to evaluate CRM options.",
+      "event_type": "Meeting Discussion"
+    }
+  ],
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce, engaged with the prospect, David, to understand their need for multi-region support and challenges with siloed legacy systems. Bruce provided a brief Loom demo, which David found solid, indicating they were in an early evaluation phase and appreciated the no-pressure approach. However, David later informed Bruce that an internal stakeholder was no longer interested, leading to the conclusion that the deal would not proceed.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Analyze feedback from the prospect to improve future pitches.",
+      "Consider reaching out to other stakeholders within FedEx."
+    ],
+    "Escalation_Triggers": "If David does not respond to follow-ups within a week, consider escalating to a higher-level contact.",
+    "Deal_Acceleration_Tactics": "Revisit the prospect in the future as their needs may change."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Thank You for Your Time",
+        "body": "Hi David,\n\nThank you for the discussions we've had regarding the CRM solutions. I understand that the timing isn't right at the moment, but I appreciate your transparency. If circumstances change or if you need any assistance in the future, please don't hesitate to reach out.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just wanted to say thank you for our discussions. If there's anything you need in the future, feel free to reach out!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 70
+    }
+  ],
+  "TAGS": [
+    "stakeholder_disinterest",
+    "deal_lost",
+    "demo_provided",
+    "no_pressure_vibe",
+    "evaluation_phase"
+  ]
+}
+--------------------------------
+Deal ID: 34
+Response: {
+  "deal_id": "fedex_crm_thread_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-19T21:30:38.498Z",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 95,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 10,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal was concluded as the prospect indicated disinterest, resulting in a high risk score.",
+    "churn_risk_explanation": "The prospect has explicitly stated a lack of interest, indicating a high likelihood of considering alternatives.",
+    "timeline_risk_explanation": "The timeline is stable as the deal has concluded.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["internal_decision", "product_feature"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 12,
+    "prospect_response_time_sec": 130707.576,
+    "engagement_trend": "declining",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-19",
+      "event_description": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-07-09",
+      "event_description": "Bruce shared a Loom demo tailored for multi-region support.",
+      "event_type": "Demo Provided"
+    },
+    {
+      "event_date": "2025-07-09",
+      "event_description": "David expressed concerns about the evaluation timeline and technical validation.",
+      "event_type": "Evaluation Update"
+    }
+  ],
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce, engaged with the prospect, David, to understand their need for multi-region support and challenges with siloed legacy systems. Bruce provided a brief Loom demo, which David found solid, indicating they were in an early evaluation phase and appreciated the no-pressure approach. However, David later informed Bruce that an internal stakeholder was no longer interested, leading to the conclusion that the deal would not proceed.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Analyze feedback from the prospect to improve future pitches.",
+      "Consider reaching out to other stakeholders within FedEx."
+    ],
+    "Escalation_Triggers": "If David does not respond to follow-ups within a week, consider escalating to a higher-level contact.",
+    "Deal_Acceleration_Tactics": "Revisit the prospect in the future as their needs may change."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Thank You for Your Time",
+        "body": "Hi David,\n\nThank you for the discussions we've had regarding the CRM solutions. I understand that the timing isn't right at the moment, but I appreciate your transparency. If circumstances change or if you need any assistance in the future, please don't hesitate to reach out.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just wanted to say thank you for our discussions. If there's anything you need in the future, feel free to reach out!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 70
+    }
+  ],
+  "TAGS": [
+    "multi_region_support",
+    "unified_reporting",
+    "data_silos",
+    "legacy_systems",
+    "loom_demo",
+    "vendor_evaluation",
+    "long_sales_cycle",
+    "technical_objection",
+    "internal_stakeholder_influence",
+    "deal_lost",
+    "competitor_lost",
+    "poor_demo_feedback",
+    "long_response_time",
+    "no_pressure_approach",
+    "negative_sentiment_at_closure",
+    "unimpressed_stakeholder"
+  ]
+}
+--------------------------------
+Deal ID: 34
+Response: {
+  "deal_id": "fedex_crm_thread_001",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-19T21:30:38.498Z",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 95,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 10,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The deal was concluded as the prospect indicated disinterest, resulting in a high risk score.",
+    "churn_risk_explanation": "The prospect has explicitly stated a lack of interest, indicating a high likelihood of considering alternatives.",
+    "timeline_risk_explanation": "The timeline is stable as the deal has concluded.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["internal_decision", "product_feature"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 12,
+    "prospect_response_time_sec": 130707.576,
+    "engagement_trend": "declining",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-19",
+      "event_description": "David informed Bruce that Priya is not interested, leading to the conclusion of the deal.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-07-09",
+      "event_description": "Bruce shared a Loom demo tailored for multi-region support.",
+      "event_type": "Demo Provided"
+    },
+    {
+      "event_date": "2025-07-09",
+      "event_description": "David expressed concerns about the evaluation timeline and technical validation.",
+      "event_type": "Evaluation Update"
+    }
+  ],
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce, engaged with the prospect, David, to understand their need for multi-region support and challenges with siloed legacy systems. Bruce provided a brief Loom demo, which David found solid, indicating they were in an early evaluation phase and appreciated the no-pressure approach. However, David later informed Bruce that an internal stakeholder was no longer interested, leading to the conclusion that the deal would not proceed.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Analyze feedback from the prospect to improve future pitches.",
+      "Consider reaching out to other stakeholders within FedEx."
+    ],
+    "Escalation_Triggers": "If David does not respond to follow-ups within a week, consider escalating to a higher-level contact.",
+    "Deal_Acceleration_Tactics": "Revisit the prospect in the future as their needs may change."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Thank You for Your Time",
+        "body": "Hi David,\n\nThank you for the discussions we've had regarding the CRM solutions. I understand that the timing isn't right at the moment, but I appreciate your transparency. If circumstances change or if you need any assistance in the future, please don't hesitate to reach out.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David, just wanted to say thank you for our discussions. If there's anything you need in the future, feel free to reach out!"
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "prospect",
+      "sentiment": "negative",
+      "communication_score": 70
+    }
+  ],
+  "TAGS": [
+    "multi_region_support",
+    "unified_reporting",
+    "data_silos",
+    "legacy_systems",
+    "loom_demo",
+    "vendor_evaluation",
+    "long_sales_cycle",
+    "technical_objection",
+    "internal_stakeholder_influence",
+    "deal_lost",
+    "competitor_lost",
+    "poor_demo_feedback",
+    "long_response_time",
+    "no_pressure_approach",
+    "negative_sentiment_at_closure",
+    "unimpressed_stakeholder"
+  ]
+}
+--------------------------------

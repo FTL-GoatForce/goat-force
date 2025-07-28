@@ -1,0 +1,97 @@
+Deal ID: 27
+Response: {
+  "deal_id": "MarketingCloudLiteProposal",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 95,
+    "Churn_Risk": 90,
+    "Timeline_Risk": 80,
+    "Budget_Risk": 85,
+    "deal_risk_explanation": "The deal was called off by the prospect due to pricing concerns and budget constraints.",
+    "churn_risk_explanation": "The prospect is considering other vendors and has indicated a lack of interest in proceeding.",
+    "timeline_risk_explanation": "The prospect has a strict timeline and is not willing to wait for a long rollout.",
+    "budget_risk_explanation": "The proposal exceeds the budget cap set by the prospect's legal team."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value_proposition", "implementation_timeline", "budget_cap"],
+    "Decision_Maker_Status": "Decision paused; prospect will circle back if interest arises.",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The prospect expressed a firm stance on not proceeding without a significant price reduction."
+  },
+  
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Rep followed up on the proposal sent last week.",
+        "event_type": "Follow Up"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect raised objections regarding pricing and competitive offers.",
+        "event_type": "Price Negotiation"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Prospect decided to pause discussions and will revisit if leadership shows interest.",
+        "event_type": "Deal Lost"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The sales representative, Bruce Wayne, engaged with the prospect, Emily Johnson, about the Marketing Cloud Lite proposal. Despite attempts to address Emily's pricing concerns and offer alternatives, the prospect ultimately decided to pause the discussion, indicating a lack of current interest from leadership and a strict budget cap due to legal constraints.",
+
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Revise the proposal to meet the budget cap", "Follow up in a few months to check on interest", "Explore alternative pricing structures or phased rollouts"],
+    "Escalation_Triggers": "If the prospect indicates a willingness to reconsider the proposal or if new budget information arises.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount to encourage a quicker decision."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Revisiting the Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI appreciate your feedback on the proposal. I understand the budget constraints and would like to see if we can work together to find a solution that fits your needs. If there's any flexibility or if you have specific features in mind that are crucial for your team, please let me know. \n\nLooking forward to your thoughts.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if there's any update on your end regarding the proposal. Let me know if you need any adjustments!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 70
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "decision_maker",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "value_proposition_concern", "competitive_situation", "implementation_challenge", "budget_objection", "legal_constraint", "deal_stalled", "proposal_revision"]
+}
+--------------------------------

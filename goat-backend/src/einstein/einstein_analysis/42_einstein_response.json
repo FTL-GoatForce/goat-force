@@ -1,0 +1,97 @@
+{
+  "deal_id": "salesforce-airbnb-upgrade-thread-1",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094K124HS7",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-08T15:06:00Z",
+  "deal_stage": "negotiation",
+  "deal_value_usd": null,
+  "expected_close_date": "2025-07-11",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 20,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "The conversation shows strong engagement and positive sentiment with no major blockers remaining.",
+    "churn_risk_explanation": "The prospect has expressed alignment and urgency, indicating low likelihood of switching to a competitor.",
+    "timeline_risk_explanation": "The prospect has set a clear timeline for signatures by Friday, indicating a low risk of timeline delays.",
+    "budget_risk_explanation": "No budget concerns were raised during the discussions."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["Contract terms", "scope clarification"],
+    "Decision_Maker_Status": "Confirmed, RevOps and Finance have signed off.",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 10.91,
+    "engagement_trend": "improving",
+    "last_touch_channel": "slack",
+    "last_touch_summary": "Bruce confirmed he would update the termination clause and coordinate with legal."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "Bruce sent the formal proposal for the Salesforce Sales Suite Upgrade.",
+      "event_type": "Proposal Sent"
+    },
+    {
+      "event_date": "2025-07-08",
+      "event_description": "Sophia requested a change to the termination clause to a 30-day notice.",
+      "event_type": "Contract Negotiation"
+    },
+    {
+      "event_date": "2025-07-11",
+      "event_description": "Expected date for signatures to finalize the agreement.",
+      "event_type": "Deal Closing"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal is currently in negotiation with strong engagement from both parties. Bruce is addressing a minor legal amendment requested by Sophia, which is the last blocker before signing. The prospect is eager to finalize the deal by Friday for onboarding on August 5.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": [
+      "Coordinate with legal to finalize the contract amendment",
+      "Ensure both parties are aligned on the timeline for signatures",
+      "Prepare onboarding materials for August 5"
+    ],
+    "Escalation_Triggers": "If legal amendments are not finalized by the end of the day.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time incentive if the deal is signed by the expected close date."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-Up on Contract Amendment",
+        "body": "Hi Sophia, I wanted to check in regarding the amendment to the termination clause we discussed. I've coordinated with our legal team and expect to have the updated draft shortly. Looking forward to finalizing everything by Friday!"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just wanted to confirm that I'm working on the legal amendment and will keep you updated!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia Nguyen",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["contract_negotiation", "legal_review", "fast_response", "deal_progression", "timeline_alignment", "positive_sentiment"]
+}

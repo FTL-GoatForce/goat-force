@@ -1,5 +1,22 @@
 import React, { use } from "react";
-import { Box, Button, Typography, Chip, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  Chip,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Tooltip,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  CircularProgress,
+} from "@mui/material";
 import CRMChatbotTextEntry from "../CRMComponents/CRMChatbotTextEntry";
 import { useState } from "react";
 import CRMAiEntry from "../CRMComponents/CRMAiEntry";
@@ -8,22 +25,46 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import LoadingThreeDotsPulse from "../CRMComponents/LoadingThreeDotsPulse";
 import axios from "axios";
+import { AssessmentOutlined, Insights, Send } from "@mui/icons-material";
+import { green } from "@mui/material/colors";
+import ShinyText from "../ReusableComponents/Shiny";
+import Curved from "../ReusableComponents/Curved";
 
 function SandboxChat({ selectedDeal, deals }) {
   const SandboxServer = import.meta.env.VITE_SANDBOX_MODE;
+  const ReportServer = import.meta.env.VITE_REPORT_SERVER;
+
   const [prompt, setPrompt] = useState(""); // holds the user's input on the chat box
   const [messages, setMessages] = useState([]); // holds the chat messages
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [streamingText, setStreamingText] = useState("");
+  const [reportLoading, setReportLoading] = useState(false); // state to track report generation loading
+  const [reportGenerated, setReportGenerated] = useState(false); // state to track if report is generated
+  const [report, setReport] = useState({
+    score: "",
+    summary: "",
+    improvements: [],
+  });
   const [currentDealName, setCurrentDealName] = useState(
     selectedDeal.deal.deal_name
   );
   const [participant, setParticipant] = useState(
     selectedDeal.participants[0].prospect_name || "Emily Johnson"
   );
+  function handleCloseReport() {
+    setReportGenerated(false);
+    setReportLoading(false);
+    setReport({
+      score: "",
+      summary: "",
+      improvements: [],
+    });
+  }
+  const [communicationMode, setCommunicationMode] = useState("chat");
   const messageRef = useRef(null);
   const listRef = useRef(null);
+
   // scroll to the bottom of the chat when a new message is added
   useEffect(() => {
     setTimeout(() => {
@@ -98,6 +139,46 @@ function SandboxChat({ selectedDeal, deals }) {
     console.log(selectedDeal.participants[0].prospect_name);
   };
 
+  const generateSandboxReport = async () => {
+    // handle report generation logic here
+    try {
+      setReportLoading(true);
+      setReportGenerated(true);
+      console.log("Generating report for deal:", selectedDeal.deal.deal_name);
+      const response = await axios.post(`${ReportServer}`, {
+        participant: participant,
+        chatHistory: messages,
+        deal_name: currentDealName,
+        deal_id: parseInt(selectedDeal.deal.id),
+      });
+
+      console.log(response.data);
+      // Remove the code block wrapper (```json ... ```)
+      const cleanJsonString = response.data.response.replace(
+        /```json\n|\n```/g,
+        ""
+      );
+
+      // Parse the clean JSON string
+      const parsedResponse = JSON.parse(cleanJsonString);
+      setReport(parsedResponse);
+      console.log(report);
+      // setReportGenerated(true);
+      setReportLoading(false);
+      handleChatReset(); // reset chat after report generation
+    } catch {
+      setReportLoading(false);
+    } finally {
+      setReportLoading(false);
+    }
+  };
+
+  const handleModeChange = (event) => {
+    setCommunicationMode(event.target.value);
+    console.log("Communication mode changed to:", event.target.value);
+    // TODO: Implement mode switching logic
+  };
+
   // selectedDeal is updated, reset chat
   useEffect(() => {
     handleChatReset();
@@ -106,7 +187,9 @@ function SandboxChat({ selectedDeal, deals }) {
   return (
     <Box
       marginTop={2}
-      width={"100%"}
+      maxWidth={"82%"}
+      minWidth={"82%"}
+      // sx={{ maxWidth: "100%" }}
       backgroundColor="background.default"
       display={"flex"}
       flexDirection="column"
@@ -124,7 +207,78 @@ function SandboxChat({ selectedDeal, deals }) {
           maxHeight={"900px"}
           ref={listRef}
         >
-          {/* Chat Header */}
+          {/* Toolbar */}
+          <Box
+            display={"flex"}
+            justifyContent="space-between"
+            alignItems="center"
+            marginBottom={2}
+            bgcolor={"background.paper"}
+            sx={{
+              p: 2,
+              borderRadius: "8px",
+              boxShadow: 1,
+              border: "1px solid",
+              borderColor: "divider",
+            }}
+          >
+            {/* Mode Selection Dropdown */}
+            <FormControl size="small" sx={{ minWidth: 150 }}>
+              <InputLabel color="text.primary" id="communication-mode-label">
+                Mode
+              </InputLabel>
+              <Select
+                labelId="communication-mode-label"
+                id="communication-mode-select"
+                value={communicationMode}
+                label="Mode"
+                onChange={handleModeChange}
+                sx={{
+                  backgroundColor: "background.paper",
+                }}
+              >
+                <MenuItem value="chat"> Text Mode</MenuItem>
+                <MenuItem value="voice"> Voice Mode</MenuItem>
+              </Select>
+            </FormControl>
+
+            {/* Toolbar Actions */}
+            <Box display="flex" gap={2} alignItems="center">
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "text.secondary",
+                  fontWeight: "medium",
+                }}
+              >
+                Ready to see your analysis?
+              </Typography>
+              <Tooltip title="End the chat and generate report">
+                <Button
+                  variant="contained"
+                  disabled={messages.length <= 1}
+                  color="primary"
+                  onClick={generateSandboxReport}
+                  sx={{
+                    fontSize: "1.1rem",
+                    px: 3,
+                    color: "#fdfdfdff",
+                    py: 0.8,
+                    borderRadius: 2,
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #4c5460ff, #272a42ff)",
+                      transform: "scale(1.02)",
+                      transition: "all 0.2s ease",
+                    },
+                  }}
+                  endIcon={<AssessmentOutlined />}
+                >
+                  Generate
+                </Button>
+              </Tooltip>
+            </Box>
+          </Box>
           <Box>
             <CRMAiEntry
               sender={"Ai"}
@@ -191,12 +345,154 @@ function SandboxChat({ selectedDeal, deals }) {
             onClick={handleSend}
             disabled={loading}
           >
-            <span style={{ color: "white", fontWeight: "bold" }}>
+            {/* <span style={{ color: "white", fontWeight: "bold" }}>
               {loading ? "Sending..." : "Send"}
-            </span>
+            </span> */}
+            <Send sx={{ color: "#fdfdfdff", borderRadius: 2 }} />
           </Button>
         </Box>
       </Box>
+      {/* Modal that appears on Generation of Report */}
+      <Dialog
+        open={reportGenerated}
+        onClose={handleCloseReport}
+        sx={{ borderRadius: 10 }}
+      >
+        {reportLoading ? (
+          <Box
+            sx={{
+              padding: 3,
+              backgroundColor: "background.paper",
+              pl: 4,
+              pr: 4,
+              width: 600,
+              height: 400,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              minWidth: "fit-content",
+              minHeight: "fit-content",
+            }}
+          >
+            {/* <Box width={"100%"} sx={{ position: "absolute", top: 70, left: 0 }}>
+              <Curved
+                marqueeText="Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦"
+                speed={3}
+                curveAmount={-250}
+                interactive={false}
+                direction="right"
+              />
+            </Box> */}
+            <Typography sx={{ color: "text.secondary" }}>
+              Generating report in progress, please wait...
+            </Typography>
+            <CircularProgress />
+            {/* <Box
+              width={"100%"}
+              sx={{ position: "absolute", bottom: 30, left: 0 }}
+            >
+              <Curved
+                marqueeText="Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦ Generating Your Report ✦"
+                speed={3}
+                curveAmount={250}
+                interactive={false}
+                direction="left"
+              />
+            </Box> */}
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              padding: 3,
+              backgroundColor: "background.paper",
+              pl: 4,
+              pr: 4,
+              width: 600,
+              height: 700,
+              minWidth: "fit-content",
+              minHeight: "fit-content",
+            }}
+          >
+            <DialogTitle
+              sx={{
+                borderBottom: "1px solid",
+                borderColor: "divider",
+                color: "text.primary",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+              }}
+            >
+              Report Generated
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                <Box sx={{ mt: 2 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Deal Name: {currentDealName}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Participant: {participant}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color:
+                        report.score >= 75
+                          ? "success.main"
+                          : report.score >= 50
+                          ? "warning.main"
+                          : "error.main",
+                    }}
+                    gutterBottom
+                  >
+                    Score: {report.score}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Summary: {report.summary}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary", mt: 2 }}
+                    gutterBottom
+                  >
+                    Improvements:
+                  </Typography>
+                  <ul>
+                    {report.improvements.map((improvement, index) => (
+                      <li key={index}>
+                        <Typography
+                          sx={{ color: "text.primary" }}
+                          variant="body1"
+                        >
+                          {improvement}
+                        </Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseReport} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Box>
+        )}
+      </Dialog>
     </Box>
   );
 }

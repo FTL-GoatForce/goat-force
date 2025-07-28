@@ -1,0 +1,95 @@
+Deal ID: 26
+Response: {
+  "deal_id": "MarketingCloudLite",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "closed_lost",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 100,
+    "Churn_Risk": 100,
+    "Timeline_Risk": 90,
+    "Budget_Risk": 80,
+    "deal_risk_explanation": "The deal was called off by the prospect due to a lack of current interest and multiple objections.",
+    "churn_risk_explanation": "High likelihood of the prospect switching to a competitor due to unresolved objections and budget constraints.",
+    "timeline_risk_explanation": "The deal is unlikely to close on time as discussions have stalled.",
+    "budget_risk_explanation": "The prospect has indicated a firm budget cap that cannot be exceeded."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["pricing", "value_proposition", "competition", "implementation_timeline", "budget_cap"],
+    "Decision_Maker_Status": "Not currently interested",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The prospect raised multiple objections and decided to pause discussions."
+  },
+  
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-06",
+      "event_description": "The prospect raised objections regarding pricing and competition.",
+      "event_type": "Objection Raised"
+    },
+    {
+      "event_date": "2025-07-07",
+      "event_description": "The prospect decided to pause discussions due to lack of interest.",
+      "event_type": "Deal Lost"
+    },
+    {
+      "event_date": "2025-08-01",
+      "event_description": "Follow-up to be scheduled to check in on prospect's interest.",
+      "event_type": "Future Follow-up"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal for Marketing Cloud Lite with Spotify has been called off due to the prospect, Emily Johnson, expressing multiple objections regarding pricing, competition, and budget constraints. Despite attempts to negotiate and clarify terms, the discussions have stalled, and the prospect has indicated a lack of current interest in moving forward.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Schedule a follow-up in a month to reassess interest.", "Explore alternative pricing models to address budget concerns."],
+    "Escalation_Triggers": "If no response is received in the next month, consider reaching out to other decision-makers.",
+    "Deal_Acceleration_Tactics": "Present a revised proposal with flexible pricing options and highlight unique value propositions."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Following Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI hope this message finds you well. I wanted to follow up regarding our recent discussions about the Marketing Cloud Lite proposal. I understand there are concerns about pricing and competition, and I would love to explore how we can adjust our offer to better fit your needs.\n\nPlease let me know if you would be open to a brief call to discuss this further.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in to see if you had any thoughts on the proposal we discussed."
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 70
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "decision_maker",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "budget_objection", "implementation_concern", "competitive_situation", "deal_stalled"]
+}
+--------------------------------

@@ -1,0 +1,94 @@
+Deal ID: 31
+Response: {
+  "deal_id": "MarketingCloudLite_20250707",
+  "client_company": "Spotify",
+  "primary_rep": {
+    "id": "bruce.wayne.goatforce@gmail.com",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T15:48:29-07:00",
+  "deal_stage": "proposal",
+  "deal_value_usd": 90000,
+  "expected_close_date": null,
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 80,
+    "Churn_Risk": 85,
+    "Timeline_Risk": 70,
+    "Budget_Risk": 90,
+    "deal_risk_explanation": "The deal is currently stalled due to pricing objections and a strict budget cap from the prospect.",
+    "churn_risk_explanation": "The prospect has shown skepticism about the pricing and is considering alternatives.",
+    "timeline_risk_explanation": "The prospect's lack of leadership interest raises concerns about timely closure.",
+    "budget_risk_explanation": "The prospect has a fixed budget of $90K, which poses a significant risk to the deal."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["high pricing", "strict legal budget cap"],
+    "Decision_Maker_Status": "paused discussions due to lack of interest from leadership",
+    "Urgency_Level": "low",
+    "Competitive_Position": "behind"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 10,
+    "prospect_response_time_sec": 34.25,
+    "engagement_trend": "declining",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The prospect raised concerns about pricing and paused discussions."
+  },
+  "TIMELINE": [
+    {
+      "event_date": "2025-07-07",
+      "event_description": "The prospect paused discussions due to lack of leadership interest.",
+      "event_type": "Deal Stalled"
+    },
+    {
+      "event_date": "2025-07-06",
+      "event_description": "The rep followed up on the proposal and addressed pricing concerns.",
+      "event_type": "Proposal Follow-Up"
+    },
+    {
+      "event_date": "2025-07-05",
+      "event_description": "The prospect expressed skepticism about the pricing and requested an out-of-the-box solution.",
+      "event_type": "Objection Raised"
+    }
+  ],
+
+  "AI_GENERATED_SUMMARY": "The deal for Marketing Cloud Lite is currently stalled. Bruce Wayne has followed up multiple times, but Emily Johnson has raised significant concerns regarding pricing and budget constraints. The discussions have been paused due to a lack of interest from leadership on the prospect's side, indicating a high risk of churn and potential loss of the deal.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Reassess the pricing strategy", "Engage with higher-level decision-makers", "Provide alternative solutions within budget"],
+    "Escalation_Triggers": "If no engagement from the prospect within the next two weeks, escalate to senior management.",
+    "Deal_Acceleration_Tactics": "Offer a limited-time discount or additional features to increase value perception."
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow Up on Marketing Cloud Lite Proposal",
+        "body": "Hi Emily,\n\nI hope this message finds you well. I wanted to follow up on our recent discussions regarding the Marketing Cloud Lite proposal. I understand there are concerns about pricing and budget constraints, and I would love to explore how we can address these together. \n\nPlease let me know a convenient time for you to discuss this further.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Emily, just checking in on our proposal for Marketing Cloud Lite. Let me know if you have any questions or if there's a good time for us to chat!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "neutral",
+      "communication_score": 75
+    },
+    {
+      "id": "emily.johnson.spotify2025@gmail.com",
+      "name": "Emily Johnson",
+      "role": "decision_maker",
+      "sentiment": "negative",
+      "communication_score": 40
+    }
+  ],
+
+  "TAGS": ["pricing_objection", "value_proposition_concern", "competitive_situation", "implementation_challenge", "budget_objection", "legal_constraint", "deal_stalled", "proposal_revision", "follow_up_committed"]
+}
+--------------------------------

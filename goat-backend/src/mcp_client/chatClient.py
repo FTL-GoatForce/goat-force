@@ -46,7 +46,20 @@ class SandboxMessageRequest (BaseModel):
     chatHistory: list = []
     deal_name: str
     deal_id: int
+    
+# -------------- Data Checking
+class ReportRequest (BaseModel):
+    participant: str
+    chatHistory: list = []
+    deal_name: str
+    deal_id: int
 
+
+# --------------- Gemini Structured Output for run report
+class Report (BaseModel):
+    score: int
+    summary: str
+    improvements: list[str]
 # -------------- FastAPI Endpoint that recieves a post with a string
 @app.post('/api/message')
 async def receieve_message(request: MessageRequest):
@@ -80,6 +93,22 @@ async def receive_sandbox_message(request : SandboxMessageRequest):
         return{
             'sucess':False,
             'response': f"Error:{str(e)}"
+        }
+# ----------- FastApi Endpoint for generating a sandbox report
+@app.post('/api/report')
+async def generate_sandbox_report(request : ReportRequest):
+    try:
+        # Recieve report request
+        print(f"Report Request Recieved: {request.participant}")
+        result = await runReport(request)
+        return {
+            'success':True,
+            'response':result
+        }
+    except Exception as e:
+        return{
+            'success':False,
+            'response': f"Error: {str(e)}"
         }
 
 
@@ -182,6 +211,54 @@ async def runSandbox(message: SandboxMessageRequest):
                         "message":f"Error: {str(e)}",
                         "status": "error"
                     }
+
+async def runReport(message : ReportRequest):
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session: 
+            try:
+                await session.initialize()
+                response = await gemini_client.aio.models.generate_content(
+                    model= "gemini-2.5-flash",
+                    contents= f"""
+                    Your are given the chat history: {message.chatHistory} between the user and you acting as {message.participant} for the deal {message.deal_name} deal_id {message.deal_id}, through tools you have access
+                    to {message.participant}'s personality assesment.
+
+                    You have access to one tool to assist in this simulation:
+                    1. get_deal_details(deal_id) — Given a deal ID, returns detailed metrics, personality, participants, risk scores, participant activities, follow-ups, tags, and more.
+
+                    When constructing a response you should:
+                    1. Analyze the chat history
+                    2. Use the tools to look into the personality table of deal_id {message.deal_id} for {message.participant}
+                    3. Construct a summary of the chat where you tell positives and negatives of the chat 
+                    4. Rate the simulated conversation on a score 1 - 100 
+                    5. Give different improvements the user could give for the real conversation
+                    6. Structure the response as a JSON object with the following structure:
+
+                    {{
+                        "score": <integer between 1-100>,
+                        "summary": "<string summary (up to 100 words)>",
+                        "improvements": ["<improvement 1 (up to 25 words)>", "<improvement 2 (up to 25 words)>", "<improvement 3 (up to 25 words)>"]
+                    }}
+                    """,
+                    # give gemini tools
+                    config=types.GenerateContentConfig(
+                        tools=[session],
+                        # response_mime_type= "application/json",
+                        # response_schema= Report.model_json_schema()
+                        # cant use structured output when using tools with JSOn- must use one or the other
+                    )
+                )
+                return (response.text)
+            except Exception as e:
+                return{
+                    "success":False,
+                    "message":f"Error: {str(e)}",
+                    "status": "error"
+                }
+
+
+
+
 #  Calling this in python auto starts the API Server 
 if __name__ == "__main__":
     print("Starting FastAPI Server")

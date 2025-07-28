@@ -1,0 +1,97 @@
+Deal ID: 41
+Response: {
+  "deal_id": "salesforce_upgrade_airbnb",
+  "client_company": "Airbnb",
+  "primary_rep": {
+    "id": "U094K124HS7",
+    "name": "Bruce Wayne"
+  },
+  "last_activity_timestamp": "2025-07-07T16:02:56-07:00",
+  "deal_stage": "proposal",
+  "deal_value_usd": null,
+  "expected_close_date": "2025-07-07",
+
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 20,
+    "Churn_Risk": 10,
+    "Timeline_Risk": 15,
+    "Budget_Risk": 0,
+    "deal_risk_explanation": "Strong engagement and positive sentiment from both parties indicate low risk.",
+    "churn_risk_explanation": "No indications of competitor consideration; the prospect is actively engaged.",
+    "timeline_risk_explanation": "Both parties are aligned on a timeline, aiming for signatures by Friday.",
+    "budget_risk_explanation": "No budget concerns have been raised in the conversations."
+  },
+
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["implementation support"],
+    "Decision_Maker_Status": "active engagement from RevOps lead",
+    "Urgency_Level": "high",
+    "Competitive_Position": "leading"
+  },
+
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 7,
+    "prospect_response_time_sec": 20,
+    "engagement_trend": "improving",
+    "last_touch_channel": "email",
+    "last_touch_summary": "Bruce sent a proposal for review, and Sophia acknowledged it positively."
+  },
+  
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Bruce sent the formal proposal for the Sales Suite Upgrade including the AI enhancement bundle.",
+        "event_type": "Proposal Sent"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Sophia provided initial feedback indicating alignment with the proposal but requested clarification on implementation support.",
+        "event_type": "Feedback Received"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Both parties agreed to move discussions to Slack for faster communication.",
+        "event_type": "Communication Channel Change"
+      }
+    ]
+  },
+
+  "AI_GENERATED_SUMMARY": "The deal is progressing positively with Bruce Wayne actively engaging Sophia Nguyen regarding the Salesforce Sales Suite Upgrade. A formal proposal has been sent, and initial feedback has been received. Key clarifications are being addressed, and both parties are aligned on a tight timeline for signatures.",
+  
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Send the updated proposal highlighting implementation support", "Coordinate a follow-up meeting on Slack", "Ensure all internal approvals are secured by Friday"],
+    "Escalation_Triggers": "Delay in receiving feedback or approvals from the RevOps lead",
+    "Deal_Acceleration_Tactics": "Offer additional support or incentives for a quicker decision"
+  },
+
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Proposal for Salesforce Upgrade",
+        "body": "Hi Sophia,\n\nI hope this message finds you well. I wanted to follow up on the proposal I sent and see if you had any further questions or needed additional information regarding the implementation support. We are keen to move forward and align with your internal timelines.\n\nLooking forward to your feedback!\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi Sophia, just checking in to see if your team had a chance to review the proposal. Let me know if you need anything else from my side!"
+  },
+
+  "PARTICIPANTS": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia Nguyen",
+      "role": "decision_maker",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 90
+    }
+  ],
+
+  "TAGS": ["proposal_sent", "internal_review", "clarification_needed", "implementation_objection", "slack_handoff", "deal_progression"]
+}
+--------------------------------

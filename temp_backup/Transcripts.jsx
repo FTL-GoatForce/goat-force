@@ -1,19 +1,14 @@
-import React from "react";
-import { Box, Button, Typography, Chip, TextField } from "@mui/material";
-import SideBar from "../ReusableComponents/Sidebar";
-import { useState } from "react";
-import ContactSelector from "../SandboxComponents/ContactSelector";
-import ContactProfile from "../SandboxComponents/ContactProfile";
-import Header from "../ReusableComponents/Header";
-import { ArrowBack } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Box, Button, Typography } from "@mui/material";
+import SideBar from "../ReusableComponents/Sidebar";
+import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { ArrowBack } from "@mui/icons-material";
 import "react-loading-skeleton/dist/skeleton.css";
-import SandboxChat from "../SandboxComponents/SandboxChat";
-
-function Sandbox() {
+import DealSelector from "../TranscriptsComponents/DealSelector";
+import MainContent from "../TranscriptsComponents/MainContent";
+const Transcripts = () => {
   const [deals, setDeals] = useState([]);
   const [selectedDeal, setSelectedDeal] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,10 +21,8 @@ function Sandbox() {
         const response = await axios.get("http://localhost:3000/deal/all");
         setDeals(response.data.deals);
 
-        // set the first deal as selected when deals are loaded
-        if (response.data.deals && response.data.deals.length > 0) {
-          setSelectedDeal(response.data.deals[0]);
-        }
+        setSelectedDeal(response.data.deals[0]);
+
         // end the loading when data is fetched
         setLoading(false);
       } catch (error) {
@@ -46,8 +39,7 @@ function Sandbox() {
     const deal = deals.find((d) => d.deal.id === dealId);
     setSelectedDeal(deal);
   };
-
-  // LOADING STATE - matching the layout structure
+  // loading state skeleton
   if (loading) {
     return (
       <Box
@@ -170,9 +162,9 @@ function Sandbox() {
     );
   }
 
-  return (
-    <>
-      {/* page-container */}
+  // If not loading, render the real content
+  else {
+    return (
       <Box
         sx={{
           minHeight: "100vh",
@@ -182,16 +174,15 @@ function Sandbox() {
           width: "100%",
         }}
       >
-        <SideBar /> {/* The sidebar component */}
+        <SideBar />
         {/* page content */}
         <Box
           sx={{
-            ml: 2, // added some margin here
+            ml: 2,
             display: "flex",
-            width: "100%",
-            gap: 2,
-            flexDirection: "column",
-            backgroundColor: "background.default",
+            flexDirection: "column", // Arrange header, cards, and data in a column
+            flexGrow: 1, // Allow this column to take up remaining horizontal space
+            overflowX: "hidden", // Prevent horizontal scroll from inner elements
           }}
         >
           {/* Header of page */}
@@ -223,7 +214,7 @@ function Sandbox() {
                   sx={{ color: "text.primary", fontWeight: "bold" }}
                   marginLeft={3.4}
                 >
-                  Sandbox Mode
+                  Deal Transcripts
                 </Typography>
               </div>
               <div></div>
@@ -238,7 +229,7 @@ function Sandbox() {
               height: "100%",
             }}
           >
-            {/* Left Card, holds two cards flex column*/}
+            {/* Left Card, holds one card*/}
             <Box
               width={"33%"}
               padding={2}
@@ -251,21 +242,29 @@ function Sandbox() {
               gap={2}
             >
               {/* Card #1: Contact Selector */}
-              <ContactSelector
+              <DealSelector
                 deals={deals}
                 onDealClick={handleDealClick}
                 selectedDeal={selectedDeal}
               />
-              {/* Card #2: Contact Profile */}
-              <ContactProfile selectedDeal={selectedDeal} deals={deals} />
             </Box>
-            {/* Middle card */}
-            <SandboxChat selectedDeal={selectedDeal} deals={deals} />
+            {/* main content */}
+            <Box
+              width={"100%"}
+              padding={2}
+              display={"flex"}
+              flexDirection="column"
+              gap={2}
+              height={"95%"}
+              overflow={"auto"}
+            >
+              <MainContent deals={deals} selectedDeal={selectedDeal} />
+            </Box>
           </Box>
         </Box>
       </Box>
-    </>
-  );
-}
+    );
+  }
+};
 
-export default Sandbox;
+export default Transcripts;
