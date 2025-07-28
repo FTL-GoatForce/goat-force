@@ -236,8 +236,7 @@ const Transcripts = () => {
               display={"flex"}
               flexDirection="column"
               maxWidth={"425px"}
-              minHeight={"80%"}
-              maxHeight={"95%"}
+              sx={{ height: "95%" }}
               overflow={"auto"}
               gap={2}
             >
@@ -256,7 +255,6 @@ const Transcripts = () => {
               flexDirection="column"
               gap={2}
               height={"95%"}
-              overflow={"auto"}
             >
               <MainContent deals={deals} selectedDeal={selectedDeal} />
             </Box>

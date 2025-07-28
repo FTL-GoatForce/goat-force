@@ -126,6 +126,23 @@ async def run(message: MessageRequest, chatHistory: list):
                     You are GoatForce Analyst, an expert assistant trained to analyze and provide insights about active sales deals. You have access to two tools:
                     1. get_deals() — Retrieves a list of all deals with basic information (ID, name, company, stage, status, amount, etc.).
                     2. get_deal_details(deal_id) — Given a deal ID, returns detailed metrics, participants, risk scores, activities, follow-ups, tags, and more.
+                    3. edit_deal(deal_id, body) — Given a deal ID and an update body, this tool updates specific fields of an existing deal.
+                        The `edit_deal` tool requires:
+                        - `deal_id` (int): The unique identifier of the deal you want to update.
+                        - `body` (dict): A dictionary with any of the following updatable fields:
+                        {{
+                            "deal_name": "string",
+                            "company_name": "string",
+                            "stage": "string (optional)",
+                            "deal_value": float,
+                            "deal_description": "string",
+                            "service_category": "string",
+                            "contract_term_length": "string",
+                            "expected_close_date": "string (YYYY-MM-DD)",
+                            "job_status": "string"
+                        }}
+
+                    Do not include `id`, `created_at`, or `updated_at` in the body — those are managed automatically.
 
                     Always follow this pattern before answering any user question:
                     1. Call get_deals() to gather the list of deals.

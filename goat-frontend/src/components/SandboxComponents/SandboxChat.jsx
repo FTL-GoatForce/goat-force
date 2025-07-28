@@ -187,8 +187,7 @@ function SandboxChat({ selectedDeal, deals }) {
   return (
     <Box
       marginTop={2}
-      maxWidth={"82%"}
-      minWidth={"82%"}
+      width={"100%"}
       // sx={{ maxWidth: "100%" }}
       backgroundColor="background.default"
       display={"flex"}
@@ -384,7 +383,7 @@ function SandboxChat({ selectedDeal, deals }) {
                 direction="right"
               />
             </Box> */}
-            <Typography sx={{ color: "text.secondary" }}>
+            <Typography sx={{ color: "text.secondary", mb: 2 }}>
               Generating report in progress, please wait...
             </Typography>
             <CircularProgress />

@@ -8,6 +8,21 @@ mcp = FastMCP("chatbot-server")  # initialized our FastMCP server
 prisma = Prisma()   # initialized our prisma client
 
 @mcp.tool
+async def edit_deal(deal_id: int, body: dict):
+    try:
+        await prisma.connect()
+        updated_deal = await prisma.deals.update(
+            where={"id": deal_id},
+            data=body
+        )
+        return updated_deal
+    except Exception as e:
+        return {'err': str(e)}
+    finally:
+        await prisma.disconnect()
+
+
+@mcp.tool
 async def get_deals():
     try:
         await prisma.connect() # connect to prisma
