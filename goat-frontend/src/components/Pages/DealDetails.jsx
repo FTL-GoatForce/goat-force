@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Risk from "../DealDetailsComponents/Risk";
 
 function DealDetails() {
   const { id } = useParams();
@@ -236,22 +237,7 @@ function DealDetails() {
 
               {/* TODO:  Replace if go back to auto-fill idea */}
               {/* <MissingInformationCard /> */}
-            </Box>
-
-            <Box
-              className="deal-details-right-cards"
-              sx={{
-                display: "flex",
-                width: "35%",
-                flexDirection: "column",
-                gap: 3,
-              }}
-            >
-              <RecentActivity
-                timelineData={deal.timeline || []}
-                loading={loading}
-              />
-              <ContactPersonality
+              {/* <ContactPersonality
                 communicationStyle={capitalizeFirst(
                   deal?.personality?.[0]?.personality_traits
                     ?.personality_communication_profile?.communication_style
@@ -268,7 +254,74 @@ function DealDetails() {
                   deal?.personality?.[0]?.personality_traits
                     ?.personality_communication_profile?.objection_style
                 )}
-              />
+              /> */}
+            </Box>
+
+            <Box
+              className="deal-details-right-cards"
+              sx={{
+                display: "flex",
+                width: "35%",
+                height: "100vh",
+                flexDirection: "column",
+                gap: 3,
+                // overflowY: "scroll",
+              }}
+            >
+              <Box sx={{ overflowY: "scroll" }}>
+                <Box sx={{ mb: 3 }}>
+                  <RecentActivity
+                    timelineData={deal.timeline || []}
+                    loading={loading}
+                  />
+                </Box>
+                <Box sx={{ mb: 3 }}>
+                  <Risk
+                    deal_risk_score={
+                      deal.risks[deal.risks.length - 1].deal_risk_score
+                    }
+                    churn_risk_score={
+                      deal.risks[deal.risks.length - 1].churn_risk_score
+                    }
+                    timeline_risk_score={
+                      deal.risks[deal.risks.length - 1].timeline_risk_score
+                    }
+                    budget_risk_score={
+                      deal.risks[deal.risks.length - 1].budget_risk_score
+                    }
+                    deal_risk_description={
+                      deal.riskExplanation[0].deal_risk_summary
+                    }
+                    churn_risk_description={
+                      deal.riskExplanation[0].churn_risk_explanation
+                    }
+                    timeline_risk_description={
+                      deal.riskExplanation[0].timeline_risk_explanation
+                    }
+                    budget_risk_description={
+                      deal.riskExplanation[0].budget_risk_explanation
+                    }
+                  />
+                </Box>
+                <ContactPersonality
+                  communicationStyle={capitalizeFirst(
+                    deal?.personality?.[0]?.personality_traits
+                      ?.personality_communication_profile?.communication_style
+                  )}
+                  responseTime={capitalizeFirst(
+                    deal?.personality?.[0]?.personality_traits
+                      ?.communication_behavior?.response_time
+                  )}
+                  decisionMaking={capitalizeFirst(
+                    deal?.personality?.[0]?.personality_traits
+                      ?.personality_communication_profile?.decision_making_style
+                  )}
+                  objectionStyle={capitalizeFirst(
+                    deal?.personality?.[0]?.personality_traits
+                      ?.personality_communication_profile?.objection_style
+                  )}
+                />
+              </Box>
             </Box>
           </Box>
         </Box>

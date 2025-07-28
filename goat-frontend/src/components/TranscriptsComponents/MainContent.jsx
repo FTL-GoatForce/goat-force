@@ -14,9 +14,8 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Person } from "@mui/icons-material";
-import { BiLogoGmail } from "react-icons/bi";
-
-import { FaSlack } from "react-icons/fa";
+// import { BiLogoGmail } from "react-icons/bi";
+// import { FaSlack } from "react-icons/fa";
 
 import { useState } from "react";
 
@@ -97,10 +96,20 @@ const MainContent = ({ deals, selectedDeal }) => {
                 }}
               >
                 <MenuItem value="Gmail">
-                  Gmail <BiLogoGmail />
+                  Gmail{/*  <BiLogoGmail /> */}
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
+                    alt="Gmail"
+                    style={{ width: 20, height: 15, marginLeft: 10 }}
+                  />
                 </MenuItem>
                 <MenuItem value="Slack">
-                  Slack <FaSlack />
+                  Slack
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/1200px-Slack_icon_2019.svg.png"
+                    alt="Slack"
+                    style={{ width: 20, height: 20, marginLeft: 10 }}
+                  />
                 </MenuItem>
               </Select>
             </FormControl>
