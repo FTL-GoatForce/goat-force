@@ -345,7 +345,6 @@ const LandingPage = () => {
             sx={{ m: 3, color: "white" }}
             variant="outlined"
             size="medium"
-            onClick={() => navigate("/onboarding")}
           >
             See a Demo
           </Button>

@@ -11,18 +11,34 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Risk from "../DealDetailsComponents/Risk";
+import { getCurrentSession } from "../../utils/supabase";
 
 function DealDetails() {
   const { id } = useParams();
   const [deal, setDeal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [followUpData, setFollowUpData] = useState(null); // useState to store latest follow-up data, will change when update button is clicked and re-rendered
-
+  const API_URL = import.meta.env.VITE_API_URL;
   // fetch deal data based on the ID from the URL
   useEffect(() => {
     async function fetchDeal() {
       try {
-        const response = await axios.get(`http://localhost:3000/deal/${id}`);
+        // Get current user session
+        const session = await getCurrentSession();
+        if (!session) {
+          console.error('No session found. User needs to log in.');
+          window.location.href = '/auth';
+          return;
+        }
+        
+
+        
+        const response = await axios.get(`${API_URL}/deal/${id}`, {
+          params: {
+            user_id: session.user.id
+          }
+        });
         setDeal(response.data);
         setLoading(false);
       } catch (error) {
@@ -120,6 +136,13 @@ function DealDetails() {
                 style={{ borderRadius: 8 }}
               />
               {/* Contact Personality Card */}
+              <Skeleton
+                height={300}
+                baseColor="#020617"
+                highlightColor="#06B6D4"
+                style={{ borderRadius: 8 }}
+              />
+              {/* Risk Card */}
               <Skeleton
                 height={300}
                 baseColor="#020617"
@@ -245,11 +268,27 @@ function DealDetails() {
                 width: "35%",
                 flexDirection: "column",
                 gap: 3,
+                overflow: "auto",
+                maxHeight: "calc(110vh - 100px)", // Account for header and margins
+                paddingRight: "10px", // Add padding for scrollbar
+                "& > *": {
+                  flexShrink: 0, // Prevent components from shrinking
+                },
               }}
             >
               <RecentActivity
                 timelineData={deal.timeline || []}
                 loading={loading}
+              />
+              <Risk 
+                deal_risk_score={deal.risks[deal.risks.length - 1].deal_risk_score}
+                churn_risk_score={deal.risks[deal.risks.length - 1].churn_risk_score}
+                timeline_risk_score={deal.risks[deal.risks.length - 1].timeline_risk_score}
+                budget_risk_score={deal.risks[deal.risks.length - 1].budget_risk_score}
+                deal_risk_description={deal.riskExplanation[0].deal_risk_summary}
+                churn_risk_description={deal.riskExplanation[0].churn_risk_explanation} 
+                timeline_risk_description={deal.riskExplanation[0].timeline_risk_explanation}
+                budget_risk_description={deal.riskExplanation[0].budget_risk_explanation}
               />
               <ContactPersonality
                 communicationStyle={capitalizeFirst(

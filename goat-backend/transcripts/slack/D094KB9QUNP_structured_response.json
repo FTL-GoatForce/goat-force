@@ -2,7 +2,7 @@
   "thread_id": "D094KB9QUNP",
   "channel": {
     "id": "D094KB9QUNP",
-    "name": "Bruce and Sophia DM",
+    "name": "Sophia",
     "type": "dm"
   },
   "participants": [
@@ -21,79 +21,80 @@
     {
       "from": "Sophia",
       "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
-      "timestamp": "2025-07-06T15:05:10.357Z",
+      "timestamp": "2025-07-08T15:05:10Z",
       "sentiment": "neutral",
       "tone": "direct",
-      "objections": [],
-      "intent": "request amendment",
+      "objections": [
+        "Contract terms"
+      ],
+      "intent": "Negotiate",
       "action_required": true
     },
     {
       "from": "Bruce",
       "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
-      "timestamp": "2025-07-06T15:05:29.134Z",
+      "timestamp": "2025-07-08T15:05:29Z",
       "sentiment": "positive",
-      "tone": "accommodating",
+      "tone": "reassuring",
       "objections": [],
-      "intent": "commit to action",
-      "action_required": false
+      "intent": "Resolve",
+      "action_required": true
     },
     {
       "from": "Sophia",
       "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
-      "timestamp": "2025-07-06T15:05:37.125Z",
+      "timestamp": "2025-07-08T15:05:37Z",
       "sentiment": "positive",
-      "tone": "optimistic",
+      "tone": "enthusiastic",
       "objections": [],
-      "intent": "provide status update",
+      "intent": "Confirm",
       "action_required": false
     },
     {
       "from": "Bruce",
       "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
-      "timestamp": "2025-07-06T15:05:45.059Z",
+      "timestamp": "2025-07-08T15:05:45Z",
       "sentiment": "positive",
-      "tone": "efficient",
+      "tone": "proactive",
       "objections": [],
-      "intent": "provide status update",
+      "intent": "Update",
       "action_required": false
     },
     {
       "from": "Sophia",
       "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
-      "timestamp": "2025-07-06T15:05:54.525Z",
+      "timestamp": "2025-07-08T15:05:54Z",
       "sentiment": "positive",
-      "tone": "proactive",
+      "tone": "firm",
       "objections": [],
-      "intent": "communicate timeline",
+      "intent": "Set timeline",
       "action_required": true
     },
     {
       "from": "Bruce",
       "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
-      "timestamp": "2025-07-06T15:06:00.545Z",
+      "timestamp": "2025-07-08T15:06:00Z",
       "sentiment": "positive",
-      "tone": "reassuring",
+      "tone": "confident",
       "objections": [],
-      "intent": "reassure; commit to follow-up",
-      "action_required": false
+      "intent": "Plan next steps",
+      "action_required": true
     }
   ],
-  "summary": "The conversation between Sophia (prospect) and Bruce (sales rep) focuses on finalizing contract terms. Sophia requested a modification to the termination clause, which Bruce swiftly agreed to coordinate with his legal team. Both parties expressed positive sentiment and confirmed internal approvals, with a mutual goal of signing by Friday for an August 5th onboarding.",
-  "last_activity": "2025-07-06T15:06:00.545Z",
+  "summary": "The prospect, Sophia, requested a minor legal amendment to the termination clause as the final blocker before signing. The rep, Bruce, quickly addressed this, confirming it's doable and coordinating with his legal team. Both parties are aligned on finalizing the agreement by Friday for an August 5th onboarding.",
+  "last_activity": "2025-07-08T15:06:00Z",
   "engagement_metrics": {
     "message_count": 6,
-    "rep_response_time_sec": 12.398,
-    "objections_raised": 0,
+    "rep_response_time_sec": 10.91,
+    "objections_raised": 1,
     "followups_committed": 2
   },
   "tags": [
-    "contract_finalization",
-    "legal_amendment",
+    "contract_negotiation",
+    "legal_review",
+    "fast_response",
+    "deal_progression",
     "timeline_alignment",
-    "positive_sentiment",
-    "quick_resolution",
-    "active_deal",
-    "no_objections"
+    "positive_sentiment"
   ]
 }

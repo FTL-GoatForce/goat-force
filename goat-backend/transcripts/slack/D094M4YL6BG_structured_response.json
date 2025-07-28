@@ -43,7 +43,7 @@
       "text": "Awesome. Let me know if I should loop in our legal or revops team on anything.",
       "timestamp": "2024-07-08T13:59:11Z",
       "sentiment": "positive",
-      "tone": "helpful",
+      "tone": "supportive",
       "objections": [],
       "intent": "offer_support",
       "action_required": true
@@ -55,7 +55,7 @@
       "sentiment": "neutral",
       "tone": "cooperative",
       "objections": [],
-      "intent": "acknowledge",
+      "intent": "acknowledge_offer",
       "action_required": true
     },
     {
@@ -73,7 +73,7 @@
       "text": "Thats appreciated. I dont anticipate pushback, but timeline clarity helps.",
       "timestamp": "2024-07-08T13:59:29Z",
       "sentiment": "positive",
-      "tone": "practical",
+      "tone": "pragmatic",
       "objections": [],
       "intent": "seek_clarity",
       "action_required": true
@@ -85,7 +85,7 @@
       "sentiment": "neutral",
       "tone": "cooperative",
       "objections": [],
-      "intent": "follow-up",
+      "intent": "commit_to_follow_up",
       "action_required": false
     },
     {
@@ -95,11 +95,11 @@
       "sentiment": "positive",
       "tone": "appreciative",
       "objections": [],
-      "intent": "confirm_acknowledge",
+      "intent": "confirm_acknowledgement",
       "action_required": false
     }
   ],
-  "summary": "The Slack thread initiated with Sales Rep Bruce Wayne welcoming prospect Diego. Diego provided an update on sharing the pricing breakdown with his legal team, expecting feedback soon. Bruce proactively offered support from his legal/revops team and reassured Diego about holding the current pricing. The conversation concluded with Bruce committing to follow up after Diego receives legal feedback, highlighting a collaborative and positive progression of the sales cycle.",
+  "summary": "The Slack thread between Sales Rep Bruce and prospect Diego began with a welcome and an update from Diego about sharing pricing details with his legal team, expecting feedback soon. Bruce proactively offered assistance from his internal teams and clarified that the agreed pricing would be held through Q3. The conversation concluded with Bruce committing to a follow-up the next day, indicating a collaborative and forward-moving sales process.",
   "last_activity": "2024-07-08T13:59:43Z",
   "engagement_metrics": {
     "message_count": 8,

@@ -1,10 +1,7 @@
-// This is your Prisma schema file,
-
-
 generator client {
   provider = "prisma-client-js"
 }
-// New Python Client
+
 generator py {
   provider = "prisma-client-py"
 }
@@ -14,156 +11,156 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// DEAL SCHEMA
-model Deals{
-  id Int @id @default(autoincrement())
-  deal_name String
-  company_name String
-  stage String?
-  deal_value Float
-  deal_description String
-  service_category String
+model Deals {
+  id                   Int                   @id @default(autoincrement())
+  user_id              String?               // UUID to associate deals with users (nullable for existing data)
+  deal_name            String
+  company_name         String
+  stage                String?
+  expected_close_date  String
+  created_at           DateTime              @default(now())
+  updated_at           DateTime              @updatedAt
   contract_term_length String
-  expected_close_date String
-  job_status String @default("idle")
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  participants Participants[]
-  risks Risks[]
-  activities_metrics ActivityMetrics[]
-  ai_recommendations AiRecommendation[]
-  follow_ups FollowUp[]
-  tags Tags[]
+  deal_description     String
+  deal_value           Float
+  service_category     String
+  job_status           String                @default("idle")
+  activities_metrics   ActivityMetrics[]
+  ai_recommendations   AiRecommendation[]
   conversation_history ConversationHistory[]
-  deal_insights DealInsights[]
+  deal_insights        DealInsights[]
+  follow_ups           FollowUp[]
+  participants         Participants[]
+  risks                Risks[]
+  tags                 Tags[]
 }
 
-model Participants{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  prospect_name String
-  email String
-  slack_id String
-  phone_number String
-  role String?
+model Participants {
+  id                  Int           @id @default(autoincrement())
+  deal_id             Int
+  prospect_name       String
+  email               String
+  slack_id            String
+  role                String?
+  sentiment           String?
   communication_score Float?
-  sentiment String?
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  personality Personality[]
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at          DateTime      @default(now())
+  updated_at          DateTime      @updatedAt
+  phone_number        String
+  deal                Deals         @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+  personality         Personality[]
 }
 
-model Risks{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  deal_risk_score Float
-  churn_risk_score Float
+model Risks {
+  id                  Int               @id @default(autoincrement())
+  deal_id             Int
+  deal_risk_score     Float
+  churn_risk_score    Float
   timeline_risk_score Float
-  budget_risk_score Float
-  risk_explanation RiskExplanation[]
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  budget_risk_score   Float
+  created_at          DateTime          @default(now())
+  updated_at          DateTime          @updatedAt
+  risk_explanation    RiskExplanation[]
+  deal                Deals             @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model ActivityMetrics{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  message_count Int
-  prospect_response_time Float
-  engagement_trend String
-  last_communication_source String
+model ActivityMetrics {
+  id                         Int        @id @default(autoincrement())
+  deal_id                    Int
+  message_count              Int
+  prospect_response_time     Float
+  engagement_trend           String
+  last_communication_source  String
   last_communication_summary String
-  timeline Timeline[]
-  created_at DateTime @default(now())
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  updated_at DateTime @updatedAt
+  created_at                 DateTime   @default(now())
+  updated_at                 DateTime   @updatedAt
+  deal                       Deals      @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+  timeline                   Timeline[]
 }
 
-model AiRecommendation{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  next_steps String[]
-  escalation_triggers String
+model AiRecommendation {
+  id                        Int      @id @default(autoincrement())
+  deal_id                   Int
+  next_steps                String[]
+  escalation_triggers       String
   deal_acceleration_tactics String
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at                DateTime @default(now())
+  updated_at                DateTime @updatedAt
+  deal                      Deals    @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model FollowUp{
-  id Int @id @default(autoincrement())
-  deal_id Int
+model FollowUp {
+  id                 Int       @id @default(autoincrement())
+  deal_id            Int
   communication_type String
-  contact_address String
-  subject String?
-  body String?
-  message_id String?
-  scheduled_at DateTime?
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  contact_address    String
+  subject            String?
+  body               String?
+  message_id         String?
+  scheduled_at       DateTime?
+  created_at         DateTime  @default(now())
+  updated_at         DateTime  @updatedAt
+  deal               Deals     @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model Tags{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  tag String[]
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+model Tags {
+  id         Int      @id @default(autoincrement())
+  deal_id    Int
+  tag        String[]
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  deal       Deals    @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model ConversationHistory{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  slack Json
-  email Json
+model ConversationHistory {
+  id           Int      @id @default(autoincrement())
+  deal_id      Int
+  slack        Json
+  email        Json
   deal_summary String
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  deal         Deals    @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model DealInsights{
-  id Int @id @default(autoincrement())
-  deal_id Int
-  key_objections String[]
+model DealInsights {
+  id                    Int      @id @default(autoincrement())
+  deal_id               Int
+  created_at            DateTime @default(now())
+  updated_at            DateTime @updatedAt
+  competitive_position  String
   decision_maker_status String
-  urgency_level String
-  competitive_position String
-  deal Deals @relation(fields: [deal_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  key_objections        String[]
+  urgency_level         String
+  deal                  Deals    @relation(fields: [deal_id], references: [id], onDelete: Cascade)
 }
 
-model RiskExplanation{
-  id Int @id @default(autoincrement())
-  risk_id Int
-  budget_risk_explanation String
+model RiskExplanation {
+  id                        Int      @id @default(autoincrement())
+  risk_id                   Int
+  budget_risk_explanation   String
   timeline_risk_explanation String
-  churn_risk_explanation String
-  deal_risk_summary String
-  risk Risks @relation(fields: [risk_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  churn_risk_explanation    String
+  deal_risk_summary         String
+  created_at                DateTime @default(now())
+  updated_at                DateTime @updatedAt
+  risk                      Risks    @relation(fields: [risk_id], references: [id], onDelete: Cascade)
 }
 
-model Personality{
-  id Int @id @default(autoincrement())
-  participant_id Int
+model Personality {
+  id                 Int          @id @default(autoincrement())
+  participant_id     Int
   personality_traits Json
-  participant Participants @relation(fields: [participant_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at         DateTime     @default(now())
+  updated_at         DateTime     @updatedAt
+  participant        Participants @relation(fields: [participant_id], references: [id], onDelete: Cascade)
 }
 
-model Timeline{
-  id Int @id @default(autoincrement())
+model Timeline {
+  id                  Int             @id @default(autoincrement())
   activity_metrics_id Int
-  event Json
-  activity_metrics ActivityMetrics @relation(fields: [activity_metrics_id], references: [id], onDelete: Cascade)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at          DateTime        @default(now())
+  updated_at          DateTime        @updatedAt
+  event               Json
+  activity_metrics    ActivityMetrics @relation(fields: [activity_metrics_id], references: [id], onDelete: Cascade)
 }

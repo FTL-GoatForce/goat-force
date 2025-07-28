@@ -1,5 +1,5 @@
 {
-  "thread_id": "D096QPA7FV4",
+  "thread_id": "",
   "channel": {
     "id": "D096QPA7FV4",
     "name": "",
@@ -7,7 +7,7 @@
   },
   "participants": [],
   "messages": [],
-  "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.",
+  "summary": "No new message data was provided or retrieved to update the analysis. The previous attempt only returned a header, indicating no actual conversation content, and the latest attempt also returned no valid messages.",
   "last_activity": "",
   "engagement_metrics": {
     "message_count": 0,
@@ -16,7 +16,6 @@
     "followups_committed": 0
   },
   "tags": [
-    "no_data_available",
-    "channel_empty_or_unsupported"
+    "no_data_retrieved"
   ]
 }

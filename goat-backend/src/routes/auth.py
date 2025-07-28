@@ -14,7 +14,10 @@ import httplib2
 import requests
 from supabase import create_client, Client
 from typing import Union, Any, Optional
+from dotenv import load_dotenv
 
+load_dotenv()
+GOOGLE_URI=os.getenv("GOOGLE_URI")
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -151,7 +154,7 @@ class AuthService:
             
             # Redirect to frontend with success
             return RedirectResponse(
-                url=f"http://localhost:5173/onboarding?oauth_success=true&provider=google&email={user_info.get('email', '')}",
+                url=f"{GOOGLE_URI}/onboarding?oauth_success=true&provider=google&email={user_info.get('email', '')}",
                 status_code=302
             )
             

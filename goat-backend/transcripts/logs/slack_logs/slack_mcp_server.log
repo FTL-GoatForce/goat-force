@@ -1209,3 +1209,1047 @@ Structured Response: {
 Channel ID: D096QPA7FV4
 Structured Response: {"thread_id": "D096QPA7FV4", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_available", "channel_empty_or_unsupported"]}
 --------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No message data was available to summarize or analyze. The previous attempt to retrieve messages only returned a header, indicating no actual conversation content.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": ["no_data_retrieved"]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {"thread_id": "", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "No message data was available to summarize or analyze. The previous attempt to retrieve messages only returned a header, indicating no actual conversation content.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_retrieved"]}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No message data was available to summarize or analyze. The previous attempt to retrieve messages only returned a header, indicating no actual conversation content.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_retrieved"
+  ]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No new message data was provided or retrieved to update the analysis. The previous attempt only returned a header, indicating no actual conversation content.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_retrieved"
+  ]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No new message data was provided or retrieved to update the analysis. The previous attempt only returned a header, indicating no actual conversation content, and the latest attempt also returned no valid messages.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_retrieved"
+  ]
+}
+--------------------------------
+Channel ID: D094M4YL6BG
+Structured Response: {
+  "thread_id": "D094M4YL6BG_direct_message",
+  "channel": {
+    "id": "D094M4YL6BG",
+    "name": "DM: Bruce Wayne & Diego",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SUAAPLL",
+      "name": "Diego",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Hey Diego Just sent over the invite welcome to the Slack workspace. Feel free to use this thread for async updates or quick questions.",
+      "timestamp": "2024-07-08T13:58:52Z",
+      "sentiment": "positive",
+      "tone": "welcoming",
+      "objections": [],
+      "intent": "onboarding",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thanks Bruce. Will do. Just shared the breakdown with legal should have feedback tomorrow.",
+      "timestamp": "2024-07-08T13:59:02Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "update_status",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Awesome. Let me know if I should loop in our legal or revops team on anything.",
+      "timestamp": "2024-07-08T13:59:11Z",
+      "sentiment": "positive",
+      "tone": "supportive",
+      "objections": [],
+      "intent": "offer_support",
+      "action_required": true
+    },
+    {
+      "from": "Diego",
+      "text": "Might be helpful. Ill let you know once I see their notes.",
+      "timestamp": "2024-07-08T13:59:17Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "acknowledge_offer",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Cool. On our side, were holding your 210K pricing for the rest of Q3 no pressure, just want you to know.",
+      "timestamp": "2024-07-08T13:59:23Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "inform_offer",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thats appreciated. I dont anticipate pushback, but timeline clarity helps.",
+      "timestamp": "2024-07-08T13:59:29Z",
+      "sentiment": "positive",
+      "tone": "pragmatic",
+      "objections": [],
+      "intent": "seek_clarity",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Understood. Ill check in tomorrow to see if youve heard from legal. Ping me anytime.",
+      "timestamp": "2024-07-08T13:59:35Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "commit_to_follow_up",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Will do. Thanks again, Bruce.",
+      "timestamp": "2024-07-08T13:59:43Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "confirm_acknowledgement",
+      "action_required": false
+    }
+  ],
+  "summary": "The Slack thread between Sales Rep Bruce and prospect Diego began with a welcome and an update from Diego about sharing pricing details with his legal team, expecting feedback soon. Bruce proactively offered assistance from his internal teams and clarified that the agreed pricing would be held through Q3. The conversation concluded with Bruce committing to a follow-up the next day, indicating a collaborative and forward-moving sales process.",
+  "last_activity": "2024-07-08T13:59:43Z",
+  "engagement_metrics": {
+    "message_count": 8,
+    "rep_response_time_sec": 6.84,
+    "objections_raised": 0,
+    "followups_committed": 1
+  },
+  "tags": [
+    "action_required",
+    "legal_review",
+    "positive_engagement",
+    "pricing_discussion",
+    "quick_rep_response",
+    "rep_followup_committed",
+    "welcome"
+  ]
+}
+--------------------------------
+Channel ID: D094M4YL6BG
+Structured Response: {
+  "thread_id": "D094M4YL6BG_direct_message",
+  "channel": {
+    "id": "D094M4YL6BG",
+    "name": "DM: Bruce Wayne & Diego",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SUAAPLL",
+      "name": "Diego",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Hey Diego Just sent over the invite welcome to the Slack workspace. Feel free to use this thread for async updates or quick questions.",
+      "timestamp": "2024-07-08T13:58:52Z",
+      "sentiment": "positive",
+      "tone": "welcoming",
+      "objections": [],
+      "intent": "onboarding",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thanks Bruce. Will do. Just shared the breakdown with legal should have feedback tomorrow.",
+      "timestamp": "2024-07-08T13:59:02Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "update_status",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Awesome. Let me know if I should loop in our legal or revops team on anything.",
+      "timestamp": "2024-07-08T13:59:11Z",
+      "sentiment": "positive",
+      "tone": "supportive",
+      "objections": [],
+      "intent": "offer_support",
+      "action_required": true
+    },
+    {
+      "from": "Diego",
+      "text": "Might be helpful. Ill let you know once I see their notes.",
+      "timestamp": "2024-07-08T13:59:17Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "acknowledge_offer",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Cool. On our side, were holding your 210K pricing for the rest of Q3 no pressure, just want you to know.",
+      "timestamp": "2024-07-08T13:59:23Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "inform_offer",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thats appreciated. I dont anticipate pushback, but timeline clarity helps.",
+      "timestamp": "2024-07-08T13:59:29Z",
+      "sentiment": "positive",
+      "tone": "pragmatic",
+      "objections": [],
+      "intent": "seek_clarity",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Understood. Ill check in tomorrow to see if youve heard from legal. Ping me anytime.",
+      "timestamp": "2024-07-08T13:59:35Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "commit_to_follow_up",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Will do. Thanks again, Bruce.",
+      "timestamp": "2024-07-08T13:59:43Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "confirm_acknowledgement",
+      "action_required": false
+    }
+  ],
+  "summary": "The Slack thread between Sales Rep Bruce and prospect Diego began with a welcome and an update from Diego about sharing pricing details with his legal team, expecting feedback soon. Bruce proactively offered assistance from his internal teams and clarified that the agreed pricing would be held through Q3. The conversation concluded with Bruce committing to a follow-up the next day, indicating a collaborative and forward-moving sales process.",
+  "last_activity": "2024-07-08T13:59:43Z",
+  "engagement_metrics": {
+    "message_count": 8,
+    "rep_response_time_sec": 6.84,
+    "objections_raised": 0,
+    "followups_committed": 1
+  },
+  "tags": [
+    "action_required",
+    "legal_review",
+    "positive_engagement",
+    "pricing_discussion",
+    "quick_rep_response",
+    "rep_followup_committed",
+    "welcome"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "David",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "David",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "David",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "state_requirements",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19.589Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": ["siloed solution concern", "legacy tools problem"],
+      "intent": "state_problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25.882Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32.500Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not ready for full pitch", "evaluating other options"],
+      "intent": "qualify_request",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38.141Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide_solution",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44.848Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["long evaluation timeline", "technical validation needed"],
+      "intent": "provide_update",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50.035Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "maintain_engagement",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55.079Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "build_rapport",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-18T12:00:37.070Z",
+      "sentiment": "neutral",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Deals off. Priya said the demo wasnt impressive and we are moving forward with someone else.",
+      "timestamp": "2025-07-19T20:15:00.915Z",
+      "sentiment": "negative",
+      "tone": "direct",
+      "objections": ["internal_decision", "product_feature"],
+      "intent": "reject",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Sorry to hear that David. Thanks for the notice.",
+      "timestamp": "2025-07-19T21:30:38.498Z",
+      "sentiment": "negative",
+      "tone": "regretful",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation initially focused on the prospect David's requirements for multi-regional support and unified reporting, addressing challenges with legacy siloed systems. Sales rep Bruce provided a concise loom demo, which David acknowledged as solid but indicated a longer evaluation timeline and the need for IT validation. After a significant period of silence, David informed Bruce that the deal was lost due to negative feedback from an internal IT stakeholder (Priya) regarding the demo's impressiveness, with the company opting for a competitor.",
+  "last_activity": "2025-07-19T21:30:38.498Z",
+  "engagement_metrics": {
+    "message_count": 12,
+    "rep_response_time_sec": 130707.576,
+    "objections_raised": 8,
+    "followups_committed": 2
+  },
+  "tags": [
+    "multi_region_support",
+    "unified_reporting",
+    "data_silos",
+    "legacy_systems",
+    "loom_demo",
+    "vendor_evaluation",
+    "long_sales_cycle",
+    "technical_objection",
+    "internal_stakeholder_influence",
+    "deal_lost",
+    "competitor_lost",
+    "poor_demo_feedback",
+    "long_response_time",
+    "no_pressure_approach",
+    "negative_sentiment_at_closure",
+    "unimpressed_stakeholder"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "David",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094SLLCY4C",
+      "name": "David",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "David",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-09T14:42:02.345Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "state_requirements",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-09T14:42:13.104Z",
+      "sentiment": "neutral",
+      "tone": "clarifying",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-09T14:42:19.589Z",
+      "sentiment": "negative",
+      "tone": "candid",
+      "objections": ["legacy_tools_inefficiency", "siloed_solution_aversion"],
+      "intent": "state_problem",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-09T14:42:25.882Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "propose_solution",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-09T14:42:32.500Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not_ready_for_full_pitch", "evaluating_other_options"],
+      "intent": "qualify_request",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-09T14:42:38.141Z",
+      "sentiment": "positive",
+      "tone": "agreeable",
+      "objections": [],
+      "intent": "provide_information",
+      "action_required": true
+    },
+    {
+      "from": "David",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-09T14:42:44.848Z",
+      "sentiment": "positive",
+      "tone": "informative",
+      "objections": ["timeline_concern"],
+      "intent": "provide_update",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-09T14:42:50.035Z",
+      "sentiment": "neutral",
+      "tone": "patient",
+      "objections": [],
+      "intent": "maintain_engagement",
+      "action_required": false
+    },
+    {
+      "from": "David",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-09T14:42:55.079Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Of course",
+      "timestamp": "2025-07-19T21:00:37.070Z",
+      "sentiment": "positive",
+      "tone": "friendly",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation focused on David's need for a unified reporting solution for multi-regional operations, addressing issues with legacy siloed systems. Bruce provided a concise loom demo, which David found solid but indicated a long evaluation timeline involving an IT review. David appreciated Bruce's no-pressure approach, with a significant delay before Bruce's final brief acknowledgement.",
+  "last_activity": "2025-07-19T21:00:37.070Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 154778.035768,
+    "objections_raised": 5,
+    "followups_committed": 2
+  },
+  "tags": [
+    "multi_region_support",
+    "unified_reporting",
+    "legacy_systems",
+    "data_silos",
+    "loom_demo",
+    "evaluation_phase",
+    "long_sales_cycle",
+    "timeline_concern",
+    "no_pressure_approach",
+    "IT_involvement",
+    "long_response_time"
+  ]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No new message data was provided or retrieved to update the analysis. The previous attempt only returned a header, indicating no actual conversation content, and the latest attempt also returned no valid messages.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": ["no_data_retrieved"]
+}
+--------------------------------
+Channel ID: D096QPA7FV4
+Structured Response: {
+  "thread_id": "",
+  "channel": {
+    "id": "D096QPA7FV4",
+    "name": "",
+    "type": "dm"
+  },
+  "participants": [],
+  "messages": [],
+  "summary": "No new message data was provided or retrieved to update the analysis. The previous attempt only returned a header, indicating no actual conversation content, and the latest attempt also returned no valid messages.",
+  "last_activity": "",
+  "engagement_metrics": {
+    "message_count": 0,
+    "rep_response_time_sec": 0,
+    "objections_raised": 0,
+    "followups_committed": 0
+  },
+  "tags": [
+    "no_data_retrieved"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Bruce and Sophia DM",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "2025-07-06T15:05:10.357Z",
+      "sentiment": "neutral",
+      "tone": "direct",
+      "objections": [],
+      "intent": "request amendment",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "2025-07-06T15:05:29.134Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "commit to action",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "2025-07-06T15:05:37.125Z",
+      "sentiment": "positive",
+      "tone": "optimistic",
+      "objections": [],
+      "intent": "provide status update",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "2025-07-06T15:05:45.059Z",
+      "sentiment": "positive",
+      "tone": "efficient",
+      "objections": [],
+      "intent": "provide status update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "2025-07-06T15:05:54.525Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "communicate timeline",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "2025-07-06T15:06:00.545Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "confirm timeline; commit to follow-up",
+      "action_required": false
+    }
+  ],
+  "summary": "The conversation between Sophia (prospect) and Bruce (sales rep) focuses on finalizing contract terms. Sophia requested a modification to the termination clause, which Bruce swiftly agreed to coordinate with his legal team. Both parties expressed positive sentiment and confirmed internal approvals, with a mutual goal of signing by Friday for an August 5th onboarding.",
+  "last_activity": "2025-07-06T15:06:00.545Z",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 10.91,
+    "objections_raised": 0,
+    "followups_committed": 2
+  },
+  "tags": [
+    "contract_finalization",
+    "legal_amendment",
+    "timeline_alignment",
+    "positive_sentiment",
+    "quick_resolution",
+    "active_deal",
+    "no_objections"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {
+  "thread_id": "D094KB9QUNP",
+  "channel": {
+    "id": "D094KB9QUNP",
+    "name": "Sophia",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094C5HKJET",
+      "name": "Sophia",
+      "role": "prospect"
+    },
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Sophia",
+      "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?",
+      "timestamp": "2025-07-08T15:05:10Z",
+      "sentiment": "neutral",
+      "tone": "direct",
+      "objections": [
+        "Contract terms"
+      ],
+      "intent": "Negotiate",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.",
+      "timestamp": "2025-07-08T15:05:29Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "Resolve",
+      "action_required": true
+    },
+    {
+      "from": "Sophia",
+      "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.",
+      "timestamp": "2025-07-08T15:05:37Z",
+      "sentiment": "positive",
+      "tone": "enthusiastic",
+      "objections": [],
+      "intent": "Confirm",
+      "action_required": false
+    },
+    {
+      "from": "Bruce",
+      "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.",
+      "timestamp": "2025-07-08T15:05:45Z",
+      "sentiment": "positive",
+      "tone": "proactive",
+      "objections": [],
+      "intent": "Update",
+      "action_required": false
+    },
+    {
+      "from": "Sophia",
+      "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.",
+      "timestamp": "2025-07-08T15:05:54Z",
+      "sentiment": "positive",
+      "tone": "firm",
+      "objections": [],
+      "intent": "Set timeline",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.",
+      "timestamp": "2025-07-08T15:06:00Z",
+      "sentiment": "positive",
+      "tone": "confident",
+      "objections": [],
+      "intent": "Plan next steps",
+      "action_required": true
+    }
+  ],
+  "summary": "The prospect, Sophia, requested a minor legal amendment to the termination clause as the final blocker before signing. The rep, Bruce, quickly addressed this, confirming it's doable and coordinating with his legal team. Both parties are aligned on finalizing the agreement by Friday for an August 5th onboarding.",
+  "last_activity": "2025-07-08T15:06:00Z",
+  "engagement_metrics": {
+    "message_count": 6,
+    "rep_response_time_sec": 10.91,
+    "objections_raised": 1,
+    "followups_committed": 2
+  },
+  "tags": [
+    "contract_negotiation",
+    "legal_review",
+    "fast_response",
+    "deal_progression",
+    "timeline_alignment",
+    "positive_sentiment"
+  ]
+}
+--------------------------------
+Channel ID: D094R07DZ4J
+Structured Response: {
+  "thread_id": "D094R07DZ4J",
+  "channel": {
+    "id": "D094R07DZ4J",
+    "name": "Direct Message",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce Wayne",
+      "role": "rep"
+    },
+    {
+      "id": "U094SLLCY4C",
+      "name": "Prospect",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Prospect",
+      "text": "Lets start with structure. Weve got ops in 4 regions and a centralized CX team. Each group has different needs, but execs want unified reporting.",
+      "timestamp": "2025-07-04T12:02:02.345119Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": [],
+      "intent": "inform_requirements",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Got it. Sounds like were looking at multi-org support with layered permissions. Do your regions currently operate on separate systems?",
+      "timestamp": "2025-07-04T12:02:13.104919Z",
+      "sentiment": "neutral",
+      "tone": "inquisitive",
+      "objections": [],
+      "intent": "qualify_needs",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Yeah, legacy tools for most plus a lot of spreadsheets. Thats part of the problem. We want to avoid another siloed solution.",
+      "timestamp": "2025-07-04T12:02:19.589229Z",
+      "sentiment": "negative",
+      "tone": "concerned",
+      "objections": ["avoid_siloed_solution", "legacy_tools"],
+      "intent": "express_pain_point",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Makes sense. Weve done similar unification for UPS East and LATAM Logistics. Would it help if I showed you a demo dashboard customized for a multi-region setup?",
+      "timestamp": "2025-07-04T12:02:25.882989Z",
+      "sentiment": "positive",
+      "tone": "solution-oriented",
+      "objections": [],
+      "intent": "propose_demo",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Yes, but dont go full pitch mode yet :smile: were still gathering landscape options. A screenshot or short loom could work.",
+      "timestamp": "2025-07-04T12:02:32.500089Z",
+      "sentiment": "neutral",
+      "tone": "cautious",
+      "objections": ["not_ready_for_pitch", "still_evaluating_options"],
+      "intent": "set_boundaries",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Haha fair. Ill keep it light. Just dropped a 90-second loom in here: http://loom.com/demo-fdx-crm - loom.com/demo-fdx-crm, Let me know your thoughts or where you want to dig deeper.",
+      "timestamp": "2025-07-04T12:02:38.141219Z",
+      "sentiment": "positive",
+      "tone": "accommodating",
+      "objections": [],
+      "intent": "provide_material",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "This is solid. Ill loop in Priya IT later to ask about APIs and auth. Timeline-wise, were evaluating vendors through August no rush, just keeping this moving.",
+      "timestamp": "2025-07-04T12:02:44.848959Z",
+      "sentiment": "neutral",
+      "tone": "informative",
+      "objections": ["evaluation_timeline"],
+      "intent": "update_status",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Totally understand. Ill keep sharing value and stay in your orbit. Let me know if/when you want to explore pricing models or POC scope.",
+      "timestamp": "2025-07-04T12:02:50.035909Z",
+      "sentiment": "positive",
+      "tone": "understanding",
+      "objections": [],
+      "intent": "maintain_engagement",
+      "action_required": true
+    },
+    {
+      "from": "Prospect",
+      "text": "Will do. Appreciate the no-pressure vibe.",
+      "timestamp": "2025-07-04T12:02:55.079759Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": ["sales_pressure_aversion"],
+      "intent": "affirmation",
+      "action_required": false
+    },
+    {
+      "from": "Bruce Wayne",
+      "text": "Of course",
+      "timestamp": "2025-07-13T16:00:37.070929Z",
+      "sentiment": "positive",
+      "tone": "casual",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The prospect, operating across four regions, seeks a unified reporting solution to replace legacy tools and spreadsheets, emphasizing a need to avoid further silos. The sales rep successfully provided a concise demo video to address this, aligning with the prospect's preference for a no-pressure evaluation phase expected to continue through August. The prospect indicated plans to involve IT for technical questions.",
+  "last_activity": "2025-07-13T16:00:37.070929Z",
+  "engagement_metrics": {
+    "message_count": 10,
+    "rep_response_time_sec": 6.97,
+    "objections_raised": 4,
+    "followups_committed": 3
+  },
+  "tags": [
+    "multi_region_needs",
+    "unified_reporting",
+    "silo_objection",
+    "legacy_system_pain",
+    "timeline_objection",
+    "evaluation_phase",
+    "demo_provided",
+    "patient_sales_approach",
+    "long_response_gap",
+    "technical_stakeholder_engagement"
+  ]
+}
+--------------------------------
+Channel ID: D094KB9QUNP
+Structured Response: {"thread_id": "D094KB9QUNP", "channel": {"id": "D094KB9QUNP", "name": "Sophia", "type": "dm"}, "participants": [{"id": "U094C5HKJET", "name": "Sophia", "role": "prospect"}, {"id": "U094K124HS7", "name": "Bruce", "role": "rep"}], "messages": [{"from": "Sophia", "text": "Hey Bruce welcome. Just confirming we got the updated doc. Our legal team had one note about the termination clause wording can we tweak it to 30-day notice instead of 60?", "timestamp": "2025-07-08T15:05:10Z", "sentiment": "neutral", "tone": "direct", "objections": ["Contract terms"], "intent": "Negotiate", "action_required": true}, {"from": "Bruce", "text": "Hi Sophia yes, thats no problem. Ill coordinate with our legal team and have that updated in the draft later today.", "timestamp": "2025-07-08T15:05:29Z", "sentiment": "positive", "tone": "reassuring", "objections": [], "intent": "Resolve", "action_required": true}, {"from": "Sophia", "text": "Awesome. Thats really the last blocker on our side. RevOps and Finance already signed off. Once legals happy, were greenlit.", "timestamp": "2025-07-08T15:05:37Z", "sentiment": "positive", "tone": "enthusiastic", "objections": [], "intent": "Confirm", "action_required": false}, {"from": "Bruce", "text": "Perfect. Ive sent the revised draft to legal and tagged them in the thread. Shouldnt take more than a couple hours to finalize.", "timestamp": "2025-07-08T15:05:45Z", "sentiment": "positive", "tone": "proactive", "objections": [], "intent": "Update", "action_required": false}, {"from": "Sophia", "text": "Appreciate the speed, Bruce. Were looking to get signatures wrapped by Friday at the latest so we can kick off onboarding August 5.", "timestamp": "2025-07-08T15:05:54Z", "sentiment": "positive", "tone": "firm", "objections": [], "intent": "Set timeline", "action_required": true}, {"from": "Bruce", "text": "Totally doable. Lets stay in sync here Ill ping once legal signs off, and then we can coordinate signatures.", "timestamp": "2025-07-08T15:06:00Z", "sentiment": "positive", "tone": "confident", "objections": [], "intent": "Plan next steps", "action_required": true}], "summary": "The prospect, Sophia, requested a minor legal amendment to the termination clause as the final blocker before signing. The rep, Bruce, quickly addressed this, confirming it's doable and coordinating with his legal team. Both parties are aligned on finalizing the agreement by Friday for an August 5th onboarding.", "last_activity": "2025-07-08T15:06:00Z", "engagement_metrics": {"message_count": 6, "rep_response_time_sec": 10.91, "objections_raised": 1, "followups_committed": 2}, "tags": ["contract_negotiation", "legal_review", "fast_response", "deal_progression", "timeline_alignment", "positive_sentiment"]}
+--------------------------------

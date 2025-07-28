@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import {
     Box,
@@ -8,21 +9,67 @@ import {
 } from '@mui/material';
 
 const BasicInfo = ({ userInfo, setUserInfo, onNext }) => {
-    const handleInputChange = (field) => (event) => {
+    const [firstName, setFirstName] = useState(userInfo.firstName || '');
+    const [lastName, setLastName] = useState(userInfo.lastName || '');
+    const [email, setEmail] = useState(userInfo.email || '');
+
+    // Load data from localStorage on component mount
+    useEffect(() => {
+        const savedFirstName = localStorage.getItem('onboarding_firstName');
+        const savedLastName = localStorage.getItem('onboarding_lastName');
+        
+        if (savedFirstName) {
+            setFirstName(savedFirstName);
+            setUserInfo(prev => ({ ...prev, firstName: savedFirstName }));
+        }
+        
+        if (savedLastName) {
+            setLastName(savedLastName);
+            setUserInfo(prev => ({ ...prev, lastName: savedLastName }));
+        }
+    }, [setUserInfo]);
+
+    const handleFirstNameChange = (event) => {
+        const newValue = event.target.value;
+        setFirstName(newValue);
+        localStorage.setItem('onboarding_firstName', newValue);
         setUserInfo(prev => ({
             ...prev,
-            [field]: event.target.value
+            firstName: newValue
+        }));
+    };
+
+    const handleLastNameChange = (event) => {
+        const newValue = event.target.value;
+        setLastName(newValue);
+        localStorage.setItem('onboarding_lastName', newValue);
+        setUserInfo(prev => ({
+            ...prev,
+            lastName: newValue
+        }));
+    };
+
+    const handleEmailChange = (event) => {
+        const newValue = event.target.value;
+        setEmail(newValue);
+        setUserInfo(prev => ({
+            ...prev,
+            email: newValue
         }));
     };
 
     const handleContinue = () => {
         // Basic validation
-        if (userInfo.firstName && userInfo.lastName && userInfo.email) {
-            console.log(userInfo);
+        if (firstName && lastName && email) {
+            console.log('User info when continuing:', userInfo);
+            console.log('First Name:', firstName);
+            console.log('Last Name:', lastName);
+            console.log('Email:', email);
             onNext();
         } else {
             // You could add error handling here
             console.log('Please fill in all fields');
+            console.log('Current userInfo state:', userInfo);
         }
     };
     return (
@@ -51,8 +98,8 @@ const BasicInfo = ({ userInfo, setUserInfo, onNext }) => {
                         <TextField 
                             label="First Name" 
                             variant="outlined" 
-                            value={userInfo.firstName}
-                            onChange={handleInputChange('firstName')}
+                            value={firstName}
+                            onChange={handleFirstNameChange}
                             sx={{ width: "100%" }} 
                         />
                     </Box>
@@ -60,8 +107,8 @@ const BasicInfo = ({ userInfo, setUserInfo, onNext }) => {
                         <TextField 
                             label="Last Name" 
                             variant="outlined" 
-                            value={userInfo.lastName}
-                            onChange={handleInputChange('lastName')}
+                            value={lastName}
+                            onChange={handleLastNameChange}
                             sx={{ width: "100%" }} 
                         />
                     </Box>
@@ -70,8 +117,8 @@ const BasicInfo = ({ userInfo, setUserInfo, onNext }) => {
                             label="Email" 
                             variant="outlined" 
                             type="email"
-                            value={userInfo.email}
-                            onChange={handleInputChange('email')}
+                            value={email}
+                            onChange={handleEmailChange}
                             sx={{ width: "100%" }} 
                         />
                     </Box>
@@ -80,7 +127,7 @@ const BasicInfo = ({ userInfo, setUserInfo, onNext }) => {
                     variant="contained" 
                     color="primary" 
                     onClick={handleContinue}
-                    disabled={!userInfo.firstName || !userInfo.lastName || !userInfo.email}
+                    disabled={!firstName || !lastName || !email}
                     sx={{ height: "8%", width: "30%" }}
                 >
                     Continue

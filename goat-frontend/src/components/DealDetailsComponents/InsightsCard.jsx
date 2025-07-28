@@ -22,6 +22,9 @@ import {
   AttachEmail,
 } from "@mui/icons-material";
 import React, { useState, useEffect, useRef } from "react";
+import { getCurrentUserId } from "../../utils/supabase";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 // email parameters passed in
 function InsightsCard({
@@ -154,17 +157,20 @@ function InsightsCard({
     console.log("Sending email");
     console.log("email_subject", emailSubject);
     console.log("editableEmailBody", editableEmailBody);
-
+    // Get user ID using the utility function
+    const user_id = await getCurrentUserId();
+    console.log("user_id", user_id);
     setIsSending(true); // set sending state to true, waiting for confirmation
-    const response = await fetch("http://localhost:3001/email/send", {
+    const response = await fetch(`${API_URL}/api/email/send`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: "olivermajano01@gmail.com",
+        email: email_contact_address,
         subject: emailSubject,
         body: editableEmailBody,
+        user_id: user_id,
       }),
     });
 

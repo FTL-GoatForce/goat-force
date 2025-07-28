@@ -76,3 +76,120 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Diego Lopez",
+    "personality_communication_profile": {
+      "personality_traits": ["pragmatic", "analytical", "cooperative", "detail-oriented", "cautious"],
+      "communication_style": "professional, direct, concise, clarity-seeking",
+      "decision_making_style": "cautious, data-driven, consensus-seeking (involving legal)",
+      "objection_style": "collaborative, clarification-seeking, indirect",
+      "role_in_deal": "influencer with significant decision-making input"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluation", "seeking clarity", "progressing", "internal coordination"],
+      "overall_sentiment": "positive, cooperative",
+      "tone_patterns": "appreciative, cooperative, pragmatic, professional"
+    },
+    "objections_concerns": {
+      "objection_types": ["timeline clarity", "technical/pricing clarity (seeking details)"],
+      "objection_frequency_severity": "low frequency, low severity (clarification-seeking rather than pushback)"
+    },
+    "communication_behavior": {
+      "response_time": "fast and consistent",
+      "engagement_level": "high",
+      "message_complexity": "concise, but can delve into details when seeking clarity",
+      "preferred_channel": "prefers Slack for quick updates; used Email for formal proposals/detailed discussions, transitioning to Slack"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/contracting (late-stage proposal)",
+      "budget_risk_indicators": "low/managed (no strong pushback on pricing; held pricing is appreciated)",
+      "timeline_risk_indicators": "low (actively managing and seeking clarity on timelines for internal process)",
+      "churn_risk_indicators": "very low (high engagement, positive sentiment, proactive updates)"
+    },
+    "deal_insights": {
+      "key_objections": "clarifications on legal review, technical details, pricing, and timeline clarity",
+      "decision_maker_status": "key influencer, driving internal review and managing the process",
+      "urgency_level": "moderate (desires steady progress and clarity, with pricing held for Q3)",
+      "competitive_position": "strong (no direct mention of competitors, focus is on internal due diligence)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Diego Lopez",
+    "personality_communication_profile": {
+      "personality_traits": ["analytical", "pragmatic", "detail-oriented", "collaborative"],
+      "communication_style": "professional, direct, inquisitive, appreciative",
+      "decision_making_style": "cautious, data-driven, consensus-seeking",
+      "objection_style": "direct, collaborative",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating", "seeking clarity", "progressing deal"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "professional, cooperative, appreciative, direct, inquisitive"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing_clarification", "scope_clarification", "internal_alignment_needs"],
+      "objection_frequency_severity": "low frequency, low severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies, concise, direct",
+      "preferred_channel": "Slack (for quick alignment)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, proposal_review, internal_approval",
+      "budget_risk_indicators": "moderate (needs itemized breakdown for finance, appreciative of pricing hold)",
+      "timeline_risk_indicators": "low (explicitly values clarity, sets internal timelines)",
+      "churn_risk_indicators": "low"
+    },
+    "deal_insights": {
+      "key_objections": "clarity on pricing inclusions (itemized breakdown), user limits, data sync cadence, internal legal and finance alignment.",
+      "decision_maker_status": "influencer/key stakeholder (requires legal and finance review/alignment)",
+      "urgency_level": "moderate (appreciates timeline clarity, systematic progression)",
+      "competitive_position": "strong (active engagement with proposal, no direct mention of competitors)"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Diego Lopez",
+    "personality_communication_profile": {
+      "personality_traits": ["pragmatic", "detail-oriented", "process-oriented", "collaborative", "proactive", "appreciative", "adaptable"],
+      "communication_style": "professional, direct, concise, inquisitive, cooperative",
+      "decision_making_style": "data-driven, cautious (involves stakeholders), thorough, seeks internal alignment",
+      "objection_style": "direct (as clarifying questions), collaborative, problem-solving",
+      "role_in_deal": "Decision Maker (requiring internal alignment)"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["evaluating_proposal", "seeking_clarity", "moving_to_next_steps", "seeking_internal_alignment", "scheduling_meetings"],
+      "overall_sentiment": "positive",
+      "tone_patterns": "appreciative, professional, pragmatic, cooperative, inquisitive"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing_clarification", "technical_scope_clarification", "internal_alignment_needs"],
+      "objection_frequency_severity": "Moderate frequency, low severity (primarily requests for clarification to facilitate internal processes)"
+    },
+    "communication_behavior": {
+      "response_time": "Very fast and consistent (seconds in Slack, minutes in Email)",
+      "engagement_level": "High (proactive updates, questions, scheduling, channel preference)",
+      "message_complexity": "Concise and direct, with slightly more detail when seeking clarifications",
+      "preferred_channel": "Slack (for quick alignment post-proposal)"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Proposal and negotiation stage, actively moving towards closing with internal reviews underway.",
+      "budget_risk_indicators": "Low risk; concerns are about clarification and itemization for internal alignment, not rejection based on cost.",
+      "timeline_risk_indicators": "Moderate risk; dependent on internal legal and finance reviews, but Diego is actively managing these timelines.",
+      "churn_risk_indicators": "Very low; high engagement, positive sentiment, and clear forward momentum."
+    },
+    "deal_insights": {
+      "key_objections": "Clarification on pricing breakdown (itemized costs for support/training), details on technical scope (user limits, data sync), and facilitating internal approvals with legal and finance.",
+      "decision_maker_status": "Primary decision maker/influencer, leading the internal evaluation and approval process. Requires alignment from legal and finance.",
+      "urgency_level": "High urgency, driven by Diego's consistent responsiveness, proactive scheduling, and desire for 'quick alignment' and clear next steps.",
+      "competitive_position": "No explicit mention of competitors; the focus is on evaluating the current proposal and internal alignment."
+    }
+  }
+--------------------------------

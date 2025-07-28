@@ -1,22 +1,13 @@
-import asyncio
-from mcp_client.main import main
 from fastapi import FastAPI
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-import json
-from mcp_servers.gmail_api import send_email
+from routes.fastApiRoutes import router
+import os
 
-class Request(BaseModel):
-    deal_id: str
-    slack_id: str
-    email: str
-
-class SendEmailRequest(BaseModel):
-    email: str
-    subject: str
-    body: str
+HOST = os.getenv("HOST")
 
 app = FastAPI()
+
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,47 +16,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/run")
-def run_pipeline(request: Request):
-    try:
-        print(request)
-        success = asyncio.run(main(request.deal_id, request.slack_id, request.email))
-        # success = True
-        if success:
-            with open(f'src/einstein/einstein_analysis/{request.deal_id}_einstein_response.json', 'r') as f:
-                data = f.read()
-                json_data = json.loads(data)
-            with open(f'transcripts/slack/{request.slack_id}_structured_response.json', 'r') as f:
-                slack_data = f.read()
-                slack_transcript_json = json.loads(slack_data)
-            
-            with open(f'transcripts/gmail/{request.email}_structured_response.json', 'r') as f:
-                gmail_data = f.read() 
-                gmail_transcript_json = json.loads(gmail_data)
-            
-            with open(f'src/personality/personality_analysis/{request.email}.json', 'r') as f:
-                personality_data = f.read()
-                personality_json = json.loads(personality_data)
-
-            json_data["slack_transcript"] = slack_transcript_json
-            json_data["gmail_transcript"] = gmail_transcript_json
-            json_data["personality_analysis"] = personality_json
-            return {"status": "success", "data": json_data}
-        else:
-            return {"status": "error", "message": "Pipeline failed"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
-
-@app.post("/email/send")
-def send_email_request(request: SendEmailRequest):
-    try:
-        response = send_email(request.email, request.subject, request.body)
-        print("response", response)
-        return {"status": "success", "message": "Email sent"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+# Include the router
+app.include_router(router, prefix="/api")
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="localhost", port=3001)
+    uvicorn.run(app, host=f"{HOST}", port=3001)

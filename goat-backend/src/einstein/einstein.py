@@ -41,12 +41,24 @@ def get_einstein_data_file(deal_id: str) -> str:
         return "{}"
 
 def get_prompt(email: str, slack_id: str, deal_id: str) -> str:
+    # Load current conversation data
+    current_conversation_data = load_data(email, slack_id)
+    
+    # Check if conversation data is empty or minimal
+    conversation_data_parsed = json.loads(current_conversation_data) if current_conversation_data.strip() else []
+    is_empty_or_minimal = len(conversation_data_parsed) == 0 or (len(conversation_data_parsed) == 1 and len(str(conversation_data_parsed[0])) < 100)
+    
+    # Get current Einstein data to provide context
+    einstein_data = get_einstein_data_file(deal_id)
+    
     return f"""
 You are a sales intelligence AI analyzing deal data from multiple communication channels. 
 
 Your task is to analyze the data and provide a summary of the deal. 
 This is the slack data + gmail data:
-{load_data(email, slack_id)}
+{current_conversation_data}
+
+**CONVERSATION DATA STATUS**: {'EMPTY OR MINIMAL' if is_empty_or_minimal else 'CONTAINS SUBSTANTIAL DATA'}
 
 FIll out all the fields to the best of your ability. 
 DO NOT ADD COMMENTS TO THE JSON.
@@ -59,7 +71,7 @@ Here is the current einstein data file we have:
 --- INSTRUCTIONS ---
 1. Use the communication data to analyze deal progress and participant engagement.
 2. **CRITICAL**: The communication data contains the MOST RECENT information. You MUST update ALL fields based on the latest conversation data, even if it contradicts the existing Einstein data file.
-3. **ALWAYS OVERWRITE** outdated values in the existing Einstein data file with the current status from the communication data:
+3. **ALWAYS OVERWRITE** outdated values in the existing Einstein data file with the current status from the conversation data:
    - Update `deal_stage` based on the final outcome in the conversation
    - Update `deal_value_usd` if mentioned in the latest conversation
    - Update `expected_close_date` if mentioned
@@ -78,7 +90,22 @@ Here is the current einstein data file we have:
    - If the deal is CLOSED WON: Set `Deal_Risk_Score` to 0-10, `Churn_Risk` to 0-10, `Timeline_Risk` to 0-10
    - If the deal is CLOSED LOST: Set `Deal_Risk_Score` to 90-100, `Churn_Risk` to 80-100
    - If the deal is ACTIVE: Assess based on current conversation sentiment and engagement
-6. **ALWAYS PRIORITIZE** the latest conversation data over the existing Einstein data file.
+6. **ALWAYS PRIORITIZE** the latest conversation data over the existing Einstein data file, even if the latest data appears to be from an earlier point in time. For example:
+   - If the Einstein file shows the deal as CLOSED_LOST but the latest conversation shows active deal discussions, update all fields to reflect the current active state
+   - If risk scores in Einstein file are high (60-100) but current conversations show positive engagement, lower the risk scores to match reality (0-30)
+   - The conversation data represents the current truth - use it to overwrite any conflicting historical data in the Einstein file
+
+7. **CONFLICT DETECTION AND RESOLUTION**:
+   - **ANALYZE THE CONVERSATION CONTENT**: Carefully examine the actual conversation data to determine what events, outcomes, or decisions are actually mentioned
+   - **DETECT CONFLICTS**: If the Einstein file shows a deal as CLOSED_LOST but the conversation data contains NO MENTION of the deal being called off, lost, or any negative outcome, this indicates a conflict
+   - **RESOLVE CONFLICTS**: When you detect such conflicts, you MUST:
+     * Reset the deal stage to an appropriate active stage based on the actual conversation content
+     * Adjust risk scores to reflect the actual sentiment and engagement in the conversation
+     * Update the timeline to only include events that are actually mentioned or implied in the current conversation
+     * Remove any references to events that are not supported by the current conversation data
+     * Update all explanations to reflect the current state of the conversation
+   - **THE RULE**: Only include outcomes, events, or decisions that are explicitly mentioned or clearly implied in the current conversation data
+   - **EMPTY/MINIMAL DATA**: If conversation data is empty or minimal, treat as a fresh start and ignore any previous negative outcomes
 
 
 The Deal Risk Score is a holistic indicator (0–100) that evaluates the overall health and momentum of a deal by analyzing activity metrics, 
@@ -98,7 +125,7 @@ The Budget Risk Score is a measure of the likelihood of the deal not being budge
   "client_company": "[string]",
   "primary_rep": {{
     "id": "[string]",
-    "name": "[string]"
+    "name": "[string]" //This is the name of the buyer, not bruce wayne.
   }},
   "last_activity_timestamp": "[ISO8601 datetime]",
   "deal_stage": "[prospecting | qualification | proposal | negotiation | closed_won | closed_lost]",
@@ -106,7 +133,7 @@ The Budget Risk Score is a measure of the likelihood of the deal not being budge
   "expected_close_date": "[ISO8601 date]",
 
   "RISK_ASSESSMENT": {{
-    "Deal_Risk_Score": [0-100],
+    "Deal_Risk_Score": [0-100], //recalute this every time based on the CURRENT CONVERSATION DATA NOT THE EINSTEIN FILE
     "Churn_Risk": [0-100],
     "Timeline_Risk": [0-100], 
     "Budget_Risk": [0-100],
@@ -131,6 +158,8 @@ The Budget Risk Score is a measure of the likelihood of the deal not being budge
     "last_touch_summary": "[string]"
   }},
   "TIMELINE": {{ //Add multiple events, at least 3, 2 should be past events, 1 should be a future event
+    // Do NOT include events from the existing Einstein file if they are not supported by current conversation data
+    // If the conversation shows ongoing discussions but no mention of deal being called off, do NOT include "Deal Lost" events
     "event": {{
       "event_date": "[ISO8601 date]",
       "event_description": "[string]",
@@ -170,6 +199,12 @@ The Budget Risk Score is a measure of the likelihood of the deal not being budge
 }}
 Provide this analysis in a structured JSON format with clear numerical values and actionable insights.
 
+**FINAL REMINDER**: 
+1. If the conversation data is empty or minimal, you MUST ignore any previous negative outcomes (like deals being called off) that are no longer present in the current data.
+2. If the conversation data contains ongoing discussions but NO MENTION of the deal being called off, lost, or any negative outcome, you MUST NOT mark the deal as closed_lost.
+3. Only include events and outcomes that are actually present in the current conversation data.
+4. Treat the conversation data as the single source of truth - if something isn't mentioned there, it didn't happen.
+
 
 """
 
@@ -179,6 +214,8 @@ async def einstein_request(deal_id: str, email: str, slack_id: str):
             "prompt": get_prompt(email, slack_id, deal_id)
         }
 
+
+        print(f"Transcripts: {load_data(email, slack_id)}")
         response = requests.post(string_url, headers=headers, json=data)
         response_json = response.json()
         einstein_response = response_json.get("generation").get("generatedText")
@@ -188,7 +225,7 @@ async def einstein_request(deal_id: str, email: str, slack_id: str):
         with open(os.path.join(base_path, "src", "einstein", "einstein_analysis", f"{deal_id}_einstein_response.json"), "w") as f:
             f.write(einstein_response_json)
 
-
+        print(f"Einstein response: {einstein_response}")
         with open(os.path.join(base_path, "src", "einstein", "logs", f"{deal_id}_einstein_response.log"), "a") as f:
             f.write(f"Deal ID: {deal_id}\n")
             f.write(f"Response: {einstein_response}\n")

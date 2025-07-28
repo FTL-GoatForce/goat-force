@@ -20,6 +20,7 @@ import { ArrowBack, Save } from "@mui/icons-material";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getCurrentSession } from "../../utils/supabase";
 
 const InputForm = () => {
   const navigate = useNavigate();
@@ -40,8 +41,28 @@ const InputForm = () => {
   const baseServer = import.meta.env.VITE_BACKEND_SERVER;
 
   async function handleSave() {
-    await axios.post(`${baseServer}create`, deal);
-    console.log("deal created", deal);
+    try {
+      // Get current user session
+      const session = await getCurrentSession();
+      if (!session) {
+        console.error('No session found. User needs to log in.');
+        window.location.href = '/auth';
+        return;
+      }
+      
+
+      
+      // Add user_id to the deal data
+      const dealWithUserId = {
+        ...deal,
+        user_id: session.user.id
+      };
+      
+      await axios.post(`${baseServer}create`, dealWithUserId);
+      console.log("deal created", dealWithUserId);
+    } catch (error) {
+      console.error("Error creating deal:", error);
+    }
   }
   // routering
   const handleDateChange = (date, e) => {

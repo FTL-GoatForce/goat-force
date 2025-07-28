@@ -15,11 +15,17 @@ load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 
 # -------------- Google Docs ServerParams
-server_params = StdioServerParameters(
-    command="python",  
-    args=["./src/mcp_servers/chatbot.py"],  # MCP Server
-    env=None,  
-)
+def get_server_params(user_id: str | None = None):
+    args = ["./src/mcp_servers/chatbot.py"]
+    if user_id:
+        args.append(user_id)
+    
+    return StdioServerParameters(
+        command="python",  
+        args=args,  # MCP Server with optional user_id
+        env=None,  
+    )
+
 # ------------- FastAPI APP : Creating the server and adding CORS
 app = FastAPI()
 app.add_middleware(
@@ -38,6 +44,7 @@ gemini_client =  genai.Client(api_key=api_key) # add api key here
 class MessageRequest (BaseModel):
     message: str
     chatHistory: list = []
+    user_id: str | None = None
 
 # ------------- Data Checking  | Only accept a POST with JSON that has a message key of type string
 class SandboxMessageRequest (BaseModel):
@@ -67,7 +74,7 @@ async def receieve_message(request: MessageRequest):
         # ----------- Receieve message request then run our MCP Server 
         print(f"Message Recieved: {request.message}")
         print(f"Chat History: {request.chatHistory}")
-        result = await run(request, request.chatHistory)
+        result = await run(request, request.chatHistory, request.user_id)
         return {
             "success":True,
             "response": result
@@ -114,7 +121,8 @@ async def generate_sandbox_report(request : ReportRequest):
 
 
 # ------------ Once a message is recieved to the API Endpoint - Run MCP Server and create an API Request - Then Return the Gemini Response
-async def run(message: MessageRequest, chatHistory: list):
+async def run(message: MessageRequest, chatHistory: list, user_id: str | None = None):
+    server_params = get_server_params(user_id)
     async with stdio_client(server_params) as (read, write):    # launches our MCP server 
         async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
             try:
@@ -163,6 +171,7 @@ async def run(message: MessageRequest, chatHistory: list):
 
     # Going to need a different post route and new mcp tool for SANDBOX mode, will give access to a contacts personality data and etc,
 async def runSandbox(message: SandboxMessageRequest):
+        server_params = get_server_params()  # Sandbox doesn't need user_id filtering
         async with stdio_client(server_params) as (read, write):    # launches our MCP server 
             async with ClientSession(read, write) as session:   # Wraps the read and write into an MCP session object so we can invoke tools 
                 try:
@@ -213,6 +222,7 @@ async def runSandbox(message: SandboxMessageRequest):
                     }
 
 async def runReport(message : ReportRequest):
+    server_params = get_server_params()
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session: 
             try:

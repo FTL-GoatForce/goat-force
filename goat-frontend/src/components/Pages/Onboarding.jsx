@@ -19,20 +19,74 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import BasicInfo from '../OnboardingComponents/basicinfo';
+import BasicInfo from '../OnboardingComponents/BasicInfo';
 import GmailConfig from '../OnboardingComponents/GmailConfig';
 import SlackConfig from '../OnboardingComponents/SlackConfig';
 import Review from '../OnboardingComponents/Review';
+import { supabase } from '../../utils/supabase';
+
 const Onboarding = () => {
 
     const [activeStep, setActiveStep] = React.useState(0);
     const [userInfo, setUserInfo] = React.useState({
-        firstName: '',
-        lastName: '',
+        firstName: localStorage.getItem('onboarding_firstName') || '',
+        lastName: localStorage.getItem('onboarding_lastName') || '',
         email: ''
     });
+    const [oauthSuccess, setOauthSuccess] = React.useState({ google: false, slack: false });
+
+    // Handle Supabase session when user lands here after email confirmation
+    React.useEffect(() => {
+        const handleSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user?.email && !userInfo.email) {
+                console.log('Setting email from session:', session.user.email);
+                console.log('Previous userInfo state:', userInfo);
+                setUserInfo(prev => ({
+                    ...prev,
+                    email: session.user.email
+                }));
+            }
+        };
+        
+        handleSession();
+    }, [userInfo.email]);
+
+    // Check if user is returning from OAuth flow
+    React.useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const oauthSuccessParam = urlParams.get('oauth_success');
+        const provider = urlParams.get('provider');
+        const email = urlParams.get('email');
+
+        if (oauthSuccessParam === 'true' && (provider === 'google' || provider === 'slack')) {
+            // Navigate to the appropriate step based on provider
+            if (provider === 'google') {
+                setActiveStep(1); // Gmail step
+                setOauthSuccess(prev => ({ ...prev, google: true }));
+            } else if (provider === 'slack') {
+                setActiveStep(2); // Slack step
+                setOauthSuccess(prev => ({ ...prev, slack: true }));
+            }
+            
+            // If we have email from OAuth, populate user info
+            if (email && !userInfo.email) {
+                setUserInfo(prev => ({
+                    ...prev,
+                    email: email
+                }));
+            }
+            
+            // Log the current userInfo state after OAuth
+            console.log('After OAuth flow, userInfo state:', userInfo);
+            
+            // Clean up URL parameters
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }, [userInfo.email]);
 
     const handleNext = () => {
+        console.log('Moving to next step. Current userInfo:', userInfo);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
@@ -166,13 +220,13 @@ const Onboarding = () => {
                     />
                 )}
                 {activeStep === 1 && (
-                    <GmailConfig onNext={handleNext} />
+                    <GmailConfig onNext={handleNext} userInfo={userInfo} oauthSuccess={oauthSuccess.google} />
                 )}
                 {activeStep === 2 && (
-                    <SlackConfig onNext={handleNext} />
+                    <SlackConfig onNext={handleNext} userInfo={userInfo} oauthSuccess={oauthSuccess.slack} />
                 )}
                 {activeStep === 3 && (
-                    <Review />
+                    <Review userInfo={userInfo} />
                 )}
                 {/* Right side container */}
                 <Box

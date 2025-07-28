@@ -14,8 +14,11 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Info, Refresh } from "@mui/icons-material";
 import axios from "axios";
+import { getCurrentSession } from "../../utils/supabase";
 import socket from "../../web_socket/socket";
 import DealLoading from "../ReusableComponents/DealLoading";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CRMData = ({
   deals,
@@ -28,17 +31,30 @@ const CRMData = ({
   const [text, setText] = useState("");
   useEffect(() => {
     // Fetch initial job status data
-    axios
-      .get("http://localhost:3000/deal/stats")
-      .then((response) => {
+    const fetchInitialStats = async () => {
+      try {
+        const session = await getCurrentSession();
+        if (!session) {
+          console.error('No session found. User needs to log in.');
+          window.location.href = '/auth';
+          return;
+        }
+        
+        const response = await axios.get(`${API_URL}/deal/stats`, {
+          params: {
+            user_id: session.user.id
+          }
+        });
         const stats = Object.fromEntries(
           response.data.map((d) => [d.id, d.job_status])
         );
         setGlobalStats(stats);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Failed to fetch initial stats:", error);
-      });
+      }
+    };
+    
+    fetchInitialStats();
 
     // Connect WebSocket if not already connected
     if (!socket.connected) {
@@ -76,26 +92,109 @@ const CRMData = ({
     // Logic to filter and set open deals
     handleFilterChange("open");
   }
-  function setAllDeals() {
-    // Logic to reset filter
-    handleFilterChange(null);
-  }
-  function handleChange(e) {
-    setText(e.target.value);
-    handleInputChange(e.target.value);
+    function setAllDeals() {
+      // Logic to reset filter
+      handleFilterChange(null);
+    }
+    function handleChange(e) {
+      setText(e.target.value);
+      handleInputChange(e.target.value);
   }
 
+  // Immediate fetch on component mount --- comment out if going back to old version
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const session = await getCurrentSession();
+        if (!session) {
+          console.error('No session found. User needs to log in.');
+          window.location.href = '/auth';
+          return;
+        }
+        
+
+        
+        const res = await axios.get(`${API_URL}/deal/stats`, {
+          params: {
+            user_id: session.user.id
+          }
+        });
+        const stats = Object.fromEntries(
+          res.data.map((d) => [d.id, d.job_status])
+        );
+        setGlobalStats(stats);
+      } catch (e) {
+        console.error("Error fetching global stats:", e);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  // Polling every 10 seconds to check for processing status
+  // useEffect(() => {
+  //   let interval = null;
+
+  //   const fetchStats = async () => {
+  //     const res = await axios.get("http://localhost:3000/deal/stats");
+  //     const stats = Object.fromEntries(
+  //       res.data.map((d) => [d.id, d.job_status])
+  //     );
+
+  //     setGlobalStats(stats);
+
+  //     const anyProcessing = Object.values(stats).includes("processing");
+  //     if (!anyProcessing && interval) {
+  //       clearInterval(interval);
+  //     }
+  //   };
+
+  //   interval = setInterval(fetchStats, 10000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [globalStats]);
+
+
   async function refreshInsights(deal_id, slack_id, email) {
+    console.log( 'Refresh button clicked!');
+    
+    // Get current user session
+    const session = await getCurrentSession();
+    if (!session) {
+      console.error('No session found. User needs to log in.');
+      window.location.href = '/auth';
+      return;
+    }
+    
+    console.log('Session found:', session.user.id);
+    console.log('Refreshing insights for deal:', deal_id, slack_id, email);
+    
     try {
-      console.log(deal_id, slack_id, email);
-      const response = await axios.put(`http://localhost:3000/deal/update`, {
+      console.log('Making request to backend...');
+      
+      const requestData = {
         dealId: deal_id,
         slack_id: slack_id,
         email: email,
-      });
-      console.log("Insights update response:", response);
+        user_id: session.user.id
+      };
+      
+      console.log('Request data:', requestData);
+      
+      const response = await axios.put(
+        `${API_URL}/deal/update`,
+        requestData,
+        {
+          headers: {
+            'Authorization': `Bearer ${session.access_token}`
+          }
+        }
+      );
+      console.log('Refresh response:', response.data);
     } catch (error) {
       console.error("Error refreshing insights:", error);
+      console.error("Error details:", error.response?.data || error.message);
     }
   }
 
@@ -140,6 +239,30 @@ const CRMData = ({
               ))}
           </Box>
         ))}
+      </Box>
+    );
+  }
+
+  // Check if deals array is empty
+  if (deals.length === 0) {
+    return (
+      <Box
+        sx={{
+          padding: "24px",
+          backgroundColor: "background.paper",
+          border: "1px solid",
+          borderColor: "divider",
+          boxShadow: 5,
+          borderRadius: 2,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h6" sx={{ color: "text.secondary", mb: 1 }}>
+          No deals found
+        </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          Create your first deal to get started
+        </Typography>
       </Box>
     );
   }
@@ -263,7 +386,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}
@@ -274,7 +397,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}
@@ -285,7 +408,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}

@@ -29,6 +29,7 @@ import CRMChatbotTextEntry from "./CRMChatbotTextEntry";
 import CRMAiEntry from "./CRMAiEntry";
 import axios from "axios";
 import LoadingThreeDotsPulse from "./LoadingThreeDotsPulse";
+import { getCurrentSession } from "../../utils/supabase";
 
 const CRMChatBot = ({ handleExit }) => {
   const MCPServer = import.meta.env.VITE_MCP_SERVER;
@@ -55,9 +56,19 @@ const CRMChatBot = ({ handleExit }) => {
     
     try {
       setLoading(true);
+      
+      // Get current user session
+      const session = await getCurrentSession();
+      if (!session) {
+        console.error('No session found. User needs to log in.');
+        window.location.href = '/auth';
+        return;
+      }
+      
       const response = await axios.post(MCPServer, {
         message: prompt,
         chatHistory: updatedChat,
+        user_id: session.user.id
       }, {
         headers: {
           'Content-Type': 'application/json'

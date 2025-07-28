@@ -9,7 +9,6 @@
   "deal_stage": "proposal",
   "deal_value_usd": 210000,
   "expected_close_date": null,
-  
   "RISK_ASSESSMENT": {
     "Deal_Risk_Score": 30,
     "Churn_Risk": 20,
@@ -20,14 +19,12 @@
     "timeline_risk_explanation": "The follow-up meeting is scheduled, suggesting that the deal is progressing as planned.",
     "budget_risk_explanation": "No budget concerns were raised in the discussions."
   },
-
   "DEAL_INSIGHTS": {
-    "Key_Objections": ["Technical details clarification", "Pricing breakdown"],
+    "Key_Objections": [],
     "Decision_Maker_Status": "Engaged",
     "Urgency_Level": "medium",
     "Competitive_Position": "neutral"
   },
-
   "ACTIVITY_ANALYSIS": {
     "message_count": 8,
     "prospect_response_time_sec": 6.84,
@@ -35,7 +32,6 @@
     "last_touch_channel": "slack",
     "last_touch_summary": "The latest Slack conversation involved onboarding and updates on legal feedback regarding pricing."
   },
-  
   "TIMELINE": {
     "event": [
       {
@@ -55,15 +51,16 @@
       }
     ]
   },
-
   "AI_GENERATED_SUMMARY": "The Slack thread initiated with Sales Rep Bruce Wayne welcoming prospect Diego. Diego provided an update on sharing the pricing breakdown with his legal team, expecting feedback soon. Bruce proactively offered support from his legal/revops team and reassured Diego about holding the current pricing. The conversation concluded with Bruce committing to follow up after Diego receives legal feedback, highlighting a collaborative and positive progression of the sales cycle.",
-
   "RECOMMENDATIONS": {
-    "Next_Steps": ["Prepare for the follow-up meeting", "Clarify any remaining technical questions", "Confirm pricing details"],
+    "Next_Steps": [
+      "Prepare for the follow-up meeting",
+      "Clarify any remaining technical questions",
+      "Confirm pricing details"
+    ],
     "Escalation_Triggers": "If no agreement is reached in the next meeting",
     "Deal_Acceleration_Tactics": "Provide additional resources or case studies to support the proposal"
   },
-
   "AI_GENERATED_FOLLOW_UP": {
     "Email_Draft": [
       {
@@ -73,7 +70,6 @@
     ],
     "Slack_Message": "Hi Diego, just confirming our meeting on Friday regarding the Data360 integration proposal. Let me know if you have any specific questions!"
   },
-
   "PARTICIPANTS": [
     {
       "id": "bruce.wayne.goatforce@gmail.com",
@@ -90,6 +86,13 @@
       "communication_score": 75
     }
   ],
-
-  "TAGS": ["action_required", "legal_review", "positive_engagement", "pricing_discussion", "quick_rep_response", "rep_followup_committed", "welcome"]
+  "TAGS": [
+    "action_required",
+    "legal_review",
+    "positive_engagement",
+    "pricing_discussion",
+    "quick_rep_response",
+    "rep_followup_committed",
+    "welcome"
+  ]
 }

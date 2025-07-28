@@ -3,15 +3,29 @@ from prisma import Prisma
 from datetime import datetime
 from typing import Optional, List
 import asyncio
+import sys
 
 mcp = FastMCP("chatbot-server")  # initialized our FastMCP server 
 prisma = Prisma()   # initialized our prisma client
+
+# Get user_id from command line arguments if provided
+user_id = None
+if len(sys.argv) > 1:
+    user_id = sys.argv[1]
+    print(f"Chatbot server initialized with user_id: {user_id}")
 
 @mcp.tool
 async def get_deals():
     try:
         await prisma.connect() # connect to prisma
-        result = await prisma.deals.find_many() # find all deals
+        if user_id:
+            # Filter deals by user_id if provided
+            result = await prisma.deals.find_many(
+                where={"user_id": user_id}
+            )
+        else:
+            # Fallback to all deals if no user_id provided
+            result = await prisma.deals.find_many()
         return result # return deals
     except Exception as e:
         return {'err': str(e)}
@@ -23,9 +37,16 @@ async def get_deal_details(deal_id: int):
     try:
         await prisma.connect()
         response = {}
-        deal = await prisma.deals.find_unique(
-            where={"id": deal_id}
-        )
+        
+        # Filter deal by user_id if provided
+        if user_id:
+            deal = await prisma.deals.find_first(
+                where={"id": deal_id, "user_id": user_id}
+            )
+        else:
+            deal = await prisma.deals.find_unique(
+                where={"id": deal_id}
+            )
         response["deal"] = deal
 
         participants = await prisma.participants.find_many(

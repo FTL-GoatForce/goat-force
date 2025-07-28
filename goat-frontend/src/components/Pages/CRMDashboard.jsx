@@ -17,6 +17,8 @@ import AssistantIcon from "@mui/icons-material/Assistant";
 import CRMChatBot from "../CRMComponents/CRMChatBot";
 import Sandbox from "./Sandbox";
 import axios from "axios";
+import { getCurrentSession } from "../../utils/supabase";
+import { Add, Business, TrendingUp } from "@mui/icons-material";
 import socket from "../../web_socket/socket";
 import { Sledding } from "@mui/icons-material";
 import { connect } from "socket.io-client";
@@ -38,10 +40,24 @@ const Dashboard = () => {
   const [globalStats, setGlobalStats] = useState({});
   const [filter, setFilter] = useState(null);
   const [input, setInput] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     async function getAllDeals() {
       try {
-        const response = await axios.get("http://localhost:3000/deal/all");
+        // Get current user session
+        const session = await getCurrentSession();
+        if (!session) {
+          console.error('No session found. User needs to log in.');
+          window.location.href = '/auth';
+          return;
+        }
+        console.log('🔐 Session ID:', session.user.id);
+        const response = await axios.get(`${API_URL}/deal/all`, {
+          params: {
+            user_id: session.user.id
+          }
+        });
+        
         setDeals(response.data.deals);
         setOriginalDeals(response.data.deals);
         setTotalDeals(response.data.totalDeals);
@@ -106,6 +122,10 @@ const Dashboard = () => {
   function handleExit() {
     setChatOpen((prev) => !prev);
   }
+
+  // Check if deals are loaded and empty
+  const hasDeals = deals && deals.length > 0;
+  const isLoading = deals === null;
 
   function handleFilterChange(newFilter) {
     const filter = newFilter;
@@ -174,22 +194,72 @@ const Dashboard = () => {
               marginTop: "10px", // Spacing from the CRMHeader
             }}
           >
-            <CRMGraphs deals={deals} /> {/* The graphs component */}
-            <CRMCards
-              dealsAtRisk={dealsAtRisk}
-              totalDeals={deals ? deals.length : totalDeals}
-              totalCost={pipeline}
-              avgValue={avgValue}
-            />{" "}
-            {/* The cards component */}
-            <CRMData
-              deals={deals}
-              globalStats={globalStats}
-              setGlobalStats={setGlobalStats}
-              handleFilterChange={handleFilterChange}
+            {!isLoading && !hasDeals ? (
+              // Empty State
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "60vh",
+                  textAlign: "center",
+                  gap: 3,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: "50%",
+                    backgroundColor: "background.paper",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border: "2px dashed",
+                    borderColor: "divider",
+                  }}
+                >
+                  <Business sx={{ fontSize: 48, color: "text.secondary" }} />
+                </Box>
+                <Box>
+                  <Typography variant="h4" sx={{ color: "text.secondary", fontWeight: 600, mb: 1 }}>
+                    No deals yet
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
+                    Start building your pipeline by creating your first deal
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    startIcon={<Add />}
+                    onClick={() => window.location.href = "/create"}
+                    sx={{ borderRadius: 2 }}
+                  >
+                    Create Your First Deal
+                  </Button>
+                </Box>
+              </Box>
+            ) : (
+              <>
+                <CRMGraphs deals={deals} /> {/* The graphs component */}
+                <CRMCards
+                  dealsAtRisk={dealsAtRisk}
+                  totalDeals={deals ? deals.length : totalDeals}
+                  totalCost={pipeline}
+                  avgValue={avgValue}
+                />{" "}
+                {/* The cards component */}
+                <CRMData
+                  deals={deals}
+                  globalStats={globalStats}
+                  setGlobalStats={setGlobalStats}
+                  handleFilterChange={handleFilterChange}
               handleInputChange={handleInputChange}
             />{" "}
-            {/* The data table component passing in our huge array of deals */}
+                {/* The data table component passing in our huge array of deals */}
+              </>
+            )}
           </Box>
         </Box>
         {/* Chat Bot Section */}

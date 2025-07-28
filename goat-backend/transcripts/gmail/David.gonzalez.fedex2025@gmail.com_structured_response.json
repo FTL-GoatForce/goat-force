@@ -1,8 +1,8 @@
 {
-  "thread_id": "fedex_crm_thread_001",
+  "thread_id": "CRM-FedEx-20250707",
   "channel": {
-    "id": "gmail_channel_001",
-    "name": "Gmail",
+    "id": "gmail_thread_id_123",
+    "name": "FedEx CRM Inquiry",
     "type": "Email"
   },
   "participants": [
@@ -20,85 +20,109 @@
   "messages": [
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly \n\n\n sounds like you're tackling some ambitious transformation goals. I'd love to learn more about how your team currently",
+      "to": [
+        "David Gonzalez <david.gonzalez.fedex2025@gmail.com>"
+      ],
+      "subject": "Exploring CRM Solutions for FedEx Ops",
       "timestamp": "2025-07-07T14:55:37-07:00",
+      "text": "Hi David, I came across your recent interview in Supply Chain Tech Weekly \u2014 sounds like you&#39;re tackling some ambitious transformation goals. I&#39;d love to learn more about how your team currently",
       "sentiment": "positive",
       "tone": "professional, inquisitive",
       "objections": [],
-      "intent": "outreach, discovery",
+      "intent": "prospecting, discovery",
       "action_required": true
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we're still early \n\n\n mostly internal discussions and mapping out requirements. I",
+      "to": [
+        "Bruce Wayne <bruce.wayne.goatforce@gmail.com>"
+      ],
+      "subject": "Re: Exploring CRM Solutions for FedEx Ops",
       "timestamp": "2025-07-07T15:01:12-07:00",
+      "text": "Hi Bruce, Appreciate the note. We are indeed evaluating a few platforms as part of a broader overhaul. That said, we&#39;re still early \u2014 mostly internal discussions and mapping out requirements. I",
       "sentiment": "neutral",
       "tone": "professional, cautious",
       "objections": [
-        "timeline"
+        "timing"
       ],
-      "intent": "respond, clarify status",
+      "intent": "informing, qualifying, setting expectations",
       "action_required": true
     },
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Thanks, David \n\n\n early is often the best time to get involved. Yes, we've worked with distributed teams in logistics and supply chain \n\n\n UPS, DHL, and others. I'd be happy to tailor the",
+      "to": [
+        "David Gonzalez <david.gonzalez.fedex2025@gmail.com>"
+      ],
+      "subject": "Re: Exploring CRM Solutions for FedEx Ops",
       "timestamp": "2025-07-07T15:20:51-07:00",
+      "text": "Thanks, David \u2014 early is often the best time to get involved. Yes, we&#39;ve worked with distributed teams in logistics and supply chain \u2014 UPS, DHL, and others. I&#39;d be happy to tailor the",
       "sentiment": "positive",
-      "tone": "professional, encouraging",
+      "tone": "professional, reassuring",
       "objections": [],
-      "intent": "address objection, reassure, continue engagement",
+      "intent": "addressing concerns, value proposition, engaging",
       "action_required": true
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Tuesday 11 am works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That's been a sticking point for us with",
-      "timestamp": "2025-07-07T15:21:16-07:00",
-      "sentiment": "positive",
-      "tone": "direct, professional",
-      "objections": [
-        "feature_fit"
+      "to": [
+        "Bruce Wayne <bruce.wayne.goatforce@gmail.com>"
       ],
-      "intent": "schedule meeting, request information",
+      "subject": "Re: Exploring CRM Solutions for FedEx Ops",
+      "timestamp": "2025-07-07T15:21:16-07:00",
+      "text": "Tuesday 11 am works. Please send the invite. In the meantime, feel free to share any material that outlines how your CRM handles multiple business units. That&#39;s been a sticking point for us with",
+      "sentiment": "positive",
+      "tone": "professional, direct",
+      "objections": [
+        "technical_fit: multiple business units"
+      ],
+      "intent": "scheduling, information request, raising requirement",
       "action_required": true
     },
     {
       "from": "Bruce Wayne <bruce.wayne.goatforce@gmail.com>",
-      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units \n\n\n particularly helpful for teams like yours that manage both B2B and",
+      "to": [
+        "David Gonzalez <david.gonzalez.fedex2025@gmail.com>"
+      ],
+      "subject": "Re: Exploring CRM Solutions for FedEx Ops",
       "timestamp": "2025-07-07T15:21:42-07:00",
+      "text": "Calendar invite sent! Attaching a 1-pager that highlights how we segment permissions, reporting, and workflows across business units \u2014 particularly helpful for teams like yours that manage both B2B and",
       "sentiment": "positive",
-      "tone": "professional, efficient",
+      "tone": "professional, efficient, helpful",
       "objections": [],
-      "intent": "confirm, provide information, address objection",
-      "action_required": true
+      "intent": "fulfilling request, providing information",
+      "action_required": false
     },
     {
       "from": "David Gonzalez <david.gonzalez.fedex2025@gmail.com>",
-      "text": "Thanks Bruce \n\n\n got the doc. Some good points in there. Let's cover ease of integration on the Slack. That's another area where we've hit snags in the past. Looking forward to learning more.",
-      "timestamp": "2025-07-07T15:22:08-07:00",
-      "sentiment": "positive",
-      "tone": "professional, engaged, appreciative",
-      "objections": [
-        "integration_complexity"
+      "to": [
+        "Bruce Wayne <bruce.wayne.goatforce@gmail.com>"
       ],
-      "intent": "acknowledge, raise new concern, express interest",
+      "subject": "Re: Exploring CRM Solutions for FedEx Ops",
+      "timestamp": "2025-07-07T15:22:08-07:00",
+      "text": "Thanks Bruce \u2014 got the doc. Some good points in there. Let&#39;s cover ease of integration on the Slack. That&#39;s another area where we&#39;ve hit snags in the past. Looking forward to learning more.",
+      "sentiment": "positive",
+      "tone": "professional, appreciative, informative",
+      "objections": [
+        "technical_fit: integration"
+      ],
+      "intent": "acknowledging, raising requirement, confirming interest",
       "action_required": true
     }
   ],
-  "summary": "Bruce Wayne from GoatForce initiated contact with David Gonzalez at FedEx to discuss CRM solutions. David initially expressed they were in early stages but agreed to a meeting. David raised concerns about handling multiple business units and integration, which Bruce addressed by sending a relevant document. A meeting is scheduled to discuss these points further.",
+  "summary": "This email thread between Bruce Wayne (sales rep) and David Gonzalez (FedEx prospect) outlines the initial discussions for CRM solutions. David expressed interest but raised concerns about the early stage of their evaluation, challenges with handling multiple business units, and integration difficulties. The conversation resulted in a scheduled meeting for Tuesday at 11 am, with Bruce providing a relevant document addressing the multi-business unit concern.",
   "last_activity": "2025-07-07T15:22:08-07:00",
   "engagement_metrics": {
-    "message_count": 6,
-    "rep_response_time_sec": 602.5,
+    "email_count": 6,
+    "avg_rep_response_time_hr": 0.17,
     "objections_raised": 3,
-    "followups_committed": 2
+    "followups_committed": 0
   },
   "tags": [
-    "initial_outreach",
     "discovery",
-    "meeting_scheduled",
     "technical_objection",
-    "integration_concern",
-    "early_stage_discussion"
+    "integration_challenge",
+    "meeting_scheduled",
+    "early_stage_opportunity",
+    "fast_response_time"
   ]
 }

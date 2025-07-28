@@ -21,9 +21,20 @@ export const createDeal = async (req, res) => {
       service_category,
       contract_term_length,
       expected_close_date,
+      user_id, // Get user_id from request body
     } = req.body;
+    const authHeader = req.headers.authorization;
+    
+
+    
+    // Validate user_id is provided
+    if (!user_id) {
+      return res.status(400).json({ error: "user_id is required" });
+    }
+    
     const deal = await prisma.deals.create({
       data: {
+        user_id, // Associate deal with user
         company_name,
         deal_name,
         deal_value,
@@ -62,15 +73,17 @@ export const createDeal = async (req, res) => {
     });
     const participant_id = participant.id;
 
-    const run_pipeline = await fetch(`${FASTAPI_URL}/run`, {
+    const run_pipeline = await fetch(`${FASTAPI_URL}/api/run`, {
       method: "POST",
       body: JSON.stringify({
         deal_id: dealId.toString(),
         slack_id: slack_id,
         email: email,
+        user_id: user_id, // Pass the user_id to FastAPI
       }),
       headers: {
         "Content-Type": "application/json",
+        ...(authHeader && { "Authorization": authHeader }),
       },
     });
 
@@ -396,23 +409,40 @@ export const getDealDetails = async (req, res) => {
   try {
     const response = {};
     const { id } = req.params;
-    if (!id) {
-      res.status(500);
-    }
-    const lastDbUpdate = await getLastUpdatedAt();
-    const meta = await redis.get("deals_meta");
-    const parsedMeta = meta ? meta : null;
+    const { user_id } = req.query; // Get user_id from query params
+    
 
-    if (parsedMeta?.updated_at === lastDbUpdate) {
-      const cachedDeal = await redis.get(`deal_${id}`);
-      if (cachedDeal) {
-        console.log("Serving from cache");
-        return res.status(200).json(cachedDeal);
-      }
+    
+    if (!id) {
+      return res.status(400).json({ error: "Deal ID is required" });
     }
+    
+    if (!user_id) {
+      return res.status(400).json({ error: "user_id is required" });
+    }
+    
+    // CACHE DISABLED
+    // const lastDbUpdate = await getLastUpdatedAt();
+    // const meta = await redis.get("deals_meta");
+    // const parsedMeta = meta ? meta : null;
+
+    // if (parsedMeta?.updated_at === lastDbUpdate) {
+    //   const cachedDeal = await redis.get(`deal_${id}`);
+    //   if (cachedDeal) {
+    //     console.log("Serving from cache");
+    //     return res.status(200).json(cachedDeal);
+    //   }
+    // }
     const deal = await prisma.deals.findUnique({
-      where: { id: parseInt(id) },
+      where: { 
+        id: parseInt(id),
+        user_id: user_id // Ensure user can only access their own deals
+      },
     });
+    
+    if (!deal) {
+      return res.status(404).json({ error: "Deal not found or access denied" });
+    }
     response.deal = deal;
 
     const participants = await prisma.participants.findMany({
@@ -480,21 +510,41 @@ export const getDealDetails = async (req, res) => {
 
 export const getAllDeals = async (req, res) => {
   try {
-    // Grab the last DB Update from smart caching
-    const lastDbUpdate = await getLastUpdatedAt();
-    const meta = await redis.get("deals_meta");
-    const parsedMeta = meta ? meta : null;
+    const { user_id } = req.query; // Get user_id from query params
+    
 
-    if (parsedMeta?.updated_at === lastDbUpdate) {
-      const cachedDeals = await redis.get("deals_cache");
-      if (cachedDeals) {
-        console.log("Serving from cache");
-        return res.status(200).json(cachedDeals);
-      }
+    
+    // Validate user_id is provided
+    if (!user_id) {
+      return res.status(400).json({ error: "user_id is required" });
     }
-    // Look for deal in redis cache
-    // Get all deals
-    const deals = await prisma.deals.findMany();
+    
+    // CACHE DISABLED
+    // // Grab the last DB Update from smart caching
+    // const lastDbUpdate = await getLastUpdatedAt();
+    // const meta = await redis.get("deals_meta");
+    // const parsedMeta = meta ? meta : null;
+
+    // // Use user-specific cache keys
+    // const userCacheKey = `deals_cache_${user_id}`;
+    
+    // // Check user-specific cache
+    // const cachedUserDeals = await redis.get(userCacheKey);
+    // if (cachedUserDeals) {
+    //   try {
+    //     console.log("Serving from user-specific cache");
+    //     // Redis returns the data directly as an object, no need to parse
+    //     return res.status(200).json(cachedUserDeals);
+    //   } catch (error) {
+    //     console.log("Invalid cache data, clearing...");
+    //     await redis.del(userCacheKey);
+    //   }
+    // }
+    // // Look for deal in redis cache
+    // Get deals for specific user
+    const deals = await prisma.deals.findMany({
+      where: { user_id: user_id }
+    });
 
     // For each deal, get all related data
     const dealsWithDetails = await Promise.all(
@@ -577,15 +627,16 @@ export const getAllDeals = async (req, res) => {
       deals: dealsWithDetails,
     };
 
-    // caching individual deals for faster api calls in
-    for (const deal of dealsWithDetails) {
-      await redis.set(`deal_${deal.deal.id}`, JSON.stringify(deal));
-      console.log(`Caching ${deal.deal.id} seperately`);
-    }
+    // CACHE DISABLED
+    // // Cache user-specific data
+    // // Cache individual deals for faster api calls
+    // for (const deal of dealsWithDetails) {
+    //   await redis.set(`deal_${deal.deal.id}_${user_id}`, JSON.stringify(deal));
+    // }
 
-    await redis.set("deals_cache", JSON.stringify(response));
-    await redis.set("deals_meta", JSON.stringify({ updated_at: lastDbUpdate }));
-    console.log("New Deals Cached");
+    // // Store the response object directly (Redis will handle serialization)
+    // await redis.setex(userCacheKey, 300, response); // Cache for 5 minutes
+    // console.log("User-specific cache updated");
     res.status(200).json({
       totalDeals: dealsWithDetails.length,
       deals: dealsWithDetails,
@@ -601,13 +652,31 @@ export const updateDeal = async (req, res) => {
   let dealIdInt = null;
 
   try {
-    const { dealId, slack_id, email } = req.body;
+    const { dealId, slack_id, email, user_id } = req.body;
+    const authHeader = req.headers.authorization;
+
+    // Validate user_id is provided
+    if (!user_id) {
+      return res.status(400).json({ error: "user_id is required" });
+    }
 
     // Convert dealId to integer for database operations
     dealIdInt = parseInt(dealId);
 
     if (isNaN(dealIdInt)) {
       throw new Error(`Invalid deal ID: ${dealId}`);
+    }
+
+    // Verify the deal belongs to the user
+    const deal = await prisma.deals.findFirst({
+      where: { 
+        id: dealIdInt,
+        user_id: user_id
+      },
+    });
+
+    if (!deal) {
+      return res.status(404).json({ error: "Deal not found or access denied" });
     }
 
     // Get the participant for this deal
@@ -622,7 +691,10 @@ export const updateDeal = async (req, res) => {
     const participant_id = participant.id;
     // Set Deal to loading
     await prisma.deals.update({
-      where: { id: dealIdInt },
+      where: { 
+        id: dealId,
+        user_id: user_id // Ensure user can only update their own deals
+      },
       data: { job_status: "processing" },
     });
 
@@ -640,12 +712,13 @@ export const updateDeal = async (req, res) => {
       // Continue processing even if WebSocket fails
     }
 
-    const run_pipeline = await fetch(`${FASTAPI_URL}/run`, {
+    const run_pipeline = await fetch(`${FASTAPI_URL}/api/run`, {
       method: "POST",
       body: JSON.stringify({
         deal_id: dealId.toString(),
         slack_id: slack_id,
         email: email,
+        user_id: user_id, // Pass the user_id to FastAPI
       }),
       headers: {
         "Content-Type": "application/json",
@@ -661,6 +734,20 @@ export const updateDeal = async (req, res) => {
     }
 
     const response = await run_pipeline.json();
+    console.log("FastAPI response structure:", {
+      hasData: !!response.data,
+      responseKeys: Object.keys(response),
+      responseType: typeof response,
+      dataType: typeof response.data,
+      status: response.status,
+      message: response.message
+    });
+    
+    // Check if pipeline failed
+    if (response.status === "error") {
+      throw new Error(`Pipeline failed: ${response.message}`);
+    }
+    
     const einstein_data = response.data;
     const einstein_response = await saveEinsteinData(
       dealIdInt,
@@ -718,23 +805,40 @@ export const updateDeal = async (req, res) => {
 
 export const updateJob = async (req, res) => {
   const { id } = req.params;
-  const { job_status } = req.body;
+  const { job_status, user_id } = req.body;
+
+  if (!user_id) {
+    return res.status(400).json({ error: "user_id is required" });
+  }
 
   try {
     const updatedDeal = await prisma.deals.update({
-      where: { id: parseInt(id) },
+      where: { 
+        id: parseInt(id),
+        user_id: user_id // Ensure user can only update their own deals
+      },
       data: { job_status },
     });
     res.status(200).json(updatedDeal);
   } catch (e) {
     console.error("error: ", e);
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 };
 
 export const getAllJobs = async (req, res) => {
   try {
+    const { user_id } = req.query; // Get user_id from query params
+    
+
+    
+    // Validate user_id is provided
+    if (!user_id) {
+      return res.status(400).json({ error: "user_id is required" });
+    }
+    
     const status = await prisma.deals.findMany({
+      where: { user_id: user_id },
       select: {
         id: true,
         job_status: true,

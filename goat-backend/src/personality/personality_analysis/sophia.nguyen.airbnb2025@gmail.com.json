@@ -2,37 +2,55 @@
   {
     "prospect_name": "Sophia Nguyen",
     "personality_communication_profile": {
-      "personality_traits": ["direct", "proactive", "efficient", "professional", "decisive"],
-      "communication_style": "professional, direct, concise, responsive",
-      "decision_making_style": "fast-mover, consensus-seeking",
-      "objection_style": "direct, collaborative",
-      "role_in_deal": "key influencer/facilitator"
+      "personality_traits": [
+        "Detail-oriented",
+        "Process-oriented",
+        "Decisive",
+        "Appreciative",
+        "Collaborative",
+        "Results-oriented",
+        "Pragmatic"
+      ],
+      "communication_style": "Direct, professional, concise, appreciative, efficient",
+      "decision_making_style": "Consensus-seeking, process-driven, deadline-focused, pragmatic",
+      "objection_style": "Direct, clarifying, collaborative, solution-oriented",
+      "role_in_deal": "Key influencer and orchestrator of internal approvals, likely a primary decision-maker or very close to it."
     },
     "intent_sentiment": {
-      "intent_signals": ["advancing the deal", "resolving blockers", "seeking clarity", "communicating timeline", "requesting amendments"],
-      "overall_sentiment": "positive",
-      "tone_patterns": "direct, professional, proactive, optimistic, decisive"
+      "intent_signals": [
+        "Finalizing",
+        "Negotiating",
+        "Evaluating",
+        "Clarifying",
+        "Accelerating",
+        "Strong interest in closing"
+      ],
+      "overall_sentiment": "Positive, collaborative, eager to proceed",
+      "tone_patterns": "Professional, direct, appreciative, firm, and increasingly decisive/enthusiastic as the deal progresses"
     },
     "objections_concerns": {
-      "objection_types": ["legal/contractual", "clarity/scope"],
-      "objection_frequency_severity": "low frequency, low severity"
+      "objection_types": [
+        "Contractual terms",
+        "Scope/service clarification"
+      ],
+      "objection_frequency_severity": "Low frequency (2 distinct objections), low severity (easily addressed, not deal-breakers)"
     },
     "communication_behavior": {
-      "response_time": "fast",
-      "engagement_level": "high",
-      "message_complexity": "concise, direct, structured",
-      "preferred_channel": "slack"
+      "response_time": "Fast and consistent",
+      "engagement_level": "High (initiates contact, asks specific questions, provides internal updates, suggests channel change, sets clear timelines)",
+      "message_complexity": "Concise but clear, professional and to the point",
+      "preferred_channel": "Slack"
     },
     "deal_dynamics_risk_assessment": {
-      "deal_stage_signals": "negotiation, proposal review, closing",
-      "budget_risk_indicators": "low",
-      "timeline_risk_indicators": "low",
-      "churn_risk_indicators": "very low"
+      "deal_stage_signals": "Late Negotiation to Closing Stage",
+      "budget_risk_indicators": "Low risk (no direct mentions of budget constraints or pushback; discount already reflected)",
+      "timeline_risk_indicators": "Low risk (Sophia is actively setting and pushing for a clear timeline)",
+      "churn_risk_indicators": "Very low churn risk (high engagement, quick responses, clear communication, active participation in resolving blockers, setting next steps)"
     },
     "deal_insights": {
-      "key_objections": "termination clause wording, implementation support inclusion",
-      "decision_maker_status": "key influencer/facilitator",
-      "urgency_level": "high",
-      "competitive_position": "strong, favorable"
+      "key_objections": "Minor legal clause adjustment (termination notice period) and clarification on implementation support inclusion.",
+      "decision_maker_status": "Highly influential, orchestrating internal sign-offs; acts as the primary conduit and driver for the deal, likely a key decision-maker or holds significant authority to push it through.",
+      "urgency_level": "High urgency (actively pushing for Friday signature deadline and August 5th onboarding)",
+      "competitive_position": "Strong, favorable position (no mention of competitors; focus is on internal approvals and closing this deal)"
     }
   }

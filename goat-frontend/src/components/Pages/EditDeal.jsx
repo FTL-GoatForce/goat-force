@@ -24,8 +24,9 @@ import {
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
-const baseServer = "http://localhost:3000/deal/";
+const baseServer = `${API_URL}/deal/`;
 
 // style for modal pop-up component
 const style = {

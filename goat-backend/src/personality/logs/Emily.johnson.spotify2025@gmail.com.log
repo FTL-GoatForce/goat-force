@@ -391,3 +391,276 @@ Personality analysis completed successfullyResponse:
     }
   }
 --------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["Assertive", "Direct", "Cautious", "Demanding", "Skeptical"],
+      "communication_style": "Direct, demanding, and skeptical, focusing on conditions and objections.",
+      "decision_making_style": "Cautious, budget-conscious, value-driven, and prone to stalling when concerns are not met. Prefers immediate, complete solutions.",
+      "objection_style": "Direct and confrontational, frequently raising concerns.",
+      "role_in_deal": "Influencer/Key Stakeholder, defers to leadership for final decision."
+    },
+    "intent_sentiment": {
+      "intent_signals": ["Raise objection", "Negotiate", "Set conditions", "Set hard limit", "Stall", "Disengage"],
+      "overall_sentiment": "Initially cautious, quickly shifted to negative, and ultimately disengaged.",
+      "tone_patterns": "Consistently negative, critical, and demanding, evolving into a disengaged tone."
+    },
+    "objections_concerns": {
+      "objection_types": ["Pricing", "Value", "Need", "Competition", "Timeline", "Implementation complexity", "Budget"],
+      "objection_frequency_severity": "High frequency (8 objections in 10 messages) and high severity, leading to deal stall."
+    },
+    "communication_behavior": {
+      "response_time": "Inconsistent; initially responsive, but ultimately disengaged and paused communication.",
+      "engagement_level": "Initially engaged in negotiation, but engagement significantly decreased, leading to disengagement.",
+      "message_complexity": "Direct and concise, clearly stating conditions and objections, demanding immediate out-of-the-box functionality.",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "Negotiation/Proposal stage, currently stalled and at risk.",
+      "budget_risk_indicators": "High budget risk indicated by explicit budget limit (under $90K) and strong pushback on pricing.",
+      "timeline_risk_indicators": "High timeline risk due to demanding immediate, out-of-the-box functionality and rejecting phased rollouts.",
+      "churn_risk_indicators": "High churn risk evidenced by disengagement, stalling, and pausing the discussion, contingent on leadership interest."
+    },
+    "deal_insights": {
+      "key_objections": "Primary concerns are pricing/budget (strict limit under $90K), perceived value, and demanding immediate, out-of-the-box implementation.",
+      "decision_maker_status": "An important influencer, but not the ultimate decision-maker, as final engagement depends on her leadership's interest.",
+      "urgency_level": "Initially high urgency for specific requirements (immediate functionality), but overall deal urgency is now low due to unaddressed concerns and the stalled status.",
+      "competitive_position": "Challenged, as the prospect explicitly raised competitors as an objection and is likely evaluating other options."
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["assertive", "direct", "skeptical", "pragmatic"],
+      "communication_style": "direct",
+      "decision_making_style": "cautious",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "set hard limit", "stall"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, decisive, blunt, dismissive"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "need", "competition", "timeline", "implementation complexity", "budget"],
+      "objection_frequency_severity": "high frequency and high severity, with 9 objections raised and consistently strong expressions"
+    },
+    "communication_behavior": {
+      "response_time": "inconsistent, with a final stall indicating delayed or halted engagement",
+      "engagement_level": "declining, culminating in disengagement",
+      "message_complexity": "concise and to-the-point",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation stalled",
+      "budget_risk_indicators": "high risk, with explicit budget cap ($90K) and strong pricing pushback",
+      "timeline_risk_indicators": "high risk, due to demand for immediate, out-of-the-box functionality and rejection of phased rollouts, compounded by stalling",
+      "churn_risk_indicators": "very high churn risk, evidenced by disengagement, dismissive tone, and dependency on leadership's future interest"
+    },
+    "deal_insights": {
+      "key_objections": "pricing/budget, perceived value, implementation complexity, and competitive alternatives",
+      "decision_maker_status": "influencer or gatekeeper; defers to leadership for final re-engagement",
+      "urgency_level": "low overall urgency from prospect's side, despite initial demands for immediate implementation if they were to proceed",
+      "competitive_position": "weak, prospect is clearly evaluating competitors based on price and functionality"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "skeptical", "pragmatic", "demanding"],
+      "communication_style": "direct",
+      "decision_making_style": "cost-conscious",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "stall", "evaluate"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, blunt, decisive, dismissive"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "competition", "timeline", "implementation complexity", "budget"],
+      "objection_frequency_severity": "high frequency and high severity, with escalating and firm objections"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high initially, declining to low when stalling",
+      "message_complexity": "short replies",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "moved from proposal to negotiation, then stalled",
+      "budget_risk_indicators": "extremely high due to explicit hard budget cap and consistent pricing pushback",
+      "timeline_risk_indicators": "high due to rejection of phased rollout and demand for immediate, out-of-the-box functionality",
+      "churn_risk_indicators": "high due to disengagement, explicit mention of other vendors, and stalling the deal"
+    },
+    "deal_insights": {
+      "key_objections": "pricing/budget (under $90K hard cap), and implementation timeline (needs out-of-the-box, no long rollout)",
+      "decision_maker_status": "influencer or key gatekeeper, not the ultimate decision-maker (refers to 'legal' and 'leadership')",
+      "urgency_level": "low from the prospect's side, as she is willing to pause the discussion",
+      "competitive_position": "unfavorable, prospect explicitly states 'Yours is the priciest' and is evaluating other vendors"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "skeptical", "decisive"],
+      "communication_style": "direct",
+      "decision_making_style": "fast-mover",
+      "objection_style": "direct",
+      "role_in_deal": "highly influential decision-maker/blocker"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "stall"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, blunt, impatient, dismissive, demanding"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "competition", "timeline", "implementation complexity", "budget"],
+      "objection_frequency_severity": "high frequency and high severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, stalled",
+      "budget_risk_indicators": "very high, explicit hard cap, pushback on price",
+      "timeline_risk_indicators": "high, rejects phased rollout, demands out-of-the-box",
+      "churn_risk_indicators": "high, explicit disengagement, comparing to competitors"
+    },
+    "deal_insights": {
+      "key_objections": "pricing (too high, budget cap), value (not convinced of need), implementation (no long rollout, must be out-of-the-box)",
+      "decision_maker_status": "highly influential decision-maker or very senior influencer with strong veto power",
+      "urgency_level": "low (for this deal), high (for finding a quick, cost-effective solution)",
+      "competitive_position": "weak due to price, prospect is actively evaluating competitors"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "decisive", "skeptical", "price-sensitive", "pragmatic", "blunt", "guarded"],
+      "communication_style": "direct",
+      "decision_making_style": "pragmatic",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "set hard limit", "stall", "disengage"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, blunt, decisive, skeptical, dismissive"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "competition", "timeline", "budget", "implementation complexity"],
+      "objection_frequency_severity": "very frequent and severe"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "high",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation/re-evaluation, then stalling",
+      "budget_risk_indicators": "high",
+      "timeline_risk_indicators": "high",
+      "churn_risk_indicators": "high"
+    },
+    "deal_insights": {
+      "key_objections": "price (too high), perceived lack of value, complex implementation/time to value, strict budget limitations",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "unfavorable"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "decisive", "skeptical", "blunt"],
+      "communication_style": "direct",
+      "decision_making_style": "fast-mover",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raising objection", "negotiating", "setting conditions", "stalling"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct, firm, negative, blunt"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "competition", "timeline", "budget"],
+      "objection_frequency_severity": "high frequency and high severity"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "initially high, then disengaging",
+      "message_complexity": "short replies",
+      "preferred_channel": "email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation, moving to stalled",
+      "budget_risk_indicators": "very high",
+      "timeline_risk_indicators": "high",
+      "churn_risk_indicators": "high"
+    },
+    "deal_insights": {
+      "key_objections": "price (too high, over budget) and immediate implementation/ease of use",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "weak"
+    }
+  }
+--------------------------------
+Personality analysis completed successfullyResponse: 
+  {
+    "prospect_name": "Emily Johnson",
+    "personality_communication_profile": {
+      "personality_traits": ["direct", "assertive", "firm", "pragmatic"],
+      "communication_style": "direct",
+      "decision_making_style": "price-sensitive",
+      "objection_style": "direct",
+      "role_in_deal": "influencer"
+    },
+    "intent_sentiment": {
+      "intent_signals": ["raise objection", "negotiate", "set conditions", "set hard limit", "stall"],
+      "overall_sentiment": "negative",
+      "tone_patterns": "direct"
+    },
+    "objections_concerns": {
+      "objection_types": ["pricing", "value", "need", "competition", "timeline", "implementation complexity", "budget"],
+      "objection_frequency_severity": "high"
+    },
+    "communication_behavior": {
+      "response_time": "fast",
+      "engagement_level": "low",
+      "message_complexity": "short replies",
+      "preferred_channel": "Email"
+    },
+    "deal_dynamics_risk_assessment": {
+      "deal_stage_signals": "negotiation",
+      "budget_risk_indicators": "high",
+      "timeline_risk_indicators": "high",
+      "churn_risk_indicators": "high"
+    },
+    "deal_insights": {
+      "key_objections": "pricing and implementation complexity",
+      "decision_maker_status": "influencer",
+      "urgency_level": "low",
+      "competitive_position": "weak"
+    }
+  }
+--------------------------------

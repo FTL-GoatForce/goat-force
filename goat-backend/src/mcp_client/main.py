@@ -33,9 +33,9 @@ def run_slack_mcp_server(channel_id: str):
     return result.returncode == 0
 
 
-def run_gmail_api_service(email: str):
+def run_gmail_api_service(email: str, user_id: str):
     gmail_script_path = os.path.join(os.path.dirname(__file__), '..', 'mcp_servers', 'gmail_api.py')
-    result = subprocess.run([sys.executable, gmail_script_path, email], 
+    result = subprocess.run([sys.executable, gmail_script_path, email, user_id], 
                           capture_output=True, text=True, cwd=os.getcwd())
     print("Gmail API Service Output:")
     print(result.stdout)
@@ -56,7 +56,7 @@ def run_einstein_request(deal_id: str, email: str, slack_channel_id: str):
     return result.returncode == 0
 
 
-async def main(deal_id: str, slack_channel_id: str, email: str):
+async def main(deal_id: str, slack_channel_id: str, email: str, user_id: str):
     
     start_time = time.time()
     slack_start = start_time
@@ -82,7 +82,7 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     async def run_gmail_with_timing():
         nonlocal gmail_completion_time
         start = time.time()
-        result = await asyncio.to_thread(run_gmail_api_service, email)
+        result = await asyncio.to_thread(run_gmail_api_service, email, user_id)
         gmail_completion_time = time.time() - start
         return result
     
@@ -102,7 +102,8 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
     print(f"Gmail API Service completed in {gmail_time:.2f}s")
     print(f"Parallel execution time: {parallel_end - start_time:.2f}s")
     
-    if slack_success and gmail_success:
+    # Continue with pipeline if at least one service succeeds (make both optional)
+    if gmail_success or slack_success:
         personality_start = parallel_end
         einstein_start = parallel_end
         
@@ -160,7 +161,7 @@ async def main(deal_id: str, slack_channel_id: str, email: str):
         print("Component times saved to performance.json")
         return einstein_success
     else:
-        print("One or more MCP servers failed, skipping Einstein analysis")            
+        print("Both Gmail and Slack MCP servers failed, skipping Einstein analysis")            
         return False
 
 
@@ -169,4 +170,5 @@ if __name__ == "__main__":
     deal_id = sys.argv[1]
     slack_channel_id = sys.argv[2]
     email = sys.argv[3]
-    asyncio.run(main(deal_id, slack_channel_id, email))
+    user_id = sys.argv[4] if len(sys.argv) > 4 else "test-user-123"
+    asyncio.run(main(deal_id, slack_channel_id, email, user_id))

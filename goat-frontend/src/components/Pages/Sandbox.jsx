@@ -12,18 +12,32 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SandboxChat from "../SandboxComponents/SandboxChat";
+import { getCurrentSession } from "../../utils/supabase";
 
 function Sandbox() {
   const [deals, setDeals] = useState([]);
   const [selectedDeal, setSelectedDeal] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const API_URL = import.meta.env.VITE_API_URL;
   // Fetch all deals and update state
   useEffect(() => {
     async function getAllDeals() {
       try {
-        const response = await axios.get("http://localhost:3000/deal/all");
+        // Get current user session
+        const session = await getCurrentSession();
+        if (!session) {
+          console.error('No session found. User needs to log in.');
+          window.location.href = '/auth';
+          return;
+        }
+        
+
+        const response = await axios.get(`${API_URL}/deal/all`, {
+          params: {
+            user_id: session.user.id
+          }
+        });
         setDeals(response.data.deals);
 
         // set the first deal as selected when deals are loaded

@@ -1,0 +1,86 @@
+{
+  "deal_id": "CRM-FedEx-20250707",
+  "client_company": "FedEx",
+  "primary_rep": {
+    "id": "U094K124HS7",
+    "name": "David Gonzalez"
+  },
+  "last_activity_timestamp": "2025-07-07T15:22:08-07:00",
+  "deal_stage": "qualification",
+  "deal_value_usd": null,
+  "expected_close_date": null,
+  "RISK_ASSESSMENT": {
+    "Deal_Risk_Score": 30,
+    "Churn_Risk": 20,
+    "Timeline_Risk": 40,
+    "Budget_Risk": 20,
+    "deal_risk_explanation": "The deal shows positive engagement with timely responses and an interest in exploring options, but there are some concerns about integration and handling multiple business units.",
+    "churn_risk_explanation": "The prospect is currently evaluating options but has expressed interest in the solution, indicating a lower likelihood of switching to a competitor.",
+    "timeline_risk_explanation": "The prospect is in the early stages of evaluation, which may extend the timeline, but no immediate deadlines have been mentioned.",
+    "budget_risk_explanation": "No budget concerns have been raised, but the prospect's evaluation stage suggests that budget discussions are still forthcoming."
+  },
+  "DEAL_INSIGHTS": {
+    "Key_Objections": ["timing", "technical_fit: multiple business units", "technical_fit: integration"],
+    "Decision_Maker_Status": "unknown",
+    "Urgency_Level": "medium",
+    "Competitive_Position": "neutral"
+  },
+  "ACTIVITY_ANALYSIS": {
+    "message_count": 6,
+    "prospect_response_time_sec": 26,
+    "engagement_trend": "stable",
+    "last_touch_channel": "email",
+    "last_touch_summary": "The last email included a document addressing how the CRM handles multiple business units."
+  },
+  "TIMELINE": {
+    "event": [
+      {
+        "event_date": "2025-07-07",
+        "event_description": "David expressed interest in exploring CRM solutions and acknowledged the early stage of their evaluation.",
+        "event_type": "Initial Discussion"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "A meeting was scheduled for Tuesday at 11 am to discuss CRM solutions.",
+        "event_type": "Meeting Scheduled"
+      },
+      {
+        "event_date": "2025-07-07",
+        "event_description": "Bruce provided a document outlining how the CRM handles multiple business units.",
+        "event_type": "Information Provided"
+      }
+    ]
+  },
+  "AI_GENERATED_SUMMARY": "The deal with FedEx is currently in the qualification stage, focusing on CRM solutions to address their operational needs. The prospect, David Gonzalez, has shown interest but is still in the early evaluation phase. Key concerns include handling multiple business units and integration challenges. A meeting is scheduled to further discuss these points.",
+  "RECOMMENDATIONS": {
+    "Next_Steps": ["Prepare for the upcoming meeting", "Gather additional information on integration capabilities", "Continue providing relevant materials"],
+    "Escalation_Triggers": "If the prospect does not respond to the upcoming meeting or shows signs of disengagement.",
+    "Deal_Acceleration_Tactics": "Provide case studies or testimonials from similar clients to build confidence."
+  },
+  "AI_GENERATED_FOLLOW_UP": {
+    "Email_Draft": [
+      {
+        "subject": "Follow-up on Our Upcoming Meeting",
+        "body": "Hi David,\n\nI hope you are well! I'm looking forward to our meeting on Tuesday at 11 am. In the meantime, if you have any specific topics you would like to cover, please let me know. Also, I can provide additional materials on integration capabilities if that would be helpful.\n\nBest,\nBruce"
+      }
+    ],
+    "Slack_Message": "Hi David! Just a reminder about our meeting on Tuesday at 11 am. Let me know if there's anything specific you'd like to discuss or if you need more information."
+  },
+  "PARTICIPANTS": [
+    {
+      "id": "bruce.wayne.goatforce@gmail.com",
+      "name": "Bruce Wayne",
+      "role": "rep",
+      "sentiment": "positive",
+      "communication_score": 85
+    },
+    {
+      "id": "david.gonzalez.fedex2025@gmail.com",
+      "name": "David Gonzalez",
+      "role": "decision_maker",
+      "sentiment": "neutral",
+      "communication_score": 70
+    }
+  ],
+  "TAGS": ["discovery", "technical_objection", "integration_challenge", "meeting_scheduled", "early_stage_opportunity", "fast_response_time"]
+}

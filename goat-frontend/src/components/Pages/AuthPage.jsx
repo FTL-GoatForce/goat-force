@@ -43,10 +43,26 @@ const AuthPage = () => {
     });
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
       if (session) {
-        navigate("/dashboard");
+        // Check if this is a new sign up
+        if (event === 'SIGNED_UP') {
+          // Mark this user as new in localStorage
+          localStorage.setItem('newUser', session.user.id);
+          navigate("/onboarding");
+        } else if (event === 'SIGNED_IN') {
+          // Check if this is a new user who just confirmed their email
+          const isNewUser = localStorage.getItem('newUser') === session.user.id;
+          if (isNewUser) {
+            // Clear the flag and redirect to onboarding
+            localStorage.removeItem('newUser');
+            navigate("/onboarding");
+          } else {
+            // Existing user, go to dashboard
+            navigate("/dashboard");
+          }
+        }
       }
     });
     return () => subscription.unsubscribe();
@@ -86,6 +102,7 @@ const AuthPage = () => {
               supabaseClient={supabase}
               theme="dark"
               providers={[]}
+              redirectTo={`${window.location.origin}/onboarding`}
               appearance={{
                 theme: customTheme,
                 variables: {

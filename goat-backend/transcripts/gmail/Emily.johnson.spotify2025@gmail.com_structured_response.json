@@ -20,6 +20,13 @@
   "messages": [
     {
       "from": "Bruce Wayne",
+      "to": [
+        "Emily Johnson"
+      ],
+      "subject": "Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:41:53-07:00",
+      "text": "Hi Emily, I wanted to follow up on the proposal we sent last week regarding Marketing Cloud Lite. Let me know if you had a chance to review it \u2014 happy to hop on a call to walk through the details. Best",
+      "sentiment": "neutral",
       "tone": "professional",
       "objections": [],
       "intent": "follow-up",
@@ -27,6 +34,13 @@
     },
     {
       "from": "Emily Johnson",
+      "to": [
+        "Bruce Wayne"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:44:06-07:00",
+      "text": "Hi Bruce, I saw it. The price seems high for what you're offering. Not convinced it's what we need right now. \u2013 Emily",
+      "sentiment": "negative",
       "tone": "direct",
       "objections": [
         "pricing",
@@ -38,6 +52,13 @@
     },
     {
       "from": "Bruce Wayne",
+      "to": [
+        "Emily Johnson"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:44:52-07:00",
+      "text": "Thanks for the quick reply. Totally understand \u2014 would it help if I sent over a breakdown of how each feature maps to your current challenges? Let me know what's most important to your team and we",
+      "sentiment": "neutral",
       "tone": "understanding",
       "objections": [],
       "intent": "clarify needs",
@@ -45,6 +66,13 @@
     },
     {
       "from": "Emily Johnson",
+      "to": [
+        "Bruce Wayne"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:45:29-07:00",
+      "text": "Honestly, we're looking at other vendors too. Yours is the priciest. If there's no room to come down, we probably won't proceed. \u2013 Emily On Mon, Jul 7, 2025 at 3:45 PM Bruce Wayne <bruce",
+      "sentiment": "negative",
       "tone": "firm",
       "objections": [
         "pricing",
@@ -55,6 +83,13 @@
     },
     {
       "from": "Bruce Wayne",
+      "to": [
+        "Emily Johnson"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:46:02-07:00",
+      "text": "Appreciate the honesty. There may be flexibility if we can structure a phased rollout. Would you be open to that? Also happy to compare features head-to-head if you'd like. Best, Bruce On Mon, Jul",
+      "sentiment": "neutral",
       "tone": "collaborative",
       "objections": [],
       "intent": "offer solutions",
@@ -62,7 +97,14 @@
     },
     {
       "from": "Emily Johnson",
-      "tone": "demanding",
+      "to": [
+        "Bruce Wayne"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:46:26-07:00",
+      "text": "We don't have time for a long rollout. Either it works out-of-the-box or we're not interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:46 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com> wrote:",
+      "sentiment": "negative",
+      "tone": "decisive",
       "objections": [
         "timeline",
         "implementation complexity"
@@ -72,6 +114,13 @@
     },
     {
       "from": "Bruce Wayne",
+      "to": [
+        "Emily Johnson"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:47:01-07:00",
+      "text": "Got it. I'll revise the proposal with a focus on rapid deployment and get back to you by end of day. Let me know if there's anything else I should consider. \u2013 Bruce",
+      "sentiment": "neutral",
       "tone": "committed",
       "objections": [],
       "intent": "commit to action",
@@ -79,7 +128,14 @@
     },
     {
       "from": "Emily Johnson",
-      "tone": "skeptical",
+      "to": [
+        "Bruce Wayne"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:47:35-07:00",
+      "text": "Send whatever you want, but just FYI \u2014 legal won't even look at it unless it's under $90K. \u2013 Emily On Mon, Jul 7, 2025 at 3:47 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com> wrote: Got",
+      "sentiment": "negative",
+      "tone": "blunt",
       "objections": [
         "budget",
         "pricing"
@@ -89,6 +145,13 @@
     },
     {
       "from": "Bruce Wayne",
+      "to": [
+        "Emily Johnson"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:47:58-07:00",
+      "text": "Understood. I'll aim to get it as close as possible to that number and outline tradeoffs clearly. Appreciate your patience, Emily. Best, Bruce On Mon, Jul 7, 2025 at 3:47 PM Emily Johnson <emily",
+      "sentiment": "neutral",
       "tone": "understanding",
       "objections": [],
       "intent": "commit to action",
@@ -96,27 +159,35 @@
     },
     {
       "from": "Emily Johnson",
-      "tone": "disengaging",
+      "to": [
+        "Bruce Wayne"
+      ],
+      "subject": "Re: Proposal Review - Marketing Cloud Lite",
+      "timestamp": "2025-07-07T15:48:29-07:00",
+      "text": "Let's just pause for now. I'll circle back if leadership is still interested. \u2013 Emily On Mon, Jul 7, 2025 at 3:48 PM Bruce Wayne <bruce.wayne.goatforce@gmail.com> wrote: Understood. I",
+      "sentiment": "negative",
+      "tone": "dismissive",
       "objections": [],
       "intent": "stall",
       "action_required": false
     }
   ],
-  "summary": "The sales representative, Bruce Wayne, initiated a follow-up on a Marketing Cloud Lite proposal. The prospect, Emily Johnson, consistently expressed strong objections regarding high pricing, value, comparisons to competitors, strict budget limitations (under $90K), and a demand for immediate, out-of-the-box functionality, rejecting options for phased rollouts. Despite Bruce's responsive attempts to address these concerns by offering detailed breakdowns, pricing flexibility, and committing to a rapid deployment proposal revision, Emily ultimately decided to pause the discussion, stating she would only re-engage if her leadership remained interested. The deal is currently stalled due to unaddressed pricing/budget and timeline objections.",
+  "summary": "The sales thread between Bruce Wayne (rep) and Emily Johnson (prospect) centers on the Marketing Cloud Lite proposal. Emily consistently raises strong objections regarding pricing, value, and budget, setting a firm limit of under $90K and rejecting complex rollouts in favor of an out-of-the-box solution. Bruce attempts to address these concerns by offering to revise the proposal for rapid deployment and cost adjustment. However, the conversation ultimately stalls, with Emily deciding to pause discussions and only circle back if her leadership shows renewed interest.",
   "last_activity": "2025-07-07T15:48:29-07:00",
   "engagement_metrics": {
-    "message_count": 10,
-    "rep_response_time_sec": 34.25,
-    "objections_raised": 8,
-    "followups_committed": 4
+    "email_count": 10,
+    "avg_rep_response_time_hr": 0.0095,
+    "objections_raised": 9,
+    "followups_committed": 2
   },
   "tags": [
     "pricing_objection",
     "budget_constraint",
     "timeline_objection",
-    "competitor_comparison",
+    "competition_mention",
     "proposal_revision",
     "deal_stalled",
-    "disengagement"
+    "disengagement",
+    "value_proposition_challenge"
   ]
 }

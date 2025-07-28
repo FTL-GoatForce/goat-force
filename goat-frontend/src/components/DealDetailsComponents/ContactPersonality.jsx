@@ -17,7 +17,7 @@ function ContactPersonality({
         borderRadius: 2,
         border: "1px solid",
         borderColor: "divider",
-        maxHeight: '425px',
+        maxHeight: '450px',
       }}
     >
       {/* card header */}

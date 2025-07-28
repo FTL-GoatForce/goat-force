@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import {
     Box,
@@ -9,18 +10,39 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import DoneIcon from '@mui/icons-material/Done';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../utils/supabase';
 
 
-const Review = () => {
+const Review = ({ userInfo }) => {
     const navigate = useNavigate();
     
-    const handleFinishSetup = () => {
-        // Here you could add any final setup logic
-        // For example, saving to database, etc.
-        console.log('Setup completed!');
-        
-        // Navigate to dashboard
-        navigate('/dashboard');
+
+    
+    const handleFinishSetup = async () => {
+        try {
+            // Update the user's metadata in Supabase auth
+            const { data, error } = await supabase.auth.updateUser({
+                data: {
+                    first_name: userInfo.firstName,
+                    last_name: userInfo.lastName,
+                    full_name: `${userInfo.firstName} ${userInfo.lastName}`
+                }
+            });
+
+            if (error) {
+                console.error('Error updating user data:', error);
+                return;
+            }
+            
+            // Clear localStorage after successful setup
+            localStorage.removeItem('onboarding_firstName');
+            localStorage.removeItem('onboarding_lastName');
+            
+            // Navigate to dashboard
+            navigate('/dashboard');
+        } catch (error) {
+            console.error('Error during setup completion:', error);
+        }
     };
         
     return (
@@ -80,10 +102,14 @@ const Review = () => {
                         }}
                     >
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "center", width: "50%", marginRight: 2 }}>
-                            <Typography variant="h6" color="white" sx={{ fontSize: 16, marginBottom: 2 }}>Name: Bruce Wayne</Typography>
+                            <Typography variant="h6" color="white" sx={{ fontSize: 16, marginBottom: 2 }}>
+                                Name: {userInfo?.firstName && userInfo?.lastName ? `${userInfo.firstName} ${userInfo.lastName}` : 'Not provided'}
+                            </Typography>
                         </Box>
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "left", justifyContent: "center", width: "50%", marginLeft: 2 }}>
-                            <Typography variant="h6" color="white" sx={{ fontSize: 16, marginBottom: 2 }}>Email: bruce@wayne.com</Typography>
+                            <Typography variant="h6" color="white" sx={{ fontSize: 16, marginBottom: 2 }}>
+                                Email: {userInfo?.email || 'Not provided'}
+                            </Typography>
                         </Box>
                     </Box>
                     

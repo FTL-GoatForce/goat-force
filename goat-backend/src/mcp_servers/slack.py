@@ -149,8 +149,10 @@ async def slack_mcp_server(channel_id: str):
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
+            print(f"Slack Session initialized successfully")
             try:
                 prompt = get_analysis_slack_prompt(channel_id)
+                print("[SLACK DEBUG] About to call Gemini API for analysis...")
                 response = await client.aio.models.generate_content(
                     model="gemini-2.5-flash",
                     contents=prompt,
@@ -159,83 +161,127 @@ async def slack_mcp_server(channel_id: str):
                         tools=[session],
                     ),
                 )
-        
+                print(f"[SLACK DEBUG] Gemini API response received")
+                print(f"Slack Response: {response.text}")
                 response_text = response.text
+            except asyncio.TimeoutError:
+                print("[SLACK DEBUG] Gemini API timeout - using fallback response")
+                response_text = "Timeout occurred while analyzing Slack data"
             except Exception as e:
-                print(f"Error: {e}")
+                print(f"[SLACK DEBUG] Error calling Gemini API: {e}")
+                response_text = f"Error occurred: {e}"
 
             structured_prompt = get_structured_slack_prompt(response_text, channel_id)
-            structured_response = await client.aio.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=structured_prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    response_schema={
-                        "type": "object",
-                        "properties": {
-                            "thread_id": {"type": "string"},
-                            "channel": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {"type": "string"},
-                                    "name": {"type": "string"},
-                                    "type": {"type": "string"}
-                                }
-                            },
-                            "participants": {
-                                "type": "array",
-                                "items": {
+            print(f"[SLACK DEBUG] About to call Gemini API for structured response...")
+            try:
+                structured_response = await client.aio.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=structured_prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        response_schema={
+                            "type": "object",
+                            "properties": {
+                                "thread_id": {"type": "string"},
+                                "channel": {
                                     "type": "object",
                                     "properties": {
                                         "id": {"type": "string"},
                                         "name": {"type": "string"},
-                                        "role": {"type": "string"}
+                                        "type": {"type": "string"}
                                     }
-                                }
-                            },
-                            "messages": {
-                                "type": "array",
-                                "items": {
+                                },
+                                "participants": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {"type": "string"},
+                                            "name": {"type": "string"},
+                                            "role": {"type": "string"}
+                                        }
+                                    }
+                                },
+                                "messages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "from": {"type": "string"},
+                                            "text": {"type": "string"},
+                                            "timestamp": {"type": "string"},
+                                            "sentiment": {"type": "string"},
+                                            "tone": {"type": "string"},
+                                            "objections": {
+                                                "type": "array",
+                                                "items": {"type": "string"}
+                                            },
+                                            "intent": {"type": "string"},
+                                            "action_required": {"type": "boolean"}
+                                        }
+                                    }
+                                },
+                                "summary": {"type": "string"},
+                                "last_activity": {"type": "string"},
+                                "engagement_metrics": {
                                     "type": "object",
                                     "properties": {
-                                        "from": {"type": "string"},
-                                        "text": {"type": "string"},
-                                        "timestamp": {"type": "string"},
-                                        "sentiment": {"type": "string"},
-                                        "tone": {"type": "string"},
-                                        "objections": {
-                                            "type": "array",
-                                            "items": {"type": "string"}
-                                        },
-                                        "intent": {"type": "string"},
-                                        "action_required": {"type": "boolean"}
+                                        "message_count": {"type": "integer"},
+                                        "rep_response_time_sec": {"type": "number"},
+                                        "objections_raised": {"type": "integer"},
+                                        "followups_committed": {"type": "integer"}
                                     }
+                                },
+                                "tags": {
+                                    "type": "array",
+                                    "items": {"type": "string"}
                                 }
                             },
-                            "summary": {"type": "string"},
-                            "last_activity": {"type": "string"},
-                            "engagement_metrics": {
-                                "type": "object",
-                                "properties": {
-                                    "message_count": {"type": "integer"},
-                                    "rep_response_time_sec": {"type": "number"},
-                                    "objections_raised": {"type": "integer"},
-                                    "followups_committed": {"type": "integer"}
-                                }
-                            },
-                            "tags": {
-                                "type": "array",
-                                "items": {"type": "string"}
-                            }
-                        },
-                        "required": ["thread_id", "channel", "participants", "messages", "summary", "engagement_metrics", "tags"]
-                    }
-                ),
-            )
+                            "required": ["thread_id", "channel", "participants", "messages", "summary", "engagement_metrics", "tags"]
+                        }
+                    ),
+                )
+                print(f"[SLACK DEBUG] Structured response received")
+            except asyncio.TimeoutError:
+                print("[SLACK DEBUG] Structured response timeout - using fallback")
+                # Create a fallback structured response
+                class TimeoutResponse:
+                    def __init__(self):
+                        self.text = "{}"
+                        self.parsed = {
+                            "thread_id": channel_id,
+                            "channel": {"id": channel_id, "name": "Unknown", "type": "unknown"},
+                            "participants": [],
+                            "messages": [],
+                            "summary": "Analysis timed out",
+                            "last_activity": "",
+                            "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0},
+                            "tags": ["timeout"]
+                        }
+                structured_response = TimeoutResponse()
+            except Exception as e:
+                print(f"[SLACK DEBUG] Error in structured response: {e}")
+                # Create a fallback structured response
+                class ErrorResponse:
+                    def __init__(self):
+                        self.text = "{}"
+                        self.parsed = {
+                            "thread_id": channel_id,
+                            "channel": {"id": channel_id, "name": "Unknown", "type": "unknown"},
+                            "participants": [],
+                            "messages": [],
+                            "summary": f"Error occurred: {e}",
+                            "last_activity": "",
+                            "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0},
+                            "tags": ["error"]
+                        }
+                structured_response = ErrorResponse()
+            print(f"Slack Structured Response: {structured_response.text}")
+            print("Attempting to write to file")
             os.makedirs("transcripts/slack", exist_ok=True)
             with open(f"transcripts/slack/{channel_id}_structured_response.json", "w") as f:
                 json.dump(structured_response.parsed, f, indent=2, default=str)
-
+            print("File written successfully")
             with open(f"transcripts/logs/slack_logs/slack_mcp_server.log", "a") as f:
                 f.write(f"Channel ID: {channel_id}\n")
                 f.write(f"Structured Response: {structured_response.text}\n")
