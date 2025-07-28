@@ -236,8 +236,7 @@ const Transcripts = () => {
               display={"flex"}
               flexDirection="column"
               maxWidth={"425px"}
-              minHeight={"80%"}
-              maxHeight={"95%"}
+              sx={{ height: "95%" }}
               overflow={"auto"}
               gap={2}
             >

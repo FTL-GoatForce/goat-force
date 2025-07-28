@@ -240,15 +240,14 @@ function Sandbox() {
           >
             {/* Left Card, holds two cards flex column*/}
             <Box
-              width={"33%"}
+              width={"30%"}
               padding={2}
               display={"flex"}
               flexDirection="column"
-              maxWidth={"425px"}
+              // maxWidth={"425px"}
               minHeight={"80%"}
               maxHeight={"95%"}
-              overflow={"auto"}
-              sx={{ "::-webkit-scrollbar": { width: 0 } }}
+              sx={{ "::-webkit-scrollbar": { width: 0 }, overflowY: "auto" }}
               gap={2}
             >
               {/* Card #1: Contact Selector */}
@@ -261,7 +260,21 @@ function Sandbox() {
               <ContactProfile selectedDeal={selectedDeal} deals={deals} />
             </Box>
             {/* Middle card */}
-            <SandboxChat selectedDeal={selectedDeal} deals={deals} />
+            <Box
+              minWidth={"69%"}
+              display={"flex"}
+              flexDirection="row"
+              minHeight={"80%"}
+              maxHeight={"95%"}
+              sx={{
+                "::-webkit-scrollbar": { width: 0 },
+                overflowX: "hidden",
+                overflowY: "auto",
+              }}
+              gap={2}
+            >
+              <SandboxChat selectedDeal={selectedDeal} deals={deals} />
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -2,6 +2,7 @@ import { AttachMoney, SpaceDashboardOutlined } from "@mui/icons-material";
 import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import { ForumOutlined } from "@mui/icons-material";
 import { Menu } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -35,8 +36,6 @@ const SideBar = () => {
         return "Sandbox";
       case "/transcripts":
         return "Transcripts";
-      case "/contacts":
-        return "Contacts";
       case "/settings":
         return "Settings";
       default:
@@ -89,6 +88,10 @@ const SideBar = () => {
           borderRadius: "5px",
           transition: "width 0.3s ease",
           overflow: "hidden",
+          flexShrink: 0,
+          flexGrow: 0,
+          minHeight: "100vh", // full height of the viewport
+          maxHeight: "100%", // full height of the viewport
         }}
       >
         {/* Top Logo of SideBar */}
@@ -287,67 +290,13 @@ const SideBar = () => {
                   mr: open ? 2 : 0,
                 }}
               >
-                <AttachMoney fontSize="small" />
+                <ForumOutlined fontSize="small" />
               </ListItemIcon>
               {open && (
                 <ListItemText primary="Transcripts" sx={{ color: "#A6ACB9" }} />
               )}
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ mb: 0.7 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: "7px",
-                justifyContent: open ? "flex-start" : "center",
-                px: open ? 2 : 0,
-                "&:hover": {
-                  backgroundColor: "primary.dark", // change background color on hover of the button
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color on hover
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color on hover
-                  },
-                },
-                ...(activeItem === "Contacts" && {
-                  backgroundColor: "primary.dark", // change background color if active
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color if active
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color if active
-                  },
-                }),
-              }}
-              onClick={() => {
-                setActiveItem("Contacts");
-              }}
-            >
-              {" "}
-              <ListItemIcon
-                sx={{
-                  color: "#A6ACB9",
-                  minWidth: open ? "33px" : "auto",
-                  mr: open ? 2 : 0,
-                }}
-              >
-                <PeopleAltOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              {open && (
-                <ListItemText primary="Contacts" sx={{ color: "#A6ACB9" }} />
-              )}
-            </ListItemButton>
-          </ListItem>
-        </List>
-
-        {/* Footer List */}
-        <List
-          sx={{
-            padding: 1,
-            paddingLeft: open ? 3 : 1,
-            paddingRight: open ? 3 : 1,
-          }}
-        >
           <ListItem disablePadding sx={{ mb: 0.7 }}>
             <ListItemButton
               sx={{
@@ -377,6 +326,7 @@ const SideBar = () => {
                 setActiveItem("Settings");
               }}
             >
+              {" "}
               <ListItemIcon
                 sx={{
                   color: "#A6ACB9",
@@ -392,6 +342,8 @@ const SideBar = () => {
             </ListItemButton>
           </ListItem>
         </List>
+
+        {/* Footer List */}
       </Box>
     </>
   );
