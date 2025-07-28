@@ -324,6 +324,7 @@ const SideBar = () => {
               }}
               onClick={() => {
                 setActiveItem("Settings");
+                navigate("/settings");
               }}
             >
               {" "}

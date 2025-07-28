@@ -10,6 +10,7 @@ import AuthPage from "./components/Pages/AuthPage";
 import Sandbox from "./components/Pages/Sandbox";
 import Onboarding from "./components/Pages/Onboarding";
 import Transcripts from "./components/Pages/Transcripts";
+import Settings from "./components/Pages/Settings";
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -123,6 +124,7 @@ function App() {
             <Route path="/sandbox" element={<Sandbox />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/transcripts" element={<Transcripts />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
