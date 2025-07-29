@@ -1,66 +1,110 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button, Card, CardContent } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Modal,
+} from "@mui/material";
 import SideBar from "../ReusableComponents/Sidebar";
 import { useNavigate } from "react-router-dom";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 
 function Settings() {
-  // Profile form state
-  const [profileData, setProfileData] = useState({
-    firstName: "",
-    lastName: "",
-    email: ""
-  });
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false); // for confirm modal state
+  const [confirmSignOutOpen, setConfirmSignOutOpen] = useState(false); // for sign out modal state
 
-  // Security form state
-  const [securityData, setSecurityData] = useState({
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: ""
-  });
-
-  // Handle profile form changes
-  const handleProfileChange = (field, value) => {
-    setProfileData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  // Handle security form changes
-  const handleSecurityChange = (field, value) => {
-    setSecurityData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  // Handle profile form submission
-  const handleProfileSave = () => {
-    console.log("Saving profile data:", profileData);
-    // Add your API call here
-  };
-
-  // Handle security form submission
+  // TODO: password update function
   const handlePasswordUpdate = () => {
     if (securityData.newPassword !== securityData.confirmPassword) {
       alert("New passwords don't match!");
       return;
     }
     console.log("Updating password:", securityData);
-    // TODO: add API call here
     // clear form after successful update
     setSecurityData({
       currentPassword: "",
       newPassword: "",
-      confirmPassword: ""
+      confirmPassword: "",
     });
   };
+
+  // TODO: profile save function
+  const handleProfileSave = () => {
+    console.log("Saving profile data:", profileData);
+    // add supabase call here
+    // clear form after successful save
+
+  };
+
+  // TODO: sign out function
+  const handleSignOut = () => {
+    // add sign out logic here
+  }
+
+  // TODO: delete account function
+  const handleDeleteAccount = () => {
+    // add delete account logic here
+  }
+
+  // Profile form state
+  const [profileData, setProfileData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  // Security form state
+  const [securityData, setSecurityData] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+
+  // Handle profile form changes
+  const handleProfileChange = (field, value) => {
+    setProfileData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  // Handle security form changes
+  const handleSecurityChange = (field, value) => {
+    setSecurityData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+
+  // Confirm action modal (for sign out and delete account)
+  const toggleConfirmModalOpen = () => {
+    setConfirmModalOpen(true);
+  };
+
+  const confirmModalClose = () => {
+    setConfirmModalOpen(false);
+  };
+
+  // confirm sign out modal
+  const openSignOutModal = () => {
+    setConfirmSignOutOpen(true);
+  };
+
+  const confirmSignOutClose = () => {
+    setConfirmSignOutOpen(false);
+  };
+
+
+
   return (
     <Box
       sx={{
         minHeight: "100vh",
-        display: "flex", 
+        display: "flex",
         flexDirection: "row",
         backgroundColor: "background.default",
         width: "100%", // ensure it takes full width
@@ -148,7 +192,9 @@ function Settings() {
                 variant="outlined"
                 fullWidth
                 value={profileData.firstName}
-                onChange={(e) => handleProfileChange('firstName', e.target.value)}
+                onChange={(e) =>
+                  handleProfileChange("firstName", e.target.value)
+                }
               />
             </Box>
             <Box flexGrow={1} display={"flex"} flexDirection={"column"}>
@@ -167,7 +213,9 @@ function Settings() {
                 variant="outlined"
                 fullWidth
                 value={profileData.lastName}
-                onChange={(e) => handleProfileChange('lastName', e.target.value)}
+                onChange={(e) =>
+                  handleProfileChange("lastName", e.target.value)
+                }
               />
             </Box>
           </Box>
@@ -187,7 +235,7 @@ function Settings() {
               variant="outlined"
               fullWidth
               value={profileData.email}
-              onChange={(e) => handleProfileChange('email', e.target.value)}
+              onChange={(e) => handleProfileChange("email", e.target.value)}
             />
           </Box>
 
@@ -251,7 +299,9 @@ function Settings() {
                 fullWidth
                 type="password"
                 value={securityData.currentPassword}
-                onChange={(e) => handleSecurityChange('currentPassword', e.target.value)}
+                onChange={(e) =>
+                  handleSecurityChange("currentPassword", e.target.value)
+                }
               />
 
               <Box
@@ -276,7 +326,9 @@ function Settings() {
                   fullWidth
                   type="password"
                   value={securityData.newPassword}
-                  onChange={(e) => handleSecurityChange('newPassword', e.target.value)}
+                  onChange={(e) =>
+                    handleSecurityChange("newPassword", e.target.value)
+                  }
                 />
                 <Box
                   marginTop={1}
@@ -293,7 +345,7 @@ function Settings() {
                   >
                     Confirm New Password
                   </Typography>
-                  
+
                   <TextField
                     size="small"
                     placeholder="Enter Confirm New Password"
@@ -301,7 +353,9 @@ function Settings() {
                     fullWidth
                     type="password"
                     value={securityData.confirmPassword}
-                    onChange={(e) => handleSecurityChange('confirmPassword', e.target.value)}
+                    onChange={(e) =>
+                      handleSecurityChange("confirmPassword", e.target.value)
+                    }
                   />
                 </Box>
               </Box>
@@ -375,10 +429,10 @@ function Settings() {
               >
                 {/* Slack Logo SVG */}
                 <img
-                src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png"
-                alt="Slack Logo"
-                width="24"
-                height="24"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png"
+                  alt="Slack Logo"
+                  width="24"
+                  height="24"
                 />
               </Box>
               <Box flexGrow={1}>
@@ -398,14 +452,14 @@ function Settings() {
                 size="small"
                 variant="outlined"
                 color="primary"
-                sx={{ 
+                sx={{
                   minWidth: "80px",
                   borderColor: "primary.main",
                   color: "primary.main",
                   "&:hover": {
                     backgroundColor: "primary.main",
-                    color: "white"
-                  }
+                    color: "white",
+                  },
                 }}
               >
                 Connect
@@ -437,11 +491,10 @@ function Settings() {
               >
                 {/* Gmail Logo SVG */}
                 <img
-                src="https://www.svgrepo.com/show/303161/gmail-icon-logo.svg"
-                alt="Gmail Logo"
-                width="24"
-                height="24"
-                
+                  src="https://www.svgrepo.com/show/303161/gmail-icon-logo.svg"
+                  alt="Gmail Logo"
+                  width="24"
+                  height="24"
                 />
               </Box>
               <Box flexGrow={1}>
@@ -461,14 +514,14 @@ function Settings() {
                 size="small"
                 variant="outlined"
                 color="primary"
-                sx={{ 
+                sx={{
                   minWidth: "80px",
                   borderColor: "primary.main",
                   color: "primary.main",
                   "&:hover": {
                     backgroundColor: "primary.main",
-                    color: "white"
-                  }
+                    color: "white",
+                  },
                 }}
               >
                 Connect
@@ -489,7 +542,6 @@ function Settings() {
           marginLeft={"auto"}
           marginRight={"auto"}
           backgroundColor="background.paper"
-
         >
           {/* account actions card header */}
           <Typography
@@ -507,6 +559,51 @@ function Settings() {
 
           {/* account actions card content  */}
           <Box display={"flex"} flexDirection={"column"} gap={2} marginTop={3}>
+              {/* Modal for signing out account */}
+              <Modal open={confirmSignOutOpen} onClose={confirmSignOutClose}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: 500,
+                    bgcolor: "background.paper",
+                    boxShadow: 24,
+                    borderRadius: 3,
+                    padding: 4,
+                  }}
+                >
+                  <Typography
+                    color="text.primary"
+                    id="confirm-delete-description"
+                    fontWeight={"bold"}
+                    align="center"
+                    fontSize={"18px"}
+                    marginBottom={3}
+                  >
+                    Are you sure you want to sign out?
+                  </Typography>
+                  {/* buttons holder || cancel / confirm */}
+                  <Box display="flex" gap={2} justifyContent="center">
+                    <Button
+                      variant="outlined"
+                      onClick={confirmSignOutClose}
+                      sx={{ minWidth: "100px" }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      sx={{ minWidth: "100px" }}
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </Button>
+                  </Box>
+                </Box>
+              </Modal>
             {/* Sign Out Action */}
             <Box
               display={"flex"}
@@ -536,14 +633,15 @@ function Settings() {
                 size="small"
                 variant="outlined"
                 color="primary"
-                sx={{ 
+                onClick={openSignOutModal}
+                sx={{
                   minWidth: "90px",
                   borderColor: "primary.main",
                   color: "primary.main",
                   "&:hover": {
                     backgroundColor: "primary.main",
-                    color: "white"
-                  }
+                    color: "white",
+                  },
                 }}
               >
                 Sign Out
@@ -564,8 +662,8 @@ function Settings() {
               sx={{
                 borderColor: "error.light",
                 "&:hover": {
-                  backgroundColor: "rgba(211, 47, 47, 0.04)"
-                }
+                  backgroundColor: "rgba(211, 47, 47, 0.04)",
+                },
               }}
             >
               <Box>
@@ -581,18 +679,67 @@ function Settings() {
                   Permanently delete your account and all data
                 </Typography>
               </Box>
+
+              {/* Modal for confirming account deletion */}
+              <Modal open={confirmModalOpen} onClose={confirmModalClose}>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: 500,
+                    bgcolor: "background.paper",
+                    boxShadow: 24,
+                    borderRadius: 3,
+                    padding: 4,
+                  }}
+                >
+                  <Typography
+                    color="text.primary"
+                    id="confirm-delete-description"
+                    fontWeight={"bold"}
+                    align="center"
+                    fontSize={"18px"}
+                    marginBottom={3}
+                  >
+                    Are you sure you want to delete your account? This action
+                    cannot be undone.
+                  </Typography>
+                  {/* buttons holder || cancel / confirm */}
+                  <Box display="flex" gap={2} justifyContent="center">
+                    <Button
+                      variant="outlined"
+                      onClick={confirmModalClose}
+                      sx={{ minWidth: "100px" }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      sx={{ minWidth: "100px" }}
+                      onClick={handleDeleteAccount}
+                    >
+                      Delete
+                    </Button>
+                  </Box>
+                </Box>
+              </Modal>
+
               <Button
                 size="small"
                 variant="outlined"
                 color="error"
-                sx={{ 
+                onClick={toggleConfirmModalOpen}
+                sx={{
                   minWidth: "90px",
                   borderColor: "error.main",
                   color: "error.main",
                   "&:hover": {
                     backgroundColor: "error.main",
-                    color: "white"
-                  }
+                    color: "white",
+                  },
                 }}
               >
                 Delete
