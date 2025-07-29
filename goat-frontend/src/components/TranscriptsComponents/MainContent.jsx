@@ -33,19 +33,20 @@ const MainContent = ({ deals, selectedDeal }) => {
 
   const [channel, setChannel] = useState("Gmail");
   const [slackHistory, setSlackHistory] = useState(
-    selectedDeal.conversationHistory[0].slack.messages
+    selectedDeal.conversationHistory?.[0]?.slack?.messages || null
   );
   const [gmailHistory, setGmailHistory] = useState(
-    selectedDeal.conversationHistory[0].email.messages
+    selectedDeal.conversationHistory?.[0]?.email?.messages || null
   );
+
   console.log(slackHistory);
   function handleChannelChange(e) {
     setChannel(e.target.value);
   }
 
   useEffect(() => {
-    setSlackHistory(selectedDeal.conversationHistory[0].slack.messages);
-    setGmailHistory(selectedDeal.conversationHistory[0].email.messages);
+    setSlackHistory(selectedDeal.conversationHistory[0]?.slack.messages);
+    setGmailHistory(selectedDeal.conversationHistory[0]?.email.messages);
   }, [selectedDeal]);
   return (
     <Box
@@ -138,99 +139,103 @@ const MainContent = ({ deals, selectedDeal }) => {
                 "::-webkit-scrollbar": { width: 0 },
               }}
             >
-              {gmailHistory.map((currentMessage) => {
-                return (
-                  <Box sx={{ mt: 2, mb: 2 }}>
-                    <Card
-                      key={currentMessage.timestamp}
-                      sx={{
-                        padding: 2,
-                        boxShadow: 5,
-                        borderRadius: 2,
-                        border: "1px solid",
-                        borderColor: "divider",
-                        minHeight: 140,
-                        maxHeight: "fit-content",
-                      }}
-                    >
-                      <CardContent>
-                        <Stack spacing={1}>
-                          <Stack
-                            direction="row"
-                            justifyContent="space-between"
-                            alignItems="flex-start"
-                          >
-                            <Typography>{currentMessage.from}</Typography>
-                            <Stack direction="row" gap={1}>
-                              <Tooltip title="Sentiment">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(0, 54, 91, 0.77)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.sentiment}
-                                />
-                              </Tooltip>
-                              <Tooltip title="Tone">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(0, 53, 88, 0.77)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.tone}
-                                />
-                              </Tooltip>
-                              <Tooltip title="Objections">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(249, 2, 2, 0.64)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.objections.length}
-                                />
-                              </Tooltip>
+              {gmailHistory &&
+                gmailHistory.map((currentMessage) => {
+                  return (
+                    <Box sx={{ mt: 2, mb: 2 }}>
+                      <Card
+                        key={currentMessage.timestamp}
+                        sx={{
+                          padding: 2,
+                          boxShadow: 5,
+                          borderRadius: 2,
+                          border: "1px solid",
+                          borderColor: "divider",
+                          minHeight: 140,
+                          maxHeight: "fit-content",
+                        }}
+                      >
+                        <CardContent>
+                          <Stack spacing={1}>
+                            <Stack
+                              direction="row"
+                              justifyContent="space-between"
+                              alignItems="flex-start"
+                            >
+                              <Typography>{currentMessage.from}</Typography>
+                              <Stack direction="row" gap={1}>
+                                <Tooltip title="Sentiment">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(0, 54, 91, 0.77)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.sentiment}
+                                  />
+                                </Tooltip>
+                                <Tooltip title="Tone">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(0, 53, 88, 0.77)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.tone}
+                                  />
+                                </Tooltip>
+                                <Tooltip title="Objections">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(249, 2, 2, 0.64)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.objections.length}
+                                  />
+                                </Tooltip>
+                              </Stack>
                             </Stack>
                           </Stack>
-                        </Stack>
 
-                        <Typography
-                          sx={{
-                            color: "text.secondary",
-                            fontSize: ".8rem",
-                            mb: 2,
-                          }}
-                        >
-                          {currentMessage.subject}
-                        </Typography>
+                          <Typography
+                            sx={{
+                              color: "text.secondary",
+                              fontSize: ".8rem",
+                              mb: 2,
+                            }}
+                          >
+                            {currentMessage.subject}
+                          </Typography>
 
-                        <Typography>{currentMessage.text}</Typography>
-                      </CardContent>
-                      <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                      >
-                        <Box />
+                          <Typography>{currentMessage.text}</Typography>
+                        </CardContent>
                         <Stack
                           direction="row"
-                          spacing={0.5}
+                          justifyContent="space-between"
                           alignItems="center"
                         >
-                          <Person
-                            sx={{ fontSize: 12, color: "text.secondary" }}
-                          />
-                          <Typography variant="caption" color="text.secondary">
-                            To: {currentMessage.to?.join(", ")}
-                          </Typography>
+                          <Box />
+                          <Stack
+                            direction="row"
+                            spacing={0.5}
+                            alignItems="center"
+                          >
+                            <Person
+                              sx={{ fontSize: 12, color: "text.secondary" }}
+                            />
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                            >
+                              To: {currentMessage.to?.join(", ")}
+                            </Typography>
+                          </Stack>
                         </Stack>
-                      </Stack>
-                    </Card>
-                  </Box>
-                );
-              })}
+                      </Card>
+                    </Box>
+                  );
+                })}
             </Box>
           ) : (
             <Box
@@ -245,90 +250,94 @@ const MainContent = ({ deals, selectedDeal }) => {
                   No Messages Available
                 </Typography>
               )}
-              {slackHistory.map((currentMessage) => {
-                return (
-                  <Box sx={{ mt: 2, mb: 2 }}>
-                    <Card
-                      key={currentMessage.timestamp}
-                      sx={{
-                        padding: 2,
-                        boxShadow: 5,
-                        borderRadius: 2,
-                        border: "1px solid",
-                        borderColor: "divider",
-                        minHeight: 150,
-                        maxHeight: "fit-content",
-                      }}
-                    >
-                      <CardContent>
-                        <Stack spacing={1}>
-                          <Stack
-                            direction="row"
-                            justifyContent="space-between"
-                            alignItems="flex-start"
-                          >
-                            <Typography>{currentMessage.from}</Typography>
-                            <Stack direction="row" gap={1}>
-                              <Tooltip title="Sentiment">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(0, 54, 91, 0.77)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.sentiment}
-                                />
-                              </Tooltip>
-                              <Tooltip title="Tone">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(0, 53, 88, 0.77)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.tone}
-                                />
-                              </Tooltip>
-                              <Tooltip title="Objections">
-                                <Chip
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: "rgba(249, 2, 2, 0.64)",
-                                    color: "#ffffffff",
-                                  }}
-                                  label={currentMessage.objections.length}
-                                />
-                              </Tooltip>
+              {slackHistory &&
+                slackHistory.map((currentMessage) => {
+                  return (
+                    <Box sx={{ mt: 2, mb: 2 }}>
+                      <Card
+                        key={currentMessage.timestamp}
+                        sx={{
+                          padding: 2,
+                          boxShadow: 5,
+                          borderRadius: 2,
+                          border: "1px solid",
+                          borderColor: "divider",
+                          minHeight: 150,
+                          maxHeight: "fit-content",
+                        }}
+                      >
+                        <CardContent>
+                          <Stack spacing={1}>
+                            <Stack
+                              direction="row"
+                              justifyContent="space-between"
+                              alignItems="flex-start"
+                            >
+                              <Typography>{currentMessage.from}</Typography>
+                              <Stack direction="row" gap={1}>
+                                <Tooltip title="Sentiment">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(0, 54, 91, 0.77)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.sentiment}
+                                  />
+                                </Tooltip>
+                                <Tooltip title="Tone">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(0, 53, 88, 0.77)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.tone}
+                                  />
+                                </Tooltip>
+                                <Tooltip title="Objections">
+                                  <Chip
+                                    size="small"
+                                    sx={{
+                                      backgroundColor: "rgba(249, 2, 2, 0.64)",
+                                      color: "#ffffffff",
+                                    }}
+                                    label={currentMessage.objections.length}
+                                  />
+                                </Tooltip>
+                              </Stack>
                             </Stack>
                           </Stack>
-                        </Stack>
-                        <Typography sx={{ mt: 1.5 }}>
-                          {currentMessage.text}
-                        </Typography>
-                      </CardContent>
-                      <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                      >
-                        <Box />
+                          <Typography sx={{ mt: 1.5 }}>
+                            {currentMessage.text}
+                          </Typography>
+                        </CardContent>
                         <Stack
                           direction="row"
-                          spacing={0.5}
+                          justifyContent="space-between"
                           alignItems="center"
                         >
-                          <Person
-                            sx={{ fontSize: 12, color: "text.secondary" }}
-                          />
-                          <Typography variant="caption" color="text.secondary">
-                            To: {currentMessage.to?.join(", ")}
-                          </Typography>
+                          <Box />
+                          <Stack
+                            direction="row"
+                            spacing={0.5}
+                            alignItems="center"
+                          >
+                            <Person
+                              sx={{ fontSize: 12, color: "text.secondary" }}
+                            />
+                            <Typography
+                              variant="caption"
+                              color="text.secondary"
+                            >
+                              To: {currentMessage.to?.join(", ")}
+                            </Typography>
+                          </Stack>
                         </Stack>
-                      </Stack>
-                    </Card>
-                  </Box>
-                );
-              })}
+                      </Card>
+                    </Box>
+                  );
+                })}
             </Box>
           )}
         </Box>

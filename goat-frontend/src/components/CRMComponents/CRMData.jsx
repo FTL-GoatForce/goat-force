@@ -263,7 +263,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}
@@ -274,7 +274,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}
@@ -285,7 +285,7 @@ const CRMData = ({
                 variant="body1"
                 color="text.primary"
                 sx={{
-                  color: currentDeal.deal.stage.includes("closed")
+                  color: currentDeal.deal.stage?.includes("closed")
                     ? "text.secondary"
                     : "text.primary",
                 }}
