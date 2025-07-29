@@ -301,7 +301,7 @@ const LandingPage = () => {
           variant="h1"
           sx={{
             fontWeight: "bold",
-            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "6rem" },
+            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
             background:
               "linear-gradient(45deg,rgb(255, 255, 255),rgb(208, 210, 223))",
             backgroundClip: "text",
