@@ -18,36 +18,64 @@ function Settings() {
 
   // TODO: password update function
   const handlePasswordUpdate = () => {
+    // 1. validate current password
+    // supabase auth call
+
+    // 2. validate new password
     if (securityData.newPassword !== securityData.confirmPassword) {
       alert("New passwords don't match!");
       return;
     }
-    console.log("Updating password:", securityData);
-    // clear form after successful update
-    setSecurityData({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    });
+
+    try {
+      // 3. update password (supabase auth call)
+      console.log("Updating password:", securityData);
+
+
+
+      // 4.clear form after successful update
+      setSecurityData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.error("Error updating password:", error);
+      alert("Failed to update password. Please try again.");
+    }
   };
 
   // TODO: profile save function
   const handleProfileSave = () => {
-    console.log("Saving profile data:", profileData);
-    // add supabase call here
-    // clear form after successful save
+    try {
+      // 1. supabase call to update First Name, Last Name, Email
+      console.log("Saving profile data:", profileData);
+
+      // 2. clear form data after successful save
+      setProfileData({
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
+      alert("Profile updated successfully!");
+
+      
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      alert("Failed to update profile. Please try again.");
+    }
 
   };
 
   // TODO: sign out function
   const handleSignOut = () => {
     // add sign out logic here
-  }
+  };
 
   // TODO: delete account function
   const handleDeleteAccount = () => {
     // add delete account logic here
-  }
+  };
 
   // Profile form state
   const [profileData, setProfileData] = useState({
@@ -79,7 +107,6 @@ function Settings() {
     }));
   };
 
-
   // Confirm action modal (for sign out and delete account)
   const toggleConfirmModalOpen = () => {
     setConfirmModalOpen(true);
@@ -97,8 +124,6 @@ function Settings() {
   const confirmSignOutClose = () => {
     setConfirmSignOutOpen(false);
   };
-
-
 
   return (
     <Box
@@ -559,51 +584,51 @@ function Settings() {
 
           {/* account actions card content  */}
           <Box display={"flex"} flexDirection={"column"} gap={2} marginTop={3}>
-              {/* Modal for signing out account */}
-              <Modal open={confirmSignOutOpen} onClose={confirmSignOutClose}>
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: 500,
-                    bgcolor: "background.paper",
-                    boxShadow: 24,
-                    borderRadius: 3,
-                    padding: 4,
-                  }}
+            {/* Modal for signing out account */}
+            <Modal open={confirmSignOutOpen} onClose={confirmSignOutClose}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: 500,
+                  bgcolor: "background.paper",
+                  boxShadow: 24,
+                  borderRadius: 3,
+                  padding: 4,
+                }}
+              >
+                <Typography
+                  color="text.primary"
+                  id="confirm-delete-description"
+                  fontWeight={"bold"}
+                  align="center"
+                  fontSize={"18px"}
+                  marginBottom={3}
                 >
-                  <Typography
-                    color="text.primary"
-                    id="confirm-delete-description"
-                    fontWeight={"bold"}
-                    align="center"
-                    fontSize={"18px"}
-                    marginBottom={3}
+                  Are you sure you want to sign out?
+                </Typography>
+                {/* buttons holder || cancel / confirm */}
+                <Box display="flex" gap={2} justifyContent="center">
+                  <Button
+                    variant="outlined"
+                    onClick={confirmSignOutClose}
+                    sx={{ minWidth: "100px" }}
                   >
-                    Are you sure you want to sign out?
-                  </Typography>
-                  {/* buttons holder || cancel / confirm */}
-                  <Box display="flex" gap={2} justifyContent="center">
-                    <Button
-                      variant="outlined"
-                      onClick={confirmSignOutClose}
-                      sx={{ minWidth: "100px" }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      sx={{ minWidth: "100px" }}
-                      onClick={handleSignOut}
-                    >
-                      Sign Out
-                    </Button>
-                  </Box>
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    sx={{ minWidth: "100px" }}
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </Button>
                 </Box>
-              </Modal>
+              </Box>
+            </Modal>
             {/* Sign Out Action */}
             <Box
               display={"flex"}
