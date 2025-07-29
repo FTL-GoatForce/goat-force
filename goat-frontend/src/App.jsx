@@ -11,6 +11,7 @@ import Sandbox from "./components/Pages/Sandbox";
 import Onboarding from "./components/Pages/Onboarding";
 import Transcripts from "./components/Pages/Transcripts";
 import Settings from "./components/Pages/Settings";
+
 const theme = createTheme({
   palette: {
     mode: "dark",

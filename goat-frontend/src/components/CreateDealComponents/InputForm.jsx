@@ -12,6 +12,7 @@ import {
   CardContent,
   CardHeader,
   Grid,
+  Alert,
 } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -37,9 +38,33 @@ const InputForm = () => {
     phone_number: null, // <-- in this format 831-512-2453
   });
   const [isEditing, setIsEditing] = useState(true);
+  const [showError, setShowError] = useState(false);
   const baseServer = import.meta.env.VITE_BACKEND_SERVER;
 
+  const requiredFields = [
+    "company_name",
+    "deal_name",
+    "deal_value",
+    "deal_description",
+    "service_category",
+    "prospect_name",
+    "email",
+    "slack_id",
+    "phone_number",
+  ];
+
+  const isFormValid = () => {
+    return requiredFields.every(
+      (field) => deal[field] !== null && deal[field] !== "" && deal[field] !== undefined
+    );
+  };
+
   async function handleSave() {
+    if (!isFormValid()) {
+      setShowError(true);
+      return;
+    }
+    setShowError(false);
     await axios.post(`${baseServer}create`, deal);
     console.log("deal created", deal);
   }
@@ -49,7 +74,7 @@ const InputForm = () => {
       ...prev,
       expected_close_date: date.toJSON().substring(0, 10),
     }));
-    // gives Date as a string of 2025-07-12
+    setShowError(false);
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -57,14 +82,16 @@ const InputForm = () => {
       ...prev,
       [name]: value,
     }));
+    setShowError(false);
   };
 
   const handleNumberChange = (e) => {
     const { name, value } = e.target;
     setDeal((prev) => ({
       ...prev,
-      [name]: parseFloat(value),
+      [name]: parseFloat(value) || null,
     }));
+    setShowError(false);
   };
   return (
     <Box
@@ -117,7 +144,9 @@ const InputForm = () => {
               startIcon={<Save />}
               onClick={() => {
                 handleSave();
-                navigate("/dashboard");
+                if (isFormValid()) {
+                  navigate("/dashboard");
+                }
               }}
               disabled={!isEditing}
             >
@@ -127,6 +156,12 @@ const InputForm = () => {
         </Box>
       </Paper>
       {/* END OF HEADER */}
+
+      {showError && (
+        <Box sx={{ mx: 6, mt: 3 }}>
+          <Alert severity="error">Please fill in all required fields</Alert>
+        </Box>
+      )}
 
       <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Box
@@ -162,6 +197,7 @@ const InputForm = () => {
                     name="company_name"
                     label="Company Name"
                     onChange={handleInputChange}
+                    required
                   />
                 </Grid>
                 <Grid>
@@ -169,6 +205,7 @@ const InputForm = () => {
                     name="deal_name"
                     label="Deal Name"
                     onChange={handleInputChange}
+                    required
                   />
                 </Grid>
                 <Grid>
@@ -176,6 +213,7 @@ const InputForm = () => {
                     name="deal_value"
                     label="Deal Value"
                     onChange={handleNumberChange}
+                    required
                   />
                 </Grid>
                 <Grid>
@@ -183,6 +221,7 @@ const InputForm = () => {
                     name="service_category"
                     label="Service"
                     onChange={handleInputChange}
+                    required
                   />
                 </Grid>
                 <TextField
@@ -192,6 +231,7 @@ const InputForm = () => {
                   multiline
                   rows={5}
                   onChange={handleInputChange}
+                  required
                 />
               </Grid>
             </CardContent>
@@ -254,6 +294,7 @@ const InputForm = () => {
                 label="Contact Name"
                 name="prospect_name"
                 onChange={handleInputChange}
+                required
               />
               <TextField
                 sx={{ mb: 4 }}
@@ -261,6 +302,7 @@ const InputForm = () => {
                 name="email"
                 label="Contact Email"
                 onChange={handleInputChange}
+                required
               />
               <TextField
                 sx={{ mb: 4 }}
@@ -268,6 +310,7 @@ const InputForm = () => {
                 onChange={handleInputChange}
                 name="slack_id"
                 label="Contact Slack ID"
+                required
               />
 
               <TextField
@@ -276,6 +319,7 @@ const InputForm = () => {
                 onChange={handleInputChange}
                 name="phone_number"
                 label="Contact Number"
+                required
               />
             </Grid>
           </CardContent>
