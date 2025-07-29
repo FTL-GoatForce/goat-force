@@ -7,7 +7,11 @@ import {
   Card,
   CardContent,
   Modal,
+  Alert,
+  Collapse,
+  IconButton,
 } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import SideBar from "../ReusableComponents/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -18,8 +22,25 @@ function Settings() {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false); // for confirm modal state
   const [confirmSignOutOpen, setConfirmSignOutOpen] = useState(false); // for sign out modal state
   const [session, setSession] = useState(null); // supabase session state
+  // alert state for notifications
+  const [alert, setAlert] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
+
   const navigate = useNavigate();
-  
+
+  // aut-hide alert
+  useEffect(() => {
+    if (alert.show) {
+      const timer = setTimeout(() => {
+        setAlert(prev => ({ ...prev, show: false }));
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [alert.show]);
+
   // Profile form state
   const [profileData, setProfileData] = useState({
     firstName: "",
@@ -49,7 +70,7 @@ function Settings() {
         if (error) throw error;
         setSession(data.session);
 
-        // If session exists, populate profile data
+        // if the session exists, populate profile data
         if (data.session?.user?.user_metadata) {
           setProfileData({
             firstName: data.session.user.user_metadata.first_name || "",
@@ -69,19 +90,31 @@ const handlePasswordUpdate = async () => {
   
   // 1. validate new password
   if (securityData.newPassword !== securityData.confirmPassword) {
-    alert("New passwords don't match!");
+    setAlert({
+      show: true,
+      message: "New passwords don't match!",
+      type: "error",
+    });
     return;
   }
 
   if (!securityData.currentPassword || !securityData.newPassword || !securityData.confirmPassword) {
-    alert("Please fill in all password fields!");
+    setAlert({
+      show: true,
+      message: "Please fill in all password fields!",
+      type: "error",
+    });
     return;
   }
 
   try {
     // 2. check if user is signed in w/ supabase
     if (!session) {
-      alert("You must be signed in to update your password.");
+      setAlert({
+        show: true,
+        message: "You must be signed in to update your password.",
+        type: "error",
+      });
       return;
     }
 
@@ -92,7 +125,11 @@ const handlePasswordUpdate = async () => {
     });
 
     if (signInError) {
-      alert("Current password is incorrect!");
+      setAlert({
+        show: true,
+        message: "Current password is incorrect!",
+        type: "error",
+      });
       return;
     }
 
@@ -102,7 +139,11 @@ const handlePasswordUpdate = async () => {
     });
 
     if (updateError) {
-      alert(`Failed to update password: ${updateError.message}`);
+      setAlert({
+        show: true,
+        message: `Failed to update password: ${updateError.message}`,
+        type: "error",
+      });
       return;
     }
 
@@ -113,25 +154,42 @@ const handlePasswordUpdate = async () => {
       confirmPassword: "",
     });
 
-    alert("Password updated successfully!");
+    setAlert({
+      show: true,
+      message: "Password updated successfully!",
+      type: "success",
+    });
 
   } catch (error) {
     console.error("Error updating password:", error);
-    alert("Failed to update password. Please try again.");
+    setAlert({
+      show: true,
+      message: "Failed to update password. Please try again.",
+      type: "error",
+    });
   }
 };
 
   const handleProfileSave = async () => {
     try {
+
       // 1. validate user signed in
       if (!session) {
-        alert("You must be signed in to update your profile.");
+        setAlert({
+          show: true,
+          message: "You must be signed in to update your profile.",
+          type: "error",
+        });
         return;
       }
 
       // 2. validate profile data form
       if (!profileData.firstName || !profileData.lastName || !profileData.email) {
-        alert("Please fill in all profile fields!");
+        setAlert({
+          show: true,
+          message: "Please fill in all profile fields!",
+          type: "error",
+        });
         return;
       }
 
@@ -147,21 +205,28 @@ const handlePasswordUpdate = async () => {
 
     if (metadataError) {
       console.error("Error updating user metadata:", metadataError);
-      alert("Failed to update profile. Please try again.");
+      setAlert({
+        show: true,
+        message: "Failed to update profile. Please try again.",
+        type: "error",
+      });
       return;
     }
 
-    // TODO: 4. update email if changed => not working I think it needs to be verified
-    // if (profileData.email !== session.user.email) {
-    //   const { error: emailError } = await supabase.auth.updateUser({
-    //     email: profileData.email.trim(),
-    //   });
-    //   if (emailError) {
-    //     console.error("Error updating email:", emailError);
-    //     alert("Failed to update email. Please try again.");
-    //     return;
-    //   }
-    // }
+    if (profileData.email !== session.user.email) {
+      const { error: emailError } = await supabase.auth.updateUser({
+        email: profileData.email.trim(),
+      });
+      if (emailError) {
+        console.error("Error updating email:", emailError);
+        setAlert({
+          show: true,
+          message: "Failed to update email. Please try again.",
+          type: "error",
+        });
+        return;
+      }
+    }
 
     // 5. refresh session to get updated user metadata
     const { data: updatedSession } = await supabase.auth.getSession();
@@ -169,10 +234,18 @@ const handlePasswordUpdate = async () => {
       setSession(updatedSession.session);
     }
 
-    alert("Profile updated successfully!");
+    setAlert({
+      show: true,
+      message: "Profile updated successfully!",
+      type: "success",
+    });
     } catch (error) {
       console.error("Error updating profile:", error);
-      alert("Failed to update profile. Please try again.");
+      setAlert({
+        show: true,
+        message: "Failed to update profile. Please try again.",
+        type: "error",
+      });
     }
   };
   // sign out function
@@ -204,6 +277,11 @@ const handlePasswordUpdate = async () => {
       navigate("/auth");
     } catch (error) {
       console.error("Error signing out:", error);
+      setAlert({
+        show: true,
+        message: "Failed to sign out. Please try again.",
+        type: "error",
+      });
     }
   };
 
@@ -268,6 +346,32 @@ const handlePasswordUpdate = async () => {
           padding: 2,
         }}
       >
+        {/* Alert for notifications */}
+        <Collapse in={alert.show}>
+          <Alert
+            severity={alert.type}
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => setAlert(prev => ({ ...prev, show: false }))}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+            sx={{
+              position: "fixed",
+              top: 20,
+              right: 20,
+              zIndex: 1000,
+              minWidth: 300,
+              boxShadow: 3,
+            }}
+          >
+            {alert.message}
+          </Alert>
+        </Collapse>
         {/* Page header */}
         <Box
           marginLeft={3}
