@@ -152,7 +152,7 @@ const LandingPage = () => {
         }
       }
 
-      const baseParticleCount = 10000;
+      const baseParticleCount = 20000;
       const targetParticleCount = Math.floor(
         baseParticleCount *
           Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
@@ -255,18 +255,19 @@ const LandingPage = () => {
           <Typography
             className="hover-underline-animation"
             variant="h5"
-            sx={{ color: "text.primary", fontWeight: "bold" }}
+            sx={{
+              color: "text.primary",
+              fontWeight: "bold",
+              fontSize: { xs: "1.2rem", sm: "1.5rem" },
+            }}
             component="div"
           >
             GoatForce
           </Typography>
-          <Avatar src={logo} sx={{ ml: 2 }} />
-          {/* <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flexEnd",
-            }}
-          > */}
+          <Avatar
+            src={logo}
+            sx={{ ml: 2, display: { xs: "none", sm: "flex" } }}
+          />
           <Button
             variant="contained"
             sx={{
@@ -274,6 +275,8 @@ const LandingPage = () => {
               color: "black",
               "&:hover": { bgcolor: "#00CC70" },
               ml: "auto",
+              fontSize: { xs: "0.8rem", sm: "0.875rem" },
+              px: { xs: 2, sm: 3 },
             }}
             onClick={() => navigate("/auth")}
           >
@@ -285,26 +288,27 @@ const LandingPage = () => {
       {/* Start of Hero Section */}
       <Box
         sx={{
-          mt: 15,
-          width: "35%",
+          mt: { xs: 8, sm: 10, md: 15 },
+          width: { xs: "90%", sm: "70%", md: "50%", lg: "35%" },
           position: "absolute",
           zIndex: 5,
           alignSelf: "center",
           textAlign: "center",
-
-          // bgcolor: "background.default",
+          px: { xs: 2, sm: 3, md: 0 },
         }}
       >
         <Typography
           variant="h1"
           sx={{
             fontWeight: "bold",
+            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "6rem" },
             background:
               "linear-gradient(45deg,rgb(255, 255, 255),rgb(208, 210, 223))",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            mb: 2,
+            mb: { xs: 1, md: 2 },
+            lineHeight: { xs: 1.1, md: 1.2 },
           }}
         >
           Supercharge
@@ -313,28 +317,54 @@ const LandingPage = () => {
           variant="h1"
           sx={{
             fontWeight: "bold",
+            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "6rem" },
             background:
               "linear-gradient(45deg,rgb(84, 189, 219),rgb(208, 210, 223))",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            mb: 2,
+            mb: { xs: 2, md: 2 },
+            lineHeight: { xs: 1.1, md: 1.2 },
           }}
         >
           Your Sales
         </Typography>
-        <Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            mb: 1,
+            lineHeight: 1.5,
+          }}
+        >
           Get instant, AI-powered insights into every B2B sales opportunity with
           GoatForce.
         </Typography>
-        <Typography>
-          {" "}
+        <Typography
+          sx={{
+            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            mb: { xs: 2, md: 3 },
+            lineHeight: 1.5,
+          }}
+        >
           Find exactly what you need, when you need it, to close more deals and
           crush your quotas.
         </Typography>
-        <Box sx={{ mt: 2 }}>
+        <Box
+          sx={{
+            mt: 2,
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 2, sm: 0 },
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Button
-            sx={{ m: 3, color: "white" }}
+            sx={{
+              m: { xs: 0, sm: 3 },
+              color: "white",
+              minWidth: { xs: "200px", sm: "auto" },
+            }}
             variant="contained"
             onClick={() => navigate("/dashboard")}
             size="medium"
@@ -342,7 +372,11 @@ const LandingPage = () => {
             Try It now
           </Button>
           <Button
-            sx={{ m: 3, color: "white" }}
+            sx={{
+              m: { xs: 0, sm: 3 },
+              color: "white",
+              minWidth: { xs: "200px", sm: "auto" },
+            }}
             variant="outlined"
             size="medium"
             onClick={() => navigate("/onboarding")}
@@ -359,6 +393,8 @@ const LandingPage = () => {
           position: "absolute",
           height: "calc(100vh - 200px)",
           overflowY: "hidden",
+          width: "100%",
+          top: { xs: "200px", sm: "250px", md: "300px" },
         }}
       >
         <canvas
@@ -369,7 +405,6 @@ const LandingPage = () => {
             height: "100%",
             display: "block",
             touchAction: "none",
-            marginTop: 300,
           }}
         />
       </Box>
