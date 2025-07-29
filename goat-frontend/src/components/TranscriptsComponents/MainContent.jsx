@@ -139,6 +139,11 @@ const MainContent = ({ deals, selectedDeal }) => {
                 "::-webkit-scrollbar": { width: 0 },
               }}
             >
+              {gmailHistory.length == 0 && (
+                <Typography sx={{ color: "text.primary", textAlign: "center" }}>
+                  No Messages Available
+                </Typography>
+              )}
               {gmailHistory &&
                 gmailHistory.map((currentMessage) => {
                   return (
