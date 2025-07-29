@@ -477,11 +477,12 @@ function Settings() {
           borderColor="divider"
           borderRadius={2}
           marginTop={3.5}
-          marginBottom={4}
+          marginBottom={15}
           width="75%"
           marginLeft={"auto"}
           marginRight={"auto"}
           backgroundColor="background.paper"
+
         >
           {/* account actions card header */}
           <Typography
