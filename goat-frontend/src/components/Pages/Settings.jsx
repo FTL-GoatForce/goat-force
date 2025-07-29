@@ -176,6 +176,7 @@ function Settings() {
 
           {/* security card content  */}
           <Box display={"flex"} flexDirection={"column"} gap={2} marginTop={3}>
+<<<<<<< HEAD
            <Box flexGrow={1} display={"flex"} flexDirection={"column"}>
             <Typography
               marginLeft={0.2}
@@ -233,6 +234,71 @@ function Settings() {
           </Box>
 
 
+=======
+            <Box flexGrow={1} display={"flex"} flexDirection={"column"}>
+              <Typography
+                marginLeft={0.2}
+                fontSize={"15px"}
+                color="text.primary"
+                variant="h6"
+                fontWeight={"bold"}
+              >
+                Current Password
+              </Typography>
+              <TextField
+                size="small"
+                placeholder="Enter Current Password"
+                variant="outlined"
+                fullWidth
+              />
+
+              <Box
+                marginTop={1}
+                flexGrow={1}
+                display={"flex"}
+                flexDirection={"column"}
+              >
+                <Typography
+                  marginLeft={0.2}
+                  fontSize={"15px"}
+                  color="text.primary"
+                  variant="h6"
+                  fontWeight={"bold"}
+                >
+                  New Password
+                </Typography>
+                <TextField
+                  size="small"
+                  placeholder="Enter New Password"
+                  variant="outlined"
+                  fullWidth
+                />
+                <Box
+                  marginTop={1}
+                  flexGrow={1}
+                  display={"flex"}
+                  flexDirection={"column"}
+                >
+                  <Typography
+                    marginLeft={0.2}
+                    fontSize={"15px"}
+                    color="text.primary"
+                    variant="h6"
+                    fontWeight={"bold"}
+                  >
+                    Confirm New Password
+                  </Typography>
+                  <TextField
+                    size="small"
+                    placeholder="Enter Confirm New Password"
+                    variant="outlined"
+                    fullWidth
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+>>>>>>> 3aaed865e8ddc4e931525addf81a1326de51b922
         </Box>
       </Box>
     </Box>
