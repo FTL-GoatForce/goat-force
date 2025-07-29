@@ -289,7 +289,7 @@ const LandingPage = () => {
       <Box
         sx={{
           mt: { xs: 8, sm: 10, md: 15 },
-          width: { xs: "90%", sm: "70%", md: "50%", lg: "35%" },
+          width: { xs: "95%", sm: "80%", md: "60%", lg: "50%" },
           position: "absolute",
           zIndex: 5,
           alignSelf: "center",
@@ -301,7 +301,7 @@ const LandingPage = () => {
           variant="h1"
           sx={{
             fontWeight: "bold",
-            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "5rem" },
+            fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem", lg: "6rem" },
             background:
               "linear-gradient(45deg,rgb(255, 255, 255),rgb(208, 210, 223))",
             backgroundClip: "text",
