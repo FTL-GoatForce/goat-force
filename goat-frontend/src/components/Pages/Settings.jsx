@@ -10,73 +10,16 @@ import {
 } from "@mui/material";
 import SideBar from "../ReusableComponents/Sidebar";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import { createClient } from "@supabase/supabase-js";
 
 function Settings() {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false); // for confirm modal state
   const [confirmSignOutOpen, setConfirmSignOutOpen] = useState(false); // for sign out modal state
-
-  // TODO: password update function
-  const handlePasswordUpdate = () => {
-    // 1. validate current password
-    // supabase auth call
-
-    // 2. validate new password
-    if (securityData.newPassword !== securityData.confirmPassword) {
-      alert("New passwords don't match!");
-      return;
-    }
-
-    try {
-      // 3. update password (supabase auth call)
-      console.log("Updating password:", securityData);
-
-
-
-      // 4.clear form after successful update
-      setSecurityData({
-        currentPassword: "",
-        newPassword: "",
-        confirmPassword: "",
-      });
-    } catch (error) {
-      console.error("Error updating password:", error);
-      alert("Failed to update password. Please try again.");
-    }
-  };
-
-  // TODO: profile save function
-  const handleProfileSave = () => {
-    try {
-      // 1. supabase call to update First Name, Last Name, Email
-      console.log("Saving profile data:", profileData);
-
-      // 2. clear form data after successful save
-      setProfileData({
-        firstName: "",
-        lastName: "",
-        email: "",
-      });
-      alert("Profile updated successfully!");
-
-      
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      alert("Failed to update profile. Please try again.");
-    }
-
-  };
-
-  // TODO: sign out function
-  const handleSignOut = () => {
-    // add sign out logic here
-  };
-
-  // TODO: delete account function
-  const handleDeleteAccount = () => {
-    // add delete account logic here
-  };
-
+  const [session, setSession] = useState(null); // supabase session state
+  const navigate = useNavigate();
+  
   // Profile form state
   const [profileData, setProfileData] = useState({
     firstName: "",
@@ -90,6 +33,184 @@ function Settings() {
     newPassword: "",
     confirmPassword: "",
   });
+
+
+  // initialize supabase client
+  const supabase = createClient(
+    "https://gjigdggtkttoagacnhzw.supabase.co",
+    import.meta.env.VITE_SUPABASE_KEY
+  );
+
+  // check if user is signed in on component mount
+  useEffect(() => {
+    const fetchSession = async () => {
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        setSession(data.session);
+
+        // If session exists, populate profile data
+        if (data.session?.user?.user_metadata) {
+          setProfileData({
+            firstName: data.session.user.user_metadata.first_name || "",
+            lastName: data.session.user.user_metadata.last_name || "",
+            email: data.session.user.email || "",
+          });
+        }
+
+      } catch (error) {
+        console.error("Error fetching session:", error);
+      }
+    };
+    fetchSession();
+  }, []);
+
+const handlePasswordUpdate = async () => {
+  
+  // 1. validate new password
+  if (securityData.newPassword !== securityData.confirmPassword) {
+    alert("New passwords don't match!");
+    return;
+  }
+
+  if (!securityData.currentPassword || !securityData.newPassword || !securityData.confirmPassword) {
+    alert("Please fill in all password fields!");
+    return;
+  }
+
+  try {
+    // 2. check if user is signed in w/ supabase
+    if (!session) {
+      alert("You must be signed in to update your password.");
+      return;
+    }
+
+    // 3. validate current password by re-authenticating
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: session.user.email,
+      password: securityData.currentPassword,
+    });
+
+    if (signInError) {
+      alert("Current password is incorrect!");
+      return;
+    }
+
+    // 4. update password (supabase auth call)
+    const { error: updateError } = await supabase.auth.updateUser({
+      password: securityData.newPassword
+    });
+
+    if (updateError) {
+      alert(`Failed to update password: ${updateError.message}`);
+      return;
+    }
+
+    // 5. clear form after successful update
+    setSecurityData({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
+
+    alert("Password updated successfully!");
+
+  } catch (error) {
+    console.error("Error updating password:", error);
+    alert("Failed to update password. Please try again.");
+  }
+};
+
+  const handleProfileSave = async () => {
+    try {
+      // 1. validate user signed in
+      if (!session) {
+        alert("You must be signed in to update your profile.");
+        return;
+      }
+
+      // 2. validate profile data form
+      if (!profileData.firstName || !profileData.lastName || !profileData.email) {
+        alert("Please fill in all profile fields!");
+        return;
+      }
+
+      // 3. update user metadata in supabase
+      const { error: metadataError } = await supabase.auth.updateUser({
+      data: {
+        first_name: profileData.firstName.trim(),
+        last_name: profileData.lastName.trim(),
+        full_name: `${profileData.firstName.trim()} ${profileData.lastName.trim()}`,
+        display_name: `${profileData.firstName.trim()} ${profileData.lastName.trim()}`
+      }
+    });
+
+    if (metadataError) {
+      console.error("Error updating user metadata:", metadataError);
+      alert("Failed to update profile. Please try again.");
+      return;
+    }
+
+    // TODO: 4. update email if changed => not working I think it needs to be verified
+    // if (profileData.email !== session.user.email) {
+    //   const { error: emailError } = await supabase.auth.updateUser({
+    //     email: profileData.email.trim(),
+    //   });
+    //   if (emailError) {
+    //     console.error("Error updating email:", emailError);
+    //     alert("Failed to update email. Please try again.");
+    //     return;
+    //   }
+    // }
+
+    // 5. refresh session to get updated user metadata
+    const { data: updatedSession } = await supabase.auth.getSession();
+    if (updatedSession.session) {
+      setSession(updatedSession.session);
+    }
+
+    alert("Profile updated successfully!");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      alert("Failed to update profile. Please try again.");
+    }
+  };
+  // sign out function
+  const handleSignOut = async () => {
+    try {
+      // 1. supabase auth call to sign out
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+
+      // 2. clear local session state and close confirm modals
+      setSession(null);
+      setConfirmSignOutOpen(false);
+      setConfirmModalOpen(false);
+
+      // 3. clear form data
+      setProfileData({
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
+
+      setSecurityData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+
+      //4. navigate to auth page
+      navigate("/auth");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
+  // TODO: need admin priveleges ?
+  const handleDeleteAccount = () => {
+
+  };
 
   // Handle profile form changes
   const handleProfileChange = (field, value) => {
