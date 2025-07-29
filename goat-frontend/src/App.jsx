@@ -11,10 +11,7 @@ import Sandbox from "./components/Pages/Sandbox";
 import Onboarding from "./components/Pages/Onboarding";
 import Transcripts from "./components/Pages/Transcripts";
 import Settings from "./components/Pages/Settings";
-<<<<<<< HEAD
 
-=======
->>>>>>> 3aaed865e8ddc4e931525addf81a1326de51b922
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -127,11 +124,8 @@ function App() {
             <Route path="/details/:id" element={<DealDetails />} />
             <Route path="/sandbox" element={<Sandbox />} />
             <Route path="/onboarding" element={<Onboarding />} />
-<<<<<<< HEAD
-=======
             <Route path="/transcripts" element={<Transcripts />} />
             <Route path="/settings" element={<Settings />} />
->>>>>>> 3aaed865e8ddc4e931525addf81a1326de51b922
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
