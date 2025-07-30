@@ -7,11 +7,19 @@ import {
   Button,
   CircularProgress,
   Paper,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Tooltip,
 } from "@mui/material";
+import { AssessmentOutlined } from "@mui/icons-material";
 import MicIcon from "@mui/icons-material/Mic";
 import axios from "axios";
 
 const VoiceChat = ({ selectedDeal }) => {
+  const ReportServer = import.meta.env.VITE_REPORT_SERVER;
   const prompt = `
 # Personality and Tone
 
@@ -105,12 +113,21 @@ HISTORY:
 # Instructions
 - Keep every response under 75 tokens.
 `;
-
+  const [chatHistory, setChatHistory] = useState([]);
   const [transcript, setTranscript] = useState("");
   const [response, setResponse] = useState("");
   const [listening, setListening] = useState(false);
   const [loading, setLoading] = useState(false);
   const listRef = useRef(null);
+
+  //   Report states
+  const [reportLoading, setReportLoading] = useState(false); // state to track report generation loading
+  const [reportGenerated, setReportGenerated] = useState(false); // state to track if report is generated
+  const [report, setReport] = useState({
+    score: "",
+    summary: "",
+    improvements: [],
+  });
 
   // Audio visualizer refs and state
   const canvasRef = useRef(null);
@@ -143,6 +160,10 @@ HISTORY:
 
     recognition.onresult = async (event) => {
       const userInput = event.results[0][0].transcript; // this is how you grab the transcript
+
+      setChatHistory((prev) => {
+        return [...prev, { context: userInput, sender: "User" }];
+      });
       setTranscript(userInput);
       setLoading(true);
 
@@ -158,13 +179,16 @@ HISTORY:
 
         const agentReply = res.data.reply;
         setResponse(agentReply);
-
+        setChatHistory((prev) => {
+          return [...prev, { context: agentReply, sender: "Ai" }];
+        });
         // Calling Openai/Speech model turns our agent text response into Speech
         await speak(agentReply);
       } catch (err) {
         setResponse("Sorry, I couldn't process that request.");
       } finally {
         setLoading(false);
+        console.log(chatHistory);
       }
     };
 
@@ -356,6 +380,52 @@ HISTORY:
     }
   };
 
+  // Report functions
+  function handleCloseReport() {
+    setReportGenerated(false);
+    setReportLoading(false);
+    setReport({
+      score: "",
+      summary: "",
+      improvements: [],
+    });
+  }
+
+  const generateSandboxReport = async () => {
+    // handle report generation logic here
+    try {
+      setReportLoading(true);
+      setReportGenerated(true);
+      console.log("Generating report for deal:", selectedDeal.deal.deal_name);
+      const response = await axios.post(`${ReportServer}`, {
+        participant: selectedDeal.participants[0].prospect_name,
+        chatHistory: chatHistory,
+        deal_name: selectedDeal.deal.deal_name,
+        deal_id: parseInt(selectedDeal.deal.id),
+      });
+
+      console.log(response.data);
+      // Remove the code block wrapper (```json ... ```)
+      const cleanJsonString = response.data.response.replace(
+        /```json\n|\n```/g,
+        ""
+      );
+
+      // Parse the clean JSON string
+      const parsedResponse = JSON.parse(cleanJsonString);
+      setReport(parsedResponse);
+      console.log(report);
+      // setReportGenerated(true);
+      setReportLoading(false);
+      setResponse("");
+      setTranscript("");
+      setChatHistory([]); // reset chat after report generation
+    } catch {
+      setReportLoading(false);
+    } finally {
+      setReportLoading(false);
+    }
+  };
   // Cleanup on unmount
   useEffect(() => {
     initializeAudioVisualizer();
@@ -372,7 +442,9 @@ HISTORY:
   }, []);
   // Clear chat for new deal
   useEffect(() => {
+    setTranscript("");
     setResponse("");
+    setChatHistory([]);
   }, [selectedDeal]);
 
   return (
@@ -388,9 +460,48 @@ HISTORY:
         height="100%"
         borderColor="divider"
         maxWidth="100%"
-        p={3}
+        p={2}
         position="relative"
       >
+        {/* Toolbar */}
+        <Box
+          display={"flex"}
+          justifyContent="flex-end"
+          alignItems="center"
+          marginBottom={2}
+          sx={{
+            position: "absolute",
+            top: 16,
+            right: 16,
+            zIndex: 1,
+          }}
+        >
+          <Tooltip title="End the chat and generate report">
+            <span>
+              <Button
+                variant="contained"
+                disabled={chatHistory.length <= 1}
+                color="secondary"
+                onClick={generateSandboxReport}
+                sx={{
+                  fontSize: "1.1rem",
+                  px: 3,
+                  color: "#fdfdfdff",
+                  py: 0.8,
+                  borderRadius: 2,
+                  "&:hover": {
+                    background: "linear-gradient(135deg, #4c5460ff, #272a42ff)",
+                    transform: "scale(1.02)",
+                    transition: "all 0.2s ease",
+                  },
+                }}
+                endIcon={<AssessmentOutlined />}
+              >
+                Generate
+              </Button>
+            </span>
+          </Tooltip>
+        </Box>
         {/* Audio Visualizer - Always visible */}
         <Box
           display="flex"
@@ -483,6 +594,126 @@ HISTORY:
           </Paper>
         </Box>
       </Box>
+      {/* Modal that appears on Generation of Report */}
+      <Dialog
+        open={reportGenerated}
+        onClose={handleCloseReport}
+        sx={{ borderRadius: 10 }}
+      >
+        {reportLoading ? (
+          <Box
+            sx={{
+              padding: 3,
+              backgroundColor: "background.paper",
+              pl: 4,
+              pr: 4,
+              width: 600,
+              height: 400,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              minWidth: "fit-content",
+              minHeight: "fit-content",
+            }}
+          >
+            <Typography sx={{ color: "text.secondary", mb: 2 }}>
+              Generating report in progress, please wait...
+            </Typography>
+            <CircularProgress />
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              padding: 3,
+              backgroundColor: "background.paper",
+              pl: 4,
+              pr: 4,
+              width: 600,
+              height: 700,
+              minWidth: "fit-content",
+              minHeight: "fit-content",
+            }}
+          >
+            <DialogTitle
+              sx={{
+                borderBottom: "1px solid",
+                borderColor: "divider",
+                color: "text.primary",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+              }}
+            >
+              Report Generated
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                <Box sx={{ mt: 2 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Deal Name: {selectedDeal.deal.deal_name}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Participant: {selectedDeal.participants[0].prospect_name}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color:
+                        report.score >= 75
+                          ? "success.main"
+                          : report.score >= 50
+                          ? "warning.main"
+                          : "error.main",
+                    }}
+                    gutterBottom
+                  >
+                    Score: {report.score}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary" }}
+                    gutterBottom
+                  >
+                    Summary: {report.summary}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary", mt: 2 }}
+                    gutterBottom
+                  >
+                    Improvements:
+                  </Typography>
+                  <ul>
+                    {report.improvements.map((improvement, index) => (
+                      <li key={index}>
+                        <Typography
+                          sx={{ color: "text.primary" }}
+                          variant="body1"
+                        >
+                          {improvement}
+                        </Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Box>
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseReport} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Box>
+        )}
+      </Dialog>
     </Box>
   );
 };
