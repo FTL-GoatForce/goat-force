@@ -7,47 +7,39 @@ import {
   Card,
   CardContent,
   Modal,
+  Alert,
+  Collapse,
+  IconButton,
 } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import SideBar from "../ReusableComponents/Sidebar";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import { createClient } from "@supabase/supabase-js";
 
 function Settings() {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false); // for confirm modal state
   const [confirmSignOutOpen, setConfirmSignOutOpen] = useState(false); // for sign out modal state
+  const [session, setSession] = useState(null); // supabase session state
+  // alert state for notifications
+  const [alert, setAlert] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
 
-  // TODO: password update function
-  const handlePasswordUpdate = () => {
-    if (securityData.newPassword !== securityData.confirmPassword) {
-      alert("New passwords don't match!");
-      return;
+  const navigate = useNavigate();
+
+  // aut-hide alert
+  useEffect(() => {
+    if (alert.show) {
+      const timer = setTimeout(() => {
+        setAlert(prev => ({ ...prev, show: false }));
+      }, 5000);
+      return () => clearTimeout(timer);
     }
-    console.log("Updating password:", securityData);
-    // clear form after successful update
-    setSecurityData({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
-    });
-  };
-
-  // TODO: profile save function
-  const handleProfileSave = () => {
-    console.log("Saving profile data:", profileData);
-    // add supabase call here
-    // clear form after successful save
-
-  };
-
-  // TODO: sign out function
-  const handleSignOut = () => {
-    // add sign out logic here
-  }
-
-  // TODO: delete account function
-  const handleDeleteAccount = () => {
-    // add delete account logic here
-  }
+  }, [alert.show]);
 
   // Profile form state
   const [profileData, setProfileData] = useState({
@@ -62,6 +54,241 @@ function Settings() {
     newPassword: "",
     confirmPassword: "",
   });
+
+
+  // initialize supabase client
+  const supabase = createClient(
+    "https://gjigdggtkttoagacnhzw.supabase.co",
+    import.meta.env.VITE_SUPABASE_KEY
+  );
+
+  // check if user is signed in on component mount
+  useEffect(() => {
+    const fetchSession = async () => {
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        setSession(data.session);
+
+        // if the session exists, populate profile data
+        if (data.session?.user?.user_metadata) {
+          setProfileData({
+            firstName: data.session.user.user_metadata.first_name || "",
+            lastName: data.session.user.user_metadata.last_name || "",
+            email: data.session.user.email || "",
+          });
+        }
+
+      } catch (error) {
+        console.error("Error fetching session:", error);
+      }
+    };
+    fetchSession();
+  }, []);
+
+const handlePasswordUpdate = async () => {
+  
+  // 1. validate new password
+  if (securityData.newPassword !== securityData.confirmPassword) {
+    setAlert({
+      show: true,
+      message: "New passwords don't match!",
+      type: "error",
+    });
+    return;
+  }
+
+  if (!securityData.currentPassword || !securityData.newPassword || !securityData.confirmPassword) {
+    setAlert({
+      show: true,
+      message: "Please fill in all password fields!",
+      type: "error",
+    });
+    return;
+  }
+
+  try {
+    // 2. check if user is signed in w/ supabase
+    if (!session) {
+      setAlert({
+        show: true,
+        message: "You must be signed in to update your password.",
+        type: "error",
+      });
+      return;
+    }
+
+    // 3. validate current password by re-authenticating
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: session.user.email,
+      password: securityData.currentPassword,
+    });
+
+    if (signInError) {
+      setAlert({
+        show: true,
+        message: "Current password is incorrect!",
+        type: "error",
+      });
+      return;
+    }
+
+    // 4. update password (supabase auth call)
+    const { error: updateError } = await supabase.auth.updateUser({
+      password: securityData.newPassword
+    });
+
+    if (updateError) {
+      setAlert({
+        show: true,
+        message: `Failed to update password: ${updateError.message}`,
+        type: "error",
+      });
+      return;
+    }
+
+    // 5. clear form after successful update
+    setSecurityData({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
+
+    setAlert({
+      show: true,
+      message: "Password updated successfully!",
+      type: "success",
+    });
+
+  } catch (error) {
+    console.error("Error updating password:", error);
+    setAlert({
+      show: true,
+      message: "Failed to update password. Please try again.",
+      type: "error",
+    });
+  }
+};
+
+  const handleProfileSave = async () => {
+    try {
+
+      // 1. validate user signed in
+      if (!session) {
+        setAlert({
+          show: true,
+          message: "You must be signed in to update your profile.",
+          type: "error",
+        });
+        return;
+      }
+
+      // 2. validate profile data form
+      if (!profileData.firstName || !profileData.lastName || !profileData.email) {
+        setAlert({
+          show: true,
+          message: "Please fill in all profile fields!",
+          type: "error",
+        });
+        return;
+      }
+
+      // 3. update user metadata in supabase
+      const { error: metadataError } = await supabase.auth.updateUser({
+      data: {
+        first_name: profileData.firstName.trim(),
+        last_name: profileData.lastName.trim(),
+        full_name: `${profileData.firstName.trim()} ${profileData.lastName.trim()}`,
+        display_name: `${profileData.firstName.trim()} ${profileData.lastName.trim()}`
+      }
+    });
+
+    if (metadataError) {
+      console.error("Error updating user metadata:", metadataError);
+      setAlert({
+        show: true,
+        message: "Failed to update profile. Please try again.",
+        type: "error",
+      });
+      return;
+    }
+
+    if (profileData.email !== session.user.email) {
+      const { error: emailError } = await supabase.auth.updateUser({
+        email: profileData.email.trim(),
+      });
+      if (emailError) {
+        console.error("Error updating email:", emailError);
+        setAlert({
+          show: true,
+          message: "Failed to update email. Please try again.",
+          type: "error",
+        });
+        return;
+      }
+    }
+
+    // 5. refresh session to get updated user metadata
+    const { data: updatedSession } = await supabase.auth.getSession();
+    if (updatedSession.session) {
+      setSession(updatedSession.session);
+    }
+
+    setAlert({
+      show: true,
+      message: "Profile updated successfully!",
+      type: "success",
+    });
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setAlert({
+        show: true,
+        message: "Failed to update profile. Please try again.",
+        type: "error",
+      });
+    }
+  };
+  // sign out function
+  const handleSignOut = async () => {
+    try {
+      // 1. supabase auth call to sign out
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+
+      // 2. clear local session state and close confirm modals
+      setSession(null);
+      setConfirmSignOutOpen(false);
+      setConfirmModalOpen(false);
+
+      // 3. clear form data
+      setProfileData({
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
+
+      setSecurityData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+
+      //4. navigate to auth page
+      navigate("/auth");
+    } catch (error) {
+      console.error("Error signing out:", error);
+      setAlert({
+        show: true,
+        message: "Failed to sign out. Please try again.",
+        type: "error",
+      });
+    }
+  };
+
+  // TODO: need admin priveleges ?
+  const handleDeleteAccount = () => {
+
+  };
 
   // Handle profile form changes
   const handleProfileChange = (field, value) => {
@@ -78,7 +305,6 @@ function Settings() {
       [field]: value,
     }));
   };
-
 
   // Confirm action modal (for sign out and delete account)
   const toggleConfirmModalOpen = () => {
@@ -97,8 +323,6 @@ function Settings() {
   const confirmSignOutClose = () => {
     setConfirmSignOutOpen(false);
   };
-
-
 
   return (
     <Box
@@ -122,6 +346,32 @@ function Settings() {
           padding: 2,
         }}
       >
+        {/* Alert for notifications */}
+        <Collapse in={alert.show}>
+          <Alert
+            severity={alert.type}
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => setAlert(prev => ({ ...prev, show: false }))}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+            sx={{
+              position: "fixed",
+              top: 20,
+              right: 20,
+              zIndex: 1000,
+              minWidth: 300,
+              boxShadow: 3,
+            }}
+          >
+            {alert.message}
+          </Alert>
+        </Collapse>
         {/* Page header */}
         <Box
           marginLeft={3}
@@ -559,51 +809,51 @@ function Settings() {
 
           {/* account actions card content  */}
           <Box display={"flex"} flexDirection={"column"} gap={2} marginTop={3}>
-              {/* Modal for signing out account */}
-              <Modal open={confirmSignOutOpen} onClose={confirmSignOutClose}>
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: 500,
-                    bgcolor: "background.paper",
-                    boxShadow: 24,
-                    borderRadius: 3,
-                    padding: 4,
-                  }}
+            {/* Modal for signing out account */}
+            <Modal open={confirmSignOutOpen} onClose={confirmSignOutClose}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: 500,
+                  bgcolor: "background.paper",
+                  boxShadow: 24,
+                  borderRadius: 3,
+                  padding: 4,
+                }}
+              >
+                <Typography
+                  color="text.primary"
+                  id="confirm-delete-description"
+                  fontWeight={"bold"}
+                  align="center"
+                  fontSize={"18px"}
+                  marginBottom={3}
                 >
-                  <Typography
-                    color="text.primary"
-                    id="confirm-delete-description"
-                    fontWeight={"bold"}
-                    align="center"
-                    fontSize={"18px"}
-                    marginBottom={3}
+                  Are you sure you want to sign out?
+                </Typography>
+                {/* buttons holder || cancel / confirm */}
+                <Box display="flex" gap={2} justifyContent="center">
+                  <Button
+                    variant="outlined"
+                    onClick={confirmSignOutClose}
+                    sx={{ minWidth: "100px" }}
                   >
-                    Are you sure you want to sign out?
-                  </Typography>
-                  {/* buttons holder || cancel / confirm */}
-                  <Box display="flex" gap={2} justifyContent="center">
-                    <Button
-                      variant="outlined"
-                      onClick={confirmSignOutClose}
-                      sx={{ minWidth: "100px" }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      sx={{ minWidth: "100px" }}
-                      onClick={handleSignOut}
-                    >
-                      Sign Out
-                    </Button>
-                  </Box>
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    sx={{ minWidth: "100px" }}
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </Button>
                 </Box>
-              </Modal>
+              </Box>
+            </Modal>
             {/* Sign Out Action */}
             <Box
               display={"flex"}

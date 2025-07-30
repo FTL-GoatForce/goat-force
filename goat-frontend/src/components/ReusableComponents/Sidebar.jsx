@@ -44,7 +44,6 @@ const SideBar = () => {
   };
 
   // use state hooks, click will set active item to the clicked item
-  console.log("Current location:", location.pathname);
   const [activeItem, setActiveItem] = useState(() => {
     // Get initial active item from current location path
     return getActiveItemFromPath(location.pathname);
