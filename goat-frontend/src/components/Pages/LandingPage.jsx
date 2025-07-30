@@ -152,7 +152,7 @@ const LandingPage = () => {
         }
       }
 
-      const baseParticleCount = 20000;
+      const baseParticleCount = 15000;
       const targetParticleCount = Math.floor(
         baseParticleCount *
           Math.sqrt((canvas.width * canvas.height) / (1920 * 1080))
