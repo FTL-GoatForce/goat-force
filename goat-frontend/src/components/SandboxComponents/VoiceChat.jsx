@@ -20,6 +20,9 @@ import axios from "axios";
 
 const VoiceChat = ({ selectedDeal }) => {
   const ReportServer = import.meta.env.VITE_REPORT_SERVER;
+  const AgentEndpoint = import.meta.env.VITE_AGENT_ENDPOINT; // Endpoint for the voice agent - express
+  const SpeechEndpoint = import.meta.env.VITE_SPEECH_ENDPOINT; // Endpoint for OpenAI's speech synthesis
+
   const prompt = `
 # Personality and Tone
 
@@ -169,13 +172,10 @@ HISTORY:
 
       //  After a voice respose we call backend agent, generating a response
       try {
-        const res = await axios.post(
-          "http://localhost:3000/voice/voice-agent",
-          {
-            prompt,
-            userInput,
-          }
-        );
+        const res = await axios.post(`${AgentEndpoint}`, {
+          prompt,
+          userInput,
+        });
 
         const agentReply = res.data.reply;
         setResponse(agentReply);
@@ -197,7 +197,7 @@ HISTORY:
   const speak = async (text) => {
     try {
       setLoading(true);
-      const res = await fetch("https://api.openai.com/v1/audio/speech", {
+      const res = await fetch(`${SpeechEndpoint}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,

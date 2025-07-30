@@ -51,10 +51,8 @@ function Sandbox() {
   const handleModeSwitch = () => {
     if (selectedMode == "text") {
       setSelectedMode("voice");
-      console.log("voice");
     } else {
       setSelectedMode("text");
-      console.log("text");
     }
   };
 
