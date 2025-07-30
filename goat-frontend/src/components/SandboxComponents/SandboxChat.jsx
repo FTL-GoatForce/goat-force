@@ -221,25 +221,7 @@ function SandboxChat({ selectedDeal, deals }) {
               borderColor: "divider",
             }}
           >
-            {/* Mode Selection Dropdown */}
-            <FormControl size="small" sx={{ minWidth: 150 }}>
-              <InputLabel color="text.primary" id="communication-mode-label">
-                Mode
-              </InputLabel>
-              <Select
-                labelId="communication-mode-label"
-                id="communication-mode-select"
-                value={communicationMode}
-                label="Mode"
-                onChange={handleModeChange}
-                sx={{
-                  backgroundColor: "background.paper",
-                }}
-              >
-                <MenuItem value="chat"> Text Mode</MenuItem>
-                <MenuItem value="voice"> Voice Mode</MenuItem>
-              </Select>
-            </FormControl>
+            <div></div>
 
             {/* Toolbar Actions */}
             <Box display="flex" gap={2} alignItems="center">

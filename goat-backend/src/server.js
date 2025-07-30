@@ -8,6 +8,7 @@ import http from "http";
 
 // Routes
 import dealRoutes from "./routes/dealRoutes.js";
+import voiceRoutes from "./routes/voiceRoutes.js";
 
 // WebSocket
 import { initializeWebSocket } from "./web_socket/socket.js";
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
 
 // Setting Routes
 app.use("/deal", dealRoutes);
+app.use("/voice", voiceRoutes);
 
 //pulse check
 app.get("/", (req, res) => {

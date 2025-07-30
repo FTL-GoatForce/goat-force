@@ -5,18 +5,20 @@ import { useState } from "react";
 import ContactSelector from "../SandboxComponents/ContactSelector";
 import ContactProfile from "../SandboxComponents/ContactProfile";
 import Header from "../ReusableComponents/Header";
-import { ArrowBack } from "@mui/icons-material";
+import { ArrowBack, Forum, Phone } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SandboxChat from "../SandboxComponents/SandboxChat";
+import VoiceChat from "../SandboxComponents/VoiceChat";
 
 function Sandbox() {
   const [deals, setDeals] = useState([]);
   const [selectedDeal, setSelectedDeal] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedMode, setSelectedMode] = useState("text");
   const navigate = useNavigate();
 
   // Fetch all deals and update state
@@ -45,6 +47,15 @@ function Sandbox() {
   const handleDealClick = (dealId) => {
     const deal = deals.find((d) => d.deal.id === dealId);
     setSelectedDeal(deal);
+  };
+  const handleModeSwitch = () => {
+    if (selectedMode == "text") {
+      setSelectedMode("voice");
+      console.log("voice");
+    } else {
+      setSelectedMode("text");
+      console.log("text");
+    }
   };
 
   // LOADING STATE - matching the layout structure
@@ -226,7 +237,15 @@ function Sandbox() {
                   Sandbox Mode
                 </Typography>
               </div>
-              <div></div>
+              <Button
+                variant="contained"
+                sx={{ mr: 3 }}
+                color={selectedMode == "text" ? "secondary" : "primary"}
+                onClick={handleModeSwitch}
+                endIcon={selectedMode == "text" ? <Phone /> : <Forum />}
+              >
+                {selectedMode == "text" ? "Try a Phone Call" : "Back to text"}
+              </Button>
             </Box>
           </Box>
           {/* Cards Content of Page */}
@@ -273,7 +292,11 @@ function Sandbox() {
               }}
               gap={2}
             >
-              <SandboxChat selectedDeal={selectedDeal} deals={deals} />
+              {selectedMode == "text" ? (
+                <SandboxChat selectedDeal={selectedDeal} deals={deals} />
+              ) : (
+                <VoiceChat selectedDeal={selectedDeal} />
+              )}
             </Box>
           </Box>
         </Box>
