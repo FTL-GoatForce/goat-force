@@ -188,7 +188,6 @@ HISTORY:
         setResponse("Sorry, I couldn't process that request.");
       } finally {
         setLoading(false);
-        console.log(chatHistory);
       }
     };
 
@@ -404,7 +403,6 @@ HISTORY:
         deal_id: parseInt(selectedDeal.deal.id),
       });
 
-      console.log(response.data);
       // Remove the code block wrapper (```json ... ```)
       const cleanJsonString = response.data.response.replace(
         /```json\n|\n```/g,
@@ -414,7 +412,6 @@ HISTORY:
       // Parse the clean JSON string
       const parsedResponse = JSON.parse(cleanJsonString);
       setReport(parsedResponse);
-      console.log(report);
       // setReportGenerated(true);
       setReportLoading(false);
       setResponse("");
