@@ -126,6 +126,7 @@ function App() {
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/transcripts" element={<Transcripts />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="*" element={<LandingPage />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

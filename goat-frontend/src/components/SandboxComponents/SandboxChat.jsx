@@ -16,6 +16,7 @@ import {
   DialogContentText,
   DialogActions,
   CircularProgress,
+  Stack,
 } from "@mui/material";
 import CRMChatbotTextEntry from "../CRMComponents/CRMChatbotTextEntry";
 import { useState } from "react";
@@ -173,12 +174,6 @@ function SandboxChat({ selectedDeal, deals }) {
     }
   };
 
-  const handleModeChange = (event) => {
-    setCommunicationMode(event.target.value);
-    console.log("Communication mode changed to:", event.target.value);
-    // TODO: Implement mode switching logic
-  };
-
   // selectedDeal is updated, reset chat
   useEffect(() => {
     handleChatReset();
@@ -221,26 +216,11 @@ function SandboxChat({ selectedDeal, deals }) {
               borderColor: "divider",
             }}
           >
-            {/* Mode Selection Dropdown */}
-            <FormControl size="small" sx={{ minWidth: 150 }}>
-              <InputLabel color="text.primary" id="communication-mode-label">
-                Mode
-              </InputLabel>
-              <Select
-                labelId="communication-mode-label"
-                id="communication-mode-select"
-                value={communicationMode}
-                label="Mode"
-                onChange={handleModeChange}
-                sx={{
-                  backgroundColor: "background.paper",
-                }}
-              >
-                <MenuItem value="chat"> Text Mode</MenuItem>
-                <MenuItem value="voice"> Voice Mode</MenuItem>
-              </Select>
-            </FormControl>
-
+            <ShinyText
+              text={`Chatting with ${" "} ${
+                selectedDeal.participants[0].prospect_name
+              }`}
+            />
             {/* Toolbar Actions */}
             <Box display="flex" gap={2} alignItems="center">
               <Typography
@@ -253,28 +233,30 @@ function SandboxChat({ selectedDeal, deals }) {
                 Ready to see your analysis?
               </Typography>
               <Tooltip title="End the chat and generate report">
-                <Button
-                  variant="contained"
-                  disabled={messages.length <= 1}
-                  color="primary"
-                  onClick={generateSandboxReport}
-                  sx={{
-                    fontSize: "1.1rem",
-                    px: 3,
-                    color: "#fdfdfdff",
-                    py: 0.8,
-                    borderRadius: 2,
-                    "&:hover": {
-                      background:
-                        "linear-gradient(135deg, #4c5460ff, #272a42ff)",
-                      transform: "scale(1.02)",
-                      transition: "all 0.2s ease",
-                    },
-                  }}
-                  endIcon={<AssessmentOutlined />}
-                >
-                  Generate
-                </Button>
+                <span>
+                  <Button
+                    variant="contained"
+                    disabled={messages.length <= 1}
+                    color="primary"
+                    onClick={generateSandboxReport}
+                    sx={{
+                      fontSize: "1.1rem",
+                      px: 3,
+                      color: "#fdfdfdff",
+                      py: 0.8,
+                      borderRadius: 2,
+                      "&:hover": {
+                        background:
+                          "linear-gradient(135deg, #4c5460ff, #272a42ff)",
+                        transform: "scale(1.02)",
+                        transition: "all 0.2s ease",
+                      },
+                    }}
+                    endIcon={<AssessmentOutlined />}
+                  >
+                    Generate
+                  </Button>
+                </span>
               </Tooltip>
             </Box>
           </Box>

@@ -1209,3 +1209,124 @@ Structured Response: {
 Channel ID: D096QPA7FV4
 Structured Response: {"thread_id": "D096QPA7FV4", "channel": {"id": "D096QPA7FV4", "name": "", "type": "dm"}, "participants": [], "messages": [], "summary": "The channel 'D096QPA7FV4' was found to contain only a header row and no discernible conversational messages. Therefore, a detailed summary and analysis cannot be provided.", "last_activity": "", "engagement_metrics": {"message_count": 0, "rep_response_time_sec": 0, "objections_raised": 0, "followups_committed": 0}, "tags": ["no_data_available", "channel_empty_or_unsupported"]}
 --------------------------------
+Channel ID: D094M4YL6BG
+Structured Response: {
+  "thread_id": "D094M4YL6BG_direct_message",
+  "channel": {
+    "id": "D094M4YL6BG",
+    "name": "DM: Bruce Wayne & Diego",
+    "type": "dm"
+  },
+  "participants": [
+    {
+      "id": "U094K124HS7",
+      "name": "Bruce",
+      "role": "rep"
+    },
+    {
+      "id": "U094SUAAPLL",
+      "name": "Diego",
+      "role": "prospect"
+    }
+  ],
+  "messages": [
+    {
+      "from": "Bruce",
+      "text": "Hey Diego Just sent over the invite welcome to the Slack workspace. Feel free to use this thread for async updates or quick questions.",
+      "timestamp": "2024-07-08T13:58:52Z",
+      "sentiment": "positive",
+      "tone": "welcoming",
+      "objections": [],
+      "intent": "onboarding",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thanks Bruce. Will do. Just shared the breakdown with legal should have feedback tomorrow.",
+      "timestamp": "2024-07-08T13:59:02Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "update_status",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Awesome. Let me know if I should loop in our legal or revops team on anything.",
+      "timestamp": "2024-07-08T13:59:11Z",
+      "sentiment": "positive",
+      "tone": "helpful",
+      "objections": [],
+      "intent": "offer_support",
+      "action_required": true
+    },
+    {
+      "from": "Diego",
+      "text": "Might be helpful. Ill let you know once I see their notes.",
+      "timestamp": "2024-07-08T13:59:17Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "acknowledge",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Cool. On our side, were holding your 210K pricing for the rest of Q3 no pressure, just want you to know.",
+      "timestamp": "2024-07-08T13:59:23Z",
+      "sentiment": "positive",
+      "tone": "reassuring",
+      "objections": [],
+      "intent": "inform_offer",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Thats appreciated. I dont anticipate pushback, but timeline clarity helps.",
+      "timestamp": "2024-07-08T13:59:29Z",
+      "sentiment": "positive",
+      "tone": "practical",
+      "objections": [],
+      "intent": "seek_clarity",
+      "action_required": true
+    },
+    {
+      "from": "Bruce",
+      "text": "Understood. Ill check in tomorrow to see if youve heard from legal. Ping me anytime.",
+      "timestamp": "2024-07-08T13:59:35Z",
+      "sentiment": "neutral",
+      "tone": "cooperative",
+      "objections": [],
+      "intent": "follow-up",
+      "action_required": false
+    },
+    {
+      "from": "Diego",
+      "text": "Will do. Thanks again, Bruce.",
+      "timestamp": "2024-07-08T13:59:43Z",
+      "sentiment": "positive",
+      "tone": "appreciative",
+      "objections": [],
+      "intent": "confirm_acknowledge",
+      "action_required": false
+    }
+  ],
+  "summary": "The Slack thread initiated with Sales Rep Bruce Wayne welcoming prospect Diego. Diego provided an update on sharing the pricing breakdown with his legal team, expecting feedback soon. Bruce proactively offered support from his legal/revops team and reassured Diego about holding the current pricing. The conversation concluded with Bruce committing to follow up after Diego receives legal feedback, highlighting a collaborative and positive progression of the sales cycle.",
+  "last_activity": "2024-07-08T13:59:43Z",
+  "engagement_metrics": {
+    "message_count": 8,
+    "rep_response_time_sec": 6.84,
+    "objections_raised": 0,
+    "followups_committed": 1
+  },
+  "tags": [
+    "action_required",
+    "legal_review",
+    "positive_engagement",
+    "pricing_discussion",
+    "quick_rep_response",
+    "rep_followup_committed",
+    "welcome"
+  ]
+}
+--------------------------------
