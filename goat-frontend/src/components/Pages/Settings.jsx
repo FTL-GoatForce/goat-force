@@ -532,7 +532,7 @@ const handlePasswordUpdate = async () => {
 
           {/* security card content  */}
           <Box display={"flex"} flexDirection={"column"} gap={2} marginTop={3}>
-            <Box flexGrow={1} display={"flex"} flexDirection={"column"}>
+            <Box flexGrow={1} display={"flex"} flexDirection={"column"} l>
               <Typography
                 marginLeft={0.2}
                 fontSize={"15px"}
@@ -672,7 +672,7 @@ const handlePasswordUpdate = async () => {
                 width={48}
                 height={48}
                 marginRight={2}
-                backgroundColor="white"
+                backgroundColor="background.paper"
                 borderRadius={1}
                 border={1}
                 borderColor="divider"
@@ -734,7 +734,7 @@ const handlePasswordUpdate = async () => {
                 width={48}
                 height={48}
                 marginRight={2}
-                backgroundColor="white"
+                backgroundColor="background.paper"
                 borderRadius={1}
                 border={1}
                 borderColor="divider"
