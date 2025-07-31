@@ -4,7 +4,7 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { ForumOutlined } from "@mui/icons-material";
 import { Menu } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import { useNavigate, useLocation, Navigate } from "react-router-dom";
 
 import {
@@ -161,185 +161,196 @@ const SideBar = () => {
             </Typography>
           )}
           <ListItem disablePadding sx={{ mb: 0.7 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: "7px",
-                justifyContent: open ? "flex-start" : "center",
-                px: open ? 2 : 0,
-                "&:hover": {
-                  backgroundColor: "primary.dark", // change background color on hover of the button
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color on hover
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color on hover
-                  },
-                },
-                // spread operator to apply styles if true, after && excecutes if activeItem is "Overview"
-                ...(activeItem === "Overview" && {
-                  backgroundColor: "primary.dark", // change background color if active
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color if active
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color if active
-                  },
-                }),
-              }}
-              onClick={() => {
-                setActiveItem("Overview");
-                navigate("/dashboard"); // navigate to the overview page
-              }}
-            >
-              {" "}
-              <ListItemIcon
+            <Tooltip title={open ? "" : "Overview"} placement="right">
+              <ListItemButton
                 sx={{
-                  color: "#A6ACB9",
-                  minWidth: open ? "33px" : "auto",
-                  mr: open ? 2 : 0,
+                  borderRadius: "7px",
+                  justifyContent: open ? "flex-start" : "center",
+                  px: open ? 2 : 0,
+                  "&:hover": {
+                    backgroundColor: "primary.dark", // change background color on hover of the button
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color on hover
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color on hover
+                    },
+                  },
+                  // spread operator to apply styles if true, after && excecutes if activeItem is "Overview"
+                  ...(activeItem === "Overview" && {
+                    backgroundColor: "primary.dark", // change background color if active
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color if active
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color if active
+                    },
+                  }),
+                }}
+                onClick={() => {
+                  setActiveItem("Overview");
+                  navigate("/dashboard"); // navigate to the overview page
                 }}
               >
-                <SpaceDashboardOutlined fontSize="small" />
-              </ListItemIcon>
-              {open && (
-                <ListItemText primary="Overview" sx={{ color: "#A6ACB9" }} />
-              )}
-            </ListItemButton>
+                {" "}
+                <ListItemIcon
+                  sx={{
+                    color: "#A6ACB9",
+                    minWidth: open ? "33px" : "auto",
+                    mr: open ? 2 : 0,
+                  }}
+                >
+                  <SpaceDashboardOutlined fontSize="small" />
+                </ListItemIcon>
+                {open && (
+                  <ListItemText primary="Overview" sx={{ color: "#A6ACB9" }} />
+                )}
+              </ListItemButton>
+            </Tooltip>
           </ListItem>
           <ListItem disablePadding sx={{ mb: 0.7 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: "7px",
-                justifyContent: open ? "flex-start" : "center",
-                px: open ? 2 : 0,
-                "&:hover": {
-                  backgroundColor: "primary.dark", // change background color on hover of the button
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color on hover
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color on hover
-                  },
-                },
-                ...(activeItem === "Sandbox" && {
-                  backgroundColor: "primary.dark", // change background color if active
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color if active
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color if active
-                  },
-                }),
-              }}
-              onClick={() => {
-                setActiveItem("Sandbox");
-                navigate("/sandbox"); // navigate to the sandbox page
-              }}
-            >
-              {" "}
-              <ListItemIcon
+            <Tooltip title={open ? "" : "Deals"} placement="right">
+              <ListItemButton
                 sx={{
-                  color: "#A6ACB9",
-                  minWidth: open ? "33px" : "auto",
-                  mr: open ? 2 : 0,
+                  borderRadius: "7px",
+                  justifyContent: open ? "flex-start" : "center",
+                  px: open ? 2 : 0,
+                  "&:hover": {
+                    backgroundColor: "primary.dark", // change background color on hover of the button
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color on hover
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color on hover
+                    },
+                  },
+                  ...(activeItem === "Sandbox" && {
+                    backgroundColor: "primary.dark", // change background color if active
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color if active
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color if active
+                    },
+                  }),
+                }}
+                onClick={() => {
+                  setActiveItem("Sandbox");
+                  navigate("/sandbox"); // navigate to the sandbox page
                 }}
               >
-                <AnalyticsOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              {open && (
-                <ListItemText primary="Sandbox" sx={{ color: "#A6ACB9" }} />
-              )}
-            </ListItemButton>
+                {" "}
+                <ListItemIcon
+                  sx={{
+                    color: "#A6ACB9",
+                    minWidth: open ? "33px" : "auto",
+                    mr: open ? 2 : 0,
+                  }}
+                >
+                  <AnalyticsOutlinedIcon fontSize="small" />
+                </ListItemIcon>
+                {open && (
+                  <ListItemText primary="Sandbox" sx={{ color: "#A6ACB9" }} />
+                )}
+              </ListItemButton>
+            </Tooltip>
           </ListItem>
           <ListItem disablePadding sx={{ mb: 0.7 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: "7px",
-                justifyContent: open ? "flex-start" : "center",
-                px: open ? 2 : 0,
-                "&:hover": {
-                  backgroundColor: "primary.dark", // change background color on hover of the button
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color on hover
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color on hover
-                  },
-                },
-                ...(activeItem === "Transcripts" && {
-                  backgroundColor: "primary.dark", // change background color if active
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color if active
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color if active
-                  },
-                }),
-              }}
-              onClick={() => {
-                setActiveItem("Transcripts");
-                navigate("/transcripts"); // navigate to the transcripts page
-              }}
-            >
-              {" "}
-              <ListItemIcon
+            <Tooltip title={open ? "" : "Transcripts"} placement="right">
+              <ListItemButton
                 sx={{
-                  color: "#A6ACB9",
-                  minWidth: open ? "33px" : "auto",
-                  mr: open ? 2 : 0,
+                  borderRadius: "7px",
+                  justifyContent: open ? "flex-start" : "center",
+                  px: open ? 2 : 0,
+                  "&:hover": {
+                    backgroundColor: "primary.dark", // change background color on hover of the button
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color on hover
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color on hover
+                    },
+                  },
+                  ...(activeItem === "Transcripts" && {
+                    backgroundColor: "primary.dark", // change background color if active
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color if active
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color if active
+                    },
+                  }),
+                }}
+                onClick={() => {
+                  setActiveItem("Transcripts");
+                  navigate("/transcripts"); // navigate to the transcripts page
                 }}
               >
-                <ForumOutlined fontSize="small" />
-              </ListItemIcon>
-              {open && (
-                <ListItemText primary="Transcripts" sx={{ color: "#A6ACB9" }} />
-              )}
-            </ListItemButton>
+                {" "}
+                <ListItemIcon
+                  sx={{
+                    color: "#A6ACB9",
+                    minWidth: open ? "33px" : "auto",
+                    mr: open ? 2 : 0,
+                  }}
+                >
+                  <ForumOutlined fontSize="small" />
+                </ListItemIcon>
+                {open && (
+                  <ListItemText
+                    primary="Transcripts"
+                    sx={{ color: "#A6ACB9" }}
+                  />
+                )}
+              </ListItemButton>
+            </Tooltip>
           </ListItem>
           <ListItem disablePadding sx={{ mb: 0.7 }}>
-            <ListItemButton
-              sx={{
-                borderRadius: "7px",
-                justifyContent: open ? "flex-start" : "center",
-                px: open ? 2 : 0,
-                "&:hover": {
-                  backgroundColor: "primary.dark", // change background color on hover of the button
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color on hover
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color on hover
-                  },
-                },
-                ...(activeItem === "Settings" && {
-                  backgroundColor: "primary.dark", // change background color if active
-                  "& .MuiListItemIcon-root": {
-                    color: "white", // change icon color if active
-                  },
-                  "& .MuiListItemText-primary": {
-                    color: "white", // change text color if active
-                  },
-                }),
-              }}
-              onClick={() => {
-                setActiveItem("Settings");
-                navigate("/settings");
-              }}
-            >
-              {" "}
-              <ListItemIcon
+            <Tooltip title={open ? "" : "Settings"} placement="right">
+              <ListItemButton
                 sx={{
-                  color: "#A6ACB9",
-                  minWidth: open ? "33px" : "auto",
-                  mr: open ? 2 : 0,
+                  borderRadius: "7px",
+                  justifyContent: open ? "flex-start" : "center",
+                  px: open ? 2 : 0,
+                  "&:hover": {
+                    backgroundColor: "primary.dark", // change background color on hover of the button
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color on hover
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color on hover
+                    },
+                  },
+                  ...(activeItem === "Settings" && {
+                    backgroundColor: "primary.dark", // change background color if active
+                    "& .MuiListItemIcon-root": {
+                      color: "white", // change icon color if active
+                    },
+                    "& .MuiListItemText-primary": {
+                      color: "white", // change text color if active
+                    },
+                  }),
+                }}
+                onClick={() => {
+                  setActiveItem("Settings");
+                  navigate("/settings");
                 }}
               >
-                <SettingsOutlinedIcon fontSize="small" />
-              </ListItemIcon>
-              {open && (
-                <ListItemText primary="Settings" sx={{ color: "#A6ACB9" }} />
-              )}
-            </ListItemButton>
+                {" "}
+                <ListItemIcon
+                  sx={{
+                    color: "#A6ACB9",
+                    minWidth: open ? "33px" : "auto",
+                    mr: open ? 2 : 0,
+                  }}
+                >
+                  <SettingsOutlinedIcon fontSize="small" />
+                </ListItemIcon>
+                {open && (
+                  <ListItemText primary="Settings" sx={{ color: "#A6ACB9" }} />
+                )}
+              </ListItemButton>
+            </Tooltip>
           </ListItem>
         </List>
 

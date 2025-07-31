@@ -246,8 +246,8 @@ async def runReport(message : ReportRequest):
                     When constructing a response you should:
                     1. Analyze the chat history
                     2. Use the tools to look into the personality table of deal_id {message.deal_id} for {message.participant}
-                    3. Construct a summary of the chat where you tell positives and negatives of the chat 
-                    4. Rate the simulated conversation on a score 1 - 100 
+                    3. Construct a summary of the chat where you tell positives and negatives of the chat and give constructive feedback
+                    4. Rate the simulated conversation on a score 1 - 100, with 100 being a perfect conversation. Do not score the AI Responses only what the user says.
                     5. Give different improvements the user could give for the real conversation
                     6. Structure the response as a JSON object with the following structure:
 
