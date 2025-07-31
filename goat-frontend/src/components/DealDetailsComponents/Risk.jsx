@@ -31,6 +31,48 @@ function Risk({
     setExpandedSection(expandedSection === risk ? null : risk);
   };
 
+  // Create risk data array and sort by score (highest first)
+  const riskData = [
+    {
+      key: "deal",
+      title: "Deal Risk",
+      score: deal_risk_score,
+      description: deal_risk_description,
+      icon: WarningAmberIcon,
+      iconColor: "error.main",
+    },
+    {
+      key: "churn",
+      title: "Churn Risk",
+      score: churn_risk_score,
+      description: churn_risk_description,
+      icon: TrendingDownIcon,
+      iconColor: "warning.main",
+    },
+    {
+      key: "timeline",
+      title: "Timeline Risk",
+      score: timeline_risk_score,
+      description: timeline_risk_description,
+      icon: AccessTimeIcon,
+      iconColor: "info.main",
+    },
+    {
+      key: "budget",
+      title: "Budget Risk",
+      score: budget_risk_score,
+      description: budget_risk_description,
+      icon: AttachMoneyIcon,
+      iconColor: "success.main",
+    },
+  ].sort((a, b) => b.score - a.score);
+
+  const getRiskLevel = (score) => {
+    if (score > 65) return { label: "High", color: "error" };
+    if (score > 35) return { label: "Medium", color: "warning" };
+    return { label: "Low", color: "success" };
+  };
+
   return (
     <Card
       sx={{
@@ -55,377 +97,93 @@ function Risk({
 
       {/* Main Box */}
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        {/* Deal Risk Box */}
-        <Paper
-          elevation={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            backgroundColor: "background.paper",
-            padding: 2,
-            borderRadius: 2,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            {/* Risk Title */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <WarningAmberIcon sx={{ color: "error.main", fontSize: 24 }} />
-              <Typography
-                variant="body1"
-                sx={{ color: "text.primary", fontWeight: "bold" }}
-              >
-                Deal Risk
-              </Typography>
-              <Chip
-                label={
-                  deal_risk_score > 65
-                    ? "High"
-                    : deal_risk_score > 35 && deal_risk_score < 65
-                    ? "Medium"
-                    : "Low"
-                }
-                color={
-                  deal_risk_score > 65
-                    ? "error"
-                    : deal_risk_score > 35 && deal_risk_score < 65
-                    ? "warning"
-                    : "success"
-                }
-                sx={{ marginLeft: "auto" }}
-              />
-              <IconButton onClick={() => handleExpand("deal")}>
-                <ArrowDropDownIcon
-                  sx={{
-                    color: "text.secondary",
-                    fontSize: 24,
-                    transform:
-                      expandedSection === "deal"
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out",
-                  }}
-                />
-              </IconButton>
-            </Box>
+        {riskData.map((risk) => {
+          const IconComponent = risk.icon;
+          const riskLevel = getRiskLevel(risk.score);
 
-            {/* Risk Description */}
-            <Box
+          return (
+            <Paper
+              key={risk.key}
+              elevation={3}
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 gap: 2,
+                backgroundColor: "background.paper",
+                padding: 2,
+                borderRadius: 2,
               }}
             >
-              <LinearBar value={deal_risk_score} />
-            </Box>
-            {expandedSection === "deal" && (
               <Box
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   gap: 2,
-                  maxWidth: "480px",
                 }}
               >
-                <Typography variant="body1" sx={{ color: "text.primary" }}>
-                  {deal_risk_description}
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        </Paper>
-
-        {/* Churn Risk Box */}
-        <Paper
-          elevation={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            backgroundColor: "background.paper",
-            padding: 2,
-            borderRadius: 2,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            {/* Risk Title */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <TrendingDownIcon sx={{ color: "warning.main", fontSize: 24 }} />
-              <Typography
-                variant="body1"
-                sx={{ color: "text.primary", fontWeight: "bold" }}
-              >
-                Churn Risk
-              </Typography>
-              <Chip
-                label={
-                  churn_risk_score > 65
-                    ? "High"
-                    : churn_risk_score > 35 && churn_risk_score < 65
-                    ? "Medium"
-                    : "Low"
-                }
-                color={
-                  churn_risk_score > 65
-                    ? "error"
-                    : churn_risk_score > 35 && churn_risk_score < 65
-                    ? "warning"
-                    : "success"
-                }
-                sx={{ marginLeft: "auto" }}
-              />
-              <IconButton onClick={() => handleExpand("churn")}>
-                <ArrowDropDownIcon
+                {/* Risk Title */}
+                <Box
                   sx={{
-                    color: "text.secondary",
-                    fontSize: 24,
-                    transform:
-                      expandedSection === "churn"
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out",
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 2,
                   }}
-                />
-              </IconButton>
-            </Box>
+                >
+                  <IconComponent sx={{ color: risk.iconColor, fontSize: 24 }} />
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "text.primary", fontWeight: "bold" }}
+                  >
+                    {risk.title}
+                  </Typography>
+                  <Chip
+                    label={riskLevel.label}
+                    color={riskLevel.color}
+                    sx={{ marginLeft: "auto" }}
+                  />
+                  <IconButton onClick={() => handleExpand(risk.key)}>
+                    <ArrowDropDownIcon
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: 24,
+                        transform:
+                          expandedSection === risk.key
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                        transition: "transform 0.2s ease-in-out",
+                      }}
+                    />
+                  </IconButton>
+                </Box>
 
-            {/* Risk Description */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <LinearBar value={churn_risk_score} />
-            </Box>
-            {expandedSection === "churn" && (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  maxWidth: "480px",
-                }}
-              >
-                <Typography variant="body1" sx={{ color: "text.primary" }}>
-                  {churn_risk_description}
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        </Paper>
-
-        {/* Timeline Risk Box */}
-        <Paper
-          elevation={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            backgroundColor: "background.paper",
-            padding: 2,
-            borderRadius: 2,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            {/* Risk Title */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <AccessTimeIcon sx={{ color: "info.main", fontSize: 24 }} />
-              <Typography
-                variant="body1"
-                sx={{ color: "text.primary", fontWeight: "bold" }}
-              >
-                Timeline Risk
-              </Typography>
-              <Chip
-                label={
-                  timeline_risk_score > 65
-                    ? "High"
-                    : timeline_risk_score > 35 && timeline_risk_score < 65
-                    ? "Medium"
-                    : "Low"
-                }
-                color={
-                  timeline_risk_score > 65
-                    ? "error"
-                    : timeline_risk_score > 35 && timeline_risk_score < 65
-                    ? "warning"
-                    : "success"
-                }
-                sx={{ marginLeft: "auto" }}
-              />
-              <IconButton onClick={() => handleExpand("timeline")}>
-                <ArrowDropDownIcon
+                {/* Risk Description */}
+                <Box
                   sx={{
-                    color: "text.secondary",
-                    fontSize: 24,
-                    transform:
-                      expandedSection === "timeline"
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out",
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 2,
                   }}
-                />
-              </IconButton>
-            </Box>
-
-            {/* Risk Description */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <LinearBar value={timeline_risk_score} />
-            </Box>
-            {expandedSection === "timeline" && (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  maxWidth: "480px",
-                }}
-              >
-                <Typography variant="body1" sx={{ color: "text.primary" }}>
-                  {timeline_risk_description}
-                </Typography>
+                >
+                  <LinearBar value={risk.score} />
+                </Box>
+                {expandedSection === risk.key && (
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 2,
+                      maxWidth: "480px",
+                    }}
+                  >
+                    <Typography variant="body1" sx={{ color: "text.primary" }}>
+                      {risk.description}
+                    </Typography>
+                  </Box>
+                )}
               </Box>
-            )}
-          </Box>
-        </Paper>
-
-        {/* Budget Risk Box */}
-        <Paper
-          elevation={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            backgroundColor: "background.paper",
-            padding: 2,
-            borderRadius: 2,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            {/* Risk Title */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <AttachMoneyIcon sx={{ color: "success.main", fontSize: 24 }} />
-              <Typography
-                variant="body1"
-                sx={{ color: "text.primary", fontWeight: "bold" }}
-              >
-                Budget Risk
-              </Typography>
-              <Chip
-                label={
-                  budget_risk_score > 65
-                    ? "High"
-                    : budget_risk_score > 35 && budget_risk_score < 65
-                    ? "Medium"
-                    : "Low"
-                }
-                color={
-                  budget_risk_score > 65
-                    ? "error"
-                    : budget_risk_score > 35 && budget_risk_score < 65
-                    ? "warning"
-                    : "success"
-                }
-                sx={{ marginLeft: "auto" }}
-              />
-              <IconButton onClick={() => handleExpand("budget")}>
-                <ArrowDropDownIcon
-                  sx={{
-                    color: "text.secondary",
-                    fontSize: 24,
-                    transform:
-                      expandedSection === "budget"
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                    transition: "transform 0.2s ease-in-out",
-                  }}
-                />
-              </IconButton>
-            </Box>
-
-            {/* Risk Description */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 2,
-              }}
-            >
-              <LinearBar value={budget_risk_score} />
-            </Box>
-            {expandedSection === "budget" && (
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 2,
-                  maxWidth: "480px",
-                }}
-              >
-                <Typography variant="body1" sx={{ color: "text.primary" }}>
-                  {budget_risk_description}
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        </Paper>
+            </Paper>
+          );
+        })}
       </Box>
     </Card>
   );
