@@ -4,6 +4,7 @@ import { Box, Card } from "@mui/material";
 import DealSummary from "../DealDetailsComponents/DealSummary";
 import DealDetailsHeader from "../DealDetailsComponents/DealDetailsHeader";
 import InsightsCard from "../DealDetailsComponents/InsightsCard";
+import BookMeetingCard from "../DealDetailsComponents/BookMeetingCard";
 import MissingInformationCard from "../DealDetailsComponents/MissingInformationCard";
 import RecentActivity from "../DealDetailsComponents/RecentActivity";
 import ContactPersonality from "../DealDetailsComponents/ContactPersonality";
@@ -235,26 +236,11 @@ function DealDetails() {
                 slack_body={latestSlackFollowUp.body}
               />
 
-              {/* TODO:  Replace if go back to auto-fill idea */}
-              {/* <MissingInformationCard /> */}
-              {/* <ContactPersonality
-                communicationStyle={capitalizeFirst(
-                  deal?.personality?.[0]?.personality_traits
-                    ?.personality_communication_profile?.communication_style
-                )}
-                responseTime={capitalizeFirst(
-                  deal?.personality?.[0]?.personality_traits
-                    ?.communication_behavior?.response_time
-                )}
-                decisionMaking={capitalizeFirst(
-                  deal?.personality?.[0]?.personality_traits
-                    ?.personality_communication_profile?.decision_making_style
-                )}
-                objectionStyle={capitalizeFirst(
-                  deal?.personality?.[0]?.personality_traits
-                    ?.personality_communication_profile?.objection_style
-                )}
-              /> */}
+              <BookMeetingCard
+                clientEmail={deal.participants[0]?.email}
+                userEmail="bruce.wayne.goatforce@gmail.com" // TODO: replace with actual user email from auth context
+                dealId={deal.deal.id}
+              />
             </Box>
 
             <Box
@@ -262,7 +248,7 @@ function DealDetails() {
               sx={{
                 display: "flex",
                 width: "35%",
-                height: "100vh",
+                height: "90vh%",
                 flexDirection: "column",
                 gap: 3,
                 // overflowY: "scroll",

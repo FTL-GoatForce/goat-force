@@ -14,6 +14,8 @@ import {
 
 import prisma from "../db/db.js";
 
+import createGoogleMeeting from "../utils/createGoogleMeeting.js";
+
 // Simple connection monitoring middleware
 const monitorConnections = async (req, res, next) => {
   next();
@@ -30,5 +32,8 @@ router.get("/:id", getDealDetails);
 router.put("/update", updateDeal);
 router.put("/jobUpdate/:id", updateJob);
 router.put("/updateDetails/:id", updateDealDetails);
+
+// google calendar route
+router.post("/create-meeting", createGoogleMeeting);
 
 export default router;
