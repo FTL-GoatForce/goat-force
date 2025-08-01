@@ -134,7 +134,7 @@ const BookMeetingCard = ({ clientEmail, userEmail, dealId }) => {
         borderColor: "divider",
       }}
     >
-      <CardContent sx={{ p: 3, height: "100%" }}>
+      <CardContent sx={{ p: 3, height: "610px" }}>
         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
           <CalendarTodayIcon sx={{ mr: 1, color: "primary.main" }} />
           <Typography variant="h6" fontWeight="bold" color="text.primary">
@@ -164,7 +164,7 @@ const BookMeetingCard = ({ clientEmail, userEmail, dealId }) => {
           </Alert>
         </Collapse>
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <TextField
             fullWidth
             label="Meeting Title"
