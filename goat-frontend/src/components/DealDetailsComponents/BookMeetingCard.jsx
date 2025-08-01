@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const BookMeetingCard = ({ clientEmail, userEmail, dealId }) => {
+  const costasEndpoint = import.meta.env.VITE_COSTAS_ENDPOINT;
   // state to manage meeting data
   const [meetingData, setMeetingData] = useState({
     title: "",
@@ -81,10 +82,7 @@ const BookMeetingCard = ({ clientEmail, userEmail, dealId }) => {
       };
 
       console.log("Booking meeting with payload:", meetingPayload);
-      const response = await axios.post(
-        "http://localhost:3000/deal/create-meeting",
-        meetingPayload
-      );
+      const response = await axios.post(`${costasEndpoint}`, meetingPayload);
       console.log("Meeting booking response:", response.data);
 
       if (response.data.success) {
