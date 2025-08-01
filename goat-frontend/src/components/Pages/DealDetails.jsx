@@ -213,6 +213,7 @@ function DealDetails() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 3,
+                height: "100%",
                 width: "65%",
                 maxWidth: "1000px",
               }}
@@ -248,7 +249,7 @@ function DealDetails() {
               sx={{
                 display: "flex",
                 width: "35%",
-                height: "90vh%",
+                height: "100%",
                 flexDirection: "column",
                 gap: 3,
                 // overflowY: "scroll",

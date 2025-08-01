@@ -134,7 +134,7 @@ const BookMeetingCard = ({ clientEmail, userEmail, dealId }) => {
         borderColor: "divider",
       }}
     >
-      <CardContent sx={{ p: 3 }}>
+      <CardContent sx={{ p: 3, height: "100%" }}>
         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
           <CalendarTodayIcon sx={{ mr: 1, color: "primary.main" }} />
           <Typography variant="h6" fontWeight="bold" color="text.primary">
